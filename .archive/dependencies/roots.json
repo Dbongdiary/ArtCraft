@@ -102,5 +102,25 @@
     "path": "animation/rerender-lora/deps/gmflow",
     "pin": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
     "source": "haofeixu/gmflow"
+  },
+  {
+    "dependency_graph_complete": false,
+    "error": "Operation failed; raw command output is intentionally excluded from public archive metadata.",
+    "original_url": "git@github.com:ml-applications/glow-tts-multispeaker.git",
+    "parent": "storytold/torchscript-models",
+    "parent_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
+    "path": "glow-tts-jaywalnut-multispeaker/glow-tts-multispeaker",
+    "pin": "23177d29a09015a4f40fce0b81b315392064f9d7",
+    "source": "ml-applications/glow-tts-multispeaker"
+  },
+  {
+    "dependency_graph_complete": false,
+    "error": "Git fsck failed (exit 1; diagnostic codes: gitmodulesUrl). Operation failed; raw command output is intentionally excluded from public archive metadata.",
+    "original_url": "https://github.com/NVIDIA/apex.git",
+    "parent": "storytold/torchscript-models",
+    "parent_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
+    "path": "glow-tts-jaywalnut/apex",
+    "pin": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+    "source": "NVIDIA/apex"
   }
 ]
