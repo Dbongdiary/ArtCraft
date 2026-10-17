@@ -1,0 +1,39 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:15:47Z",
+  "default_branch": "master",
+  "default_commit": "29938fd712e474a9a968f8a735080ecca708c8bd",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 12055,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 12055,
+        "name": "point-generator.bundle.sha256-c4026da5604d9909585d19c82ed871906d7c81b6b44b622d0f795d1bedbb81ed",
+        "sha256": "c4026da5604d9909585d19c82ed871906d7c81b6b44b622d0f795d1bedbb81ed",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/point-generator.bundle.sha256-c4026da5604d9909585d19c82ed871906d7c81b6b44b622d0f795d1bedbb81ed"
+      }
+    ],
+    "whole_sha256": "c4026da5604d9909585d19c82ed871906d7c81b6b44b622d0f795d1bedbb81ed"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "29938fd712e474a9a968f8a735080ecca708c8bd refs/heads/master",
+    "e6be343c76958294e789b25b70c48b9e20eedd11 refs/heads/more-robust"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/point-generator",
+  "source_created_at": "2021-01-12T05:16:02Z",
+  "source_name": "storytold/point-generator",
+  "source_pushed_at": "2021-01-15T01:41:49Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
