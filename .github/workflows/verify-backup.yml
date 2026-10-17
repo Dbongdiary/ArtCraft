@@ -42,6 +42,10 @@ jobs:
            s=re.sub(r'(gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+)', '[REDACTED]',s)
            return s
           
+          def safe_exists(path):
+           try:return path.exists()
+           except OSError:return False
+          
           def getjson(path):
            with urllib.request.urlopen(BASE+path,timeout=90) as r:return json.load(r)
           def command(args,cwd=None,timeout=180,label=None):
@@ -209,6 +213,8 @@ jobs:
             result['status']='empty_repository';result['limitations'].append('No application source was present at capture time.')
            else:
             repo=restore(name); result['restored']=True;result['source_commit']=manifests[name]['default_commit'];result['restore_proof']='Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.'
+            if name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft','cadcraft','effectcraft','filmcraft','lightcraft','pdfcraft','photocraft','soundcraft']:
+             fonts=restore('craft-fonts');os.environ['CRAFT_FONTS_DIR']=str(fonts/'fonts');result['font_source_commit']=manifests['craft-fonts']['default_commit']
             if name in ['storyteller-ml','torchscript-models']:
              result['lfs_restore']=restore_lfs(repo,mirrors[name],manifests[name]);result['dependency_restores']=restore_dependencies(repo)
             # Resolve source-hosted Git dependencies exclusively through our bundle mirrors.
@@ -244,7 +250,7 @@ jobs:
               for host in re.findall(r'https?://([A-Za-z0-9.-]+)',s):
                if any(x in host for x in ['fakeyou','vocodes','storyteller','storytold','artcraft','craftapps','huggingface','amazonaws','openai','replicate','fal.ai','grok','midjourney','worldlabs']):domains.add(host)
               for ref in re.findall(r'[\"\x27]([^\"\x27\n]{1,180}\.(?:onnx|pth|ckpt|safetensors|pt))[\"\x27]',s):
-               if not (f.parent/ref).exists() and not (repo/ref).exists():modelrefs.add((rel,ref))
+               if not safe_exists(f.parent/ref) and not safe_exists(repo/ref):modelrefs.add((rel,ref))
              if f.suffix=='.py':
               pycount+=1
               try:ast.parse(f.read_text(errors='replace'))
@@ -297,7 +303,12 @@ jobs:
                 c,t=command(['git','--git-dir='+str(mdir),'cat-file','-e',rev+'^{commit}'])
                 if c:result['limitations'].append('Pinned dependency commit unavailable: '+dep+'@'+rev)
              command(['sudo','apt-get','update','-qq'],timeout=180,label='system-index')
-             command(['sudo','apt-get','install','-y','--no-install-recommends','pkg-config','libssl-dev','libasound2-dev','libudev-dev','libxkbcommon-dev','libwayland-dev','libxcb-shape0-dev','libxcb-xfixes0-dev','libgtk-3-dev','libvulkan1','mesa-vulkan-drivers','xvfb','protobuf-compiler','clang','cmake','libfontconfig1-dev','libdbus-1-dev','libwebkit2gtk-4.1-dev','libayatana-appindicator3-dev','librsvg2-dev','libxdo-dev','libzmq3-dev','libsodium-dev','poppler-utils','python3-pil'],timeout=240,label='system-dependencies')
+             command(['sudo','apt-get','install','-y','--no-install-recommends','pkg-config','libssl-dev','libasound2-dev','libudev-dev','libxkbcommon-dev','libxkbcommon-x11-0','libwayland-dev','libxcb-shape0-dev','libxcb-xfixes0-dev','libgtk-3-dev','libvulkan1','mesa-vulkan-drivers','xvfb','protobuf-compiler','clang','cmake','libfontconfig1-dev','libdbus-1-dev','libwebkit2gtk-4.1-dev','libayatana-appindicator3-dev','librsvg2-dev','libxdo-dev','libzmq3-dev','libsodium-dev','poppler-utils','python3-pil'],timeout=240,label='system-dependencies')
+             if name=='voder-proxy':command(['sudo','apt-get','install','-y','libpcre3-dev'],timeout=180,label='project-system-dependencies')
+             if name=='artcraft-services':command(['sudo','apt-get','install','-y','ffmpeg','libavcodec-dev','libavformat-dev','libavutil-dev','libavfilter-dev','libavdevice-dev','libswscale-dev','libswresample-dev','libpulse-dev'],timeout=240,label='project-system-dependencies')
+             runtime=root/'xdg-runtime';runtime.mkdir(mode=0o700,exist_ok=True);os.environ['XDG_RUNTIME_DIR']=str(runtime)
+             result['archive_contains_cargo_lock']=(repo/'Cargo.lock').exists();lock_args=['--locked'] if result['archive_contains_cargo_lock'] else []
+             if not lock_args:result['limitations'].append('No Cargo.lock was archived; dependency resolution uses packages available at verification time, so future resolution may differ.')
              tool='stable'
              tfile=repo/'rust-toolchain.toml'
              if tfile.exists():tool=tomllib.loads(tfile.read_text()).get('toolchain',{}).get('channel','stable')
@@ -306,8 +317,8 @@ jobs:
              c,t=command(['cargo','+'+tool,'metadata','--format-version','1','--no-deps'],repo,180,label='cargo-metadata')
              if c==0:
               meta=json.loads(next(line for line in t.splitlines() if line.startswith('{')));result['cargo_packages']=[{'name':p['name'],'targets':[{'name':x['name'],'kind':x['kind']} for x in p['targets']]} for p in meta['packages']]
-              c,t=command(['cargo','+'+tool,'test','--workspace','--locked'],repo,900,label='cargo-tests')
-              b,bt=command(['cargo','+'+tool,'build','--workspace','--bins','--locked'],repo,600,label='cargo-build')
+              c,t=command(['cargo','+'+tool,'test','--workspace']+lock_args,repo,900,label='cargo-tests')
+              b,bt=command(['cargo','+'+tool,'build','--workspace','--bins']+lock_args,repo,600,label='cargo-build')
               result['status']='build_and_tests_passed' if c==0 and b==0 else 'build_or_tests_blocked'
               bins=[x['name'] for p in meta['packages'] for x in p['targets'] if 'bin' in x['kind']]
               appbins=[x for x in bins if x==name or x==name.replace('-','_')]
@@ -319,7 +330,7 @@ jobs:
               smoke_apps=['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft','cadcraft','effectcraft','filmcraft','lightcraft','pdfcraft','photocraft','soundcraft']
               if name in smoke_apps:
                cli=pathlib.Path(meta['target_directory'])/'debug'/(name+'-cli');pdf=out/'sample.pdf';png=out/'sample.png';wav=out/'sample.wav';steps=[]
-               if not cli.exists():command(['cargo','+'+tool,'build','-p',name+'-cli','--locked'],repo,480,label='sample-cli-build')
+               if not cli.exists():command(['cargo','+'+tool,'build','-p',name+'-cli']+lock_args,repo,480,label='sample-cli-build')
                # Generate self-contained input fixtures on this GitHub runner.
                import struct,zlib,wave
                tiny=out/'tiny.png'
