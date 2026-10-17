@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:10:18Z",
+  "default_branch": "master",
+  "default_commit": "c69a1a3ef5b87f491c82fe0a067fa773c79966f4",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 45345,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 45345,
+        "name": "EventCenterPlugin.bundle.sha256-a28ef62813002a36bdb4e893109ea15c37bdcf7b3f92f1fbdbd2144438e3ede6",
+        "sha256": "a28ef62813002a36bdb4e893109ea15c37bdcf7b3f92f1fbdbd2144438e3ede6",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/EventCenterPlugin.bundle.sha256-a28ef62813002a36bdb4e893109ea15c37bdcf7b3f92f1fbdbd2144438e3ede6"
+      }
+    ],
+    "whole_sha256": "a28ef62813002a36bdb4e893109ea15c37bdcf7b3f92f1fbdbd2144438e3ede6"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "c69a1a3ef5b87f491c82fe0a067fa773c79966f4 refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/EventCenterPlugin",
+  "source_created_at": "2021-02-16T04:29:26Z",
+  "source_name": "storytold/EventCenterPlugin",
+  "source_pushed_at": "2021-03-13T02:00:54Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
