@@ -1,0 +1,47 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:15:56Z",
+  "default_branch": "main",
+  "default_commit": "1a8e141d657f26d56208f2f503dd4b3e7a5aaaff",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 291301,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 291301,
+        "name": "RuntimeFilesDownloader.bundle.sha256-bae9f9158b9533db02a0c2bcf2f814ec26591c3ad39de49d6516d66529bba479",
+        "sha256": "bae9f9158b9533db02a0c2bcf2f814ec26591c3ad39de49d6516d66529bba479",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/RuntimeFilesDownloader.bundle.sha256-bae9f9158b9533db02a0c2bcf2f814ec26591c3ad39de49d6516d66529bba479"
+      }
+    ],
+    "whole_sha256": "bae9f9158b9533db02a0c2bcf2f814ec26591c3ad39de49d6516d66529bba479"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "1a8e141d657f26d56208f2f503dd4b3e7a5aaaff refs/heads/main",
+    "d81197783f1705bb2374a27082dec20cfe2f6494 refs/tags/4240",
+    "d81197783f1705bb2374a27082dec20cfe2f6494 refs/tags/4250",
+    "d81197783f1705bb2374a27082dec20cfe2f6494 refs/tags/4260"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/RuntimeFilesDownloader",
+  "source_created_at": "2021-03-06T05:18:53Z",
+  "source_name": "storytold/RuntimeFilesDownloader",
+  "source_pushed_at": "2021-03-04T07:32:24Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
