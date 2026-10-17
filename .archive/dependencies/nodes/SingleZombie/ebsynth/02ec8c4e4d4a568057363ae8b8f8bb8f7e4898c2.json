@@ -29,6 +29,7 @@
     "status": "not_present"
   },
   "metadata_path": ".archive/dependencies/nodes/SingleZombie/ebsynth/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2.json",
+  "phase": "complete",
   "pin": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
   "refs": [
     "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2 refs/archive/pins/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
