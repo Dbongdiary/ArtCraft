@@ -1,0 +1,40 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:09:33Z",
+  "default_branch": "main",
+  "default_commit": "550fe6ba32501302156965242bd09798b8400120",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 3182260,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 3182260,
+        "name": "craft-launcher-assets.bundle.sha256-c1d8a5543879b59d2457fef0cb03e9fcd0979805f459b1ab08242453ba326303",
+        "sha256": "c1d8a5543879b59d2457fef0cb03e9fcd0979805f459b1ab08242453ba326303",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/craft-launcher-assets.bundle.sha256-c1d8a5543879b59d2457fef0cb03e9fcd0979805f459b1ab08242453ba326303"
+      }
+    ],
+    "whole_sha256": "c1d8a5543879b59d2457fef0cb03e9fcd0979805f459b1ab08242453ba326303"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "550fe6ba32501302156965242bd09798b8400120 refs/heads/main",
+    "dec0d391752966d5503524a752e6b9838c009529 refs/pull/1/head",
+    "41f29601d9275ab9ca33f5a83bfaabcbbc0980e0 refs/tags/v1"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/craft-launcher-assets",
+  "source_created_at": "2026-10-12T08:59:38Z",
+  "source_name": "storytold/craft-launcher-assets",
+  "source_pushed_at": "2026-10-12T09:02:08Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
