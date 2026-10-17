@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:11:11Z",
+  "default_branch": "master",
+  "default_commit": "078e8ac11b4ffb970849664f6935a802de2e3377",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 4267,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 4267,
+        "name": "html_test.bundle.sha256-cf2a704b5f2670e8c5942072ce515026506e6dbc74e30de4dfc42b04249bee32",
+        "sha256": "cf2a704b5f2670e8c5942072ce515026506e6dbc74e30de4dfc42b04249bee32",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/html_test.bundle.sha256-cf2a704b5f2670e8c5942072ce515026506e6dbc74e30de4dfc42b04249bee32"
+      }
+    ],
+    "whole_sha256": "cf2a704b5f2670e8c5942072ce515026506e6dbc74e30de4dfc42b04249bee32"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "078e8ac11b4ffb970849664f6935a802de2e3377 refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/html_test",
+  "source_created_at": "2023-10-19T06:52:17Z",
+  "source_name": "storytold/html_test",
+  "source_pushed_at": "2023-10-19T07:34:01Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
