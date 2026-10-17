@@ -54,5 +54,21 @@
     "path": "animation/Rerender_A_Video/deps/gmflow",
     "pin": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
     "source": "haofeixu/gmflow"
+  },
+  {
+    "dependency_graph_complete": true,
+    "materialization": {
+      "dependency_graph_complete": true,
+      "pin": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+      "snapshot_path": "dependencies/lllyasviel/ControlNet/d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+      "source": "lllyasviel/ControlNet",
+      "tree": "50db3555861b774622436be3568a8d5ce6a5728f"
+    },
+    "original_url": "https://github.com/lllyasviel/ControlNet.git",
+    "parent": "storytold/storyteller-ml",
+    "parent_commit": "a7179c873d25ccdcb54d82e01aeeed492aff73cf",
+    "path": "animation/rerender-lora/deps/ControlNet",
+    "pin": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+    "source": "lllyasviel/ControlNet"
   }
 ]
