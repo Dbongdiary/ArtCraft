@@ -4,7 +4,7 @@ Independent source archive of **66 public repositories** from [storytold](https:
 
 **Backup status: 66/66 source repositories complete.** See [.archive/status.json](.archive/status.json) and [repository manifests](.archive/repositories) for exact capture times, checksums, exclusions and remaining issues. The inventory is frozen at 2026-10-17T20:04:16Z; rerunning resumes incomplete entries.
 
-**Dependency archive status:** 6/9 pinned root references independently archived and materialized. See [.archive/dependencies/status.json](.archive/dependencies/status.json).
+**Dependency archive status:** 7/9 pinned root references independently archived and materialized. See [.archive/dependencies/status.json](.archive/dependencies/status.json).
 
 Each named folder contains that repository's default-branch source tree. Files larger than 100 MiB are omitted from the browsable folder and listed with exact paths and SHA-256 hashes in its manifest; their contents remain in the full Git bundle. Git LFS pointer files remain unchanged, and available LFS payloads are saved separately. Original licenses and notices are preserved.
 
@@ -22,18 +22,22 @@ This is a source and Git-history snapshot. Original submodule references remain 
 
 No source repository is cloned onto the user's Mac. Cloning, inspection and transfer happen only on an ephemeral GitHub Actions runner. Source code, hooks, workflows and build scripts are never executed.
 
+
 <!-- dependency-backup:start -->
 ## External dependency archive
 
-**6/9 original pinned dependency references complete.** Available dependencies are stored under `dependencies/OWNER/REPO/COMMIT` and copied into the original parent submodule paths. Nested dependencies are recursively archived at their exact pinned commits; unresolved sources remain explicitly incomplete. Source code and hooks are never executed.
+**7/9 original pinned dependency references complete.** Available dependencies are stored under `dependencies/OWNER/REPO/COMMIT` and copied into the original parent submodule paths. Nested dependencies are recursively archived at their exact pinned commits; unresolved sources remain explicitly incomplete. Source code and hooks are never executed.
 
 [Dependency history and LFS release assets](https://github.com/Dbongdiary/ArtCraft/releases/tag/storytold-dependency-backup) are independent of the original authors. [.archive/dependencies/status.json](.archive/dependencies/status.json) records every root reference and remaining error; individual manifests include checksums, exact commits, tree verification and large-file exclusions. Files over100MiB remain in full Git bundles where GitHub cannot store them as ordinary browsable files. Original source backup status and original release assets are preserved.
+
+History scope limits after an integrity check rejected a historical submodule URL. Each successful replacement archive passed the same unchanged Git integrity checks:
+
+- `NVIDIA/apex` at `37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061`: GitHub pull-request refs and other non-branch/tag refs excluded.
 
 Unresolved references:
 
 - `storytold/storyteller-ml/3d_generation/moonTripoSR`: No source URL is recorded for this gitlink; no substitute repository was guessed
-- `storytold/torchscript-models/glow-tts-jaywalnut-multispeaker/glow-tts-multispeaker`: Operation failed; raw command output is intentionally excluded from public archive metadata.
-- `storytold/torchscript-models/glow-tts-jaywalnut/apex`: Git fsck failed (exit 1; diagnostic codes: gitmodulesUrl). Operation failed; raw command output is intentionally excluded from public archive metadata.
+- `storytold/torchscript-models/glow-tts-jaywalnut-multispeaker/glow-tts-multispeaker`: Git clone failed (exit 128). Source repository is inaccessible with the available authentication.
 
 To restore an exact dependency: concatenate any bundle parts in manifest order, verify SHA-256, then run `GIT_LFS_SKIP_SMUDGE=1 git clone NAME.bundle NAME`. In that clone run `GIT_LFS_SKIP_SMUDGE=1 git checkout --detach PINNED_COMMIT`. If LFS payloads exist, extract their verified tar into `.git` and run `git lfs checkout`. Original submodule configurations remain preserved for provenance; the browsable parent copies contain materialized source folders.
 <!-- dependency-backup:end -->

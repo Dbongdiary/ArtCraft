@@ -1,12 +1,14 @@
 {
-  "complete_nodes": 3,
-  "complete_root_references": 6,
+  "complete_nodes": 4,
+  "complete_root_references": 7,
   "dependency_backup_complete": false,
-  "incomplete_root_references": 3,
+  "incomplete_root_references": 2,
   "nodes": [
     {
       "complete": true,
       "error": null,
+      "excluded_history": null,
+      "git_history_scope": "all_advertised_refs_plus_pinned_commit",
       "manifest": ".archive/dependencies/nodes/lllyasviel/ControlNet/d3284fcd0972c510635a4f5abe2eeb71dc0de524.json",
       "pin": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
       "source": "lllyasviel/ControlNet",
@@ -15,6 +17,8 @@
     {
       "complete": true,
       "error": null,
+      "excluded_history": null,
+      "git_history_scope": "all_advertised_refs_plus_pinned_commit",
       "manifest": ".archive/dependencies/nodes/SingleZombie/ebsynth/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2.json",
       "pin": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
       "source": "SingleZombie/ebsynth",
@@ -23,6 +27,8 @@
     {
       "complete": true,
       "error": null,
+      "excluded_history": null,
+      "git_history_scope": "all_advertised_refs_plus_pinned_commit",
       "manifest": ".archive/dependencies/nodes/haofeixu/gmflow/af2d869a6fa38b0b076d6f28ab5af1f64beca335.json",
       "pin": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
       "source": "haofeixu/gmflow",
@@ -31,18 +37,22 @@
     {
       "complete": false,
       "error": "Git clone failed (exit 128). Source repository is inaccessible with the available authentication.",
+      "excluded_history": null,
+      "git_history_scope": "all_advertised_refs_plus_pinned_commit",
       "manifest": ".archive/dependencies/nodes/ml-applications/glow-tts-multispeaker/23177d29a09015a4f40fce0b81b315392064f9d7.json",
       "pin": "23177d29a09015a4f40fce0b81b315392064f9d7",
       "source": "ml-applications/glow-tts-multispeaker",
       "source_archive_complete": false
     },
     {
-      "complete": false,
-      "error": "Git fsck failed (exit 1; diagnostic codes: gitmodulesUrl). Operation failed; raw command output is intentionally excluded from public archive metadata.",
+      "complete": true,
+      "error": null,
+      "excluded_history": "GitHub pull-request refs and other non-branch/tag refs excluded.",
+      "git_history_scope": "normal_branches_and_tags_plus_pinned_commit",
       "manifest": ".archive/dependencies/nodes/NVIDIA/apex/37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061.json",
       "pin": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
       "source": "NVIDIA/apex",
-      "source_archive_complete": false
+      "source_archive_complete": true
     }
   ],
   "root_references": 9,
@@ -153,7 +163,7 @@
     },
     {
       "dependency_graph_complete": false,
-      "error": "Operation failed; raw command output is intentionally excluded from public archive metadata.",
+      "error": "Git clone failed (exit 128). Source repository is inaccessible with the available authentication.",
       "original_url": "git@github.com:ml-applications/glow-tts-multispeaker.git",
       "parent": "storytold/torchscript-models",
       "parent_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
@@ -162,8 +172,14 @@
       "source": "ml-applications/glow-tts-multispeaker"
     },
     {
-      "dependency_graph_complete": false,
-      "error": "Git fsck failed (exit 1; diagnostic codes: gitmodulesUrl). Operation failed; raw command output is intentionally excluded from public archive metadata.",
+      "dependency_graph_complete": true,
+      "materialization": {
+        "dependency_graph_complete": true,
+        "pin": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+        "snapshot_path": "dependencies/NVIDIA/apex/37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+        "source": "NVIDIA/apex",
+        "tree": "47efbe6fd1878c53a1bdfd93e5a813ccf5d00c13"
+      },
       "original_url": "https://github.com/NVIDIA/apex.git",
       "parent": "storytold/torchscript-models",
       "parent_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
@@ -172,6 +188,6 @@
       "source": "NVIDIA/apex"
     }
   ],
-  "scope": "Pinned external dependency graph, full advertised Git history plus explicit pinned refs, available LFS objects, and materialized parent source paths. Missing/private sources and unknown URLs remain incomplete.",
+  "scope": "Pinned external dependency graph, Git history within each node manifest declared scope plus explicit pinned refs, available LFS objects within that scope, and materialized parent source paths. Any history exclusions are stated per node. Missing/private sources and unknown URLs remain incomplete.",
   "unique_nodes": 5
 }
