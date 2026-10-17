@@ -1,0 +1,49 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:15:32Z",
+  "default_branch": "main",
+  "default_commit": "b2e1dcba8954efa9ad0e7944c258cc0e9a5efc1e",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 9242543,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 9242543,
+        "name": "photocraft-corpus.bundle.sha256-41db461dc78bd43082add87cf6250544bed3cbd6001831823869d11d81adbbbb",
+        "sha256": "41db461dc78bd43082add87cf6250544bed3cbd6001831823869d11d81adbbbb",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/photocraft-corpus.bundle.sha256-41db461dc78bd43082add87cf6250544bed3cbd6001831823869d11d81adbbbb"
+      }
+    ],
+    "whole_sha256": "41db461dc78bd43082add87cf6250544bed3cbd6001831823869d11d81adbbbb"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "node_id": "MDc6TGljZW5zZTI=",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0"
+  },
+  "refs": [
+    "b2e1dcba8954efa9ad0e7944c258cc0e9a5efc1e refs/heads/main",
+    "9ecec73ca130610184c1e81ad34075f8cd5e7b8b refs/pull/1/head",
+    "5e9c705ac86d525de5758f478abb4bcd546528af refs/pull/2/head",
+    "feec24b3a04522c12c83e5eb076e42e00f8c0144 refs/pull/2/merge",
+    "fc59d82c56f8cf89ae10edd2e9f7d7f1650da2b5 refs/pull/3/head",
+    "0b6c4ce9199d9e96f97a39856a8667412b54bf58 refs/pull/3/merge"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/photocraft-corpus",
+  "source_created_at": "2026-10-05T12:11:16Z",
+  "source_name": "storytold/photocraft-corpus",
+  "source_pushed_at": "2026-10-07T18:45:49Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
