@@ -29,6 +29,7 @@
     "status": "not_present"
   },
   "metadata_path": ".archive/dependencies/nodes/haofeixu/gmflow/af2d869a6fa38b0b076d6f28ab5af1f64beca335.json",
+  "phase": "complete",
   "pin": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
   "refs": [
     "af2d869a6fa38b0b076d6f28ab5af1f64beca335 refs/archive/pins/af2d869a6fa38b0b076d6f28ab5af1f64beca335",
