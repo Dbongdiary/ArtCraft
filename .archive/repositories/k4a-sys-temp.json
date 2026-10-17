@@ -1,0 +1,44 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:13:03Z",
+  "default_branch": "master",
+  "default_commit": "ffc38156faca14a44fb2c489049c8bf9d4959f5a",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 5473398,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 5473398,
+        "name": "k4a-sys-temp.bundle.sha256-be28d82039fe0374eede2b638cb9df5952f6ab130f20c3b20698c89c7ccde0c4",
+        "sha256": "be28d82039fe0374eede2b638cb9df5952f6ab130f20c3b20698c89c7ccde0c4",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/k4a-sys-temp.bundle.sha256-be28d82039fe0374eede2b638cb9df5952f6ab130f20c3b20698c89c7ccde0c4"
+      }
+    ],
+    "whole_sha256": "be28d82039fe0374eede2b638cb9df5952f6ab130f20c3b20698c89c7ccde0c4"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "ffc38156faca14a44fb2c489049c8bf9d4959f5a refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/k4a-sys-temp",
+  "source_created_at": "2021-01-17T21:49:54Z",
+  "source_name": "storytold/k4a-sys-temp",
+  "source_pushed_at": "2021-01-19T05:10:56Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
