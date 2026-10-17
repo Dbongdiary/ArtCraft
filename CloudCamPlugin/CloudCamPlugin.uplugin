@@ -1,0 +1,28 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "CloudCamPlugin",
+	"Description": "Point clouds streamed from Rust",
+	"Category": "Other",
+	"CreatedBy": "Brandon Thomas",
+	"CreatedByURL": "http://brand.io",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CloudCamPlugin",
+			"Type": "Runtime",
+      "LoadingPhase": "PostConfigInit",
+      "WhitelistPlatforms": [
+			  "Linux",
+        "Win64"
+      ]
+		}
+	]
+}

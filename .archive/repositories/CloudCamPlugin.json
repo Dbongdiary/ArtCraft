@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:09:08Z",
+  "default_branch": "main",
+  "default_commit": "50cd9a3870bb699740d88db93fb3b17060ded183",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 2449419,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 2449419,
+        "name": "CloudCamPlugin.bundle.sha256-bca2530a4c4e7112e11e8b01ddd41edc481c28f045f61bf89dfc7480f0575bf7",
+        "sha256": "bca2530a4c4e7112e11e8b01ddd41edc481c28f045f61bf89dfc7480f0575bf7",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/CloudCamPlugin.bundle.sha256-bca2530a4c4e7112e11e8b01ddd41edc481c28f045f61bf89dfc7480f0575bf7"
+      }
+    ],
+    "whole_sha256": "bca2530a4c4e7112e11e8b01ddd41edc481c28f045f61bf89dfc7480f0575bf7"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "50cd9a3870bb699740d88db93fb3b17060ded183 refs/heads/main"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/CloudCamPlugin",
+  "source_created_at": "2021-02-12T04:57:20Z",
+  "source_name": "storytold/CloudCamPlugin",
+  "source_pushed_at": "2022-03-21T02:40:54Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
