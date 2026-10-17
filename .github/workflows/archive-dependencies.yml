@@ -1,0 +1,742 @@
+name: Archive exact external dependencies
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: artcraft-source-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Archive and materialize pinned dependency sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PYTHON_DEPENDENCIES'
+          import base64
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import shutil
+          import subprocess
+          import tarfile
+          import tempfile
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          
+          ORG = 'storytold'
+          REPO = os.environ['GITHUB_REPOSITORY']
+          TOKEN = os.environ['GH_TOKEN']
+          TAG = 'storytold-dependency-backup'
+          LIMIT = 100 * 1024 * 1024
+          CHUNK = 1024 * 1024 * 1024
+          BATCH_BYTES = 256 * 1024 * 1024
+          BASE = Path(tempfile.mkdtemp(prefix='artcraft-'))
+          TARGET = BASE / 'target'
+          API = 'https://api.github.com'
+          ENV = dict(os.environ)
+          for key in ('GH_TOKEN', 'GITHUB_TOKEN'):
+              ENV.pop(key, None)
+          ENV.update(GIT_TERMINAL_PROMPT='0', GIT_LFS_SKIP_SMUDGE='1', GIT_CONFIG_NOSYSTEM='1',
+                     GIT_CONFIG_GLOBAL='/dev/null', GIT_ALLOW_PROTOCOL='https:file',
+                     GIT_AUTHOR_NAME='ArtCraft Archive', GIT_AUTHOR_EMAIL='actions@users.noreply.github.com',
+                     GIT_COMMITTER_NAME='ArtCraft Archive', GIT_COMMITTER_EMAIL='actions@users.noreply.github.com')
+          AUTH = dict(ENV)
+          AUTH.update(GIT_CONFIG_COUNT='1',
+                      GIT_CONFIG_KEY_0=f'http.https://github.com/{REPO}.git.extraheader',
+                      GIT_CONFIG_VALUE_0='AUTHORIZATION: basic ' + base64.b64encode(('x-access-token:' + TOKEN).encode()).decode())
+          
+          
+          def command(args, cwd=None, data=None, auth=False, check=True):
+              result = subprocess.run(args, cwd=cwd, input=data, stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE, env=AUTH if auth else ENV)
+              if check and result.returncode:
+                  raise RuntimeError(f'{args[0]} failed: ' + result.stderr.decode(errors='replace')[-3000:])
+              return result
+          
+          
+          def git(*args, cwd=TARGET, data=None, auth=False, check=True):
+              return command(['git', *args], cwd=cwd, data=data, auth=auth, check=check)
+          
+          
+          def api(path, data=None, method=None, attempts=5):
+              url = path if path.startswith('https://') else API + path
+              if not url.startswith(('https://api.github.com/', 'https://uploads.github.com/')):
+                  raise ValueError('Unexpected GitHub API host')
+              payload = None if data is None else json.dumps(data).encode()
+              for attempt in range(attempts):
+                  req = urllib.request.Request(url, payload, method=method,
+                      headers={'Authorization': 'Bearer ' + TOKEN, 'Accept': 'application/vnd.github+json',
+                               'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json',
+                               'User-Agent': 'ArtCraft-Independent-Archive'})
+                  try:
+                      with urllib.request.urlopen(req, timeout=120) as response:
+                          body = response.read()
+                          return json.loads(body) if body else None
+                  except urllib.error.HTTPError as error:
+                      if error.code in (429, 500, 502, 503, 504) and attempt + 1 < attempts:
+                          time.sleep(min(10 * (attempt + 1), 50))
+                      else:
+                          raise
+          
+          
+          def json_bytes(value):
+              return (json.dumps(value, indent=2, sort_keys=True) + '\n').encode()
+          
+          
+          def stage(path, content):
+              sha = git('hash-object', '-w', '--stdin', data=content).stdout.strip()
+              git('update-index', '--add', '--cacheinfo', '100644', sha.decode(), path)
+          
+          
+          def existing(path):
+              result = git('show', 'HEAD:' + path, check=False)
+              return result.stdout if result.returncode == 0 else None
+          
+          
+          def save(message):
+              tree = git('write-tree').stdout.strip().decode()
+              head_tree = git('rev-parse', 'HEAD^{tree}').stdout.strip().decode()
+              if tree == head_tree:
+                  return
+              previous_head = git('rev-parse', 'HEAD').stdout.strip().decode()
+              commit = git('commit-tree', tree, '-p', 'HEAD', data=(message + '\n').encode()).stdout.strip().decode()
+              git('update-ref', 'refs/heads/main', commit)
+              try:
+                  git('push', 'origin', 'HEAD:refs/heads/main', auth=True)
+              except Exception:
+                  remote = git('ls-remote', 'origin', 'refs/heads/main', auth=True, check=False)
+                  if remote.returncode == 0 and remote.stdout.split()[:1] == [commit.encode()]:
+                      return
+                  git('update-ref', 'refs/heads/main', previous_head)
+                  git('read-tree', 'HEAD')
+                  raise
+          
+          
+          def sha256(path):
+              digest = hashlib.sha256()
+              with path.open('rb') as stream:
+                  for block in iter(lambda: stream.read(8 * 1024 * 1024), b''):
+                      digest.update(block)
+              return digest.hexdigest()
+          
+          
+          def release_assets(release):
+              result = {}
+              for page in range(1, 1000):
+                  rows = api(f'/repos/{REPO}/releases/{release["id"]}/assets?per_page=100&page={page}')
+                  result.update({row['name']: row for row in rows})
+                  if len(rows) < 100:
+                      return result
+              raise RuntimeError('Too many release assets')
+          
+          
+          def upload(path, release, assets):
+              digest = sha256(path)
+              size = path.stat().st_size
+              base_name = path.name + '.sha256-' + digest
+              name = base_name
+              # Successful assets are immutable, including backups from an incomplete earlier run.
+              prior = assets.get(name)
+              if prior and prior.get('size') == size and prior.get('digest') in (None, 'sha256:' + digest):
+                  return {'name': name, 'bytes': size, 'sha256': digest, 'url': prior['browser_download_url']}
+              if prior:
+                  name = base_name + '.retry-' + str(time.time_ns())
+              for attempt in range(4):
+                  try:
+                      url = release['upload_url'].split('{')[0] + '?name=' + urllib.parse.quote(name)
+                      with path.open('rb') as stream:
+                          req = urllib.request.Request(url, data=stream, method='POST', headers={
+                              'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/octet-stream',
+                              'Content-Length': str(size), 'User-Agent': 'ArtCraft-Independent-Archive'})
+                          with urllib.request.urlopen(req, timeout=1200) as response:
+                              uploaded = json.load(response)
+                      if uploaded['size'] != size:
+                          raise RuntimeError('Release upload size mismatch')
+                      server_digest = uploaded.get('digest')
+                      if server_digest and server_digest != 'sha256:' + digest:
+                          raise RuntimeError('Release upload checksum mismatch')
+                      assets[name] = uploaded
+                      return {'name': name, 'bytes': size, 'sha256': digest, 'url': uploaded['browser_download_url']}
+                  except Exception:
+                      if attempt == 3:
+                          raise
+                      # A disconnected upload may have succeeded. Resolve its state before retrying.
+                      fresh = release_assets(release)
+                      prior = fresh.get(name)
+                      if prior:
+                          if prior.get('size') == size and prior.get('digest') in (None, 'sha256:' + digest):
+                              assets[name] = prior
+                              return {'name': name, 'bytes': size, 'sha256': digest, 'url': prior['browser_download_url']}
+                          name = base_name + '.retry-' + str(time.time_ns())
+                      time.sleep(10 * (attempt + 1))
+          
+          
+          def archive_parts(path, release, assets):
+              if path.stat().st_size <= CHUNK:
+                  return {'format': path.suffix.lstrip('.'), 'whole_sha256': sha256(path),
+                          'bytes': path.stat().st_size, 'parts': [upload(path, release, assets)]}
+              output = {'format': path.suffix.lstrip('.'), 'whole_sha256': sha256(path),
+                        'bytes': path.stat().st_size, 'parts': []}
+              with path.open('rb') as source:
+                  number = 1
+                  while True:
+                      first = source.read(8 * 1024 * 1024)
+                      if not first:
+                          break
+                      part = path.with_name(path.name + f'.part-{number:03d}')
+                      remaining = CHUNK - len(first)
+                      with part.open('wb') as destination:
+                          destination.write(first)
+                          while remaining:
+                              block = source.read(min(8 * 1024 * 1024, remaining))
+                              if not block:
+                                  break
+                              destination.write(block)
+                              remaining -= len(block)
+                      output['parts'].append(upload(part, release, assets))
+                      part.unlink()
+                      number += 1
+              return output
+          
+          
+          def tree_entries(mirror, commit):
+              output = git('ls-tree', '-r', '-l', '-z', commit, cwd=mirror).stdout
+              for entry in output.split(b'\0'):
+                  if not entry:
+                      continue
+                  meta, name = entry.split(b'\t', 1)
+                  mode, kind, oid, size = meta.split()
+                  yield mode, kind, oid, None if size == b'-' else int(size), name
+          
+          
+          def import_tree(mirror, commit, name, progress=None):
+              objects, index, excluded, submodules = set(), [], [], []
+              bytes_to_import = 0
+              for mode, kind, oid, size, path in tree_entries(mirror, commit):
+                  decoded = path.decode('utf-8', errors='surrogateescape')
+                  if kind == b'blob' and size > LIMIT:
+                      digest = hashlib.sha256()
+                      proc = subprocess.Popen(['git', 'cat-file', 'blob', oid.decode()], cwd=mirror,
+                                              env=ENV, stdout=subprocess.PIPE)
+                      for block in iter(lambda: proc.stdout.read(8 * 1024 * 1024), b''):
+                          digest.update(block)
+                      if proc.wait():
+                          raise RuntimeError('Could not hash large source blob')
+                      excluded.append({'path': decoded, 'bytes': size, 'git_blob': oid.decode(),
+                                       'sha256': digest.hexdigest(), 'preserved_in': 'Git bundle release asset'})
+                      continue
+                  additional_bytes = 0
+                  if kind == b'blob':
+                      if oid not in objects:
+                          bytes_to_import += size
+                          additional_bytes = size
+                      objects.add(oid)
+                  elif kind == b'commit':
+                      submodules.append({'path': decoded, 'commit': oid.decode(),
+                                         'status': 'Reference preserved; submodule repository not fetched'})
+                  else:
+                      raise RuntimeError('Unexpected tree object')
+                  index.append((mode + b' ' + oid + b'\t' + name.encode() + b'/' + path + b'\0', additional_bytes))
+              if objects:
+                  # Transfer only current-tree blobs. Full source history stays in release bundles.
+                  object_list = mirror.parent / 'objects.txt'
+                  object_list.write_bytes(b'\n'.join(sorted(objects)) + b'\n')
+                  with object_list.open('rb') as object_input, tempfile.TemporaryFile() as pack_error:
+                      pack = subprocess.Popen(['git', 'pack-objects', '--stdout'], cwd=mirror, env=ENV,
+                                              stdin=object_input, stdout=subprocess.PIPE, stderr=pack_error)
+                      receive = subprocess.run(['git', 'index-pack', '--stdin'], cwd=TARGET, env=ENV,
+                                               stdin=pack.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                      pack.stdout.close()
+                      packed = pack.wait()
+                      if packed or receive.returncode:
+                          raise RuntimeError('Could not import current source-tree objects')
+                  object_list.unlink()
+              batches, batch, batch_bytes = [], [], 0
+              for line, size in index:
+                  if batch and batch_bytes + size > BATCH_BYTES:
+                      batches.append((batch, batch_bytes))
+                      batch, batch_bytes = [], 0
+                  batch.append(line)
+                  batch_bytes += size
+              if batch:
+                  batches.append((batch, batch_bytes))
+              if len(batches) > 1 and progress is None:
+                  raise RuntimeError('A progress commit callback is required for a large source-tree import')
+              staged_files = 0
+              for number, (batch, size) in enumerate(batches, 1):
+                  git('update-index', '-z', '--index-info', data=b''.join(batch))
+                  staged_files += len(batch)
+                  # Final batch stays staged until its complete tree has been verified.
+                  if number < len(batches):
+                      progress(number, len(batches), staged_files, size)
+              return excluded, submodules, {'batch_count': len(batches), 'file_count': len(index),
+                                            'distinct_blob_bytes': bytes_to_import,
+                                            'maximum_batch_blob_bytes': max((size for _, size in batches), default=0)}
+          
+          
+          def verify_tree(mirror, commit, name, excluded):
+              source_tree = git('rev-parse', commit + '^{tree}', cwd=mirror).stdout.strip().decode()
+              root_tree = git('write-tree').stdout.strip().decode()
+              target = git('rev-parse', '--verify', root_tree + ':' + name, check=False)
+              # Git cannot represent a named empty directory, so compare a virtual empty tree
+              # before adding the documented empty-tree marker to the browsable folder.
+              target_tree = (target.stdout.strip().decode() if target.returncode == 0 else
+                             git('hash-object', '-w', '-t', 'tree', '--stdin', data=b'').stdout.strip().decode())
+              verification = {'source_tree': source_tree, 'imported_tree': target_tree,
+                              'exact_match': source_tree == target_tree,
+                              'status': 'excluded_large_files' if excluded else 'verified'}
+              if not excluded and source_tree != target_tree:
+                  raise RuntimeError(f'Source tree verification failed for {name}: {source_tree} != {target_tree}')
+              return verification
+          
+          
+          def lfs_archive(mirror, name, release, assets):
+              result = {'status': 'not_present', 'object_count': 0, 'bytes': 0}
+              # Git LFS inspects all reachable revisions; source .lfsconfig is never checked out.
+              listed = git('lfs', 'ls-files', '--all', '--long', cwd=mirror, check=False)
+              if listed.returncode:
+                  result.update(status='unverified', error=listed.stderr.decode(errors='replace')[-2000:])
+                  return result
+              pointer_ids = sorted(set(re.findall(rb'(?m)^([0-9a-f]{64})\s', listed.stdout)))
+              if not pointer_ids:
+                  return result
+              result['referenced_object_count'] = len(pointer_ids)
+              # Explicit GitHub endpoint prevents custom source configuration choosing a different service.
+              fetched = git('-c', f'lfs.url=https://github.com/{ORG}/{name}.git/info/lfs',
+                            'lfs', 'fetch', '--all', 'origin', cwd=mirror, check=False)
+              missing, invalid, objects = [], [], []
+              for oid_bytes in pointer_ids:
+                  oid = oid_bytes.decode()
+                  path = mirror / 'lfs' / 'objects' / oid[:2] / oid[2:4] / oid
+                  if not path.is_file():
+                      missing.append(oid)
+                  elif sha256(path) != oid:
+                      invalid.append(oid)
+                  else:
+                      objects.append(path)
+              result.update(object_count=len(objects), missing=missing, invalid=invalid,
+                            bytes=sum(path.stat().st_size for path in objects))
+              if objects:
+                  archive = mirror.parent / (name + '.lfs.tar')
+                  with tarfile.open(archive, 'w') as tar:
+                      for path in objects:
+                          info = tar.gettarinfo(str(path), arcname=str(path.relative_to(mirror)))
+                          info.mtime = 0
+                          info.uid = info.gid = 0
+                          info.uname = info.gname = ''
+                          with path.open('rb') as stream:
+                              tar.addfile(info, stream)
+                  result['archive'] = archive_parts(archive, release, assets)
+                  archive.unlink()
+              result['status'] = 'complete' if not missing and not invalid and fetched.returncode == 0 else 'incomplete'
+              if fetched.returncode:
+                  result['error'] = fetched.stderr.decode(errors='replace')[-2000:]
+              return result
+          
+          
+          NODE_CACHE = {}
+          ACTIVE = set()
+          MATERIALIZED = {}
+          RELEASE = None
+          ASSETS = {}
+          
+          
+          def safe_path(value):
+              if not isinstance(value, str) or not value or value.startswith('/') or '\\' in value:
+                  raise ValueError('Unsafe submodule path')
+              parts = value.split('/')
+              if any(part in ('', '.', '..') or part.lower() == '.git' for part in parts):
+                  raise ValueError('Unsafe submodule path component')
+              if any(ord(char) < 32 or ord(char) == 127 for char in value):
+                  raise ValueError('Control character in submodule path')
+              return value
+          
+          
+          def github_source(value, parent=None):
+              if not isinstance(value, str) or any(ord(char) < 33 for char in value):
+                  raise ValueError('Invalid source URL')
+              if value.startswith(('./', '../')):
+                  if not parent:
+                      raise ValueError('Relative submodule URL has no parent repository')
+                  value = urllib.parse.urljoin('https://github.com/' + parent + '.git/', value)
+              ssh = re.fullmatch(r'git@github\.com:([^?#]+)', value, flags=re.IGNORECASE)
+              if ssh:
+                  value = 'https://github.com/' + ssh.group(1)
+              parsed = urllib.parse.urlsplit(value)
+              if parsed.hostname is None or parsed.hostname.lower() != 'github.com' or parsed.query or parsed.fragment:
+                  raise ValueError('Only GitHub repository URLs are accepted')
+              if parsed.scheme == 'ssh':
+                  if parsed.username not in (None, 'git') or parsed.password or parsed.port not in (None, 22):
+                      raise ValueError('Unsupported SSH repository URL')
+              elif parsed.scheme != 'https' or parsed.username or parsed.password or parsed.port not in (None, 443):
+                  raise ValueError('Unsupported HTTPS repository URL')
+              path = parsed.path.strip('/')
+              if path.endswith('.git'):
+                  path = path[:-4]
+              names = path.split('/')
+              if len(names) != 2 or any(not re.fullmatch(r'[A-Za-z0-9_.-]+', part) or part in ('.', '..') for part in names):
+                  raise ValueError('Repository URL must identify exactly one GitHub owner and repository')
+              return '/'.join(names)
+          
+          
+          def module_urls(content):
+              if not content:
+                  return {}
+              if len(content) > 4 * 1024 * 1024:
+                  raise ValueError('.gitmodules is unexpectedly large')
+              path = BASE / 'modules-to-parse'
+              path.write_bytes(content)
+              try:
+                  result = git('config', '--no-includes', '--null', '--file', str(path), '--get-regexp',
+                               r'^submodule\..*\.(path|url)$', check=False)
+                  if result.returncode not in (0, 1):
+                      raise ValueError('Cannot parse .gitmodules safely')
+                  entries = {}
+                  for item in result.stdout.split(b'\0'):
+                      if not item:
+                          continue
+                      key, value = item.split(b'\n', 1)
+                      section, field = key.decode().rsplit('.', 1)
+                      entry = entries.setdefault(section, {})
+                      if field in entry:
+                          raise ValueError('Duplicate submodule configuration field')
+                      entry[field] = value.decode('utf-8')
+                  mapped = {}
+                  for entry in entries.values():
+                      if 'path' not in entry:
+                          continue
+                      module_path = safe_path(entry['path'])
+                      if module_path in mapped:
+                          raise ValueError('Multiple submodule entries use the same path')
+                      mapped[module_path] = entry.get('url')
+                  return mapped
+              finally:
+                  path.unlink(missing_ok=True)
+          
+          
+          def locate(tree, path):
+              result = git('--literal-pathspecs', 'ls-tree', '-z', tree, '--', path).stdout
+              if not result:
+                  return None
+              rows = result.rstrip(b'\0').split(b'\0')
+              if len(rows) != 1:
+                  raise ValueError('Ambiguous target path')
+              fields, actual = rows[0].split(b'\t', 1)
+              if actual.decode('utf-8', errors='surrogateescape') != path:
+                  raise ValueError('Target path does not match literal lookup')
+              mode, kind, oid = fields.split()
+              return mode.decode(), kind.decode(), oid.decode()
+          
+          
+          def snapshot_tree(path):
+              root = git('write-tree').stdout.strip().decode()
+              entry = locate(root, path)
+              return entry[2] if entry and entry[1] == 'tree' else None
+          
+          
+          def clear_prefix(path):
+              tracked = git('--literal-pathspecs', 'ls-files', '-z', '--', path).stdout
+              if tracked:
+                  git('update-index', '--force-remove', '-z', '--stdin', data=tracked)
+          
+          
+          def materialize(path, pin, child):
+              safe_path(path)
+              child_tree = child.get('expanded_tree')
+              if not child_tree:
+                  raise RuntimeError('Dependency has no independently saved source snapshot')
+              before = git('write-tree').stdout.strip().decode()
+              previous = locate(before, path)
+              known = MATERIALIZED.get(path)
+              if previous and previous[0] == '160000' and previous[2] == pin:
+                  pass
+              elif previous and previous[1] == 'tree' and known and known.get('tree') == previous[2] and known.get('pin') == pin and known.get('source', '').lower() == child['source'].lower():
+                  pass
+              else:
+                  raise RuntimeError('Original gitlink or known materialization provenance does not match: ' + path)
+              try:
+                  clear_prefix(path)
+                  git('read-tree', '--prefix=' + path + '/', child_tree)
+                  observed = snapshot_tree(path)
+                  if observed != child_tree:
+                      raise RuntimeError('Materialized subtree differs from archived dependency tree')
+              except Exception:
+                  git('read-tree', before)
+                  raise
+              proof = {'source': child['source'], 'pin': pin, 'tree': child_tree,
+                       'snapshot_path': child['snapshot_path'], 'dependency_graph_complete': child.get('dependency_graph_complete', False)}
+              MATERIALIZED[path] = proof
+              return proof
+          
+          
+          def checkpoint(record, message):
+              stage(record['metadata_path'], json_bytes(record))
+              stage('.archive/dependencies/materialized.json', json_bytes(MATERIALIZED))
+              save(message)
+          
+          
+          def discover_links(mirror, pin, source):
+              content = git('show', pin + ':.gitmodules', cwd=mirror, check=False)
+              mapping_error = None
+              try:
+                  urls = module_urls(content.stdout if content.returncode == 0 else b'')
+              except Exception as error:
+                  urls, mapping_error = {}, str(error)
+              links = []
+              for mode, kind, oid, size, path in tree_entries(mirror, pin):
+                  if kind != b'commit':
+                      continue
+                  item = {'path': path.decode('utf-8', errors='surrogateescape'), 'pin': oid.decode()}
+                  try:
+                      safe_path(item['path'])
+                      if mapping_error:
+                          raise ValueError(mapping_error)
+                      value = urls.get(item['path'])
+                      if not value:
+                          raise ValueError('No URL for this pinned gitlink in .gitmodules')
+                      item['original_url'] = value
+                      item['source'] = github_source(value, source)
+                  except Exception as error:
+                      item['error'] = str(error)
+                  links.append(item)
+              return links
+          
+          
+          def archive_dependency(source, pin):
+              global ORG, MATERIALIZED
+              source = github_source('https://github.com/' + source)
+              if not re.fullmatch(r'[0-9a-f]{40}', pin):
+                  raise ValueError('A dependency must have an exact 40-character Git commit ID')
+              key = source.lower() + '@' + pin
+              if key in ACTIVE:
+                  return {'source': source, 'pin': pin, 'source_archive_complete': False,
+                          'dependency_graph_complete': False, 'error': 'Dependency cycle detected; pointer preserved'}
+              if key in NODE_CACHE:
+                  return NODE_CACHE[key]
+              owner, name = source.split('/')
+              metadata_path = f'.archive/dependencies/nodes/{owner}/{name}/{pin}.json'
+              prefix = f'dependencies/{owner}/{name}/{pin}'
+              old_raw = existing(metadata_path)
+              old = json.loads(old_raw) if old_raw else None
+              record = old or {'source': source, 'pin': pin, 'snapshot_path': prefix,
+                               'metadata_path': metadata_path, 'source_archive_complete': False,
+                               'dependency_graph_complete': False,
+                               'captured_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
+              NODE_CACHE[key] = record
+              ACTIVE.add(key)
+              work = None
+              source_snapshot_committed = bool(record.get('source_archive_complete'))
+              try:
+                  if record.get('source', '').lower() != source.lower() or record.get('pin') != pin:
+                      raise RuntimeError('Existing dependency manifest has different provenance')
+                  current_tree = snapshot_tree(prefix)
+                  if current_tree and not old:
+                      raise RuntimeError('Dependency folder exists without archive provenance')
+                  if record.get('source_archive_complete'):
+                      if current_tree != record.get('expanded_tree'):
+                          raise RuntimeError('Existing dependency snapshot changed outside its recorded archive')
+                      sections = [record.get('git_bundle'), record.get('lfs', {}).get('archive')]
+                      for part in [part for section in sections if section for part in section['parts']]:
+                          server = ASSETS.get(part['name'])
+                          if not server or server['size'] != part['bytes'] or server.get('digest') not in (None, 'sha256:' + part['sha256']):
+                              raise RuntimeError('Existing dependency release asset is missing or changed')
+                  else:
+                      print('ARCHIVE exact dependency ' + key, flush=True)
+                      if shutil.disk_usage(BASE).free < 2 * 1024**3:
+                          raise RuntimeError('Less than 2 GiB free runner disk before dependency clone')
+                      work = Path(tempfile.mkdtemp(prefix='dependency-', dir=BASE))
+                      mirror = work / 'mirror.git'
+                      command(['git', 'clone', '--mirror', 'https://github.com/' + source + '.git', str(mirror)])
+                      found = git('cat-file', '-e', pin + '^{commit}', cwd=mirror, check=False)
+                      if found.returncode:
+                          git('fetch', '--no-tags', 'origin', pin, cwd=mirror)
+                      actual = git('rev-parse', '--verify', pin + '^{commit}', cwd=mirror).stdout.strip().decode()
+                      if actual != pin:
+                          raise RuntimeError('Fetched dependency is not the exact pinned commit')
+                      git('update-ref', 'refs/archive/pins/' + pin, pin, cwd=mirror)
+                      record['source_tree'] = git('rev-parse', pin + '^{tree}', cwd=mirror).stdout.strip().decode()
+                      record['refs'] = git('for-each-ref', '--format=%(objectname) %(refname)', cwd=mirror).stdout.decode().splitlines()
+                      record['symbolic_head'] = git('symbolic-ref', 'HEAD', cwd=mirror, check=False).stdout.decode().strip()
+                      git('fsck', '--full', '--no-reflogs', cwd=mirror)
+                      asset_name = 'dependency-' + hashlib.sha256(source.lower().encode()).hexdigest()[:12] + '-' + pin[:12]
+                      bundle = work / (asset_name + '.bundle')
+                      git('bundle', 'create', str(bundle), '--all', cwd=mirror)
+                      git('bundle', 'verify', str(bundle), cwd=mirror)
+                      record['git_bundle'] = archive_parts(bundle, RELEASE, ASSETS)
+                      bundle.unlink()
+                      previous_org = ORG
+                      try:
+                          ORG = owner
+                          record['lfs'] = lfs_archive(mirror, name, RELEASE, ASSETS)
+                      finally:
+                          ORG = previous_org
+                      record['children'] = discover_links(mirror, pin, source)
+                      clear_prefix(prefix)
+          
+                      def progress(number, total, files, size):
+                          record['import_progress'] = {'batch': number, 'batches': total, 'files': files}
+                          record['expanded_tree'] = snapshot_tree(prefix)
+                          checkpoint(record, f'Archive dependency {source}@{pin[:12]} batch {number}/{total}')
+          
+                      excluded, submodules, info = import_tree(mirror, pin, prefix, progress)
+                      record['tree_verification'] = verify_tree(mirror, pin, prefix, excluded)
+                      record['excluded_large_files'] = excluded
+                      record['import_progress'] = info
+                      if snapshot_tree(prefix) is None:
+                          stage(prefix + '/EMPTY_TREE.md', b'The pinned dependency source tree is empty. Original tree and history are preserved in its Git bundle.\n')
+                      record['expanded_tree'] = snapshot_tree(prefix)
+                      record['source_archive_complete'] = record['lfs']['status'] in ('not_present', 'complete')
+                      record['dependency_graph_complete'] = False
+                      checkpoint(record, f'Archive exact dependency {source}@{pin[:12]}')
+                      source_snapshot_committed = True
+                      shutil.rmtree(work)
+                      work = None
+                  child_complete = True
+                  for link in record.get('children', []):
+                      link.pop('materialization_error', None)
+                      if link.get('error'):
+                          child_complete = False
+                          continue
+                      child = archive_dependency(link['source'], link['pin'])
+                      link['dependency_graph_complete'] = child.get('dependency_graph_complete', False)
+                      if child.get('expanded_tree'):
+                          try:
+                              link['materialization'] = materialize(prefix + '/' + safe_path(link['path']), link['pin'], child)
+                              record['expanded_tree'] = snapshot_tree(prefix)
+                              checkpoint(record, f'Materialize nested dependency in {source}@{pin[:12]}')
+                          except Exception as error:
+                              git('read-tree', 'HEAD')
+                              link['materialization_error'] = str(error)
+                              child_complete = False
+                      else:
+                          link['materialization_error'] = child.get('error', 'Dependency source snapshot unavailable')
+                          child_complete = False
+                      child_complete = child_complete and child.get('dependency_graph_complete', False)
+                  record['dependency_graph_complete'] = bool(record.get('source_archive_complete') and child_complete)
+                  record['expanded_tree'] = snapshot_tree(prefix)
+                  record.pop('error', None)
+                  checkpoint(record, f'Update dependency archive status for {source}@{pin[:12]}')
+              except Exception as error:
+                  git('read-tree', 'HEAD')
+                  known = existing('.archive/dependencies/materialized.json')
+                  MATERIALIZED = json.loads(known) if known else {}
+                  if not source_snapshot_committed:
+                      record['source_archive_complete'] = False
+                  record['dependency_graph_complete'] = False
+                  record['error'] = str(error)
+                  record['expanded_tree'] = snapshot_tree(prefix)
+                  checkpoint(record, f'Record unresolved dependency {source}@{pin[:12]}')
+                  print('INCOMPLETE ' + key + ': ' + str(error), flush=True)
+              finally:
+                  ACTIVE.discard(key)
+                  if work:
+                      shutil.rmtree(work, ignore_errors=True)
+              return record
+          
+          
+          def main():
+              global RELEASE, ASSETS, MATERIALIZED
+              print('Archiving exact external dependencies on the GitHub runner; source code is never executed.', flush=True)
+              command(['git', 'lfs', 'version'])
+              command(['git', 'clone', '--filter=blob:none', '--no-checkout', '--single-branch', '--branch', 'main',
+                       f'https://github.com/{REPO}.git', str(TARGET)], auth=True)
+              git('read-tree', 'HEAD')
+              known = existing('.archive/dependencies/materialized.json')
+              MATERIALIZED = json.loads(known) if known else {}
+              try:
+                  RELEASE = api(f'/repos/{REPO}/releases/tags/{TAG}')
+              except urllib.error.HTTPError as error:
+                  if error.code != 404:
+                      raise
+                  RELEASE = api(f'/repos/{REPO}/releases', {'tag_name': TAG, 'target_commitish': 'main',
+                      'name': 'Independent exact dependency archive', 'draft': False, 'prerelease': False,
+                      'body': 'Full Git histories, explicit pinned-commit refs and Git LFS payloads for archived external submodules. See .archive/dependencies/status.json for completeness, provenance and SHA-256 manifests. Original source release assets remain intact.'})
+              ASSETS = release_assets(RELEASE)
+              paths = git('ls-tree', '-r', '--name-only', '-z', 'HEAD', '--', '.archive/repositories').stdout
+              roots = []
+              for path in paths.split(b'\0'):
+                  if not path or not path.endswith(b'.json'):
+                      continue
+                  parent = json.loads(existing(path.decode()))
+                  if not parent.get('submodules'):
+                      continue
+                  source = parent['source_name']
+                  folder = safe_path(source.split('/', 1)[1])
+                  config_error = None
+                  try:
+                      urls = module_urls(existing(folder + '/.gitmodules'))
+                  except Exception as error:
+                      urls, config_error = {}, str(error)
+                  for entry in parent['submodules']:
+                      root = {'parent': source, 'parent_commit': parent['default_commit'], 'path': entry['path'],
+                              'pin': entry['commit'], 'dependency_graph_complete': False}
+                      roots.append(root)
+                      try:
+                          path = folder + '/' + safe_path(entry['path'])
+                          if config_error:
+                              raise ValueError(config_error)
+                          url = urls.get(entry['path'])
+                          if not url:
+                              raise ValueError('No source URL is recorded for this gitlink; no substitute repository was guessed')
+                          root['original_url'] = url
+                          root['source'] = github_source(url, source)
+                          child = archive_dependency(root['source'], root['pin'])
+                          if not child.get('expanded_tree'):
+                              raise RuntimeError(child.get('error', 'Pinned source snapshot unavailable'))
+                          root['materialization'] = materialize(path, root['pin'], child)
+                          root['dependency_graph_complete'] = child.get('dependency_graph_complete', False)
+                          stage('.archive/dependencies/materialized.json', json_bytes(MATERIALIZED))
+                          stage('.archive/dependencies/roots.json', json_bytes(roots))
+                          save(f'Materialize {source} dependency {entry["path"]}')
+                      except Exception as error:
+                          git('read-tree', 'HEAD')
+                          known = existing('.archive/dependencies/materialized.json')
+                          MATERIALIZED = json.loads(known) if known else {}
+                          root['dependency_graph_complete'] = False
+                          root.pop('materialization', None)
+                          root['error'] = str(error)
+                          print('UNRESOLVED ROOT ' + source + '/' + entry['path'] + ': ' + str(error), flush=True)
+              completed = sum(bool(root['dependency_graph_complete']) for root in roots)
+              report = {'root_references': len(roots), 'complete_root_references': completed,
+                        'incomplete_root_references': len(roots) - completed,
+                        'dependency_backup_complete': completed == len(roots),
+                        'unique_nodes': len(NODE_CACHE), 'complete_nodes': sum(bool(node.get('dependency_graph_complete')) for node in NODE_CACHE.values()),
+                        'roots': roots,
+                        'nodes': [{'source': node['source'], 'pin': node['pin'], 'complete': node.get('dependency_graph_complete', False),
+                                   'source_archive_complete': node.get('source_archive_complete', False), 'error': node.get('error'),
+                                   'manifest': node.get('metadata_path')} for node in NODE_CACHE.values()],
+                        'scope': 'Pinned external dependency graph, full advertised Git history plus explicit pinned refs, available LFS objects, and materialized parent source paths. Missing/private sources and unknown URLs remain incomplete.'}
+              stage('.archive/dependencies/status.json', json_bytes(report))
+              stage('.archive/dependencies/roots.json', json_bytes(roots))
+              readme = (existing('README.md') or b'# ArtCraft\n').decode()
+              readme = re.sub(r'\*\*Submodule dependencies are references only:\*\*[^\n]*',
+                              f'**Dependency archive status:** {completed}/{len(roots)} pinned root references independently archived and materialized. See [.archive/dependencies/status.json](.archive/dependencies/status.json).', readme)
+              readme = readme.replace('Submodule commit references and original `.gitmodules` files are preserved; linked submodule repositories are not recursively fetched, so external dependencies may disappear independently.',
+                  'Original submodule references remain in the source Git bundles. Available exact pinned dependency trees are now materialized in the browsable parent folders; unresolved dependencies remain recorded in the separate dependency report.')
+              readme = re.sub(r'\n<!-- dependency-backup:start -->.*?<!-- dependency-backup:end -->\n?', '\n', readme, flags=re.DOTALL)
+              unresolved = '\n'.join('- `' + root['parent'] + '/' + root['path'] + '`: ' + root.get('error', 'Dependency graph or LFS payloads remain incomplete').replace('\n', ' ')[:500]
+                                     for root in roots if not root['dependency_graph_complete']) or 'No unresolved root references.'
+              readme += f'''\n<!-- dependency-backup:start -->\n## External dependency archive\n\n**{completed}/{len(roots)} original pinned dependency references complete.** Available dependencies are stored under `dependencies/OWNER/REPO/COMMIT` and copied into the original parent submodule paths. Nested dependencies are recursively archived at their exact pinned commits; unresolved sources remain explicitly incomplete. Source code and hooks are never executed.\n\n[Dependency history and LFS release assets]({RELEASE['html_url']}) are independent of the original authors. [.archive/dependencies/status.json](.archive/dependencies/status.json) records every root reference and remaining error; individual manifests include checksums, exact commits, tree verification and large-file exclusions. Files over100MiB remain in full Git bundles where GitHub cannot store them as ordinary browsable files. Original source backup status and original release assets are preserved.\n\nUnresolved references:\n\n{unresolved}\n\nTo restore an exact dependency: concatenate any bundle parts in manifest order, verify SHA-256, then run `GIT_LFS_SKIP_SMUDGE=1 git clone NAME.bundle NAME`. In that clone run `GIT_LFS_SKIP_SMUDGE=1 git checkout --detach PINNED_COMMIT`. If LFS payloads exist, extract their verified tar into `.git` and run `git lfs checkout`. Original submodule configurations remain preserved for provenance; the browsable parent copies contain materialized source folders.\n<!-- dependency-backup:end -->\n'''
+              stage('README.md', readme.encode())
+              save(f'Update dependency archive status: {completed}/{len(roots)} complete')
+              summary = f'## External dependency archive\n\n{completed}/{len(roots)} root references complete; {len(NODE_CACHE)} unique pinned dependency nodes inspected.\n\nStatus: https://github.com/{REPO}/blob/main/.archive/dependencies/status.json\n\nRelease: {RELEASE["html_url"]}\n'
+              Path(os.environ['GITHUB_STEP_SUMMARY']).write_text(summary)
+              print(summary, flush=True)
+              if completed != len(roots):
+                  raise SystemExit('Some exact dependencies are unavailable or unresolved. Preserved accessible dependencies; inspect the separate report.')
+          
+          
+          if __name__ == '__main__':
+              main()
+          
+          
+          PYTHON_DEPENDENCIES
