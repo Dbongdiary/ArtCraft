@@ -1,0 +1,62 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:09:14Z",
+  "default_branch": "main",
+  "default_commit": "43f4e83c68764f9d880f8a6c10328bc550465f2b",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 74801,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 74801,
+        "name": "craft-common-actions.bundle.sha256-ee9d3a9727f9c9b6ef412e2c401a8289904a2aab8e3b9f21f68a1edeb5547e05",
+        "sha256": "ee9d3a9727f9c9b6ef412e2c401a8289904a2aab8e3b9f21f68a1edeb5547e05",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/craft-common-actions.bundle.sha256-ee9d3a9727f9c9b6ef412e2c401a8289904a2aab8e3b9f21f68a1edeb5547e05"
+      }
+    ],
+    "whole_sha256": "ee9d3a9727f9c9b6ef412e2c401a8289904a2aab8e3b9f21f68a1edeb5547e05"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "4c6447d0ddf865f3c7624dc55772095a9c52dd68 refs/heads/feat/arch-package-makepkg",
+    "d4889f6846365684a7797dced487836fbd807706 refs/heads/feat/audit-findings-support",
+    "749e0a05d4d6bdbab56c23bb22e304352eb8d605 refs/heads/feat/bump-freebsd-15-1-stable",
+    "1ff6686b2237f60515d4113858c780953c95fd6a refs/heads/feat/freebsd-matrix",
+    "845a135fcd88a87a23cc1f4a1ca721ab52c6a973 refs/heads/fix/rust-toolchain-input",
+    "43f4e83c68764f9d880f8a6c10328bc550465f2b refs/heads/main",
+    "9dd4f7085ca993d84f3938b4e5fa352f0937c190 refs/heads/require-signing",
+    "845a135fcd88a87a23cc1f4a1ca721ab52c6a973 refs/pull/1/head",
+    "e10d698d5c951a7abb019f2efa4f5b2346ecd38e refs/pull/11/head",
+    "13421590248f947937d3bde7f5b8846b3e19ba22 refs/pull/12/head",
+    "43f4e83c68764f9d880f8a6c10328bc550465f2b refs/pull/13/head",
+    "4c6447d0ddf865f3c7624dc55772095a9c52dd68 refs/pull/16/head",
+    "deec75d3214abf3ea63feaa40f23e04067437832 refs/pull/16/merge",
+    "1ff6686b2237f60515d4113858c780953c95fd6a refs/pull/17/head",
+    "45ec3086b22c9434e353ea9e55984dfa5962d124 refs/pull/17/merge",
+    "4dcd987e11b3fd961dade2c4cfc899de1aad1fd4 refs/pull/18/head",
+    "a79e9fcba803a4860e6d753bd97268d4b425c352 refs/pull/18/merge",
+    "749e0a05d4d6bdbab56c23bb22e304352eb8d605 refs/pull/2/head",
+    "9dd4f7085ca993d84f3938b4e5fa352f0937c190 refs/pull/3/head",
+    "55ad917af3564f5f8af30b0bdc314462f26e1f14 refs/pull/4/head",
+    "3f70807fb97e5b7103dae459827ed769498a6bf6 refs/pull/5/head",
+    "956886e6073be02c764883ccf7c4bee679822714 refs/pull/8/head",
+    "d4889f6846365684a7797dced487836fbd807706 refs/pull/9/head",
+    "27a978f0ac7672681700ceacc9c8e9930d367e4d refs/tags/v1",
+    "27a978f0ac7672681700ceacc9c8e9930d367e4d refs/tags/v1.0.0"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/craft-common-actions",
+  "source_created_at": "2026-10-11T14:31:28Z",
+  "source_name": "storytold/craft-common-actions",
+  "source_pushed_at": "2026-10-16T04:27:26Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
