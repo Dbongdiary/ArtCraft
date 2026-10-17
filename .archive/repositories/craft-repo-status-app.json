@@ -1,0 +1,50 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:09:39Z",
+  "default_branch": "main",
+  "default_commit": "0022e899bcfeb41efe9645f86c6513903edc0b79",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 1122369,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 1122369,
+        "name": "craft-repo-status-app.bundle.sha256-30afa2be8552cf8d6d98a94d8fb574b899d479b29ef8e2c1e567049961595673",
+        "sha256": "30afa2be8552cf8d6d98a94d8fb574b899d479b29ef8e2c1e567049961595673",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/craft-repo-status-app.bundle.sha256-30afa2be8552cf8d6d98a94d8fb574b899d479b29ef8e2c1e567049961595673"
+      }
+    ],
+    "whole_sha256": "30afa2be8552cf8d6d98a94d8fb574b899d479b29ef8e2c1e567049961595673"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "daebcb02fbe3c9bd031ffcc5bcf590fddfb584e4 refs/heads/bt-add-launcher-figcraft",
+    "c6ff0a72edb08dd6b9fd08da473a2f130c899c19 refs/heads/bt-since-release",
+    "0022e899bcfeb41efe9645f86c6513903edc0b79 refs/heads/main",
+    "c6ff0a72edb08dd6b9fd08da473a2f130c899c19 refs/pull/1/head",
+    "daebcb02fbe3c9bd031ffcc5bcf590fddfb584e4 refs/pull/2/head",
+    "4250329aa69afb205e1d31c2738a5fa66fbcf6f6 refs/pull/3/head",
+    "b204c6ecced58c9728e336d5f1ee2b5868248490 refs/pull/4/head",
+    "e1d59394908b4a0a6b9f96b42bc478ad85fb614e refs/pull/5/head",
+    "e621098b0979aa364e5e5a9b74aafaecb391572f refs/pull/6/head",
+    "4f64b13332f28f71a227b827461aba76e6c9ecc9 refs/pull/7/head",
+    "ec107b9905c21d63d287cc0813c27f14f79683db refs/pull/7/merge",
+    "5464fc39e471867cdcc9b7e7489e28597bdd15d7 refs/pull/8/head",
+    "00d830696e3c1305390e530b6af7cb50a5f1897f refs/pull/8/merge"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/craft-repo-status-app",
+  "source_created_at": "2026-10-09T13:24:17Z",
+  "source_name": "storytold/craft-repo-status-app",
+  "source_pushed_at": "2026-10-13T03:56:22Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}

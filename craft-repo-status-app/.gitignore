@@ -1,0 +1,8 @@
+*~
+/target
+**/gen/schemas
+*.log
+.DS_Store
+node_modules/
+ui/dev-snapshot.json
+ui/build/
