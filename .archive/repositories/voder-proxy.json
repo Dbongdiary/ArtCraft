@@ -1,0 +1,40 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:21:39Z",
+  "default_branch": "master",
+  "default_commit": "e4ee56e0dc3263005755604a3d871e83fb889147",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 59224,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 59224,
+        "name": "voder-proxy.bundle.sha256-72344817a5d4de0a59764e6b609ceb853e2be2929ff3e765b1748297aab8ac4c",
+        "sha256": "72344817a5d4de0a59764e6b609ceb853e2be2929ff3e765b1748297aab8ac4c",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/voder-proxy.bundle.sha256-72344817a5d4de0a59764e6b609ceb853e2be2929ff3e765b1748297aab8ac4c"
+      }
+    ],
+    "whole_sha256": "72344817a5d4de0a59764e6b609ceb853e2be2929ff3e765b1748297aab8ac4c"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "e4ee56e0dc3263005755604a3d871e83fb889147 refs/heads/master",
+    "206407c1337c640ed33662eeb2bd90bcee9bc312 refs/heads/retry",
+    "d35c5db473febcc9bad55939e10f620e80ebcff7 refs/heads/upgraded-hyper-reverse-proxy"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/voder-proxy",
+  "source_created_at": "2020-06-29T04:25:17Z",
+  "source_name": "storytold/voder-proxy",
+  "source_pushed_at": "2020-09-13T11:45:43Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
