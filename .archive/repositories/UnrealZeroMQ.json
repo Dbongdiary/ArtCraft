@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:21:01Z",
+  "default_branch": "master",
+  "default_commit": "b916bda40c72d3810bf345b257a864e9e06463ce",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 2922906,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 2922906,
+        "name": "UnrealZeroMQ.bundle.sha256-bc0aeaf275d5f2ca671306a97bfb76245d18d8317458bfdb6df5c193e824a392",
+        "sha256": "bc0aeaf275d5f2ca671306a97bfb76245d18d8317458bfdb6df5c193e824a392",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/UnrealZeroMQ.bundle.sha256-bc0aeaf275d5f2ca671306a97bfb76245d18d8317458bfdb6df5c193e824a392"
+      }
+    ],
+    "whole_sha256": "bc0aeaf275d5f2ca671306a97bfb76245d18d8317458bfdb6df5c193e824a392"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "b916bda40c72d3810bf345b257a864e9e06463ce refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/UnrealZeroMQ",
+  "source_created_at": "2021-02-13T11:58:31Z",
+  "source_name": "storytold/UnrealZeroMQ",
+  "source_pushed_at": "2021-02-28T07:09:09Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
