@@ -1,1 +1,9 @@
-{}
+{
+  "storyteller-ml/animation/Rerender_A_Video/deps/ControlNet": {
+    "dependency_graph_complete": true,
+    "pin": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+    "snapshot_path": "dependencies/lllyasviel/ControlNet/d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+    "source": "lllyasviel/ControlNet",
+    "tree": "50db3555861b774622436be3568a8d5ce6a5728f"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "dependency_graph_complete": false,
+    "error": "No source URL is recorded for this gitlink; no substitute repository was guessed",
+    "parent": "storytold/storyteller-ml",
+    "parent_commit": "a7179c873d25ccdcb54d82e01aeeed492aff73cf",
+    "path": "3d_generation/moonTripoSR",
+    "pin": "33006d32ed28447f67f48a0b229b27fb2f313e65"
+  },
+  {
+    "dependency_graph_complete": true,
+    "materialization": {
+      "dependency_graph_complete": true,
+      "pin": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+      "snapshot_path": "dependencies/lllyasviel/ControlNet/d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+      "source": "lllyasviel/ControlNet",
+      "tree": "50db3555861b774622436be3568a8d5ce6a5728f"
+    },
+    "original_url": "https://github.com/lllyasviel/ControlNet",
+    "parent": "storytold/storyteller-ml",
+    "parent_commit": "a7179c873d25ccdcb54d82e01aeeed492aff73cf",
+    "path": "animation/Rerender_A_Video/deps/ControlNet",
+    "pin": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+    "source": "lllyasviel/ControlNet"
+  }
+]
