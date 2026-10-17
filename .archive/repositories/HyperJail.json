@@ -1,0 +1,44 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:11:13Z",
+  "default_branch": "main",
+  "default_commit": "37ff28a2798fc0264d3b8254849da1d7e244652e",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 1184230928,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 1073741824,
+        "name": "HyperJail.bundle.part-001.sha256-d76ae08f477ca8fe00727518bddb1353710c8c3456eb8a85f19cd7cb45982106",
+        "sha256": "d76ae08f477ca8fe00727518bddb1353710c8c3456eb8a85f19cd7cb45982106",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/HyperJail.bundle.part-001.sha256-d76ae08f477ca8fe00727518bddb1353710c8c3456eb8a85f19cd7cb45982106"
+      },
+      {
+        "bytes": 110489104,
+        "name": "HyperJail.bundle.part-002.sha256-796c04e1298433c31eaf1143ad1d1fcd510a6ff70bf85b8a6a545176a801cb4d",
+        "sha256": "796c04e1298433c31eaf1143ad1d1fcd510a6ff70bf85b8a6a545176a801cb4d",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/HyperJail.bundle.part-002.sha256-796c04e1298433c31eaf1143ad1d1fcd510a6ff70bf85b8a6a545176a801cb4d"
+      }
+    ],
+    "whole_sha256": "74c1630ccd8e8471a072badcd621996c17efe5b4f0dcfce91e36de928e7b4406"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "37ff28a2798fc0264d3b8254849da1d7e244652e refs/heads/main"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/HyperJail",
+  "source_created_at": "2022-07-09T22:15:01Z",
+  "source_name": "storytold/HyperJail",
+  "source_pushed_at": "2023-01-26T14:16:19Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
