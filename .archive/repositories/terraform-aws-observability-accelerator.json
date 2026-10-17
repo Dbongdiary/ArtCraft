@@ -1,0 +1,45 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:20:53Z",
+  "default_branch": "main",
+  "default_commit": "2ecdcd1f583d0ae16e15685573e908778bb546a2",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 2492925,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 2492925,
+        "name": "terraform-aws-observability-accelerator.bundle.sha256-37483e516f11374ce14c6861c089a9ae15f0885298eaf2a2d7fd80701c24a147",
+        "sha256": "37483e516f11374ce14c6861c089a9ae15f0885298eaf2a2d7fd80701c24a147",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/terraform-aws-observability-accelerator.bundle.sha256-37483e516f11374ce14c6861c089a9ae15f0885298eaf2a2d7fd80701c24a147"
+      }
+    ],
+    "whole_sha256": "37483e516f11374ce14c6861c089a9ae15f0885298eaf2a2d7fd80701c24a147"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "node_id": "MDc6TGljZW5zZTI=",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0"
+  },
+  "refs": [
+    "2ecdcd1f583d0ae16e15685573e908778bb546a2 refs/heads/main",
+    "4e021749826e7e21c8026f44e2b2d6e063593978 refs/pull/1/head"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/terraform-aws-observability-accelerator",
+  "source_created_at": "2024-01-17T13:06:39Z",
+  "source_name": "storytold/terraform-aws-observability-accelerator",
+  "source_pushed_at": "2024-01-16T13:42:40Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
