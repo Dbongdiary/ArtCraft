@@ -1,0 +1,51 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:20:59Z",
+  "default_branch": "master",
+  "default_commit": "a17317cd5b2066b5d66aa4dcbbd561916345d49a",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 608936,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 608936,
+        "name": "UE4-OSC.bundle.sha256-6d7cacfaf047ee3bd948140919247c6017d9a7e089aacedae81a8424b3903727",
+        "sha256": "6d7cacfaf047ee3bd948140919247c6017d9a7e089aacedae81a8424b3903727",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/UE4-OSC.bundle.sha256-6d7cacfaf047ee3bd948140919247c6017d9a7e089aacedae81a8424b3903727"
+      }
+    ],
+    "whole_sha256": "6d7cacfaf047ee3bd948140919247c6017d9a7e089aacedae81a8424b3903727"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "c073711dc68d10495ebe6d741a851672902df919 refs/heads/before4.11",
+    "b09d86fc12c899ff256cbfa766bb6a63c0aea996 refs/heads/before4.14",
+    "71686de2b79614323a80f07b15fb7d67609bce5e refs/heads/before4.16",
+    "504a98122b770b7db4713b205fccb50cbe9ff3f9 refs/heads/before4.17",
+    "985c5dc7da9aafe5297823f910224a63406c348a refs/heads/before4.20",
+    "52ac73f723cd040ba04d113c18de7963c630a339 refs/heads/before4.21",
+    "5e123f4d0d47e4ef425513ab55e29b47eb6b24d6 refs/heads/before4.8",
+    "a17317cd5b2066b5d66aa4dcbbd561916345d49a refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/UE4-OSC",
+  "source_created_at": "2021-04-11T05:09:46Z",
+  "source_name": "storytold/UE4-OSC",
+  "source_pushed_at": "2020-10-20T16:40:23Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
