@@ -60,3 +60,23 @@ Original GitHub release installers/binaries, signatures and update feeds were no
 ## Limits of this audit
 
 The archive contains 66 repositories, not 66 complete products. Many newer apps describe themselves as alpha/pre-alpha. Build/test success, startup success and successful sample document export are different levels of evidence. Paid services, licensed engines, missing private code, production databases, physical devices and GPU model inference cannot be certified by a generic Linux runner. The report records those gaps explicitly and does not invent credentials, missing source or successful runtime results.
+
+
+## Impact of the two unavailable ML references
+
+- **moonTripoSR:** no active caller was found in the archived Storyteller ML Python, shell, deployment and documentation files examined. The separate [TripoSRmoon implementation](../../storyteller-ml/3d_generation/TripoSRmoon/run.py) is preserved and imports its own local tsr code. It still downloads stabilityai/TripoSR model weights. Its equivalence to the missing revision is unknown, and inference has not been tested.
+- **glow-tts-multispeaker:** [wrap_glow_model.py](../../torchscript-models/glow-tts-jaywalnut-multispeaker/wrap_glow_model.py) directly imports the missing directory. This blocks reproducing that legacy eight-speaker text-to-mel / TorchScript conversion workflow. Its trained checkpoint, pronunciation dictionary, compatible Python/PyTorch environment and separate audio vocoder are additional requirements.
+- Neither missing reference was found in the 13 desktop editors' root Cargo manifests or READMEs. Their offline feature claims must come from their separate sample tests. These two missing references do not establish that every app is unusable.
+
+## Original online services and release feeds
+
+| Feature | What still depends on outside infrastructure | What the saved source makes possible |
+|---|---|---|
+| ArtCraft / ArtCraftX accounts, credits, uploads, AI generation | Clients select api.storyteller.ai or api.fakeyou.com. MySQL, Redis, Elasticsearch, object storage, worker deployments and provider credentials are separate runtime requirements. | Backend source is preserved. Deploy and configure it independently; clients support localhost, while a different hosted domain requires code changes. Existing user data and credits are not reconstructed from Git. |
+| Craft Launcher installs and updates | Catalog and downloads use the original storytold GitHub releases. The Git bundles do not contain those installers. | Build/package apps from the restored source, then use the documented local-mirror feature with --no-pull or rebuild against an independent release feed. Published launcher binaries ignore the local download override. |
+| FigCraft online collaboration | collab.craftapps.dev and its hosted shared documents, links and plugin directories. | The included figcraft-server can be hosted independently. Change the server in Preferences, or set FIGCRAFT_DEFAULT_SERVER when building. The old server's stored data requires a separate backup. |
+| Craft repository status dashboard | GitHub issues, releases and activity for its configured repositories. Those records are outside Git history. | Configure repositories you control. The folders in ArtCraft do not recreate each original repository's GitHub issues, releases or account access. |
+
+Sources: [ArtCraft API hosts](../../artcraft/crates/api_clients/artcraft/artcraft_client/src/utils/api_host.rs), [backend requirements](../../artcraft-services/README.md), [launcher mirror instructions](../../craft-launcher/README.md), [FigCraft server configuration and backups](../../figcraft/docs/server.md), [status configuration](../../craft-repo-status-app/craft_status_config.template.toml).
+
+Deleting the original GitHub repositories and shutting down hosted services are different events. Repository deletion removes original source/release URLs; service shutdown affects the online features listed above. Tested local editing features have a separate status.
