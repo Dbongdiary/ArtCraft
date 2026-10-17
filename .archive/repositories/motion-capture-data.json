@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:13:45Z",
+  "default_branch": "master",
+  "default_commit": "a6e477b5b113eb478ad4c7e5044c5c7060c77148",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 89864881,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 89864881,
+        "name": "motion-capture-data.bundle.sha256-a2ff3770f40813c25714ed7b9acc856d70631f8c692e58bfaf4600546aa8d684",
+        "sha256": "a2ff3770f40813c25714ed7b9acc856d70631f8c692e58bfaf4600546aa8d684",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/motion-capture-data.bundle.sha256-a2ff3770f40813c25714ed7b9acc856d70631f8c692e58bfaf4600546aa8d684"
+      }
+    ],
+    "whole_sha256": "a2ff3770f40813c25714ed7b9acc856d70631f8c692e58bfaf4600546aa8d684"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "a6e477b5b113eb478ad4c7e5044c5c7060c77148 refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/motion-capture-data",
+  "source_created_at": "2022-06-27T21:06:59Z",
+  "source_name": "storytold/motion-capture-data",
+  "source_pushed_at": "2022-06-27T21:48:08Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
