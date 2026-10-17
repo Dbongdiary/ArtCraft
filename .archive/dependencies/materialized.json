@@ -40,5 +40,12 @@
     "snapshot_path": "dependencies/haofeixu/gmflow/af2d869a6fa38b0b076d6f28ab5af1f64beca335",
     "source": "haofeixu/gmflow",
     "tree": "3644b20b63de6e8df23e0b12e89fc8e6216e0bef"
+  },
+  "torchscript-models/glow-tts-jaywalnut/apex": {
+    "dependency_graph_complete": true,
+    "pin": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+    "snapshot_path": "dependencies/NVIDIA/apex/37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+    "source": "NVIDIA/apex",
+    "tree": "47efbe6fd1878c53a1bdfd93e5a813ccf5d00c13"
   }
 }

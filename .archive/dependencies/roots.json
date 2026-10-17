@@ -105,7 +105,7 @@
   },
   {
     "dependency_graph_complete": false,
-    "error": "Operation failed; raw command output is intentionally excluded from public archive metadata.",
+    "error": "Git clone failed (exit 128). Source repository is inaccessible with the available authentication.",
     "original_url": "git@github.com:ml-applications/glow-tts-multispeaker.git",
     "parent": "storytold/torchscript-models",
     "parent_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
@@ -114,8 +114,14 @@
     "source": "ml-applications/glow-tts-multispeaker"
   },
   {
-    "dependency_graph_complete": false,
-    "error": "Git fsck failed (exit 1; diagnostic codes: gitmodulesUrl). Operation failed; raw command output is intentionally excluded from public archive metadata.",
+    "dependency_graph_complete": true,
+    "materialization": {
+      "dependency_graph_complete": true,
+      "pin": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+      "snapshot_path": "dependencies/NVIDIA/apex/37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+      "source": "NVIDIA/apex",
+      "tree": "47efbe6fd1878c53a1bdfd93e5a813ccf5d00c13"
+    },
     "original_url": "https://github.com/NVIDIA/apex.git",
     "parent": "storytold/torchscript-models",
     "parent_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
