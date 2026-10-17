@@ -6,6 +6,10 @@ on:
         description: 'JSON repository names to verify (all 66 by default)'
         required: false
         default: '["ActorSpawningPlugin","AniCraft","AnimationTest","artcraft","artcraft-services","artcraftx","Azure-Kinect-Sample-for-Unity","bevy-mocap","cadcraft","cloud-worker","cloudcam","CloudCamPlugin","craft-ai-integrations","craft-common-actions","craft-contrib","craft-fonts","craft-launcher","craft-launcher-assets","craft-libs","craft-repo-status-app","crafthub","deckcraft","designcraft","discord-vocodes","effectcraft","EventCenterPlugin","fakeyou-recast","figcraft","filmcraft","FineTrainers-Conditioning","github-media","gridcraft","hanashi-graphics-demo","html_test","HyperJail","indd-utils","irsa-manager","k4a-sys-temp","lightcraft","LiveScan3D","motion-capture-data","pdfcraft","photocraft","photocraft-corpus","placeholder-artcraft","point-generator","realtime-voice-conversion","redirect-vocodes","RuntimeAudioImporter","RuntimeFilesDownloader","soundcraft","spark","storyteller-bevy","storyteller-ml","StreamTwo","terraform-aws-observability-accelerator","torchscript-models","UE4-OSC","UnrealZeroMQ","vectorcraft","vits-finetuning","voder-proxy","winit","winprint.rs","wordcraft","xsens-packet-send"]'
+      previous_run:
+        description: 'Optional earlier run ID whose completed evidence should be retained'
+        required: false
+        default: ''
 permissions:
   contents: read
 concurrency:
@@ -253,14 +257,26 @@ jobs:
             if result['lfs_status']=='complete' and not result.get('lfs_restore'):result['limitations'].append('LFS payloads exist in separate archive; this build check does not materialize them.')
             if modelrefs:result['limitations'].append('Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.')
             result['status']='source_restored_runtime_unverified'
+            result['configuration_redactions']=[]
+            for config in allfiles:
+             if config.name=='.npmrc':
+              lines=config.read_text(errors='replace').splitlines();safe=[line for line in lines if not re.search(r'(?i)(?:_auth(?:token)?|_password|password|username)\s*=',line)]
+              if safe!=lines:config.write_text('\n'.join(safe)+'\n');result['configuration_redactions'].append(str(config.relative_to(repo)))
+            os.environ.update({'HUSKY':'0','NPM_CONFIG_USERCONFIG':'/dev/null'})
             jsroots=[]
             if (repo/'package.json').exists():jsroots.append(repo)
             if (repo/'frontend'/'package.json').exists():jsroots.append(repo/'frontend')
             result['javascript_checks']=[]
             for jsroot in jsroots:
              pkg=json.loads((jsroot/'package.json').read_text());tag='npm-'+jsroot.name
-             if name=='spark':command(['node','rust/build_wasm.js'],repo,900,label='wasm-package')
-             c,t=command(['npm','ci','--ignore-scripts','--no-audit','--no-fund'] if (jsroot/'package-lock.json').exists() else ['npm','install','--ignore-scripts','--no-audit','--no-fund'],jsroot,480,label=tag+'-install')
+             prerequisite=True
+             if name=='storyteller-bevy':
+              pc,_=command(['rustup','target','add','wasm32-unknown-unknown'],repo,300,label='frontend-wasm-target');prerequisite=pc==0
+             if name=='spark':
+              pc,_=command(['rustup','toolchain','install','stable','--profile','minimal'],repo,300,label='wasm-rust-toolchain');wc,_=command(['node','rust/build_wasm.js'],repo,900,label='wasm-package');prerequisite=pc==0 and wc==0
+             if not prerequisite:
+              result['javascript_checks'].append({'directory':str(jsroot.relative_to(repo)),'checks_run':0,'status':'prerequisite_blocked'});continue
+             c,t=command(['npm','ci','--no-audit','--no-fund'] if (jsroot/'package-lock.json').exists() else ['npm','install','--no-audit','--no-fund'],jsroot,480,label=tag+'-install')
              passed=c==0;ran=0
              if c==0:
               for k in ['typecheck','test','build']:
@@ -407,6 +423,7 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -415,12 +432,23 @@ jobs:
           sparse-checkout: |
             /.archive/verification/
             /README.md
+      - name: Recover completed earlier evidence
+        if: inputs.previous_run != ''
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.previous_run }}
+          pattern: verification-*
+          path: baseline-results
+          merge-multiple: true
       - uses: actions/download-artifact@v4
         with:
           pattern: verification-*
           path: results
           merge-multiple: true
       - name: Publish per-repository evidence
+        env:
+          BASELINE_RUN: ${{ inputs.previous_run }}
         run: |
           python3 - <<'PY'
           import pathlib,json,os,collections
@@ -429,6 +457,11 @@ jobs:
           previous_summary=json.loads((base/'summary.json').read_text()) if (base/'summary.json').exists() else {}
           for n,r in existing.items():
            if not r.get('verification_run') and previous_summary.get('run'):r['verification_run']=previous_summary['run'];(base/(n+'.json')).write_text(json.dumps(r,indent=2))
+          baseline=os.environ.get('BASELINE_RUN','')
+          for f in pathlib.Path('baseline-results').rglob('result.json'):
+           r=json.loads(f.read_text());n=r.get('repository','')
+           if not n or '/' in n or '..' in n:continue
+           r['verification_run']='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+baseline;existing[n]=r;(base/(n+'.json')).write_text(json.dumps(r,indent=2))
           rows=[]
           for f in pathlib.Path('results').rglob('result.json'):
            r=json.loads(f.read_text());n=r.get('repository','')
