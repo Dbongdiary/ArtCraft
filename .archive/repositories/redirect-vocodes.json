@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:15:51Z",
+  "default_branch": "master",
+  "default_commit": "4fba73d4192b381feecca9921a151209ae4ee546",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 1395,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 1395,
+        "name": "redirect-vocodes.bundle.sha256-d4e5b539bf2ac9d9c5a0d3f7a599eb4bc8e7ba1e9a4ff3d58fef4958368d0eef",
+        "sha256": "d4e5b539bf2ac9d9c5a0d3f7a599eb4bc8e7ba1e9a4ff3d58fef4958368d0eef",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/redirect-vocodes.bundle.sha256-d4e5b539bf2ac9d9c5a0d3f7a599eb4bc8e7ba1e9a4ff3d58fef4958368d0eef"
+      }
+    ],
+    "whole_sha256": "d4e5b539bf2ac9d9c5a0d3f7a599eb4bc8e7ba1e9a4ff3d58fef4958368d0eef"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "4fba73d4192b381feecca9921a151209ae4ee546 refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/redirect-vocodes",
+  "source_created_at": "2021-10-19T05:17:14Z",
+  "source_name": "storytold/redirect-vocodes",
+  "source_pushed_at": "2022-02-19T03:14:33Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
