@@ -1,0 +1,57 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:09:16Z",
+  "default_branch": "main",
+  "default_commit": "5ca5305959083dab7dfb41924fc8ed641bbc95d5",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 31112,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 31112,
+        "name": "craft-contrib.bundle.sha256-cb5bd1c3b7138079146da5116fa0f4aa51abb3bc0ecdc257e1845cb02e9b5368",
+        "sha256": "cb5bd1c3b7138079146da5116fa0f4aa51abb3bc0ecdc257e1845cb02e9b5368",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/craft-contrib.bundle.sha256-cb5bd1c3b7138079146da5116fa0f4aa51abb3bc0ecdc257e1845cb02e9b5368"
+      }
+    ],
+    "whole_sha256": "cb5bd1c3b7138079146da5116fa0f4aa51abb3bc0ecdc257e1845cb02e9b5368"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "5ca5305959083dab7dfb41924fc8ed641bbc95d5 refs/heads/main",
+    "33ebc7d5f9aace5ecfafddd9e0a16516eab9ddf1 refs/pull/1/head",
+    "038b757f9bab57b903057167d7ebf6668f032aef refs/pull/10/head",
+    "cfde1ffde57dfff2a49deaaa2e0c18af6f6d2c00 refs/pull/10/merge",
+    "7d3a78d61d52f2c03a399c071f5d5e97e2a62cba refs/pull/2/head",
+    "be3215435a34eac8f92323a35cf4f25aa2e22aed refs/pull/2/merge",
+    "bd066ed552c705da8b2b2bbea8b7561418e9f759 refs/pull/3/head",
+    "77966651815ed2c77994d0d5632b698681517c41 refs/pull/3/merge",
+    "1fc3c4f1953be1ceeee5aeb1884b2ab6e9cc89c1 refs/pull/4/head",
+    "37a6fe407d66bdf01810e2791fd952da272985fc refs/pull/4/merge",
+    "fd8b00c24b4c629973bedb3b705311cdff836e6d refs/pull/5/head",
+    "2bc9482687ce6b382ab740042be10968b72d9791 refs/pull/5/merge",
+    "1650555d30f5f4d0e4110cb87ad96b56aa7cd2f4 refs/pull/6/head",
+    "d47c7ba38ef439ef41770c5edcee80e81b748da0 refs/pull/6/merge",
+    "691563b5905bf7e110db234ebaadfb99305a58fc refs/pull/7/head",
+    "6392c6160138cb4b229ffc69863c705d9d521b4f refs/pull/7/merge",
+    "d6611c8879b613012b425290fa475cc6b633198d refs/pull/8/head",
+    "8d3d07e061ff01816030e00871a74caee56d3a42 refs/pull/8/merge",
+    "74e2f373d44b0083b75e2d375d6173715ec17655 refs/pull/9/head",
+    "a683259b21e746857b34be5ac6cf40c1fc19bb29 refs/pull/9/merge"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/craft-contrib",
+  "source_created_at": "2026-10-15T09:10:27Z",
+  "source_name": "storytold/craft-contrib",
+  "source_pushed_at": "2026-10-17T15:28:48Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
