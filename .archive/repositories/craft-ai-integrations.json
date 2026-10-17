@@ -1,0 +1,77 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:09:11Z",
+  "default_branch": "main",
+  "default_commit": "71f40f6da13ff48de9b52a30fa2104f9088eb5c7",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 2063812,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 2063812,
+        "name": "craft-ai-integrations.bundle.sha256-bf22fb5dd367c62202dd6945671252cf30ab14d4919f433e2337add99f40aa50",
+        "sha256": "bf22fb5dd367c62202dd6945671252cf30ab14d4919f433e2337add99f40aa50",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/craft-ai-integrations.bundle.sha256-bf22fb5dd367c62202dd6945671252cf30ab14d4919f433e2337add99f40aa50"
+      }
+    ],
+    "whole_sha256": "bf22fb5dd367c62202dd6945671252cf30ab14d4919f433e2337add99f40aa50"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "node_id": "MDc6TGljZW5zZTI=",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0"
+  },
+  "refs": [
+    "92fed0a02fb5e5dcaaf380702d804de76586c851 refs/heads/feat/candle-sam3-engine",
+    "71f40f6da13ff48de9b52a30fa2104f9088eb5c7 refs/heads/main",
+    "10c70df3bbe00a14d8b156590478740b2d4544a9 refs/pull/12/head",
+    "a361ab6d5e691a748e4f1fcb4c6d229156fedccb refs/pull/13/head",
+    "245d2a3a39561402b4e191b392b4acba5d22fcc7 refs/pull/14/head",
+    "5333a418eaea89c94ce7f25829e61488c2d34fb6 refs/pull/15/head",
+    "fe5d9165e1c56073168c012b894bc478f2ecad94 refs/pull/16/head",
+    "09bc2892bc49ca04a6c210716623a52d0faf69ae refs/pull/17/head",
+    "8bd81b01bcf76cf1681de8ec2d96fd90bc837d7a refs/pull/18/head",
+    "c50c59df51c6be6d6e49dabfd7b53ae826d5284e refs/pull/19/head",
+    "37230358d3dde166b1f06c0e84c91d8e0e16d54a refs/pull/20/head",
+    "6106357c22e02a971c0c8e9dd877dcbe83c07649 refs/pull/21/head",
+    "84a9b8a89b9541988661f694142e233ce1e023d2 refs/pull/22/head",
+    "7b9e0a09fe6204bca7513b921373c303457dc564 refs/pull/23/head",
+    "3f470bd9b8616a60af4c6f9f6ebf9cbd28b6582d refs/pull/24/head",
+    "a53b351acf325e33f22aebcf77f47a3959299bc9 refs/pull/25/head",
+    "2287b0975d494d2996d04b438e136f4708515b37 refs/pull/26/head",
+    "07e0649036b869fdd197e84f76914f095566cb37 refs/pull/27/head",
+    "9d79c1f59398f61aa57050e7cc835fe070d913cc refs/pull/28/head",
+    "05ca916bf6685a9fb3024185ab24d8f358c9fed7 refs/pull/29/head",
+    "4c15300b0301fd7f8df88c5e336d658bfc6258d0 refs/pull/30/head",
+    "67186c4ec87761c1112a9b74d2dabfb7e3953482 refs/pull/31/head",
+    "545a1bc6dcd45683bafd789838795f955fa1de9b refs/pull/32/head",
+    "ceff6616f459a9ba33cff3aaeb8dfda835febffe refs/pull/33/head",
+    "5543fb47a66618a02f59cf1eb91aa9d94487cdc9 refs/pull/34/head",
+    "e6783523c042193cfe13d0b9b9513d7ef91c4cef refs/pull/35/head",
+    "cf30253b8174fed84a248b44b677895943488666 refs/pull/36/head",
+    "e82605d223cee9266356d33a92987a9867be578e refs/pull/37/head",
+    "97672be5e1aa1364d797e91567d425d72e49cc0f refs/pull/38/head",
+    "c47cfe6e12304468408c1ce128dd69f727e30386 refs/pull/39/head",
+    "03db5ce7d29a7415392b715a4c39e5b1d5df98c0 refs/pull/40/head",
+    "92fed0a02fb5e5dcaaf380702d804de76586c851 refs/pull/41/head",
+    "e2f0b14250efba10878792d323b9f5a134874753 refs/pull/41/merge",
+    "a58e356f6971262915559c8888da7676e89c2a0f refs/pull/42/head"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/craft-ai-integrations",
+  "source_created_at": "2026-10-11T11:05:00Z",
+  "source_name": "storytold/craft-ai-integrations",
+  "source_pushed_at": "2026-10-17T17:01:10Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
