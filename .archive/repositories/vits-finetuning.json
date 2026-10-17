@@ -1,0 +1,44 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:21:28Z",
+  "default_branch": "main",
+  "default_commit": "b1e03bee38e0d28c0cb420e5cb4e653e4643506c",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 87870340,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 87870340,
+        "name": "vits-finetuning.bundle.sha256-a4185478d454388edf2b5c788258707bacde00557d3995d189651e27f8677979",
+        "sha256": "a4185478d454388edf2b5c788258707bacde00557d3995d189651e27f8677979",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/vits-finetuning.bundle.sha256-a4185478d454388edf2b5c788258707bacde00557d3995d189651e27f8677979"
+      }
+    ],
+    "whole_sha256": "a4185478d454388edf2b5c788258707bacde00557d3995d189651e27f8677979"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "b1e03bee38e0d28c0cb420e5cb4e653e4643506c refs/heads/main"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/vits-finetuning",
+  "source_created_at": "2023-05-23T01:55:45Z",
+  "source_name": "storytold/vits-finetuning",
+  "source_pushed_at": "2023-06-25T22:18:59Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
