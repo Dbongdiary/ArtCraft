@@ -1,0 +1,283 @@
+name: Verify backup usability
+on:
+  workflow_dispatch:
+    inputs:
+      repositories:
+        description: 'JSON repository names to verify (all 66 by default)'
+        required: false
+        default: '["ActorSpawningPlugin","AniCraft","AnimationTest","artcraft","artcraft-services","artcraftx","Azure-Kinect-Sample-for-Unity","bevy-mocap","cadcraft","cloud-worker","cloudcam","CloudCamPlugin","craft-ai-integrations","craft-common-actions","craft-contrib","craft-fonts","craft-launcher","craft-launcher-assets","craft-libs","craft-repo-status-app","crafthub","deckcraft","designcraft","discord-vocodes","effectcraft","EventCenterPlugin","fakeyou-recast","figcraft","filmcraft","FineTrainers-Conditioning","github-media","gridcraft","hanashi-graphics-demo","html_test","HyperJail","indd-utils","irsa-manager","k4a-sys-temp","lightcraft","LiveScan3D","motion-capture-data","pdfcraft","photocraft","photocraft-corpus","placeholder-artcraft","point-generator","realtime-voice-conversion","redirect-vocodes","RuntimeAudioImporter","RuntimeFilesDownloader","soundcraft","spark","storyteller-bevy","storyteller-ml","StreamTwo","terraform-aws-observability-accelerator","torchscript-models","UE4-OSC","UnrealZeroMQ","vectorcraft","vits-finetuning","voder-proxy","winit","winprint.rs","wordcraft","xsens-packet-send"]'
+permissions:
+  contents: read
+concurrency:
+  group: backup-usability-verification
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        repo: ${{ fromJSON(inputs.repositories) }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Restore from saved bundles and inspect or test
+        env:
+          AUDIT_REPO: ${{ matrix.repo }}
+        run: |
+          python3 - <<'PY'
+          import os, sys, json, pathlib, subprocess, urllib.request, hashlib, re, time, tomllib, ast, traceback, signal
+          BASE='https://raw.githubusercontent.com/Dbongdiary/ArtCraft/1a39bbe21255a55128c503906888e9fb437b2c29/'
+          name=os.environ['AUDIT_REPO']; root=pathlib.Path.cwd(); work=root/'restored'; work.mkdir(exist_ok=True); out=root/'audit-results'/name; out.mkdir(parents=True,exist_ok=True)
+          result={'repository':name,'backup_commit':'1a39bbe21255a55128c503906888e9fb437b2c29','restored':False,'checks':[],'git_dependencies':[],'missing_paths':[],'model_references':[],'service_domains':[],'limitations':[],'remapped_repositories':[]}
+          def clean(s):
+           s=re.sub(r'(https?://)[^\s/@]+:[^\s/@]+@',r'\1[REDACTED]@',str(s))
+           s=re.sub(r'(gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+)', '[REDACTED]',s)
+           return s
+          
+          def getjson(path):
+           with urllib.request.urlopen(BASE+path,timeout=90) as r:return json.load(r)
+          def command(args,cwd=None,timeout=180,label=None):
+           start=time.time(); p=subprocess.Popen(args,cwd=cwd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,errors='replace',start_new_session=True)
+           try:txt=p.communicate(timeout=timeout)[0];code=p.returncode
+           except subprocess.TimeoutExpired:
+            os.killpg(p.pid,signal.SIGKILL);txt=p.communicate()[0];code=124
+           txt=clean(txt)
+           if label:
+            (out/(label+'.log')).write_text(txt[-250000:])
+            result['checks'].append({'check':label,'command':args,'exit_code':code,'seconds':round(time.time()-start,1),'tail':txt[-6500:]})
+            print(name,label,code,flush=True)
+           return code,txt
+          
+          def require(args,cwd=None,timeout=180):
+           c,t=command(args,cwd,timeout)
+           if c:raise RuntimeError(clean(' '.join(args))+' failed: '+t[-1500:])
+           return t
+          
+          os.environ.update({'GIT_TERMINAL_PROMPT':'0','GIT_LFS_SKIP_SMUDGE':'1','CARGO_NET_GIT_FETCH_WITH_CLI':'true','CARGO_BUILD_JOBS':'3','CARGO_PROFILE_DEV_DEBUG':'0','CARGO_PROFILE_TEST_DEBUG':'0','SQLX_OFFLINE':'true','CI':'true'})
+          require(['git','config','--global','core.hooksPath','/dev/null'])
+          require(['git','config','--global','protocol.file.allow','always'])
+          for prefix in ['https://github.com/storytold/','http://github.com/storytold/','git@github.com:storytold/','ssh://git@github.com/storytold/']:
+           require(['git','config','--global','--add','url.file:///unavailable-originals/.insteadOf',prefix])
+          known={r['source'].split('/',1)[1] for r in getjson('.archive/status.json')['repositories']}
+          mirrors={}; manifests={}
+          def mirror(repo):
+           if repo in mirrors:return mirrors[repo]
+           if repo not in known:raise RuntimeError('No archived repository '+repo)
+           m=getjson('.archive/repositories/'+repo+'.json');manifests[repo]=m
+           b=m.get('git_bundle')
+           if not b or not b.get('parts'):raise RuntimeError('Empty repository or no bundle: '+repo)
+           bundle=root/(repo+'.bundle');whole=hashlib.sha256()
+           with bundle.open('wb') as dst:
+            for part in b['parts']:
+             if not part['url'].startswith('https://github.com/Dbongdiary/ArtCraft/releases/download/'):raise RuntimeError('Unexpected archive asset host')
+             h=hashlib.sha256();count=0
+             with urllib.request.urlopen(part['url'],timeout=180) as src:
+              while True:
+               block=src.read(1024*1024)
+               if not block:break
+               h.update(block);whole.update(block);dst.write(block);count+=len(block)
+             if h.hexdigest()!=part['sha256'] or count!=part['bytes']:raise RuntimeError('Asset checksum mismatch')
+           if whole.hexdigest()!=b['whole_sha256']:raise RuntimeError('Whole bundle checksum mismatch')
+           dest=root/'mirrors'/(repo+'.git');dest.parent.mkdir(exist_ok=True)
+           require(['git','clone','--mirror',str(bundle),str(dest)],timeout=600);bundle.unlink()
+           require(['git','--git-dir='+str(dest),'fsck','--full'],timeout=600)
+           mirrors[repo]=dest
+           for prefix in ['https://github.com/storytold/'+repo,'http://github.com/storytold/'+repo,'git@github.com:storytold/'+repo,'ssh://git@github.com/storytold/'+repo]:
+            for suffix in ['', '.git']:
+             require(['git','config','--global','--add','url.'+dest.as_uri()+'.insteadOf',prefix+suffix])
+           result['remapped_repositories'].append(repo)
+           return dest
+          
+          def restore(repo):
+           dest=work/repo
+           if dest.exists():return dest
+           mdir=mirror(repo);m=manifests[repo]
+           require(['git','clone','--no-checkout',str(mdir),str(dest)],timeout=600)
+           require(['git','checkout','--detach',m['default_commit']],dest,600)
+           if require(['git','rev-parse','HEAD'],dest).strip()!=m['default_commit']:raise RuntimeError('Commit verification failed')
+           return dest
+          
+          def walkfiles(p):
+           for d,dirs,files in os.walk(p):
+            dirs[:]=[x for x in dirs if x not in ['.git','node_modules','target','.venv','venv','__pycache__']]
+            for f in files:
+             q=pathlib.Path(d)/f
+             if not q.is_symlink() and q.stat().st_size<2000000:yield q
+          
+          def cargo_tables(obj):
+           if isinstance(obj,dict):
+            if any(k in obj for k in ['git','path']):yield obj
+            for v in obj.values():yield from cargo_tables(v)
+           elif isinstance(obj,list):
+            for v in obj:yield from cargo_tables(v)
+          
+          try:
+           if name=='AniCraft':
+            result['status']='empty_repository';result['limitations'].append('No application source was present at capture time.')
+           else:
+            repo=restore(name); result['restored']=True;result['source_commit']=manifests[name]['default_commit'];result['restore_proof']='Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.'
+            # Resolve source-hosted Git dependencies exclusively through our bundle mirrors.
+            queue=[repo]; scanned=set(); gitrefs=set(); domains=set(); modelrefs=set(); allfiles=list(walkfiles(repo)); cargos=[]; pycount=0; pyerrors=[]
+            for f in allfiles:
+             rel=str(f.relative_to(repo))
+             if f.name in ['Cargo.toml','Cargo.lock']:
+              s=f.read_text(errors='replace')
+              for dep in re.findall(r'github\.com/storytold/([A-Za-z0-9_.-]+)',s):
+               dep=dep.removesuffix('.git')
+               if dep!=name and dep in known:
+                try:mirror(dep)
+                except Exception as e:result['limitations'].append('Mirror '+dep+': '+clean(e))
+              for u in re.findall(r'(?:git\+)?https://github\.com/[^\s\"<>]+',s):
+               if 'git+' in u or 'git = ' in s:gitrefs.add(u[:250])
+             if f.name=='Cargo.toml':
+              cargos.append(f)
+              try:
+               for tab in cargo_tables(tomllib.loads(f.read_text())):
+                if 'git' in tab:gitrefs.add(tab['git']+('#'+tab.get('rev','') if tab.get('rev') else ''))
+                if 'path' in tab and isinstance(tab['path'],str):
+                 target=(f.parent/tab['path']).resolve()
+                 if not target.exists():
+                  try:part=target.relative_to(work).parts[0]
+                  except ValueError:part=None
+                  if part in known and part!=name:
+                   try:restore(part)
+                   except Exception as e:result['limitations'].append('Sibling '+part+': '+clean(e))
+                  if not target.exists():result['missing_paths'].append({'manifest':rel,'path':tab['path']})
+              except Exception as e:result['limitations'].append('Manifest '+rel+': '+clean(e))
+             if f.suffix in ['.rs','.py','.toml','.json','.md','.sh','.yml','.yaml','.ts','.tsx','.js']:
+              s=f.read_text(errors='replace')
+              for host in re.findall(r'https?://([A-Za-z0-9.-]+)',s):
+               if any(x in host for x in ['fakeyou','vocodes','storyteller','storytold','artcraft','craftapps','huggingface','amazonaws','openai','replicate','fal.ai','grok','midjourney','worldlabs']):domains.add(host)
+              for ref in re.findall(r'[\"\x27]([^\"\x27\n]{1,180}\.(?:onnx|pth|ckpt|safetensors|pt))[\"\x27]',s):
+               if not (f.parent/ref).exists() and not (repo/ref).exists():modelrefs.add((rel,ref))
+             if f.suffix=='.py':
+              pycount+=1
+              try:ast.parse(f.read_text(errors='replace'))
+              except SyntaxError as e:pyerrors.append({'file':rel,'line':e.lineno,'error':str(e.msg)})
+            result['git_dependencies']=sorted(gitrefs);result['service_domains']=sorted(domains);result['model_references']=[{'file':a,'reference':b} for a,b in sorted(modelrefs)][:400]
+            result['python_syntax']={'files_checked':pycount,'errors':pyerrors[:100]}
+            result['submodule_references']=manifests[name].get('submodules',[])
+            result['lfs_status']=manifests[name].get('lfs',{}).get('status')
+            if result['submodule_references']:result['limitations'].append('Submodules require separately archived dependency restoration; original bundle preserves gitlinks. Full ML execution not attempted.')
+            if result['lfs_status']=='complete':result['limitations'].append('LFS payloads exist in separate archive; this build check does not materialize them.')
+            if modelrefs:result['limitations'].append('Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.')
+            result['status']='source_restored_runtime_unverified'
+            if (repo/'Cargo.toml').exists():
+             result['kind']='rust'
+             # Read transitive manifest dependencies in the exact historical mirrors too.
+             for dep,mdir in list(mirrors.items()):
+              lock=repo/'Cargo.lock'
+              if lock.exists():
+               for rev in re.findall(r'github\.com/storytold/'+re.escape(dep)+r'(?:\.git)?[^\"\n]*#([0-9a-f]{40})',lock.read_text()):
+                c,t=command(['git','--git-dir='+str(mdir),'cat-file','-e',rev+'^{commit}'])
+                if c:result['limitations'].append('Pinned dependency commit unavailable: '+dep+'@'+rev)
+             command(['sudo','apt-get','update','-qq'],timeout=180,label='system-index')
+             command(['sudo','apt-get','install','-y','--no-install-recommends','pkg-config','libssl-dev','libasound2-dev','libudev-dev','libxkbcommon-dev','libwayland-dev','libxcb-shape0-dev','libxcb-xfixes0-dev','libgtk-3-dev','libvulkan1','mesa-vulkan-drivers','xvfb','protobuf-compiler','clang','cmake','libfontconfig1-dev','libdbus-1-dev'],timeout=240,label='system-dependencies')
+             tool='stable'
+             tfile=repo/'rust-toolchain.toml'
+             if tfile.exists():tool=tomllib.loads(tfile.read_text()).get('toolchain',{}).get('channel','stable')
+             elif (repo/'rust-toolchain').exists():tool=(repo/'rust-toolchain').read_text().strip()
+             c,_=command(['rustup','toolchain','install',tool,'--profile','minimal'],timeout=300,label='rust-toolchain')
+             c,t=command(['cargo','+'+tool,'metadata','--format-version','1','--no-deps'],repo,180,label='cargo-metadata')
+             if c==0:
+              meta=json.loads(t);result['cargo_packages']=[{'name':p['name'],'targets':[{'name':x['name'],'kind':x['kind']} for x in p['targets']]} for p in meta['packages']]
+              c,t=command(['cargo','+'+tool,'test','--workspace','--lib','--locked'],repo,900,label='cargo-tests')
+              b,bt=command(['cargo','+'+tool,'build','--workspace','--bins','--locked'],repo,600,label='cargo-build')
+              result['status']='build_and_tests_passed' if c==0 and b==0 else 'build_or_tests_blocked'
+              bins=[x['name'] for p in meta['packages'] for x in p['targets'] if 'bin' in x['kind']]
+              appbins=[x for x in bins if x==name or x==name.replace('-','_')]
+              if b==0 and appbins:
+               exe=pathlib.Path(meta['target_directory'])/'debug'/appbins[0]
+               if exe.exists() and name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','photocraft','pdfcraft','cadcraft','designcraft','effectcraft','filmcraft','soundcraft','lightcraft','artcraft','craft-launcher','crafthub']:
+                sm,st=command(['xvfb-run','-a',str(exe)],repo,15,label='headless-launch')
+                result['headless_launch']='stayed_running_15_seconds' if sm==124 else 'exited_'+str(sm)
+              result['limitations'].append('Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified.')
+             else:result['status']='manifest_or_source_dependency_blocked'
+            elif (repo/'package.json').exists():
+             result['kind']='javascript';pkg=json.loads((repo/'package.json').read_text());result['npm_scripts']=pkg.get('scripts',{})
+             c,t=command(['npm','ci','--no-audit','--no-fund'] if (repo/'package-lock.json').exists() else ['npm','install','--no-audit','--no-fund'],repo,480,label='npm-install')
+             passed=c==0
+             if c==0:
+              for k in ['typecheck','test','build']:
+               if k in pkg.get('scripts',{}):
+                c,t=command(['npm','run',k],repo,480,label='npm-'+k);passed=passed and c==0
+             result['status']='package_checks_passed' if passed else 'package_checks_blocked'
+             result['limitations'].append('No authenticated service or browser end-to-end workflow was exercised.')
+            elif (repo/'go.mod').exists():
+             result['kind']='go';c,t=command(['go','test','./...'],repo,480,label='go-tests');result['status']='tests_passed' if c==0 else 'tests_blocked'
+            elif any(f.suffix in ['.uplugin','.uproject'] for f in allfiles):result['kind']='unreal';result['limitations'].append('Requires compatible Unreal Engine and an integration project; no licensed engine/runtime present on standard runner.')
+            elif (repo/'ProjectSettings').exists() or any(f.name=='ProjectVersion.txt' for f in allfiles):result['kind']='unity';result['limitations'].append('Requires matching Unity editor, license and often Kinect/Xsens hardware; runtime not exercised.')
+            elif pycount:
+             result['kind']='python';result['status']='syntax_checked_runtime_unverified';result['limitations'].append('Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified.')
+            else:result['kind']='other_or_assets';result['limitations'].append('No supported root build entry point; may be assets, scripts, native project, infrastructure or nested application. See repository documentation.')
+          except Exception as e:
+           result['status']='audit_blocked';result['error']=clean(str(e));print(clean(traceback.format_exc()),flush=True)
+          finally:
+           result['runner']='ubuntu-24.04 GitHub-hosted';result['finished_at']=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime());(out/'result.json').write_text(json.dumps(result,indent=2));print(json.dumps({k:result.get(k) for k in ['repository','restored','kind','status','error']},indent=2))
+          
+          PY
+      - name: Save evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-${{ matrix.repo }}
+          path: audit-results/
+          retention-days: 30
+  publish:
+    if: always()
+    needs: verify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.archive/verification/
+            /README.md
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: verification-*
+          path: results
+          merge-multiple: true
+      - name: Publish per-repository evidence
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,os,collections
+          base=pathlib.Path('.archive/verification');base.mkdir(parents=True,exist_ok=True)
+          rows=[]
+          for f in pathlib.Path('results').rglob('result.json'):
+           r=json.loads(f.read_text());n=r.get('repository','')
+           if not n or '/' in n or '..' in n:continue
+           rows.append(r);(base/(n+'.json')).write_text(json.dumps(r,indent=2))
+          rows.sort(key=lambda x:x['repository'].lower())
+          run='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']
+          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', '## Repository results','', '| Repository | Restore | Check result | Details |','|---|---|---|---|']
+          for r in rows:
+           n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | ['+r.get('kind','details')+']('+n+'.json) |')
+          counts=dict(collections.Counter(r.get('status','unknown') for r in rows))
+          lines+=['','## Coverage','',json.dumps(counts,sort_keys=True),'',str(len(rows))+' repository result files received. Any omitted repository is unverified.','', '## Concrete missing source paths','']
+          for r in rows:
+           for p in r.get('missing_paths',[]):lines.append('- '+r['repository']+': '+p['manifest']+' -> '+p['path'])
+          lines+=['','## Original Git references and service/model requirements','', 'Each repository JSON records pinned Git dependencies, missing Cargo paths, model filename references, service domains, exact commands, exit codes and limitations. Logs are retained in this run\'s GitHub Actions artifacts. Original releases/installers, hosted databases, API credentials, paid plugins and external model downloads are not automatically preserved by a source archive.','', 'The previously unavailable moonTripoSR and glow-tts-multispeaker references remain unresolved. See ../dependencies/status.json.']
+          (base/'README.md').write_text('\n'.join(lines)+'\n');(base/'summary.json').write_text(json.dumps({'run':run,'result_count':len(rows),'counts':counts,'repositories':[{'name':r['repository'],'status':r.get('status'),'restored':r.get('restored')} for r in rows]},indent=2))
+          readme=pathlib.Path('README.md');s=readme.read_text();marker='## Backup usability verification'
+          if marker in s:s=s.split(marker)[0].rstrip()+'\n'
+          s+='\n'+marker+'\n\nSee [.archive/verification/README.md](.archive/verification/README.md) for GitHub-hosted restore/build checks and unresolved runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.\n'
+          readme.write_text(s)
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('\n'.join(lines))
+          
+          PY
+      - name: Save report in archive
+        run: |
+          git config user.name 'ArtCraft Verification'
+          git config user.email 'actions@users.noreply.github.com'
+          git add .archive/verification README.md
+          git diff --cached --quiet || git commit -m 'Record GitHub-hosted backup usability verification'
+          git push origin HEAD:main
