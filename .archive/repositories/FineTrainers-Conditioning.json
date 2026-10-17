@@ -1,0 +1,54 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:10:43Z",
+  "default_branch": "main",
+  "default_commit": "9f0fdb5055b7c363e71e8a19c2805406fe79fb6a",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 1751354,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 1751354,
+        "name": "FineTrainers-Conditioning.bundle.sha256-1f420ebdb7cf5f2edc277674ebbd1dbacf6f418ad4b5a9d03862d96d70b86afa",
+        "sha256": "1f420ebdb7cf5f2edc277674ebbd1dbacf6f418ad4b5a9d03862d96d70b86afa",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/FineTrainers-Conditioning.bundle.sha256-1f420ebdb7cf5f2edc277674ebbd1dbacf6f418ad4b5a9d03862d96d70b86afa"
+      }
+    ],
+    "whole_sha256": "1f420ebdb7cf5f2edc277674ebbd1dbacf6f418ad4b5a9d03862d96d70b86afa"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "node_id": "MDc6TGljZW5zZTI=",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0"
+  },
+  "refs": [
+    "5bd5bc4a59de555acf092ae781557c5ea86dfb10 refs/heads/bugfix/call-to-non-existent-function",
+    "d65958b181602c4699d8dd62b5806a4714d34d32 refs/heads/feature/condition_patchify",
+    "6c2ba374ae4702436b7ad656e05e9b87025485cb refs/heads/feature/cross_attn_patchify",
+    "eb6b0f596a56b3fb324c071768b573cbb6d1164d refs/heads/feature/full-finetuning",
+    "93e5069dc084bb56e7f7806a3da5bed8c4d9dabe refs/heads/feature/simple-condition",
+    "9f0fdb5055b7c363e71e8a19c2805406fe79fb6a refs/heads/main",
+    "d65958b181602c4699d8dd62b5806a4714d34d32 refs/pull/1/head",
+    "f40d2280200e2afbe729d062a4af834d57bdeb35 refs/pull/1/merge",
+    "49fbac19f1ea26fa08cfcf87f1ddba6a47ac604e refs/pull/2/head",
+    "e5ac89b74e674e3fb9db7f2b2ab60b9585a392f1 refs/pull/2/merge",
+    "fa68ee5bf40ec26c66b9493c28a126a76c934ee6 refs/pull/3/head"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/FineTrainers-Conditioning",
+  "source_created_at": "2025-01-27T22:26:47Z",
+  "source_name": "storytold/FineTrainers-Conditioning",
+  "source_pushed_at": "2025-02-13T18:03:46Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
