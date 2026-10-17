@@ -68,7 +68,13 @@ jobs:
                   return value
               if re.fullmatch(r'GitHub request failed with HTTP status [0-9]{3}\.', value):
                   return value
-              if value.startswith('Git ') and ' failed (exit ' in value and '; diagnostic codes: ' in value:
+              fixed = ('Source repository is inaccessible with the available authentication.',
+                       'Runner disk space is insufficient; this source remains incomplete.',
+                       'Operation failed; raw command output is intentionally excluded from public archive metadata.',
+                       'GitHub push protection blocked this write. No bypass was requested; this source remains incomplete.')
+              canonical = re.fullmatch(r'Git (clone|fetch|fsck|bundle|push|lfs|index-pack|read-tree|command) failed '
+                                       r'\(exit -?[0-9]+(?:; diagnostic codes: [A-Za-z_]+(?:, [A-Za-z_]+)*)?\)\. (.+)', value)
+              if canonical and canonical.group(2) in fixed:
                   return value
               lowered = value.lower()
               if any(marker in lowered for marker in ('gh013', 'push protection', 'secret scanning', 'secret-scanning', 'push declined due')):
@@ -638,8 +644,54 @@ jobs:
                       record['source_tree'] = git('rev-parse', pin + '^{tree}', cwd=mirror).stdout.strip().decode()
                       record['refs'] = git('for-each-ref', '--format=%(objectname) %(refname)', cwd=mirror).stdout.decode().splitlines()
                       record['symbolic_head'] = git('symbolic-ref', 'HEAD', cwd=mirror, check=False).stdout.decode().strip()
-                      record['phase'] = 'git_integrity_check'
-                      git('fsck', '--full', '--no-reflogs', cwd=mirror)
+                      record['integrity_scope_attempts'] = []
+                      scopes = ('all_advertised_refs_plus_pinned_commit',
+                                'normal_branches_and_tags_plus_pinned_commit',
+                                'pinned_commit_and_ancestors_only')
+                      for scope_number, scope in enumerate(scopes):
+                          if scope_number:
+                              # Discard every object from the failed mirror. Merely deleting
+                              # refs is insufficient because fsck also inspects dangling objects.
+                              shutil.rmtree(mirror)
+                              mirror = work / (scope + '.git')
+                              record['phase'] = 'rebuild_' + scope
+                              print('REBUILD_GIT_SCOPE ' + source + ' ' + scope, flush=True)
+                              if scope_number == 1:
+                                  command(['git', 'clone', '--bare', '--no-tags',
+                                           'https://github.com/' + source + '.git', str(mirror)])
+                                  git('fetch', '--no-tags', 'origin', '+refs/heads/*:refs/heads/*',
+                                      '+refs/tags/*:refs/tags/*', cwd=mirror)
+                              else:
+                                  command(['git', 'init', '--bare', str(mirror)])
+                                  git('remote', 'add', 'origin', 'https://github.com/' + source + '.git', cwd=mirror)
+                                  git('fetch', '--no-tags', 'origin', pin, cwd=mirror)
+                                  git('update-ref', 'refs/heads/archived-pin', pin, cwd=mirror)
+                                  git('symbolic-ref', 'HEAD', 'refs/heads/archived-pin', cwd=mirror)
+                              if git('cat-file', '-e', pin + '^{commit}', cwd=mirror, check=False).returncode:
+                                  git('fetch', '--no-tags', 'origin', pin, cwd=mirror)
+                              if git('rev-parse', pin + '^{commit}', cwd=mirror).stdout.strip().decode() != pin:
+                                  raise RuntimeError('Fetched dependency is not the exact pinned commit')
+                              git('update-ref', 'refs/archive/pins/' + pin, pin, cwd=mirror)
+                          record['git_history_scope'] = scope
+                          record['refs'] = git('for-each-ref', '--format=%(objectname) %(refname)', cwd=mirror).stdout.decode().splitlines()
+                          record['symbolic_head'] = git('symbolic-ref', 'HEAD', cwd=mirror, check=False).stdout.decode().strip()
+                          record['phase'] = 'git_integrity_check_' + scope
+                          try:
+                              git('fsck', '--full', '--no-reflogs', cwd=mirror)
+                          except GitOperationError as error:
+                              record['integrity_scope_attempts'].append({'scope': scope, 'passed': False,
+                                                                        'diagnostics': error.diagnostics})
+                              if error.diagnostics['operation'] != 'fsck' or set(error.diagnostics['codes']) != {'gitmodulesUrl'} or scope_number == 2:
+                                  raise
+                              # Invalid historical submodule URLs can live in unrelated refs.
+                              # Narrow the archive scope; never relax Git's integrity checks.
+                              continue
+                          record['integrity_scope_attempts'].append({'scope': scope, 'passed': True})
+                          break
+                      record['excluded_history'] = (
+                          'None: all advertised refs retained.' if record['git_history_scope'] == scopes[0] else
+                          'GitHub pull-request refs and other non-branch/tag refs excluded.' if record['git_history_scope'] == scopes[1] else
+                          'Other branches, tags, pull-request refs and unrelated commits excluded; exact pinned commit and its full ancestry retained.')
                       asset_name = 'dependency-' + hashlib.sha256(source.lower().encode()).hexdigest()[:12] + '-' + pin[:12]
                       bundle = work / (asset_name + '.bundle')
                       record['phase'] = 'create_and_verify_git_bundle'
@@ -776,11 +828,13 @@ jobs:
                           child = archive_dependency(root['source'], root['pin'])
                           if not child.get('expanded_tree'):
                               raise RuntimeError(child.get('error', 'Pinned source snapshot unavailable'))
+                          prior_proof = MATERIALIZED.get(path)
                           root['materialization'] = materialize(path, root['pin'], child)
                           root['dependency_graph_complete'] = child.get('dependency_graph_complete', False)
-                          stage('.archive/dependencies/materialized.json', json_bytes(MATERIALIZED))
-                          stage('.archive/dependencies/roots.json', json_bytes(roots))
-                          save(f'Materialize {source} dependency {entry["path"]}')
+                          if prior_proof != root['materialization']:
+                              stage('.archive/dependencies/materialized.json', json_bytes(MATERIALIZED))
+                              stage('.archive/dependencies/roots.json', json_bytes(roots))
+                              save(f'Materialize {source} dependency {entry["path"]}')
                       except Exception as error:
                           git('read-tree', 'HEAD')
                           known = existing('.archive/dependencies/materialized.json')
@@ -797,19 +851,27 @@ jobs:
                         'roots': roots,
                         'nodes': [{'source': node['source'], 'pin': node['pin'], 'complete': node.get('dependency_graph_complete', False),
                                    'source_archive_complete': node.get('source_archive_complete', False), 'error': node.get('error'),
+                                   'git_history_scope': node.get('git_history_scope', 'all_advertised_refs_plus_pinned_commit'),
+                                   'excluded_history': node.get('excluded_history'),
                                    'manifest': node.get('metadata_path')} for node in NODE_CACHE.values()],
-                        'scope': 'Pinned external dependency graph, full advertised Git history plus explicit pinned refs, available LFS objects, and materialized parent source paths. Missing/private sources and unknown URLs remain incomplete.'}
+                        'scope': 'Pinned external dependency graph, Git history within each node manifest declared scope plus explicit pinned refs, available LFS objects within that scope, and materialized parent source paths. Any history exclusions are stated per node. Missing/private sources and unknown URLs remain incomplete.'}
               stage('.archive/dependencies/status.json', json_bytes(report))
               stage('.archive/dependencies/roots.json', json_bytes(roots))
               readme = (existing('README.md') or b'# ArtCraft\n').decode()
-              readme = re.sub(r'\*\*Submodule dependencies are references only:\*\*[^\n]*',
+              readme = re.sub(r'\*\*(?:Submodule dependencies are references only|Dependency archive status):\*\*[^\n]*',
                               f'**Dependency archive status:** {completed}/{len(roots)} pinned root references independently archived and materialized. See [.archive/dependencies/status.json](.archive/dependencies/status.json).', readme)
               readme = readme.replace('Submodule commit references and original `.gitmodules` files are preserved; linked submodule repositories are not recursively fetched, so external dependencies may disappear independently.',
                   'Original submodule references remain in the source Git bundles. Available exact pinned dependency trees are now materialized in the browsable parent folders; unresolved dependencies remain recorded in the separate dependency report.')
               readme = re.sub(r'\n<!-- dependency-backup:start -->.*?<!-- dependency-backup:end -->\n?', '\n', readme, flags=re.DOTALL)
               unresolved = '\n'.join('- `' + root['parent'] + '/' + root['path'] + '`: ' + root.get('error', 'Dependency graph or LFS payloads remain incomplete').replace('\n', ' ')[:500]
                                      for root in roots if not root['dependency_graph_complete']) or 'No unresolved root references.'
-              readme += f'''\n<!-- dependency-backup:start -->\n## External dependency archive\n\n**{completed}/{len(roots)} original pinned dependency references complete.** Available dependencies are stored under `dependencies/OWNER/REPO/COMMIT` and copied into the original parent submodule paths. Nested dependencies are recursively archived at their exact pinned commits; unresolved sources remain explicitly incomplete. Source code and hooks are never executed.\n\n[Dependency history and LFS release assets]({RELEASE['html_url']}) are independent of the original authors. [.archive/dependencies/status.json](.archive/dependencies/status.json) records every root reference and remaining error; individual manifests include checksums, exact commits, tree verification and large-file exclusions. Files over100MiB remain in full Git bundles where GitHub cannot store them as ordinary browsable files. Original source backup status and original release assets are preserved.\n\nUnresolved references:\n\n{unresolved}\n\nTo restore an exact dependency: concatenate any bundle parts in manifest order, verify SHA-256, then run `GIT_LFS_SKIP_SMUDGE=1 git clone NAME.bundle NAME`. In that clone run `GIT_LFS_SKIP_SMUDGE=1 git checkout --detach PINNED_COMMIT`. If LFS payloads exist, extract their verified tar into `.git` and run `git lfs checkout`. Original submodule configurations remain preserved for provenance; the browsable parent copies contain materialized source folders.\n<!-- dependency-backup:end -->\n'''
+              history_limits = '\n'.join('- `' + node['source'] + '` at `' + node['pin'] + '`: ' + node.get('excluded_history', '')
+                                        for node in NODE_CACHE.values() if node.get('git_history_scope') in (
+                                            'normal_branches_and_tags_plus_pinned_commit', 'pinned_commit_and_ancestors_only'))
+              if history_limits:
+                  history_limits = ('\n\nHistory scope limits after an integrity check rejected a historical submodule URL. '
+                                    'Each successful replacement archive passed the same unchanged Git integrity checks:\n\n' + history_limits)
+              readme += f'''\n<!-- dependency-backup:start -->\n## External dependency archive\n\n**{completed}/{len(roots)} original pinned dependency references complete.** Available dependencies are stored under `dependencies/OWNER/REPO/COMMIT` and copied into the original parent submodule paths. Nested dependencies are recursively archived at their exact pinned commits; unresolved sources remain explicitly incomplete. Source code and hooks are never executed.\n\n[Dependency history and LFS release assets]({RELEASE['html_url']}) are independent of the original authors. [.archive/dependencies/status.json](.archive/dependencies/status.json) records every root reference and remaining error; individual manifests include checksums, exact commits, tree verification and large-file exclusions. Files over100MiB remain in full Git bundles where GitHub cannot store them as ordinary browsable files. Original source backup status and original release assets are preserved.{history_limits}\n\nUnresolved references:\n\n{unresolved}\n\nTo restore an exact dependency: concatenate any bundle parts in manifest order, verify SHA-256, then run `GIT_LFS_SKIP_SMUDGE=1 git clone NAME.bundle NAME`. In that clone run `GIT_LFS_SKIP_SMUDGE=1 git checkout --detach PINNED_COMMIT`. If LFS payloads exist, extract their verified tar into `.git` and run `git lfs checkout`. Original submodule configurations remain preserved for provenance; the browsable parent copies contain materialized source folders.\n<!-- dependency-backup:end -->\n'''
               stage('README.md', readme.encode())
               save(f'Update dependency archive status: {completed}/{len(roots)} complete')
               summary = f'## External dependency archive\n\n{completed}/{len(roots)} root references complete; {len(NODE_CACHE)} unique pinned dependency nodes inspected.\n\nStatus: https://github.com/{REPO}/blob/main/.archive/dependencies/status.json\n\nRelease: {RELEASE["html_url"]}\n'
