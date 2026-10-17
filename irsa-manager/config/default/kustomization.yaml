@@ -1,0 +1,8 @@
+namespace: irsa-manager-system
+
+namePrefix: irsa-manager-
+
+resources:
+  - ../crd
+  - ../rbac
+  - ../manager
