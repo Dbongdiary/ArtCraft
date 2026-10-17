@@ -1,0 +1,48 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:15:53Z",
+  "default_branch": "main",
+  "default_commit": "2ecfcee44daccc6dcffd7533f7455fa2f5498c33",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 20056140,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 20056140,
+        "name": "RuntimeAudioImporter.bundle.sha256-ca15785f4425045b0f24a08388fd599342b56ed32fd31651f488933b9e4fbc99",
+        "sha256": "ca15785f4425045b0f24a08388fd599342b56ed32fd31651f488933b9e4fbc99",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/RuntimeAudioImporter.bundle.sha256-ca15785f4425045b0f24a08388fd599342b56ed32fd31651f488933b9e4fbc99"
+      }
+    ],
+    "whole_sha256": "ca15785f4425045b0f24a08388fd599342b56ed32fd31651f488933b9e4fbc99"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "2ecfcee44daccc6dcffd7533f7455fa2f5498c33 refs/heads/main",
+    "c7341dc4290c188f908a7b6ca0fc6cd43cd26584 refs/heads/test",
+    "f4d3c0959ce59b400ab537326f3953af11ab0bcf refs/tags/4.24.0",
+    "f4d3c0959ce59b400ab537326f3953af11ab0bcf refs/tags/4.25.0",
+    "f4d3c0959ce59b400ab537326f3953af11ab0bcf refs/tags/4.26.0"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/RuntimeAudioImporter",
+  "source_created_at": "2021-03-06T05:07:27Z",
+  "source_name": "storytold/RuntimeAudioImporter",
+  "source_pushed_at": "2021-03-07T00:03:28Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
