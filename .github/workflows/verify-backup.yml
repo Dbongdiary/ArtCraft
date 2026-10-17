@@ -330,11 +330,19 @@ jobs:
                if good:
                 for i,args in enumerate(steps):
                  cc,tt=command(args,repo,180,label='sample-'+str(i));good=good and cc==0
-                 if name=='gridcraft' and i==0:good=good and '2' in tt
+                 if name=='gridcraft' and i==0:good=good and any(line.strip()=='2' for line in tt.splitlines())
                  if name=='pdfcraft' and i==0:good=good and 'ARCHIVE SMOKE' in tt
                 if name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft','pdfcraft']:
                  if pdf.exists():
                   cc,tt=command(['pdfinfo',str(pdf)],timeout=60,label='sample-pdf-validation');good=good and cc==0 and bool(re.search(r'Pages:\s+[1-9]',tt));validation['pdf_info']=tt
+                  if name=='pdfcraft':
+                   good=good and bool(re.search(r'^Title:\s+Smoke\s*$',tt,re.M));cc,tt=command(['pdftotext',str(pdf),'-'],timeout=60,label='sample-edited-text');good=good and cc==0 and 'ARCHIVE SMOKE' in tt
+                  cc,tt=command(['pdftoppm','-f','1','-singlefile','-scale-to','1024','-png',str(pdf),str(out/'export-preview')],timeout=60,label='sample-pdf-preview');good=good and cc==0
+                  preview=out/'export-preview.png'
+                  if preview.exists():
+                   from PIL import Image
+                   with Image.open(preview) as image:good=good and any(a!=b for a,b in image.convert('RGB').getextrema())
+                  else:good=False
                  else:good=False
                 if name in ['cadcraft','effectcraft','filmcraft','lightcraft','pdfcraft','photocraft']:
                  if png.exists() and png.read_bytes()[:8]==b'\x89PNG\r\n\x1a\n':
@@ -350,7 +358,22 @@ jobs:
                  else:good=False
                 if name=='soundcraft':
                  if wav.exists():
-                  with wave.open(str(wav),'rb') as w:validation['wav']={'frames':w.getnframes(),'rate':w.getframerate(),'channels':w.getnchannels()};good=good and w.getnframes()==96000 and w.getframerate()==48000 and w.getsampwidth()==3 and any(w.readframes(w.getnframes()))
+                  with wave.open(str(wav),'rb') as w:
+                   pcm=w.readframes(w.getnframes());validation['wav']={'frames':w.getnframes(),'rate':w.getframerate(),'channels':w.getnchannels(),'pcm_bytes':len(pcm)};good=good and w.getnframes()==96000 and w.getframerate()==48000 and w.getsampwidth()==3 and w.getnchannels()==2 and len(pcm)==96000*2*3 and any(pcm)
+                 else:good=False
+                if name in ['gridcraft','wordcraft']:
+                 import zipfile,xml.etree.ElementTree as ET
+                 doc=out/('budget.xlsx' if name=='gridcraft' else 'sample.docx');part='xl/workbook.xml' if name=='gridcraft' else 'word/document.xml'
+                 if doc.exists():
+                  with zipfile.ZipFile(doc) as z:
+                   good=good and z.testzip() is None;ET.fromstring(z.read(part));validation['office_xml_verified']=part
+                 else:good=False
+                if name=='lightcraft' and png.exists():
+                 baseline=out/'exposure-zero.png';cc,tt=command([str(cli),'render',str(tiny),'-o',str(baseline),'--set','light.exposure=0','--size','32'],repo,180,label='sample-light-baseline');good=good and cc==0
+                 if baseline.exists():
+                  from PIL import Image,ImageStat
+                  with Image.open(baseline) as b,Image.open(png) as p:
+                   before=sum(ImageStat.Stat(b.convert('RGB')).mean);after=sum(ImageStat.Stat(p.convert('RGB')).mean);validation['exposure_brightness']={'baseline':before,'plus_half_stop':after};good=good and after>before
                  else:good=False
                result['sample_workflow']='passed' if good else 'failed_or_blocked';result['sample_validation']=validation
               result['limitations'].append('Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified.')
@@ -403,6 +426,9 @@ jobs:
           import pathlib,json,os,collections
           base=pathlib.Path('.archive/verification');base.mkdir(parents=True,exist_ok=True)
           existing={f.stem:json.loads(f.read_text()) for f in base.glob('*.json') if f.name!='summary.json'}
+          previous_summary=json.loads((base/'summary.json').read_text()) if (base/'summary.json').exists() else {}
+          for n,r in existing.items():
+           if not r.get('verification_run') and previous_summary.get('run'):r['verification_run']=previous_summary['run'];(base/(n+'.json')).write_text(json.dumps(r,indent=2))
           rows=[]
           for f in pathlib.Path('results').rglob('result.json'):
            r=json.loads(f.read_text());n=r.get('repository','')
@@ -411,15 +437,15 @@ jobs:
           rows=list(existing.values())
           rows.sort(key=lambda x:x['repository'].lower())
           run='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']
-          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Check result | Sample workflow | Details |','|---|---|---|---|---|']
+          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Build/test result | JavaScript | Sample workflow | Virtual display | Details |','|---|---|---|---|---|---|---|']
           for r in rows:
-           n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | '+r.get('sample_workflow','not tested')+' | ['+r.get('kind','details')+']('+n+'.json) |')
+           n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | '+('; '.join((j.get('directory') or 'root')+': '+j.get('status','unknown') for j in r.get('javascript_checks',[])) or 'not tested')+' | '+r.get('sample_workflow','not tested')+' | '+r.get('headless_launch','not tested')+' | ['+r.get('kind','details')+']('+n+'.json) |')
           counts=dict(collections.Counter(r.get('status','unknown') for r in rows))
           lines+=['','## Coverage','',json.dumps(counts,sort_keys=True),'',str(len(rows))+' repository result files received. Any omitted repository is unverified.','', '## Concrete missing source paths','']
           for r in rows:
            for p in r.get('missing_paths',[]):lines.append('- '+r['repository']+': '+p['manifest']+' -> '+p['path'])
-          lines+=['','## Original Git references and service/model requirements','', 'Each repository JSON records pinned Git dependencies, missing Cargo paths, model filename references, service domains, exact commands, exit codes and limitations. Logs are retained in this run\'s GitHub Actions artifacts. Original releases/installers, hosted databases, API credentials, paid plugins and external model downloads are not automatically preserved by a source archive.','', 'The previously unavailable moonTripoSR and glow-tts-multispeaker references remain unresolved. See ../dependencies/status.json.']
-          (base/'README.md').write_text('\n'.join(lines)+'\n');(base/'summary.json').write_text(json.dumps({'run':run,'result_count':len(rows),'counts':counts,'repositories':[{'name':r['repository'],'status':r.get('status'),'restored':r.get('restored')} for r in rows]},indent=2))
+          lines+=['','## Original Git references and service/model requirements','', 'Each repository JSON records pinned Git dependencies, missing Cargo paths, model filename references, service domains, exact commands, exit codes and limitations. Logs and generated sample files are retained in the GitHub Actions artifacts of each result JSON\'s verification_run. Results can come from more than one run. Original releases/installers, hosted databases, API credentials, paid plugins and external model downloads are not automatically preserved by a source archive.','', 'The previously unavailable moonTripoSR and glow-tts-multispeaker references remain unresolved. See ../dependencies/status.json.']
+          (base/'README.md').write_text('\n'.join(lines)+'\n');(base/'summary.json').write_text(json.dumps({'run':run,'result_count':len(rows),'counts':counts,'repositories':[{'name':r['repository'],'status':r.get('status'),'restored':r.get('restored'),'sample_workflow':r.get('sample_workflow'),'headless_launch':r.get('headless_launch'),'javascript_checks':r.get('javascript_checks',[]),'verification_run':r.get('verification_run')} for r in rows]},indent=2))
           readme=pathlib.Path('README.md');s=readme.read_text();marker='## Backup usability verification'
           if marker in s:s=s.split(marker)[0].rstrip()+'\n'
           s+='\n'+marker+'\n\nSee [.archive/verification/README.md](.archive/verification/README.md) for GitHub-hosted restore/build checks and unresolved runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.\n'
