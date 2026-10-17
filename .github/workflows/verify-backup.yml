@@ -371,108 +371,7 @@ jobs:
                  if pdf.exists():
                   cc,tt=command(['pdfinfo',str(pdf)],timeout=60,label='sample-pdf-validation');good=good and cc==0 and bool(re.search(r'Pages:\s+[1-9]',tt));validation['pdf_info']=tt
                   if name=='pdfcraft':
-                   good=good and bool(re.search(r'^Title:\s+Smoke\s*
-      - name: Save evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: verification-${{ matrix.repo }}
-          path: audit-results/
-          retention-days: 30
-  publish:
-    if: always()
-    needs: verify
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-      actions: read
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            /.archive/verification/
-            /README.md
-      - name: Recover completed earlier evidence
-        if: inputs.previous_run != ''
-        uses: actions/download-artifact@v4
-        with:
-          github-token: ${{ github.token }}
-          run-id: ${{ inputs.previous_run }}
-          pattern: verification-*
-          path: baseline-results
-          merge-multiple: true
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: verification-*
-          path: results
-          merge-multiple: true
-      - name: Publish per-repository evidence
-        env:
-          BASELINE_RUN: ${{ inputs.previous_run }}
-        run: |
-          python3 - <<'PY'
-          import pathlib,json,os,collections
-          base=pathlib.Path('.archive/verification');base.mkdir(parents=True,exist_ok=True)
-          existing={f.stem:json.loads(f.read_text()) for f in base.glob('*.json') if f.name!='summary.json'}
-          previous_summary=json.loads((base/'summary.json').read_text()) if (base/'summary.json').exists() else {}
-          for n,r in existing.items():
-           if not r.get('verification_run') and previous_summary.get('run'):r['verification_run']=previous_summary['run'];(base/(n+'.json')).write_text(json.dumps(r,indent=2))
-          baseline=os.environ.get('BASELINE_RUN','')
-          for f in pathlib.Path('baseline-results').rglob('result.json'):
-           r=json.loads(f.read_text());n=r.get('repository','')
-           if not n or '/' in n or '..' in n:continue
-           r['verification_run']='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+baseline;existing[n]=r;(base/(n+'.json')).write_text(json.dumps(r,indent=2))
-          rows=[]
-          for f in pathlib.Path('results').rglob('result.json'):
-           r=json.loads(f.read_text());n=r.get('repository','')
-           if not n or '/' in n or '..' in n:continue
-           r['verification_run']='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'];existing[n]=r;(base/(n+'.json')).write_text(json.dumps(r,indent=2))
-          for n,r in existing.items():
-           old_status=r.get('status','unknown')
-           no_binary_build=any(c.get('check')=='cargo-build' and c.get('exit_code')==0 and 'no targets matched' in c.get('tail','') and 'no-op' in c.get('tail','') for c in r.get('checks',[]))
-           if no_binary_build:r['cargo_binary_build_status']='no_op_no_binary_targets'
-           if r.get('kind')=='rust' and old_status in ['build_and_tests_passed','package_builds_passed_tests_not_run']:
-            r.setdefault('rust_status',old_status)
-            if any(j.get('status')!='checks_passed' for j in r.get('javascript_checks',[])):r['status']='rust_checks_passed_javascript_blocked_or_incomplete'
-            elif no_binary_build:r['status']='tests_passed_no_binary_build'
-           restored_by_path={d['path']:d for d in r.get('dependency_restores',[])}
-           for ref in r.get('submodule_references',[]):
-            restored=restored_by_path.get(ref.get('path'))
-            if restored:
-             ref.setdefault('source_capture_status',ref.get('status'));ref['status']=restored['status']
-           if r.get('status')!=old_status:r.setdefault('status_before_aggregation',old_status)
-           r['report_interpretation_version']=1
-           (base/(n+'.json')).write_text(json.dumps(r,indent=2))
-          rows=list(existing.values())
-          rows.sort(key=lambda x:x['repository'].lower())
-          run='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']
-          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [FINDINGS.md](FINDINGS.md) for the human-readable conclusions and [REQUIREMENTS.md](REQUIREMENTS.md) for confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Build/test result | JavaScript | Sample workflow | Virtual display | Details |','|---|---|---|---|---|---|---|']
-          for r in rows:
-           n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | '+('; '.join((j.get('directory') or 'root')+': '+j.get('status','unknown') for j in r.get('javascript_checks',[])) or 'not tested')+' | '+r.get('sample_workflow','not tested')+' | '+r.get('headless_launch','not tested')+' | ['+r.get('kind','details')+']('+n+'.json) |')
-          counts=dict(collections.Counter(r.get('status','unknown') for r in rows))
-          lines+=['','## Coverage','',json.dumps(counts,sort_keys=True),'',str(len(rows))+' repository result files received. Any omitted repository is unverified.','', '## Concrete missing source paths','']
-          for r in rows:
-           for p in r.get('missing_paths',[]):lines.append('- '+r['repository']+': '+p['manifest']+' -> '+p['path'])
-          lines+=['','## Original Git references and service/model requirements','', 'Each repository JSON records pinned Git dependencies, missing Cargo paths, model filename references, service domains, exact commands, exit codes and limitations. Logs and generated sample files are retained in the GitHub Actions artifacts of each result JSON\'s verification_run. Results can come from more than one run. Original releases/installers, hosted databases, API credentials, paid plugins and external model downloads are not automatically preserved by a source archive.','', 'The previously unavailable moonTripoSR and glow-tts-multispeaker references remain unresolved. See ../dependencies/status.json.']
-          (base/'README.md').write_text('\n'.join(lines)+'\n');(base/'summary.json').write_text(json.dumps({'run':run,'result_count':len(rows),'counts':counts,'repositories':[{'name':r['repository'],'status':r.get('status'),'restored':r.get('restored'),'sample_workflow':r.get('sample_workflow'),'headless_launch':r.get('headless_launch'),'javascript_checks':r.get('javascript_checks',[]),'verification_run':r.get('verification_run')} for r in rows]},indent=2))
-          readme=pathlib.Path('README.md');s=readme.read_text();marker='## Backup usability verification'
-          if marker in s:s=s.split(marker)[0].rstrip()+'\n'
-          s+='\n'+marker+'\n\nSee [.archive/verification/FINDINGS.md](.archive/verification/FINDINGS.md) for the conclusions, [.archive/verification/README.md](.archive/verification/README.md) for all 66 result records, and [.archive/verification/REQUIREMENTS.md](.archive/verification/REQUIREMENTS.md) for missing runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.\n'
-          s=s.replace('Source code, hooks, workflows and build scripts are never executed.','The archival workflows do not execute source code, hooks or build scripts; the separate verification workflow executes builds and tests only on GitHub runners.').replace('Source code and hooks are never executed.','The dependency archival workflow does not execute source code or hooks.')
-          readme.write_text(s)
-          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('\n'.join(lines))
-          
-          PY
-      - name: Save report in archive
-        run: |
-          git config user.name 'ArtCraft Verification'
-          git config user.email 'actions@users.noreply.github.com'
-          git add .archive/verification README.md
-          git diff --cached --quiet || git commit -m 'Record GitHub-hosted backup usability verification'
-          git push origin HEAD:main
-,tt,re.M));cc,tt=command(['pdftotext',str(pdf),'-'],timeout=60,label='sample-edited-text');good=good and cc==0 and 'ARCHIVE SMOKE' in tt
+                   good=good and bool(re.search(r'^Title:\s+Smoke\s*$',tt,re.M));cc,tt=command(['pdftotext',str(pdf),'-'],timeout=60,label='sample-edited-text');good=good and cc==0 and 'ARCHIVE SMOKE' in tt
                   cc,tt=command(['pdftoppm','-f','1','-singlefile','-scale-to','1024','-png',str(pdf),str(out/'export-preview')],timeout=60,label='sample-pdf-preview');good=good and cc==0
                   preview=out/'export-preview.png'
                   if preview.exists():
@@ -587,10 +486,26 @@ jobs:
            r=json.loads(f.read_text());n=r.get('repository','')
            if not n or '/' in n or '..' in n:continue
            r['verification_run']='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'];existing[n]=r;(base/(n+'.json')).write_text(json.dumps(r,indent=2))
+          for n,r in existing.items():
+           old_status=r.get('status','unknown')
+           no_binary_build=any(c.get('check')=='cargo-build' and c.get('exit_code')==0 and 'no targets matched' in c.get('tail','') and 'no-op' in c.get('tail','') for c in r.get('checks',[]))
+           if no_binary_build:r['cargo_binary_build_status']='no_op_no_binary_targets'
+           if r.get('kind')=='rust' and old_status in ['build_and_tests_passed','package_builds_passed_tests_not_run']:
+            r.setdefault('rust_status',old_status)
+            if any(j.get('status')!='checks_passed' for j in r.get('javascript_checks',[])):r['status']='rust_checks_passed_javascript_blocked_or_incomplete'
+            elif no_binary_build:r['status']='tests_passed_no_binary_build'
+           restored_by_path={d['path']:d for d in r.get('dependency_restores',[])}
+           for ref in r.get('submodule_references',[]):
+            restored=restored_by_path.get(ref.get('path'))
+            if restored:
+             ref.setdefault('source_capture_status',ref.get('status'));ref['status']=restored['status']
+           if r.get('status')!=old_status:r.setdefault('status_before_aggregation',old_status)
+           r['report_interpretation_version']=1
+           (base/(n+'.json')).write_text(json.dumps(r,indent=2))
           rows=list(existing.values())
           rows.sort(key=lambda x:x['repository'].lower())
           run='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']
-          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Build/test result | JavaScript | Sample workflow | Virtual display | Details |','|---|---|---|---|---|---|---|']
+          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [FINDINGS.md](FINDINGS.md) for the human-readable conclusions and [REQUIREMENTS.md](REQUIREMENTS.md) for confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Build/test result | JavaScript | Sample workflow | Virtual display | Details |','|---|---|---|---|---|---|---|']
           for r in rows:
            n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | '+('; '.join((j.get('directory') or 'root')+': '+j.get('status','unknown') for j in r.get('javascript_checks',[])) or 'not tested')+' | '+r.get('sample_workflow','not tested')+' | '+r.get('headless_launch','not tested')+' | ['+r.get('kind','details')+']('+n+'.json) |')
           counts=dict(collections.Counter(r.get('status','unknown') for r in rows))
@@ -601,7 +516,8 @@ jobs:
           (base/'README.md').write_text('\n'.join(lines)+'\n');(base/'summary.json').write_text(json.dumps({'run':run,'result_count':len(rows),'counts':counts,'repositories':[{'name':r['repository'],'status':r.get('status'),'restored':r.get('restored'),'sample_workflow':r.get('sample_workflow'),'headless_launch':r.get('headless_launch'),'javascript_checks':r.get('javascript_checks',[]),'verification_run':r.get('verification_run')} for r in rows]},indent=2))
           readme=pathlib.Path('README.md');s=readme.read_text();marker='## Backup usability verification'
           if marker in s:s=s.split(marker)[0].rstrip()+'\n'
-          s+='\n'+marker+'\n\nSee [.archive/verification/README.md](.archive/verification/README.md) for GitHub-hosted restore/build checks and unresolved runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.\n'
+          s+='\n'+marker+'\n\nSee [.archive/verification/FINDINGS.md](.archive/verification/FINDINGS.md) for the conclusions, [.archive/verification/README.md](.archive/verification/README.md) for all 66 result records, and [.archive/verification/REQUIREMENTS.md](.archive/verification/REQUIREMENTS.md) for missing runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.\n'
+          s=s.replace('Source code, hooks, workflows and build scripts are never executed.','The archival workflows do not execute source code, hooks or build scripts; the separate verification workflow executes builds and tests only on GitHub runners.').replace('Source code and hooks are never executed.','The dependency archival workflow does not execute source code or hooks.')
           readme.write_text(s)
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('\n'.join(lines))
           
