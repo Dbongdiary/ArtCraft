@@ -1,0 +1,2400 @@
+{
+  "repository": "photocraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.3,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libxkbcommon-x11-0",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev",
+        "libwebkit2gtk-4.1-dev",
+        "libayatana-appindicator3-dev",
+        "librsvg2-dev",
+        "libxdo-dev",
+        "libzmq3-dev",
+        "libsodium-dev",
+        "poppler-utils",
+        "python3-pil"
+      ],
+      "exit_code": 0,
+      "seconds": 42.8,
+      "tail": " up libavc1394-0:amd64 (0.5.4-5build3) ...\nSetting up gsettings-desktop-schemas (46.1-0ubuntu1) ...\nSetting up glib-networking-services (2.80.0-1build1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libkdb5-10t64:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up libgstreamer-plugins-base1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up gir1.2-javascriptcoregtk-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up python3-pil:amd64 (10.2.0-1ubuntu1.3) ...\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\nSetting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libgstreamer-gl1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up gstreamer1.0-plugins-base:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libayatana-appindicator3-1 (0.5.93-1build3) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up libshout3:amd64 (2.4.6-1build2) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up libkadm5srv-mit12:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...\nSetting up gir1.2-ayatanaappindicator3-0.1 (0.5.93-1build3) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up krb5-multidev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libkrb5-dev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libzmq3-dev:amd64 (4.3.5-1build2) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up glib-networking:amd64 (2.80.0-1build1) ...\nProcessing triggers for install-info (7.1-3build2) ...\nSetting up libjavascriptcoregtk-4.1-dev:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libsoup-3.0-0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up gir1.2-soup-3.0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libsoup-3.0-dev:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libwebkit2gtk-4.1-0:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up gir1.2-webkit2-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxdo-dev (1:3.20160805.1-5build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up librsvg2-dev:amd64 (2.58.0+dfsg-1ubuntu0.1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libayatana-ido3-dev (0.10.1-1build2) ...\nSetting up libayatana-indicator3-dev (0.9.4-1build1) ...\nSetting up libwebkit2gtk-4.1-dev (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libayatana-appindicator3-dev (0.5.93-1build3) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1338]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.5,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/affinity#photocraft-affinity@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/algo#photocraft-algo@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/color#photocraft-color@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/cms#photocraft-cms@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/geom#photocraft-geom@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/raster#photocraft-raster@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/automation#photocraft-automation@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/codecs#photocraft-codecs@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/heif#photocraft-heif@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/compose#photocraft-compose@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/doc#photocraft-doc@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/vector#photocraft-vector@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/paint#photocraft-paint@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/engine#photocraft-engine@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/format#photocraft-format@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/io#photocraft-io@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/psd#photocraft-psd@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/raw#photocraft-raw@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/text#photocraft-text@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/ops#photocraft-ops@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/plugins#photocraft-plugins@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/gpu#photocraft-gpu@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/tablet#photocraft-tablet@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/testkit#photocraft-testkit@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/ui-egui#photocraft-ui-egui@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft#0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-cli#0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-web#0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-web-boot#0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/xtask#0.9.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/affinity#photocraft-affinity@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/algo#photocraft-algo@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/automation#photocraft-automation@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/cms#photocraft-cms@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/codecs#photocraft-codecs@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/color#photocraft-color@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/compose#photocraft-compose@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/doc#photocraft-doc@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/engine#photocraft-engine@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/format#photocraft-format@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/geom#photocraft-geom@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/gpu#photocraft-gpu@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/heif#photocraft-heif@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/io#photocraft-io@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/ops#photocraft-ops@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/paint#photocraft-paint@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/plugins#photocraft-plugins@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/psd#photocraft-psd@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/raster#photocraft-raster@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/raw#photocraft-raw@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/tablet#photocraft-tablet@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/testkit#photocraft-testkit@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/text#photocraft-text@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/ui-egui#photocraft-ui-egui@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/vector#photocraft-vector@0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft#0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-cli#0.9.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/photocraft/xtask#0.9.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/photocraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 124,
+      "seconds": 900.1,
+      "tail": "waker v1.1.2\n   Compiling piper v0.2.5\n   Compiling x11rb v0.13.2\n   Compiling kurbo v0.13.1\n   Compiling async-signal v0.2.14\n   Compiling zbus_xml v5.2.1\n   Compiling async-lock v3.4.2\n   Compiling wayland-protocols-wlr v0.3.12\n   Compiling color v0.3.3\n   Compiling euclid v0.22.14\n   Compiling thiserror v1.0.69\n   Compiling rustix v0.38.44\n   Compiling guillotiere v0.7.0\n   Compiling peniko v0.6.1\n   Compiling async-process v2.5.0\n   Compiling zbus-lockstep v0.5.2\n   Compiling blocking v1.7.0\n   Compiling async-executor v1.14.0\n   Compiling zbus_macros v5.19.0\n   Compiling async-broadcast v0.7.2\n   Compiling ordered-stream v0.2.0\n   Compiling serde_repr v0.1.21\n   Compiling async-trait v0.1.92\n   Compiling async-recursion v1.1.1\n   Compiling thiserror-impl v1.0.69\n   Compiling epaint_default_fonts v0.36.2\n   Compiling xcursor v0.3.11\n   Compiling unicode-general-category v1.1.0\n   Compiling xkeysym v0.2.1\n   Compiling linux-raw-sys v0.4.15\n   Compiling typeid v1.0.3\n   Compiling fearless_simd v0.4.1\n   Compiling cursor-icon v1.2.0\n   Compiling hex v0.4.3\n   Compiling zbus v5.19.0\n   Compiling wayland-csd-frame v0.3.0\n   Compiling vello_common v0.1.0\n   Compiling wayland-cursor v0.31.14\n   Compiling zbus-lockstep-macros v0.5.2\n   Compiling phf_shared v0.13.1\n   Compiling emath v0.36.2\n   Compiling pollster v1.0.1\n   Compiling phf_generator v0.13.1\n   Compiling atspi-common v0.13.0\n   Compiling ecolor v0.36.2\n   Compiling calloop v0.13.0\n   Compiling vello_cpu v0.1.0\n   Compiling x11-dl v2.21.0\n   Compiling smithay-client-toolkit v0.19.2\n   Compiling percent-encoding v2.3.2\n   Compiling self_cell v1.3.0\n   Compiling unicode-segmentation v1.13.3\n   Compiling foldhash v0.1.5\n   Compiling nohash-hasher v0.2.0\n   Compiling epaint v0.36.2\n   Compiling hashbrown v0.15.5\n   Compiling ron v0.12.2\n   Compiling calloop-wayland-source v0.3.0\n   Compiling phf_macros v0.13.1\n   Compiling winit v0.30.13\n   Compiling itertools v0.15.0\n   Compiling fixedbitset v0.5.7\n   Compiling petgraph v0.8.3\n   Compiling phf v0.13.1\n   Compiling egui v0.36.2\n   Compiling atspi-proxies v0.13.0\n   Compiling xkbcommon-dl v0.4.2\n   Compiling photocraft-gpu v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/gpu)\n   Compiling accesskit_consumer v0.36.0\n   Compiling wayland-protocols-plasma v0.3.12\n   Compiling calloop v0.14.4\n   Compiling nom v8.0.0\n   Compiling dpi v0.1.2\n   Compiling smol_str v0.2.2\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling tree_magic_mini v3.2.2\n   Compiling calloop-wayland-source v0.4.1\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling atspi v0.29.0\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling os_pipe v1.2.3\n   Compiling wl-clipboard-rs v0.9.4\n   Compiling accesskit_unix v0.21.1\n   Compiling web-time v1.1.0\n   Compiling rustc-hash v2.1.3\n   Compiling type-map v0.5.1\n   Compiling smithay-clipboard v0.7.3\n   Compiling accesskit_winit v0.32.2\n   Compiling arboard v3.6.1\n   Compiling egui-winit v0.36.2\n   Compiling egui-wgpu v0.36.2\n   Compiling enum-map-derive v0.17.0\n   Compiling eframe v0.36.2\n   Compiling enum-map v2.7.3\n   Compiling photocraft-ui-egui v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/ui-egui)\n   Compiling is-docker v0.2.0\n   Compiling is-wsl v0.4.0\n   Compiling egui_extras v0.36.2\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling sys-locale v0.3.2\n   Compiling open v5.4.4\n   Compiling anyhow v1.0.104\n   Compiling memory-stats v1.2.0\n   Compiling lazy_static v1.5.0\n   Compiling colored v2.2.0\n   Compiling accesskit_consumer v0.35.0\n   Compiling getopts v0.2.24\n   Compiling dify v0.8.0\n   Compiling kittest v0.4.0\n   Compiling photocraft-testkit v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/testkit)\n   Compiling egui_kittest v0.36.2\n   Compiling strsim v0.11.1\n   Compiling io-lifetimes v2.0.4\n   Compiling io-lifetimes v3.0.1\n   Compiling ident_case v1.0.1\n   Compiling darling_core v0.24.1\n   Compiling tokio-macros v2.7.2\n   Compiling socket2 v0.6.5\n   Compiling mio v1.2.3\n   Compiling bytes v1.12.1\n   Compiling io-extras v0.19.0\n   Compiling ref-cast v1.0.27\n   Compiling ref-cast-impl v1.0.27\n   Compiling serde_derive_internals v0.30.0\n   Compiling tokio v1.53.1\n   Compiling darling_macro v0.24.1\n   Compiling cap-primitives v4.0.3\n   Compiling darling v0.24.1\n   Compiling fs-set-times v0.20.3\n   Compiling futures-executor v0.3.34\n   Compiling chrono v0.4.45\n   Compiling rustix-linux-procfs v0.1.1\n   Compiling maybe-owned v0.3.4\n   Compiling rmcp v3.5.0\n   Compiling dyn-clone v1.0.20\n   Compiling ipnet v2.12.2\n   Compiling cap-std v4.0.3\n   Compiling ambient-authority v0.0.2\n   Compiling futures v0.3.34\n   Compiling rmcp-macros v3.5.0\n   Compiling tokio-stream v0.1.19\n   Compiling tokio-util v0.7.19\n   Compiling pastey v0.2.3\n   Compiling schemars_derive v1.2.2\n   Compiling winresource v0.1.31\n   Compiling zune-jpegxl v0.5.2\n   Compiling photocraft-cli v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-cli)\n   Compiling photocraft-tablet v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/tablet)\n   Compiling rfd v0.17.2\n   Compiling anstyle v1.0.14\n   Compiling ciborium-io v0.2.2\n   Compiling clap_lex v1.1.1\n   Compiling clap_builder v4.6.7\n   Compiling ciborium-ll v0.2.2\n   Compiling photocraft v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft)\n   Compiling regex-automata v0.4.18\n   Compiling itertools v0.10.5\n   Compiling cast v0.3.0\n   Compiling schemars v1.2.2\n   Compiling pollster v0.4.0\n   Compiling same-file v1.0.6\n   Compiling walkdir v2.5.0\n   Compiling criterion-plot v0.5.0\n   Compiling regex v1.13.1\n   Compiling ciborium v0.2.2\n   Compiling clap v4.6.7\n   Compiling tinytemplate v1.2.1\n   Compiling is-terminal v0.4.17\n   Compiling oorandom v11.1.5\n   Compiling anes v0.1.6\n   Compiling criterion v0.5.1\n   Compiling heic-rs v0.1.4\n   Compiling photocraft-automation v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/automation)\n   Compiling photocraft-heif v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/heif)\n   Compiling photocraft-web v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-web)\n   Compiling xtask v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/xtask)\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 253.6,
+      "tail": "   Compiling getrandom v0.3.4\n   Compiling image v0.25.10\n   Compiling tiff v0.11.3\n   Compiling ahash v0.8.12\n   Compiling epaint v0.36.2\n   Compiling photocraft-codecs v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/codecs)\n   Compiling photocraft-psd v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/psd)\n   Compiling egui v0.36.2\n   Compiling photocraft-text v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/text)\n   Compiling photocraft-raw v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/raw)\n   Compiling photocraft-format v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/format)\n   Compiling photocraft-affinity v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/affinity)\n   Compiling winit v0.30.13\n   Compiling photocraft-io v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/io)\n   Compiling tempfile v3.27.0\n   Compiling photocraft-engine v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/engine)\n   Compiling rmcp v3.5.0\n   Compiling accesskit_winit v0.32.2\n   Compiling arboard v3.6.1\n   Compiling egui-winit v0.36.2\n   Compiling egui-wgpu v0.36.2\n   Compiling eframe v0.36.2\n   Compiling photocraft-automation v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/automation)\n   Compiling egui_extras v0.36.2\n   Compiling photocraft-ui-egui v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/crates/ui-egui)\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling photocraft-cli v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-cli)\n   Compiling xtask v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/xtask)\n   Compiling photocraft-web-boot v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-web-boot)\n   Compiling photocraft v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft)\n   Compiling photocraft-web v0.9.0 (/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/apps/photocraft-web)\n    Finished `dev` profile [optimized] target(s) in 4m 13s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/target/debug/photocraft"
+      ],
+      "exit_code": 124,
+      "seconds": 15.0,
+      "tail": "2026-10-17T22:03:33.383Z INFO  [main] photocraft::app_dirs: settings directory (Platform): Some(\"/home/runner/.config/photocraft\")\n2026-10-17T22:03:33.383Z INFO  [main] photocraft: PhotoCraft 0.9.0 (dev build), log file /home/runner/.config/photocraft/logs/photocraft.log\n2026-10-17T22:03:33.393Z INFO  [main] photocraft: presentation: autovsync, latency 1\n2026-10-17T22:03:33.393Z INFO  [main] photocraft: GPU startup: Plan { backend: Auto, env: None, reason: None, remember: false } (0.13 ms)\n2026-10-17T22:03:33.398Z WARN  [?] photocraft::monitor_profile::linux: couldn't read X11 display profiles from colord: colord couldn't list display devices: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.ColorManager was not provided by any .service files\n2026-10-17T22:03:33.399Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n2026-10-17T22:03:33.479Z WARN  [main] winit::platform_impl::linux::x11::util::randr: XRandR reported that the display's 0mm in size, which is certifiably insane\nlibEGL warning: DRI3 error: Could not get DRI3 device\nlibEGL warning: Ensure your X server supports DRI3 to get accelerated rendering\n2026-10-17T22:03:33.757Z WARN  [main] egui_wgpu: Software rasterizer detected - loss of performance expected. backend: Vulkan, device_type: Cpu, name: \"llvmpipe (LLVM 20.1.2, 256 bits)\", driver: \"llvmpipe\", driver_info: \"Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)\", vendor: Mesa (0x10005), subgroup_size: 8..=8, transient_saves_memory: Some(false), limit_bucket: None\n2026-10-17T22:03:33.783Z INFO  [file dialog probe] photocraft::file_dialog_probe: file dialog backends: Findings { libdbus: Some(true), file_chooser_portal: Some(false), zenity: false }\n"
+    },
+    {
+      "check": "sample-0",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/photocraft/target/debug/photocraft-cli",
+        "run",
+        "--new",
+        "{\"width\":40,\"height\":30,\"name\":\"Run\"}",
+        "--cmd",
+        "layer.new.layer",
+        "--params",
+        "{\"name\":\"Ink\"}",
+        "--cmd",
+        "paint.stroke",
+        "--params",
+        "{\"points\":[[2,2,1],[30,20,1]],\"size\":5,\"color\":\"#00ff00\"}",
+        "--out",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/photocraft/sample.png"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "{\"command\":\"layer.new.layer\",\"result\":{\"layer\":3}}\n{\"command\":\"paint.stroke\",\"result\":{\"damage\":[-3,-3,38,28]}}\nwarning: 2 layer(s) flattened; layers, masks and blend modes are not kept\n"
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=3d37da389a3618ab9b76109da11416e9ca4ea719#3d37da389a3618ab9b76109da11416e9ca4ea719",
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "git+https://github.com/storytold/winprint.rs?rev=417ac3c4d14d3da5485a99c7d5ce8f05664ec312#417ac3c4d14d3da5485a99c7d5ce8f05664ec312",
+    "git+https://github.com/storytold/winprint.rs?rev=5f80b9baf6b58937c401656634e42d33f00ddf49#5f80b9baf6b58937c401656634e42d33f00ddf49",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#3d37da389a3618ab9b76109da11416e9ca4ea719",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#82a24b006eefa036b43c09a67fb9a3fbd17ffe63"
+  ],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "photocraft",
+    "craft-fonts",
+    "craft-libs",
+    "winprint.rs"
+  ],
+  "source_commit": "06ad0d5c9561d7499dc6f25ce8041b60db2ea1d3",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "font_source_commit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+  "python_syntax": {
+    "files_checked": 2,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "configuration_redactions": [],
+  "javascript_checks": [],
+  "kind": "rust",
+  "archive_contains_cargo_lock": true,
+  "cargo_packages": [
+    {
+      "name": "photocraft-affinity",
+      "targets": [
+        {
+          "name": "photocraft_affinity",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "real_files",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-algo",
+      "targets": [
+        {
+          "name": "photocraft_algo",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench_algorithms",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_filters2",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_gaussian",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_iris",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_liquify",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_photo",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_pixelate",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_radial",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_redeye",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_retouch",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_shape_blur",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_smartselect",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_tilt_shift",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "photo_workflow_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "retouch_blur_exact",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "warp_clipped",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-color",
+      "targets": [
+        {
+          "name": "photocraft_color",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-cms",
+      "targets": [
+        {
+          "name": "photocraft_cms",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "cms",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "regen",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-geom",
+      "targets": [
+        {
+          "name": "photocraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-raster",
+      "targets": [
+        {
+          "name": "photocraft_raster",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-automation",
+      "targets": [
+        {
+          "name": "photocraft_automation",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "agent_tasks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "agent_tasks_more",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "bridge",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "inactive_save",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "krita",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layered_save_dirty",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mcp",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mcp_wire",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "missing_font_warnings",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "native_save_name",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "openraster",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_filter_authorization",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-codecs",
+      "targets": [
+        {
+          "name": "photocraft_codecs",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "camera_raw",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dds",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "decode_warnings",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "deep_exr",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "detect_caps",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dpx",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "exr_cryptomatte",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "exr_multipart",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fidelity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gif_frames",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "heif",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "limits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "malformed",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "metadata",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "orientation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pcx",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "png_jpeg",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pnm_headers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pnm_peak_memory",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "resolution",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "source_settings",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tga",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_bench",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_exif",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_lab",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_pages",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_photoshop",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_regressions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "webp_lossy",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "xpm",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-heif",
+      "targets": [
+        {
+          "name": "photocraft_heif",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-compose",
+      "targets": [
+        {
+          "name": "photocraft_compose",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench_flatten",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_tsly_stroke",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "artboard",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "compose",
+          "kind": [
+            "bench"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-doc",
+      "targets": [
+        {
+          "name": "photocraft_doc",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-vector",
+      "targets": [
+        {
+          "name": "photocraft_vector",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "stroke_bench",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-paint",
+      "targets": [
+        {
+          "name": "photocraft_paint",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench_brush",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-engine",
+      "targets": [
+        {
+          "name": "photocraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "abr_memory",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_blur_tool",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_command_lookup",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_display",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_marquee",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_pattern_stamp",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_plugin_invert",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_smartselect_cmds",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_symmetry",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_web",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_web_palette",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "content_aware_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "designer_psd",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "indexed_color_perf",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "remove_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "remove_quality",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "retouch_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "affinity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "artboard_export_names",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "background_layer_consistency",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "brush_smoothing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "camera_raw_noise_clamp",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "clipping_semantics",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "close_document",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "command_lookup",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "crop_content_aware",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "current_affinity_artboards",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "duplicate_layer_comps",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "duplicate_variables",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "empty_selection_combine",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "eraser_locked",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "explicit_layer_target",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fill_lock_transparency",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "filter_locked",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "flatten_background",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gallery_colours",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gauss_small_sigma",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "guide_layout_limit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "guide_layout_preview",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hdr_gamma_direction",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "jpeg_exif_resolution",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "keyboard_shortcut_bulk",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "kra",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "kys_import",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_delete_last",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_mask_depth",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_props_several",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_range_panel_order",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "live_line_transform",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mask_cache_purge",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "merge_transparent_bounds",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "missing_layer_error",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "panic_hunt",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "path_blur_speed_clamp",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "path_transform_target",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdn",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "photoshop_oracles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pixel_lock_edits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "precheck",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "prefs_usage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rasterize_psd_reopen",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rasterize_selected_layers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rendering_preferences",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_keeps_encoding",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "selection_layer_commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shortcut_sets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shortcuts_headless",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_clipboard_sources",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_duplicates",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_filter_canvas_geometry",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_filter_stages",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_psd",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "style_and_align",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "svg_smart_object",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_gamma",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "type_format_targets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "undo_keeps_active_layer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "unicode_colors",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "wand_transparent_copy",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "working_rgb_profile",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-format",
+      "targets": [
+        {
+          "name": "photocraft_format",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "analysis",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "autosave",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "corruption",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "directory_symlinks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_labels",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_contents",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-io",
+      "targets": [
+        {
+          "name": "photocraft_io",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench_abr",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_shuffles",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "big_psb_check",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "gen_abr_library",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "oracle_diff",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "rawlook",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "adjust_blend_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "adjust_warnings",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "affinity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "affinity_artboards",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "affinity_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "annotations",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "artboard_guide_order",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "banded",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "cancel",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "channels",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "cmyk_composite_export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "color",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "composite",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "comps_artboards",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "corpus_regressions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "effects_multi",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "exif_resolution",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "export_progress",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "exr_part_profile",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "flat",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gif_frames",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "heif",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "heif_unsupported",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "krita_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "lab16",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "large_psb",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_labels",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "modes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "multichannel",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "orientation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pattern_fill_psd",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pcraft_manifest_name",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdn_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "png_text_metadata",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd32_export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_background",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_block_alignment",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_block_layout",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_damaged_merged",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_empty_channels",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_font_identity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_kerning",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_layer_block_length",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_maximize_compatibility",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_roundtrip_bytes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_structure",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_style_sheets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_thumbnail",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_type_bounds",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_type_photoshop_bytes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psd_vertical_type",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "raw",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "resolution_axes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_contents_identity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smart_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "svg",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_styles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_layers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tiff_pages",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vector",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "xmp_export",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-psd",
+      "targets": [
+        {
+          "name": "photocraft_psd",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "atn_dump",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench_layer_block",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "big_psb",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "builder",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_block_order",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "malformed",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "merged_recovery",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "proptests",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "swatch_malformed",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tree",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-raw",
+      "targets": [
+        {
+          "name": "photocraft_raw",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "inspect",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "mutate",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "rawinfo",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "cr3",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "development_limits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dng",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hostile",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "nef_packed",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "raf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "raw_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vendor_codecs",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vendors",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-text",
+      "targets": [
+        {
+          "name": "photocraft_text",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-ops",
+      "targets": [
+        {
+          "name": "photocraft_ops",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench_history_trim",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-plugins",
+      "targets": [
+        {
+          "name": "photocraft_plugins",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench_invert",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "wat2wasm",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "abi",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-gpu",
+      "targets": [
+        {
+          "name": "photocraft_gpu",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench_stack_reuse",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "device_loss",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "parity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "uniform_limits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vector_mask",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-tablet",
+      "targets": [
+        {
+          "name": "photocraft_tablet",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "monitor_macos",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-testkit",
+      "targets": [
+        {
+          "name": "photocraft_testkit",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-ui-egui",
+      "targets": [
+        {
+          "name": "photocraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bevel_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "camera_raw_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "color_picker_demo",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "fx_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "huge_doc_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "interactive_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "large_image_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "lasso_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "layout_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "parity",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "perf_scenarios",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "snapshot",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "type_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "unsharp_preview_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "adjust_preview_gpu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "arbitrary_rotation_preview",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "batch_export_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "camera_raw_histogram",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "camera_raw_localization",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "camera_raw_scope",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "camera_raw_zoom",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "canvas_16f",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "checker_canvas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "color_managed_canvas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "crop_beyond_canvas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "crop_default_mode",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "custom_print_paper",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "drag_preview_canvas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "export_as_scaling",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "full_res_preview",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gpu_device_loss",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layout_perf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "live_stroke_canvas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "marquee_autoscroll",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "paint_bucket_all_layers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pattern_preview_canvas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "system_locale",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_scale_canvas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "variables_data_sets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "workspace_presets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft",
+      "targets": [
+        {
+          "name": "photocraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "command_line_usage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "control_exit_code",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mac_menu_appkit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "startup_without_display",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-cli",
+      "targets": [
+        {
+          "name": "photocraft_cli",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "photocraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "orientation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-web",
+      "targets": [
+        {
+          "name": "photocraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photocraft-web-boot",
+      "targets": [
+        {
+          "name": "photocraft-web-boot",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "stayed_running_15_seconds",
+  "sample_workflow": "passed",
+  "sample_validation": {
+    "png_dimensions": [
+      40,
+      30
+    ]
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T22:03:48Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+}

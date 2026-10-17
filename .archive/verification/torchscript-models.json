@@ -179,6 +179,50 @@
       "reference": "/home/bt/models/glow-tts-jaywalnut/pretrained.pth"
     },
     {
+      "file": "glow-tts-jaywalnut/apex/README.md",
+      "reference": "amp_checkpoint.pt"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/apex/contrib/optimizers/fp16_optimizer.py",
+      "reference": "saved.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/apex/fp16_utils/fp16_optimizer.py",
+      "reference": "saved.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/examples/dcgan/main_amp.py",
+      "reference": "%s/netD_epoch_%d.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/examples/dcgan/main_amp.py",
+      "reference": "%s/netG_epoch_%d.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/tests/distributed/amp_master_params/amp_master_params.py",
+      "reference": "rank{}master.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/tests/distributed/amp_master_params/amp_master_params.py",
+      "reference": "rank{}model.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/tests/distributed/amp_master_params/compare.py",
+      "reference": "rank0master.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/tests/distributed/amp_master_params/compare.py",
+      "reference": "rank0model.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/tests/distributed/amp_master_params/compare.py",
+      "reference": "rank1master.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/apex/tests/distributed/amp_master_params/compare.py",
+      "reference": "rank1model.pth"
+    },
+    {
       "file": "glow-tts-jaywalnut/glow-tts/init.py",
       "reference": "ddi_G.pth"
     },
@@ -209,7 +253,6 @@
   ],
   "service_domains": [],
   "limitations": [
-    "Submodules require separately archived dependency restoration; original bundle preserves gitlinks. Full ML execution not attempted.",
     "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
     "Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified."
   ],
@@ -218,8 +261,26 @@
   ],
   "source_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
   "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "lfs_restore": {
+    "status": "not_present"
+  },
+  "dependency_restores": [
+    {
+      "path": "glow-tts-jaywalnut-multispeaker/glow-tts-multispeaker",
+      "pin": "23177d29a09015a4f40fce0b81b315392064f9d7",
+      "status": "known_unavailable",
+      "reason": "Git clone failed (exit 128). Source repository is inaccessible with the available authentication."
+    },
+    {
+      "path": "glow-tts-jaywalnut/apex",
+      "pin": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+      "status": "verified_and_materialized",
+      "source": "NVIDIA/apex",
+      "tree": "47efbe6fd1878c53a1bdfd93e5a813ccf5d00c13"
+    }
+  ],
   "python_syntax": {
-    "files_checked": 26,
+    "files_checked": 166,
     "errors": []
   },
   "submodule_references": [
@@ -236,8 +297,10 @@
   ],
   "lfs_status": "not_present",
   "status": "syntax_checked_runtime_unverified",
+  "configuration_redactions": [],
+  "javascript_checks": [],
   "kind": "python",
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:21:28Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
+  "finished_at": "2026-10-17T21:50:10Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
 }

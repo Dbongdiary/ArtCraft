@@ -1,0 +1,1313 @@
+{
+  "repository": "pdfcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.1,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libxkbcommon-x11-0",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev",
+        "libwebkit2gtk-4.1-dev",
+        "libayatana-appindicator3-dev",
+        "librsvg2-dev",
+        "libxdo-dev",
+        "libzmq3-dev",
+        "libsodium-dev",
+        "poppler-utils",
+        "python3-pil"
+      ],
+      "exit_code": 0,
+      "seconds": 44.6,
+      "tail": " up libavc1394-0:amd64 (0.5.4-5build3) ...\nSetting up gsettings-desktop-schemas (46.1-0ubuntu1) ...\nSetting up glib-networking-services (2.80.0-1build1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libkdb5-10t64:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up libgstreamer-plugins-base1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up gir1.2-javascriptcoregtk-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up python3-pil:amd64 (10.2.0-1ubuntu1.3) ...\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\nSetting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libgstreamer-gl1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up gstreamer1.0-plugins-base:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libayatana-appindicator3-1 (0.5.93-1build3) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up libshout3:amd64 (2.4.6-1build2) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up libkadm5srv-mit12:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...\nSetting up gir1.2-ayatanaappindicator3-0.1 (0.5.93-1build3) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up krb5-multidev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libkrb5-dev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libzmq3-dev:amd64 (4.3.5-1build2) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up glib-networking:amd64 (2.80.0-1build1) ...\nProcessing triggers for install-info (7.1-3build2) ...\nSetting up libjavascriptcoregtk-4.1-dev:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libsoup-3.0-0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up gir1.2-soup-3.0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libsoup-3.0-dev:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libwebkit2gtk-4.1-0:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up gir1.2-webkit2-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxdo-dev (1:3.20160805.1-5build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up librsvg2-dev:amd64 (2.58.0+dfsg-1ubuntu0.1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libayatana-ido3-dev (0.10.1-1build2) ...\nSetting up libayatana-indicator3-dev (0.9.4-1build1) ...\nSetting up libwebkit2gtk-4.1-dev (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libayatana-appindicator3-dev (0.5.93-1build3) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1255]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.4,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/automation#pdfcraft-automation@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/engine#pdfcraft-engine@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/compare#pdfcraft-compare@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/create#pdfcraft-create@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/export#pdfcraft-export@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/forms#pdfcraft-forms@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/geom#pdfcraft-geom@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/js#pdfcraft-js@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/measure#pdfcraft-measure@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/ocr#pdfcraft-ocr@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/optimize#pdfcraft-optimize@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/render#pdfcraft-render@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/organize#pdfcraft-organize@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/preflight#pdfcraft-preflight@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/print#pdfcraft-print@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/redact#pdfcraft-redact@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/xfa#pdfcraft-xfa@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/sign#pdfcraft-sign@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/xfdf#pdfcraft-xfdf@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/platform#pdfcraft-platform@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/ui-egui#pdfcraft-ui-egui@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft-cli#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft-web#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/xtask#0.1.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/a11y#pdfcraft-a11y@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/annot#pdfcraft-annot@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/audit#pdfcraft-audit@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/automation#pdfcraft-automation@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/compare#pdfcraft-compare@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/content#pdfcraft-content@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/cos#pdfcraft-cos@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/create#pdfcraft-create@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/crypt#pdfcraft-crypt@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/edit#pdfcraft-edit@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/engine#pdfcraft-engine@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/export#pdfcraft-export@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/filters#pdfcraft-filters@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/fonts#pdfcraft-fonts@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/forms#pdfcraft-forms@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/geom#pdfcraft-geom@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/js#pdfcraft-js@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/measure#pdfcraft-measure@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/model#pdfcraft-model@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/ocr#pdfcraft-ocr@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/optimize#pdfcraft-optimize@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/oracle#pdfcraft-oracle@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/organize#pdfcraft-organize@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/platform#pdfcraft-platform@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/preflight#pdfcraft-preflight@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/print#pdfcraft-print@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/redact#pdfcraft-redact@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/render#pdfcraft-render@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/sign#pdfcraft-sign@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/testkit#pdfcraft-testkit@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/ui-egui#pdfcraft-ui-egui@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/xfa#pdfcraft-xfa@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/xfdf#pdfcraft-xfdf@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft-cli#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/xtask#0.1.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 124,
+      "seconds": 900.1,
+      "tail": "   Compiling accesskit v0.24.1\n   Compiling ahash v0.8.12\n   Compiling parking_lot v0.12.5\n   Compiling wayland-protocols v0.32.13\n   Compiling hashbrown v0.16.1\n   Compiling raw-window-handle v0.6.2\n   Compiling profiling v1.0.18\n   Compiling khronos_api v3.1.0\n   Compiling rustix v0.38.44\n   Compiling unicode-general-category v1.1.0\n   Compiling thiserror v1.0.69\n   Compiling zbus_xml v5.2.1\n   Compiling vello_common v0.1.0\n   Compiling emath v0.36.2\n   Compiling x11-dl v2.21.0\n   Compiling thiserror-impl v1.0.69\n   Compiling xml-rs v0.8.29\n   Compiling xcursor v0.3.11\n   Compiling cursor-icon v1.2.0\n   Compiling rustc-hash v1.1.0\n   Compiling linux-raw-sys v0.4.15\n   Compiling xkeysym v0.2.1\n   Compiling naga-types v30.0.1\n   Compiling wayland-csd-frame v0.3.0\n   Compiling gl_generator v0.14.0\n   Compiling wayland-cursor v0.31.14\n   Compiling ecolor v0.36.2\n   Compiling vello_cpu v0.1.0\n   Compiling zbus-lockstep v0.5.2\n   Compiling wayland-protocols-wlr v0.3.12\n   Compiling naga v30.0.1\n   Compiling memmap2 v0.9.11\n   Compiling unicode-width v0.2.2\n   Compiling bit-vec v0.9.1\n   Compiling nohash-hasher v0.2.0\n   Compiling self_cell v1.3.0\n   Compiling epaint_default_fonts v0.36.2\n   Compiling ash v0.38.0+1.3.281\n   Compiling epaint v0.36.2\n   Compiling bit-set v0.10.0\n   Compiling codespan-reporting v0.13.1\n   Compiling zbus-lockstep-macros v0.5.2\n   Compiling pdfcraft-js v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/js)\n   Compiling pdfcraft-engine v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/engine)\n   Compiling calloop v0.13.0\n   Compiling ron v0.12.2\n   Compiling gethostname v1.1.0\n   Compiling spirv v0.4.0+sdk-1.4.341.0\n   Compiling as-raw-xcb-connection v1.0.1\n   Compiling khronos-egl v6.0.0\n   Compiling smithay-client-toolkit v0.19.2\n   Compiling x11rb-protocol v0.13.2\n   Compiling egui v0.36.2\n   Compiling x11rb v0.13.2\n   Compiling calloop-wayland-source v0.3.0\n   Compiling atspi-common v0.13.0\n   Compiling wgpu-types v30.0.1\n   Compiling wgpu-hal v30.0.1\n   Compiling winit v0.30.13 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/vendor/winit)\n   Compiling glow v0.17.0\n   Compiling presser v0.3.1\n   Compiling gpu-allocator v0.28.0\n   Compiling wgpu-naga-bridge v30.0.1\n   Compiling xkbcommon-dl v0.4.2\n   Compiling wayland-protocols-plasma v0.3.12\n   Compiling ordered-float v5.5.0\n   Compiling smol_str v0.2.2\n   Compiling dpi v0.1.2\n   Compiling renderdoc-sys v1.1.0\n   Compiling atspi-proxies v0.13.0\n   Compiling glutin_egl_sys v0.7.1\n   Compiling glutin_glx_sys v0.6.1\n   Compiling accesskit_consumer v0.36.0\n   Compiling wgpu-core v30.0.1\n   Compiling calloop v0.14.4\n   Compiling futures-macro v0.3.34\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling futures-task v0.3.34\n   Compiling float-cmp v0.9.0\n   Compiling litrs v1.0.0\n   Compiling strict-num v0.1.1\n   Compiling document-features v0.2.12\n   Compiling calloop-wayland-source v0.4.1\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling atspi v0.29.0\n   Compiling wgpu-core-deps-windows-linux-android v30.0.1\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling wgpu v30.0.1\n   Compiling glutin v0.32.3\n   Compiling arrayref v0.3.9\n   Compiling tiny-skia-path v0.11.4\n   Compiling futures-util v0.3.34\n   Compiling accesskit_unix v0.21.1\n   Compiling glutin-winit v0.5.0\n   Compiling kurbo v0.11.3\n   Compiling web-time v1.1.0\n   Compiling svgtypes v0.15.3\n   Compiling accesskit_winit v0.32.2\n   Compiling smithay-clipboard v0.7.3\n   Compiling arboard v3.6.1\n   Compiling webbrowser v1.2.4\n   Compiling png v0.17.16\n   Compiling type-map v0.5.1\n   Compiling simplecss v0.2.2\n   Compiling data-url v0.3.2\n   Compiling imagesize v0.13.0\n   Compiling xmlwriter v0.1.0\n   Compiling pico-args v0.5.0\n   Compiling usvg v0.45.1\n   Compiling egui-wgpu v0.36.2 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/vendor/egui-wgpu)\n   Compiling tiny-skia v0.11.4\n   Compiling egui-winit v0.36.2\n   Compiling egui_glow v0.36.2\n   Compiling rgb v0.8.53\n   Compiling enum-map-derive v0.17.0\n   Compiling pollster v1.0.1\n   Compiling rfd v0.17.2\n   Compiling eframe v0.36.2\n   Compiling pdfcraft-ui-egui v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/ui-egui)\n   Compiling resvg v0.45.1\n   Compiling enum-map v2.7.3\n   Compiling pollster v0.4.0\n   Compiling egui_extras v0.36.2\n   Compiling craft-quit v0.1.0 (https://github.com/storytold/craft-libs?rev=f58bc1a3df490992d633393d0898af0588ce882c#f58bc1a3)\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling fontconfig-parser v0.5.8\n   Compiling tempfile v3.27.0\n   Compiling accesskit_consumer v0.35.0\n   Compiling kittest v0.4.0\n   Compiling egui_kittest v0.36.2\n   Compiling winresource v0.1.31\n   Compiling pdfcraft-automation v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/automation)\n   Compiling pdfcraft-cli v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft-cli)\n   Compiling ring v0.17.14\n   Compiling rand_core v0.9.5\n   Compiling rustls-pki-types v1.15.1\n   Compiling getrandom v0.2.17\n   Compiling httparse v1.10.1\n   Compiling untrusted v0.9.0\n   Compiling ppv-lite86 v0.2.21\n   Compiling wait-timeout v0.2.1\n   Compiling bytes v1.12.1\n   Compiling fnv v1.0.7\n   Compiling bit-vec v0.8.0\n   Compiling rustls v0.23.46\n   Compiling quick-error v1.2.3\n   Compiling rusty-fork v0.3.1\n   Compiling bit-set v0.8.0\n   Compiling http v1.5.0\n   Compiling rand_chacha v0.9.0\n   Compiling rustls-webpki v0.103.15\n   Compiling rand v0.9.5\n   Compiling rand_xorshift v0.4.0\n   Compiling unarray v0.1.4\n   Compiling regex-syntax v0.8.11\n   Compiling base64 v0.23.1\n   Compiling ureq-proto v0.6.4\n   Compiling proptest v1.11.0\n   Compiling pdfcraft v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft)\n   Compiling pdfcraft-testkit v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/testkit)\n   Compiling utf8-zero v0.8.1\n   Compiling openssl-probe v0.2.1\n   Compiling rustls-native-certs v0.8.4\n   Compiling pdfcraft-oracle v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/oracle)\n   Compiling ureq v3.4.2\n   Compiling xtask v0.1.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/xtask)\n   Compiling pdfcraft-web v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft-web)\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 109.4,
+      "tail": "warning: pdfcraft-fonts@0.8.0: craft-fonts: not embedding Noto Sans CJK SC Regular (AGENTS.md \u00a71.1)\n   Compiling getrandom v0.3.4\n   Compiling xtask v0.1.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/xtask)\n   Compiling ahash v0.8.12\n   Compiling tempfile v3.27.0\n   Compiling epaint v0.36.2\n   Compiling winit v0.30.13 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/vendor/winit)\n   Compiling egui v0.36.2\n   Compiling accesskit_winit v0.32.2\n   Compiling glutin-winit v0.5.0\n   Compiling egui-winit v0.36.2\n   Compiling egui_glow v0.36.2\n   Compiling egui-wgpu v0.36.2 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/vendor/egui-wgpu)\n   Compiling eframe v0.36.2\n   Compiling craft-quit v0.1.0 (https://github.com/storytold/craft-libs?rev=f58bc1a3df490992d633393d0898af0588ce882c#f58bc1a3)\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling egui_extras v0.36.2\n   Compiling pdfcraft-ui-egui v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/ui-egui)\n   Compiling pdfcraft-automation v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/crates/automation)\n   Compiling pdfcraft v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft)\n   Compiling pdfcraft-web v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft-web)\n   Compiling pdfcraft-cli v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/apps/pdfcraft-cli)\n    Finished `dev` profile [optimized] target(s) in 1m 49s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/target/debug/pdfcraft"
+      ],
+      "exit_code": 124,
+      "seconds": 15.0,
+      "tail": "2026-10-17T22:00:52.203Z INFO  [main] pdfcraft: PdfCraft 0.8.0, log file /home/runner/.local/share/pdfcraft/logs/pdfcraft.log\n2026-10-17T22:00:52.209Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\nlibEGL warning: DRI3 error: Could not get DRI3 device\nlibEGL warning: Ensure your X server supports DRI3 to get accelerated rendering\n2026-10-17T22:00:52.595Z INFO  [main] pdfcraft: drawing on llvmpipe (LLVM 20.1.2, 256 bits) (Cpu, Vulkan)\n2026-10-17T22:00:52.626Z WARN  [main] egui_wgpu: Software rasterizer detected - loss of performance expected. backend: Vulkan, device_type: Cpu, name: \"llvmpipe (LLVM 20.1.2, 256 bits)\", driver: \"llvmpipe\", driver_info: \"Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)\", vendor: Mesa (0x10005), subgroup_size: 8..=8, transient_saves_memory: Some(false), limit_bucket: None\n2026-10-17T22:00:52.667Z INFO  [main] pdfcraft: renderer: wgpu; adapter: llvmpipe (LLVM 20.1.2, 256 bits) (Cpu, Vulkan); max_texture_dimension_2d: 16384\n2026-10-17T22:00:52.687Z INFO  [main] pdfcraft_ui_egui::system_fonts: interface font fallback: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf (face 0)\n"
+    },
+    {
+      "check": "sample-0",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/target/debug/pdfcraft-cli",
+        "text",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/tiny.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "ARCHIVE SMOKE\n"
+    },
+    {
+      "check": "sample-1",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/target/debug/pdfcraft-cli",
+        "edit",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/tiny.pdf",
+        "--rotate",
+        "1:90",
+        "--title",
+        "Smoke",
+        "--out",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/sample.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": ""
+    },
+    {
+      "check": "sample-2",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/pdfcraft/target/debug/pdfcraft-cli",
+        "render",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/sample.pdf",
+        "--page",
+        "1",
+        "--dpi",
+        "72",
+        "--out",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/sample.png"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "rendered page 1 at 72 dpi: 72\u00d7144 px in 0 ms\n"
+    },
+    {
+      "check": "sample-pdf-validation",
+      "command": [
+        "pdfinfo",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/sample.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "Title:           Smoke\nModDate:         Sat Oct 17 22:01:06 2026 UTC\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       144 x 72 pts\nPage rot:        90\nFile size:       972 bytes\nOptimized:       no\nPDF version:     1.4\n"
+    },
+    {
+      "check": "sample-edited-text",
+      "command": [
+        "pdftotext",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/sample.pdf",
+        "-"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "ARCHIVE SMOKE\n\n\f"
+    },
+    {
+      "check": "sample-pdf-preview",
+      "command": [
+        "pdftoppm",
+        "-f",
+        "1",
+        "-singlefile",
+        "-scale-to",
+        "1024",
+        "-png",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/sample.pdf",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/pdfcraft/export-preview"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1,
+      "tail": ""
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=666c358065261a2816b376fa3bb10538dbf53040#666c358065261a2816b376fa3bb10538dbf53040",
+    "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "git+https://github.com/storytold/craft-libs?rev=f58bc1a3df490992d633393d0898af0588ce882c#f58bc1a3df490992d633393d0898af0588ce882c",
+    "git+https://github.com/storytold/winprint.rs?rev=5f80b9baf6b58937c401656634e42d33f00ddf49#5f80b9baf6b58937c401656634e42d33f00ddf49",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#666c358065261a2816b376fa3bb10538dbf53040",
+    "https://github.com/storytold/craft-libs#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/craft-libs#f58bc1a3df490992d633393d0898af0588ce882c",
+    "https://github.com/storytold/pdfcraft"
+  ],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com",
+    "huggingface.co",
+    "ocrs-models.s3-accelerate.amazonaws.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "pdfcraft",
+    "craft-fonts",
+    "craft-libs",
+    "winprint.rs"
+  ],
+  "source_commit": "bc7a12b94a7b67e1a051311eaed2155bc41290c9",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "font_source_commit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+  "python_syntax": {
+    "files_checked": 2,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "configuration_redactions": [],
+  "javascript_checks": [],
+  "kind": "rust",
+  "archive_contains_cargo_lock": true,
+  "cargo_packages": [
+    {
+      "name": "pdfcraft-a11y",
+      "targets": [
+        {
+          "name": "pdfcraft_a11y",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-content",
+      "targets": [
+        {
+          "name": "pdfcraft_content",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-cos",
+      "targets": [
+        {
+          "name": "pdfcraft_cos",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "cosinfo",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "protect",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bounded_writer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "encryption",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shared_streams",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "writer",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-crypt",
+      "targets": [
+        {
+          "name": "pdfcraft_crypt",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "proptests",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-filters",
+      "targets": [
+        {
+          "name": "pdfcraft_filters",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "proptests",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-oracle",
+      "targets": [
+        {
+          "name": "pdfcraft_oracle",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-testkit",
+      "targets": [
+        {
+          "name": "pdfcraft_testkit",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-fonts",
+      "targets": [
+        {
+          "name": "pdfcraft_fonts",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-model",
+      "targets": [
+        {
+          "name": "pdfcraft_model",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-annot",
+      "targets": [
+        {
+          "name": "pdfcraft_annot",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-audit",
+      "targets": [
+        {
+          "name": "pdfcraft_audit",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-edit",
+      "targets": [
+        {
+          "name": "pdfcraft_edit",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-automation",
+      "targets": [
+        {
+          "name": "pdfcraft_automation",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "automation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "automation_roots",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "batch",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "form_bulk",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hostile_args",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-engine",
+      "targets": [
+        {
+          "name": "pdfcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "document_fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "form_rotation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ocr_edit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "private_image_resize",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "private_text_glyphs",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-compare",
+      "targets": [
+        {
+          "name": "pdfcraft_compare",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-create",
+      "targets": [
+        {
+          "name": "pdfcraft_create",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-export",
+      "targets": [
+        {
+          "name": "pdfcraft_export",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-forms",
+      "targets": [
+        {
+          "name": "pdfcraft_forms",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-geom",
+      "targets": [
+        {
+          "name": "pdfcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-js",
+      "targets": [
+        {
+          "name": "pdfcraft_js",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-measure",
+      "targets": [
+        {
+          "name": "pdfcraft_measure",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "snap_property",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-ocr",
+      "targets": [
+        {
+          "name": "pdfcraft_ocr",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-optimize",
+      "targets": [
+        {
+          "name": "pdfcraft_optimize",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "optimize",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-render",
+      "targets": [
+        {
+          "name": "pdfcraft_render",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "page_timing",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "search_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "synth_sheet",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "jbig2_invariants",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "search",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-organize",
+      "targets": [
+        {
+          "name": "pdfcraft_organize",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-preflight",
+      "targets": [
+        {
+          "name": "pdfcraft_preflight",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-print",
+      "targets": [
+        {
+          "name": "pdfcraft_print",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-redact",
+      "targets": [
+        {
+          "name": "pdfcraft_redact",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-xfa",
+      "targets": [
+        {
+          "name": "pdfcraft_xfa",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-sign",
+      "targets": [
+        {
+          "name": "pdfcraft_sign",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "algorithms",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ber",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "chain",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "crypto",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "store_keys",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-xfdf",
+      "targets": [
+        {
+          "name": "pdfcraft_xfdf",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-platform",
+      "targets": [
+        {
+          "name": "pdfcraft_platform",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-ui-egui",
+      "targets": [
+        {
+          "name": "pdfcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "shot",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "accessibility",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "actions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "bookmarks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "buttons",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "camera",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "combine_grid",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "comments",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "compare",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "content",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "control",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "create",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "date_format",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dialog_chrome",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "document_links",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "editing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fill_sign",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "folders",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "forms",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "javascript",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "object_selection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ocr",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "perf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pickers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "prepare",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "print",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "reading_colors",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recovery",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "reload",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "signing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stamps",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "theme_button",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "trust_signer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_group",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "view",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "viewer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft",
+      "targets": [
+        {
+          "name": "pdfcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "winit_macos_emoji_picker",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_macos_ime_commit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_macos_ime_discard",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_macos_korean_first_key",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_macos_korean_space",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_macos_title_bar_drag",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_wayland_scroll",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_wayland_text_input",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_windows_hidden_maximized",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_windows_ime_cursor",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_x11_dpi",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "winit_x11_ime_focus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-cli",
+      "targets": [
+        {
+          "name": "pdfcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "audit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "automation_roots",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "batch",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "check",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "edit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "extract",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "help",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mcp_compact",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "render",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "root_arguments",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "run_report",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "run_root",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "split",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stderr",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stdout",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_control",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "version_resource",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pdfcraft-web",
+      "targets": [
+        {
+          "name": "pdfcraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "stayed_running_15_seconds",
+  "sample_workflow": "passed",
+  "sample_validation": {
+    "pdf_info": "Title:           Smoke\nModDate:         Sat Oct 17 22:01:06 2026 UTC\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       144 x 72 pts\nPage rot:        90\nFile size:       972 bytes\nOptimized:       no\nPDF version:     1.4\n",
+    "png_dimensions": [
+      72,
+      144
+    ]
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T22:01:07Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+}

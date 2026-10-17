@@ -4,7 +4,31 @@
   "restored": true,
   "checks": [
     {
-      "check": "npm-install",
+      "check": "wasm-rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 10.5,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "wasm-package",
+      "command": [
+        "node",
+        "rust/build_wasm.js"
+      ],
+      "exit_code": 0,
+      "seconds": 90.3,
+      "tail": "0.1.8\n   Compiling yoke-derive v0.8.4\n   Compiling zerofrom v0.1.8\n   Compiling displaydoc v0.2.7\n   Compiling yoke v0.8.3\n   Compiling writeable v0.6.4\n   Compiling zerovec v0.11.8\n   Compiling litemap v0.8.3\n   Compiling zerotrie v0.2.5\n   Compiling zeroize_derive v1.5.0\n   Compiling tinystr v0.8.4\n   Compiling potential_utf v0.1.6\n   Compiling icu_locale_core v2.3.0\n   Compiling crypto-common v0.1.7\n   Compiling bitflags v2.13.2\n   Compiling zeroize v1.9.1\n   Compiling adler2 v2.0.1\n   Compiling smallvec v1.16.3\n   Compiling icu_normalizer_data v2.3.0\n   Compiling subtle v2.6.1\n   Compiling utf8_iter v1.0.4\n   Compiling icu_properties_data v2.3.0\n   Compiling icu_collections v2.3.0\n   Compiling ring v0.17.14\n   Compiling zstd-sys v2.1.2+zstd.1.5.7\n   Compiling icu_provider v2.3.1\n   Compiling crc32fast v1.5.2\n   Compiling rustix v1.1.5\n   Compiling log v0.4.34\n   Compiling rustls-pki-types v1.15.1\n   Compiling block-buffer v0.10.4\n   Compiling simd-adler32 v0.3.10\n   Compiling getrandom v0.4.3\n   Compiling serde v1.0.229\n   Compiling zmij v1.0.23\n   Compiling linux-raw-sys v0.12.1\n   Compiling digest v0.10.7\n   Compiling icu_properties v2.3.0\n   Compiling icu_normalizer v2.3.0\n   Compiling serde_derive v1.0.229\n   Compiling bzip2-sys v0.1.13+1.0.8\n   Compiling lzma-sys v0.1.20\n   Compiling getrandom v0.2.17\n   Compiling serde_json v1.0.154\n   Compiling once_cell v1.21.4\n   Compiling utf8parse v0.2.2\n   Compiling zstd-safe v7.3.0\n   Compiling byteorder v1.5.0\n   Compiling untrusted v0.9.0\n   Compiling anstyle-parse v1.0.0\n   Compiling idna_adapter v1.2.2\n   Compiling miniz_oxide v0.9.1\n   Compiling inout v0.1.4\n   Compiling autocfg v1.5.1\n   Compiling itoa v1.0.18\n   Compiling crc-catalog v2.5.0\n   Compiling is_terminal_polyfill v1.70.2\n   Compiling getrandom v0.3.4\n   Compiling colorchoice v1.0.5\n   Compiling rustix v0.38.44\n   Compiling object v0.37.3\n   Compiling anstyle v1.0.14\n   Compiling rustls v0.23.46\n   Compiling percent-encoding v2.3.2\n   Compiling cpufeatures v0.2.17\n   Compiling anstyle-query v1.1.5\n   Compiling form_urlencoded v1.2.2\n   Compiling anstream v1.0.0\n   Compiling crc v3.4.0\n   Compiling num-traits v0.2.19\n   Compiling cipher v0.4.4\n   Compiling flate2 v1.1.10\n   Compiling idna v1.1.0\n   Compiling rustls-webpki v0.103.15\n   Compiling hmac v0.12.1\n   Compiling webpki-roots v1.0.9\n   Compiling serde_spanned v1.1.2\n   Compiling linux-raw-sys v0.4.15\n   Compiling bumpalo v3.20.3\n   Compiling anyhow v1.0.104\n   Compiling deranged v0.5.9\n   Compiling parking_lot_core v0.9.12\n   Compiling equivalent v1.0.3\n   Compiling thiserror v2.0.21\n   Compiling powerfmt v0.2.1\n   Compiling gimli v0.32.3\n   Compiling hashbrown v0.17.1\n   Compiling camino v1.2.6\n   Compiling zip v2.6.1\n   Compiling time-core v0.1.9\n   Compiling toml_writer v1.1.3+spec-1.1.0\n   Compiling num-conv v0.2.2\n   Compiling time v0.3.55\n   Compiling zstd v0.13.3\n   Compiling addr2line v0.25.1\n   Compiling indexmap v2.14.2\n   Compiling zopfli v0.8.4\n   Compiling webpki-roots v0.26.11\n   Compiling pbkdf2 v0.12.2\n   Compiling xz2 v0.1.7\n   Compiling url v2.5.8\n   Compiling bzip2 v0.5.2\n   Compiling aes v0.8.4\n   Compiling lzma-rs v0.3.0\n   Compiling sha1 v0.10.7\n   Compiling socks v0.3.4\n   Compiling xattr v1.6.1\n   Compiling miniz_oxide v0.8.9\n   Compiling thiserror-impl v2.0.21\n   Compiling toml_datetime v1.1.2+spec-1.1.0\n   Compiling filetime v0.2.29\n   Compiling dirs-sys-next v0.1.2\n   Compiling heck v0.5.0\n   Compiling rustc-demangle v0.1.28\n   Compiling fastrand v2.5.0\n   Compiling constant_time_eq v0.3.1\n   Compiling scopeguard v1.2.0\n   Compiling unicode-width v0.2.2\n   Compiling clap_lex v1.1.1\n   Compiling winnow v1.0.4\n   Compiling strsim v0.11.1\n   Compiling base64 v0.22.1\n   Compiling deflate64 v0.1.12\n   Compiling ureq v2.12.1\n   Compiling toml_parser v1.1.5+spec-1.1.0\n   Compiling clap_builder v4.6.7\n   Compiling console v0.16.6\n   Compiling lock_api v0.4.14\n   Compiling tempfile v3.27.0\n   Compiling backtrace v0.3.76\n   Compiling clap_derive v4.6.7\n   Compiling dirs-next v2.0.0\n   Compiling toml v1.1.8+spec-1.1.0\n   Compiling tar v0.4.46\n   Compiling fs4 v0.6.6\n   Compiling uuid v1.28.0\n   Compiling env_filter v2.0.0\n   Compiling sysinfo v0.38.4\n   Compiling cargo-platform v0.3.3\n   Compiling semver v1.0.28\n   Compiling toml_datetime v0.7.5+spec-1.1.0\n   Compiling same-file v1.0.6\n   Compiling shell-words v1.1.1\n   Compiling winnow v0.7.15\n   Compiling hex v0.4.3\n   Compiling siphasher v0.3.11\n   Compiling iana-time-zone v0.1.65\n   Compiling is_executable v0.1.2\n   Compiling binary-install v0.4.1\n   Compiling toml v0.9.12+spec-1.1.0\n   Compiling chrono v0.4.45\n   Compiling dialoguer v0.12.0\n   Compiling walkdir v2.5.0\n   Compiling cargo_metadata v0.23.1\n   Compiling human-panic v2.0.8\n   Compiling env_logger v0.11.11\n   Compiling parking_lot v0.12.5\n   Compiling clap v4.6.7\n   Compiling serde_ignored v0.1.14\n   Compiling which v8.0.6\n   Compiling path-clean v1.0.1\n   Compiling glob v0.3.4\n   Compiling siphasher v1.0.4\n   Compiling wasm-pack v0.15.0\n    Finished `release` profile [optimized] target(s) in 1m 18s\n  Installing /home/runner/.cargo/bin/wasm-pack\n   Installed package `wasm-pack v0.15.0` (executable `wasm-pack`)\n[INFO]: \ud83c\udfaf  Checking for the Wasm target...\n[INFO]: \ud83c\udf00  Compiling to Wasm...\n   Compiling unicode-ident v1.0.18\n   Compiling proc-macro2 v1.0.95\n   Compiling wasm-bindgen-shared v0.2.100\n   Compiling bumpalo v3.17.0\n   Compiling log v0.4.27\n   Compiling rustversion v1.0.20\n   Compiling wasm-bindgen v0.2.100\n   Compiling cfg-if v1.0.0\n   Compiling anyhow v1.0.98\n   Compiling quote v1.0.40\n   Compiling once_cell v1.21.3\n   Compiling syn v2.0.100\n   Compiling half v2.6.0\n   Compiling wasm-bindgen-backend v0.2.100\n   Compiling wasm-bindgen-macro-support v0.2.100\n   Compiling wasm-bindgen-macro v0.2.100\n   Compiling js-sys v0.3.77\n   Compiling spark-internal-rs v0.1.0 (/home/runner/work/ArtCraft/ArtCraft/restored/spark/rust/spark-internal-rs)\n    Finished `release` profile [optimized] target(s) in 7.49s\n[INFO]: \u2b07\ufe0f  Installing wasm-bindgen...\n[INFO]: Optimizing wasm binaries with `wasm-opt`...\n[INFO]: Optional field missing from Cargo.toml: 'description'. This is not necessary, but recommended\n[INFO]: License key is set in Cargo.toml but no LICENSE file(s) were found; Please add the LICENSE file(s) to your project directory\n[INFO]: \u2728   Done in 9.51s\n[INFO]: \ud83d\udce6   Your wasm pkg is ready to publish at /home/runner/work/ArtCraft/ArtCraft/restored/spark/rust/spark-internal-rs/pkg.\n"
+    },
+    {
+      "check": "npm-spark-install",
       "command": [
         "npm",
         "ci",
@@ -12,11 +36,11 @@
         "--no-fund"
       ],
       "exit_code": 0,
-      "seconds": 4.8,
+      "seconds": 5.1,
       "tail": "\nadded 163 packages in 5s\nnpm warn install-scripts 3 packages have install scripts not yet covered by allowScripts:\nnpm warn install-scripts   @biomejs/biome@1.9.4 (postinstall: node scripts/postinstall.js)\nnpm warn install-scripts   esbuild@0.25.2 (postinstall: node install.js)\nnpm warn install-scripts   lefthook@1.11.12 (postinstall: node postinstall.js)\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n"
     },
     {
-      "check": "npm-test",
+      "check": "npm-spark-test",
       "command": [
         "npm",
         "run",
@@ -24,18 +48,18 @@
       ],
       "exit_code": 0,
       "seconds": 1.0,
-      "tail": "\n> @sparkjsdev/spark@0.1.10 test\n> node --no-warnings --loader ts-node/esm --test test/**/*.test.ts\n\n\u2705 All test cases passed!\n\u2714 test/utils.test.ts (829.560187ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 1\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 838.777628\n"
+      "tail": "\n> @sparkjsdev/spark@0.1.10 test\n> node --no-warnings --loader ts-node/esm --test test/**/*.test.ts\n\n\u2705 All test cases passed!\n\u2714 test/utils.test.ts (813.16633ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 1\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 830.308521\n"
     },
     {
-      "check": "npm-build",
+      "check": "npm-spark-build",
       "command": [
         "npm",
         "run",
         "build"
       ],
-      "exit_code": 1,
-      "seconds": 6.6,
-      "tail": "\n> @sparkjsdev/spark@0.1.10 build\n> npm run build:production && npm run build:dev\n\n\n> @sparkjsdev/spark@0.1.10 build:production\n> vite build --mode production\n\n************************************************************************\n Examples assets will be fetched from an external server.\n To work offline you can download them: npm run assets:download\n************************************************************************\n\u001b[36mvite v6.3.2 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\ntransforming...\n\u001b[32m\u2713\u001b[39m 19 modules transformed.\n\u001b[31m\u2717\u001b[39m Build failed in 5.22s\n\u001b[31merror during build:\n\u001b[31m[vite]: Rollup failed to resolve import \"spark-internal-rs\" from \"/home/runner/work/ArtCraft/ArtCraft/restored/spark/src/SplatMesh.ts\".\nThis is most likely unintended because it can break your application at runtime.\nIf you do want to externalize this module explicitly add it to\n`build.rollupOptions.external`\u001b[31m\n    at viteLog (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/vite/dist/node/chunks/dep-DG3BLbPj.js:46278:15)\n    at onRollupLog (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/vite/dist/node/chunks/dep-DG3BLbPj.js:46328:5)\n    at onLog (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/vite/dist/node/chunks/dep-DG3BLbPj.js:45976:7)\n    at file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:20704:32\n    at Object.logger [as onLog] (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:22583:9)\n    at ModuleLoader.handleInvalidResolvedId (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:21330:26)\n    at file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:21288:26\u001b[39m\n"
+      "exit_code": 0,
+      "seconds": 16.3,
+      "tail": "\n> @sparkjsdev/spark@0.1.10 build\n> npm run build:production && npm run build:dev\n\n\n> @sparkjsdev/spark@0.1.10 build:production\n> vite build --mode production\n\n************************************************************************\n Examples assets will be fetched from an external server.\n To work offline you can download them: npm run assets:download\n************************************************************************\n\u001b[36mvite v6.3.2 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\ntransforming...\n\u001b[32m\u2713\u001b[39m 58 modules transformed.\nrendering chunks...\n\u001b[32m\n\u001b[36m[vite:dts]\u001b[32m Start generate declaration files...\u001b[39m\ncomputing gzip size...\n\u001b[2mdist/\u001b[22m\u001b[36mspark.module.min.js  \u001b[39m\u001b[1m\u001b[33m516.24 kB\u001b[39m\u001b[22m\u001b[2m \u2502 gzip: 155.05 kB\u001b[22m\u001b[2m \u2502 map: 1,111.92 kB\u001b[22m\n\u001b[32m\u001b[36m[vite:dts]\u001b[32m Declaration files built in 5196ms.\n\u001b[39m\n\u001b[2mdist/\u001b[22m\u001b[36mspark.cjs.min.js  \u001b[39m\u001b[1m\u001b[2m412.02 kB\u001b[22m\u001b[1m\u001b[22m\u001b[2m \u2502 gzip: 137.90 kB\u001b[22m\u001b[2m \u2502 map: 1,081.55 kB\u001b[22m\n\u001b[32m\u2713 built in 7.11s\u001b[39m\n\n> @sparkjsdev/spark@0.1.10 build:dev\n> vite build --mode dev\n\n************************************************************************\n Examples assets will be fetched from an external server.\n To work offline you can download them: npm run assets:download\n************************************************************************\n\u001b[36mvite v6.3.2 \u001b[32mbuilding for dev...\u001b[36m\u001b[39m\ntransforming...\n\u001b[32m\u2713\u001b[39m 58 modules transformed.\nrendering chunks...\n\u001b[32m\n\u001b[36m[vite:dts]\u001b[32m Start generate declaration files...\u001b[39m\ncomputing gzip size...\n\u001b[2mdist/\u001b[22m\u001b[36mspark.module.js  \u001b[39m\u001b[1m\u001b[33m787.08 kB\u001b[39m\u001b[22m\u001b[2m \u2502 gzip: 181.88 kB\u001b[22m\u001b[2m \u2502 map: 1,065.45 kB\u001b[22m\n\u001b[32m\u001b[36m[vite:dts]\u001b[32m Declaration files built in 4823ms.\n\u001b[39m\n\u001b[2mdist/\u001b[22m\u001b[36mspark.cjs.js  \u001b[39m\u001b[1m\u001b[33m792.50 kB\u001b[39m\u001b[22m\u001b[2m \u2502 gzip: 182.56 kB\u001b[22m\u001b[2m \u2502 map: 1,066.45 kB\u001b[22m\n\u001b[32m\u2713 built in 6.85s\u001b[39m\n"
     }
   ],
   "git_dependencies": [],
@@ -56,34 +80,17 @@
   },
   "submodule_references": [],
   "lfs_status": "not_present",
-  "status": "package_checks_blocked",
+  "status": "package_checks_passed",
+  "configuration_redactions": [],
+  "javascript_checks": [
+    {
+      "directory": ".",
+      "checks_run": 2,
+      "status": "checks_passed"
+    }
+  ],
   "kind": "javascript",
-  "npm_scripts": {
-    "assets:clean": "node scripts/clean-assets.js",
-    "assets:compress": "node scripts/compress-to-spz.js",
-    "assets:download": "node scripts/download-assets.js",
-    "build": "npm run build:production && npm run build:dev",
-    "build:dev": "vite build --mode dev",
-    "build:production": "vite build --mode production",
-    "build:wasm": "node rust/build_wasm.js",
-    "build:watch": "onchange 'src/**/*.{ts,glsl}' -- npm run build:dev",
-    "clean": "rm -rf dist/ && rm -rf node_modules/ && rm -rf rust/target/ && rm -rf rust/spark-internal-rs/pkg/ && npm run assets:clean",
-    "dev": "npm run build:dev && (vite --host & npm run build:watch)",
-    "docs": "node scripts/clean-site-files.js && node scripts/copy-site-files.js && mkdocs serve",
-    "format": "biome format .",
-    "format:fix": "biome format . --fix",
-    "lint": "biome check .",
-    "lint:fix": "biome check . --fix",
-    "lint:summary": "biome check --reporter=summary",
-    "prepare": "",
-    "site:build": "npm run build && npm run site:clean && node scripts/copy-site-files.js && mkdocs build && node scripts/rename-assets-to-static.js",
-    "site:clean": "node scripts/clean-site-files.js && node scripts/clean-site.js",
-    "site:deploy": "npm run site:build && node scripts/deploy-site.js",
-    "site:serve": "node scripts/serve-site.js site",
-    "start": "npm run dev",
-    "test": "node --no-warnings --loader ts-node/esm --test test/**/*.test.ts"
-  },
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:20:36Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
+  "finished_at": "2026-10-17T21:46:48Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
 }

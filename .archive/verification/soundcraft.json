@@ -1,0 +1,989 @@
+{
+  "repository": "soundcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 11.5,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libxkbcommon-x11-0",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev",
+        "libwebkit2gtk-4.1-dev",
+        "libayatana-appindicator3-dev",
+        "librsvg2-dev",
+        "libxdo-dev",
+        "libzmq3-dev",
+        "libsodium-dev",
+        "poppler-utils",
+        "python3-pil"
+      ],
+      "exit_code": 0,
+      "seconds": 54.1,
+      "tail": "g up libavc1394-0:amd64 (0.5.4-5build3) ...\nSetting up gsettings-desktop-schemas (46.1-0ubuntu1) ...\nSetting up glib-networking-services (2.80.0-1build1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libkdb5-10t64:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up libgstreamer-plugins-base1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up gir1.2-javascriptcoregtk-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up python3-pil:amd64 (10.2.0-1ubuntu1.3) ...\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\nSetting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libgstreamer-gl1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up gstreamer1.0-plugins-base:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libayatana-appindicator3-1 (0.5.93-1build3) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up libshout3:amd64 (2.4.6-1build2) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up libkadm5srv-mit12:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...\nSetting up gir1.2-ayatanaappindicator3-0.1 (0.5.93-1build3) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up krb5-multidev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libkrb5-dev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libzmq3-dev:amd64 (4.3.5-1build2) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up glib-networking:amd64 (2.80.0-1build1) ...\nProcessing triggers for install-info (7.1-3build2) ...\nSetting up libjavascriptcoregtk-4.1-dev:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libsoup-3.0-0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up gir1.2-soup-3.0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libsoup-3.0-dev:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libwebkit2gtk-4.1-0:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up gir1.2-webkit2-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxdo-dev (1:3.20160805.1-5build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up librsvg2-dev:amd64 (2.58.0+dfsg-1ubuntu0.1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libayatana-ido3-dev (0.10.1-1build2) ...\nSetting up libayatana-indicator3-dev (0.9.4-1build1) ...\nSetting up libwebkit2gtk-4.1-dev (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libayatana-appindicator3-dev (0.5.93-1build3) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[943]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 9.2,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "istry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"wasm-bindgen-futures\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.4\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"web-sys\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"Window\",\"Document\",\"Element\",\"HtmlElement\",\"HtmlCanvasElement\",\"Location\",\"HtmlAnchorElement\",\"Blob\",\"BlobPropertyBag\",\"Url\",\"CssStyleDeclaration\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"soundcraft-web\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-web/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-web/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null},{\"name\":\"xtask\",\"version\":\"0.7.0\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/xtask#0.7.0\",\"license\":\"MIT OR Apache-2.0\",\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[{\"name\":\"serde_json\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"float_roundtrip\"],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"xtask\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/xtask/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/xtask/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/au-host#soundcraft-au-host@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/dsp#soundcraft-dsp@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/audio-io#soundcraft-audio-io@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/automation#soundcraft-automation@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/engine#soundcraft-engine@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/clap-host#soundcraft-clap-host@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/midi#soundcraft-midi@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/mix#soundcraft-mix@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/model#soundcraft-model@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/time#soundcraft-time@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/vst3-host#soundcraft-vst3-host@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/video#soundcraft-video@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/playback#soundcraft-playback@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/ui-egui#soundcraft-ui-egui@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-cli#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-web#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/xtask#0.7.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/au-host#soundcraft-au-host@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/audio-io#soundcraft-audio-io@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/automation#soundcraft-automation@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/clap-host#soundcraft-clap-host@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/dsp#soundcraft-dsp@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/engine#soundcraft-engine@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/midi#soundcraft-midi@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/mix#soundcraft-mix@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/model#soundcraft-model@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/playback#soundcraft-playback@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/time#soundcraft-time@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/ui-egui#soundcraft-ui-egui@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/video#soundcraft-video@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/vst3-host#soundcraft-vst3-host@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-cli#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-web#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/xtask#0.7.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 101,
+      "seconds": 479.4,
+      "tail": "                                    role: Tab,\n                                    label: \"Clips\",\n                                    focused: false,\n                                    hidden: false,\n                                    disabled: false,\n                                    children: [],\n                                },\n                                Node {\n                                    id: NodeId(\n                                        TreeIndex(\n                                            0,\n                                        ),\n                                        #17168222821532888225,\n                                    ),\n                                    role: GenericContainer,\n                                    focused: false,\n                                    hidden: false,\n                                    disabled: false,\n                                    children: [\n                                        Node {\n                                            id: NodeId(\n                                                TreeIndex(\n                                                    0,\n                                                ),\n                                                #18088622715109488327,\n                                            ),\n                                            role: TextInput,\n                                            value: \"\",\n                                            focused: false,\n                                            hidden: false,\n                                            disabled: false,\n                                            children: [\n                                                Node {\n                                                    id: NodeId(\n                                                        TreeIndex(\n                                                            0,\n                                                        ),\n                                                        #6645296951123415680,\n                                                    ),\n                                                    role: TextRun,\n                                                    value: \"\",\n                                                    focused: false,\n                                                    hidden: false,\n                                                    disabled: false,\n                                                    children: [],\n                                                },\n                                            ],\n                                        },\n                                        Node {\n                                            id: NodeId(\n                                                TreeIndex(\n                                                    0,\n                                                ),\n                                                #14710783985948924195,\n                                            ),\n                                            role: GenericContainer,\n                                            focused: false,\n                                            hidden: false,\n                                            disabled: false,\n                                            children: [\n                                                Node {\n                                                    id: NodeId(\n                                                        TreeIndex(\n                                                            0,\n                                                        ),\n                                                        #8673798863189620679,\n                                                    ),\n                                                    role: GenericContainer,\n                                                    focused: false,\n                                                    hidden: false,\n                                                    disabled: false,\n                                                    children: [],\n                                                },\n                                            ],\n                                        },\n                                    ],\n                                },\n                                Node {\n                                    id: NodeId(\n                                        TreeIndex(\n                                            0,\n                                        ),\n                                        #13669114651205705533,\n                                    ),\n                                    role: Splitter,\n                                    label: \"Resize panels\",\n                                    numeric_value: 1178.0,\n                                    focused: false,\n                                    hidden: false,\n                                    disabled: false,\n                                    children: [],\n                                },\n                                Node {\n                                    id: NodeId(\n                                        TreeIndex(\n                                            0,\n                                        ),\n                                        #18062744297242931076,\n                                    ),\n                                    role: Splitter,\n                                    label: \"Resize panels\",\n                                    numeric_value: 168.0,\n                                    focused: false,\n                                    hidden: false,\n                                    disabled: false,\n                                    children: [],\n                                },\n                            ],\n                        },\n                    ],\n                },\n            ],\n        },\n    ],\n}\n\n---- recovering_keeps_the_unsaved_work_it_replaces stdout ----\n\nthread 'recovering_keeps_the_unsaved_work_it_replaces' (21376) panicked at crates/ui-egui/tests/recovery.rs:114:5:\nassertion `left == right` failed\n  left: 0\n right: 1\n\n\nfailures:\n    an_exit_without_quit_offers_unsaved_changes_at_the_next_launch\n    recovering_keeps_the_unsaved_work_it_replaces\n\ntest result: FAILED. 4 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.12s\n\nerror: test failed, to rerun pass `-p soundcraft-ui-egui --test recovery`\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 93.0,
+      "tail": "   Compiling serde_core v1.0.229\n   Compiling getrandom v0.3.4\n   Compiling soundcraft-web v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-web)\n   Compiling ahash v0.8.12\n   Compiling epaint v0.36.2\n   Compiling winit v0.30.13\n   Compiling serde v1.0.229\n   Compiling uuid v1.27.0\n   Compiling zvariant_utils v4.2.0\n   Compiling zcheapstr v1.1.0\n   Compiling enumflags2 v0.7.12\n   Compiling zvariant v5.15.0\n   Compiling zbus_names v4.3.4\n   Compiling accesskit v0.24.1\n   Compiling zbus_xml v5.2.1\n   Compiling soundcraft-dsp v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/dsp)\n   Compiling zbus-lockstep v0.5.2\n   Compiling zbus v5.19.0\n   Compiling serde_json v1.0.151\n   Compiling soundcraft-audio-io v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/audio-io)\n   Compiling soundcraft-midi v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/midi)\n   Compiling atspi-common v0.13.0\n   Compiling soundcraft-time v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/time)\n   Compiling soundcraft-model v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/model)\n   Compiling soundcraft-clap-host v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/clap-host)\n   Compiling soundcraft-au-host v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/au-host)\n   Compiling soundcraft-vst3-host v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/vst3-host)\n   Compiling soundcraft-mix v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/mix)\n   Compiling atspi-proxies v0.13.0\n   Compiling accesskit_consumer v0.36.0\n   Compiling egui v0.36.2\n   Compiling atspi v0.29.0\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling soundcraft-video v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/video)\n   Compiling accesskit_unix v0.21.1\n   Compiling soundcraft-engine v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/engine)\n   Compiling accesskit_winit v0.32.2\n   Compiling egui-winit v0.36.2\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling egui-wgpu v0.36.2\n   Compiling soundcraft-playback v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/playback)\n   Compiling soundcraft-ui-egui v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/ui-egui)\n   Compiling eframe v0.36.2\n   Compiling soundcraft-automation v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/crates/automation)\n   Compiling soundcraft-cli v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft-cli)\n   Compiling xtask v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/xtask)\n   Compiling soundcraft v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/apps/soundcraft)\n    Finished `dev` profile [optimized] target(s) in 1m 32s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/target/debug/soundcraft"
+      ],
+      "exit_code": 124,
+      "seconds": 15.0,
+      "tail": "2026-10-17T21:55:37.066Z INFO  [main] soundcraft: SoundCraft 0.7.0 (linux x86_64)\n2026-10-17T21:55:37.066Z INFO  [main] soundcraft: log file /home/runner/.config/soundcraft/logs/soundcraft.log\n2026-10-17T21:55:37.068Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n2026-10-17T21:55:37.128Z WARN  [main] winit::platform_impl::linux::x11::util::randr: XRandR reported that the display's 0mm in size, which is certifiably insane\nlibEGL warning: DRI3 error: Could not get DRI3 device\nlibEGL warning: Ensure your X server supports DRI3 to get accelerated rendering\n2026-10-17T21:55:38.056Z WARN  [main] egui_wgpu: Software rasterizer detected - loss of performance expected. backend: Vulkan, device_type: Cpu, name: \"llvmpipe (LLVM 20.1.2, 256 bits)\", driver: \"llvmpipe\", driver_info: \"Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)\", vendor: Mesa (0x10005), subgroup_size: 8..=8, transient_saves_memory: Some(false), limit_bucket: None\nALSA lib confmisc.c:855:(parse_card) cannot find card '0'\nALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory\nALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings\nALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory\nALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name\nALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory\nALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory\nALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default\nALSA lib confmisc.c:855:(parse_card) cannot find card '0'\nALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory\nALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings\nALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory\nALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name\nALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory\nALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory\nALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default\n2026-10-17T21:55:38.063Z WARN  [main] soundcraft_playback: no audio output: The requested device is no longer available. For example, it has been unplugged.; using a silent clock\n"
+    },
+    {
+      "check": "sample-0",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/target/debug/soundcraft-cli",
+        "run",
+        "--demo",
+        "--start",
+        "10",
+        "--end",
+        "12",
+        "--bounce",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/soundcraft/sample.wav",
+        "--inspect"
+      ],
+      "exit_code": 0,
+      "seconds": 0.4,
+      "tail": "82432,\n          \"fade_in\": 0,\n          \"fade_out\": 24000,\n          \"gain_db\": 0.0,\n          \"id\": 22,\n          \"length\": 910124,\n          \"locked\": false,\n          \"muted\": false,\n          \"name\": \"Bass\",\n          \"offset\": 1772308,\n          \"source\": 11,\n          \"start\": 1772308,\n          \"start_time\": \"0:36.923\"\n        }\n      ],\n      \"format\": \"Mono\",\n      \"height\": \"medium\",\n      \"hidden\": false,\n      \"id\": 12,\n      \"inactive\": false,\n      \"input\": \"None\",\n      \"inserts\": [\n        {\n          \"bypass\": false,\n          \"params\": null,\n          \"plugin\": \"compressor\",\n          \"slot\": 0\n        },\n        {\n          \"bypass\": false,\n          \"params\": null,\n          \"plugin\": \"saturator\",\n          \"slot\": 1\n        }\n      ],\n      \"kind\": \"audio\",\n      \"mute\": false,\n      \"name\": \"Bass\",\n      \"output\": \"Main\",\n      \"pan\": [\n        0.0\n      ],\n      \"playlist\": \"Bass\",\n      \"playlists\": 1,\n      \"record_arm\": false,\n      \"sends\": [],\n      \"solo\": false,\n      \"surround\": null,\n      \"view\": \"waveform\",\n      \"volume_db\": -5.0\n    },\n    {\n      \"automation\": [\n        {\n          \"param\": \"volume\",\n          \"points\": 4\n        }\n      ],\n      \"automation_mode\": \"read\",\n      \"clips\": [\n        {\n          \"end\": 2682432,\n          \"fade_in\": 0,\n          \"fade_out\": 24000,\n          \"gain_db\": 0.0,\n          \"id\": 16,\n          \"length\": 2682432,\n          \"locked\": false,\n          \"muted\": false,\n          \"name\": \"Pad\",\n          \"offset\": 0,\n          \"source\": 14,\n          \"start\": 0,\n          \"start_time\": \"0:00.000\"\n        }\n      ],\n      \"format\": \"Stereo\",\n      \"height\": \"medium\",\n      \"hidden\": false,\n      \"id\": 15,\n      \"inactive\": false,\n      \"input\": \"None\",\n      \"inserts\": [\n        {\n          \"bypass\": false,\n          \"params\": null,\n          \"plugin\": \"chorus\",\n          \"slot\": 0\n        }\n      ],\n      \"kind\": \"audio\",\n      \"mute\": false,\n      \"name\": \"Pad\",\n      \"output\": \"Main\",\n      \"pan\": [\n        -1.0,\n        1.0\n      ],\n      \"playlist\": \"Pad\",\n      \"playlists\": 1,\n      \"record_arm\": false,\n      \"sends\": [\n        {\n          \"level_db\": -8.0,\n          \"mute\": false,\n          \"pan\": 0.0,\n          \"pre_fader\": false,\n          \"slot\": 0,\n          \"surround\": null,\n          \"target\": {\n            \"Bus\": 1\n          }\n        }\n      ],\n      \"solo\": false,\n      \"surround\": null,\n      \"view\": \"waveform\",\n      \"volume_db\": -8.0\n    },\n    {\n      \"automation\": [],\n      \"automation_mode\": \"read\",\n      \"clips\": [\n        {\n          \"end\": 2658462,\n          \"fade_in\": 0,\n          \"fade_out\": 0,\n          \"gain_db\": 0.0,\n          \"id\": 25,\n          \"length\": 2215385,\n          \"locked\": false,\n          \"muted\": false,\n          \"name\": \"Keys\",\n          \"notes\": 180,\n          \"start\": 443077,\n          \"start_time\": \"0:09.230\"\n        }\n      ],\n      \"format\": \"Stereo\",\n      \"height\": \"medium\",\n      \"hidden\": false,\n      \"id\": 23,\n      \"inactive\": false,\n      \"input\": \"None\",\n      \"inserts\": [],\n      \"instrument\": \"subtractive_synth\",\n      \"kind\": \"instrument\",\n      \"mute\": false,\n      \"name\": \"Keys\",\n      \"output\": \"Main\",\n      \"pan\": [\n        -1.0,\n        1.0\n      ],\n      \"playlist\": \"Keys\",\n      \"playlists\": 1,\n      \"record_arm\": false,\n      \"sends\": [\n        {\n          \"level_db\": -12.0,\n          \"mute\": false,\n          \"pan\": 0.0,\n          \"pre_fader\": false,\n          \"slot\": 0,\n          \"surround\": null,\n          \"target\": {\n            \"Bus\": 1\n          }\n        }\n      ],\n      \"solo\": false,\n      \"surround\": null,\n      \"view\": \"notes\",\n      \"volume_db\": -9.0\n    },\n    {\n      \"automation\": [],\n      \"automation_mode\": \"read\",\n      \"clips\": [\n        {\n          \"end\": 2215385,\n          \"fade_in\": 0,\n          \"fade_out\": 0,\n          \"gain_db\": 0.0,\n          \"id\": 26,\n          \"length\": 886154,\n          \"locked\": false,\n          \"muted\": false,\n          \"name\": \"Lead\",\n          \"notes\": 20,\n          \"start\": 1329231,\n          \"start_time\": \"0:27.692\"\n        }\n      ],\n      \"format\": \"Stereo\",\n      \"height\": \"medium\",\n      \"hidden\": false,\n      \"id\": 24,\n      \"inactive\": false,\n      \"input\": \"None\",\n      \"inserts\": [],\n      \"instrument\": \"subtractive_synth\",\n      \"kind\": \"instrument\",\n      \"mute\": false,\n      \"name\": \"Lead\",\n      \"output\": \"Main\",\n      \"pan\": [\n        -1.0,\n        1.0\n      ],\n      \"playlist\": \"Lead\",\n      \"playlists\": 1,\n      \"record_arm\": false,\n      \"sends\": [\n        {\n          \"level_db\": -6.0,\n          \"mute\": false,\n          \"pan\": 0.0,\n          \"pre_fader\": false,\n          \"slot\": 0,\n          \"surround\": null,\n          \"target\": {\n            \"Bus\": 1\n          }\n        }\n      ],\n      \"solo\": false,\n      \"surround\": null,\n      \"view\": \"notes\",\n      \"volume_db\": -12.0\n    },\n    {\n      \"automation\": [],\n      \"automation_mode\": \"read\",\n      \"clips\": [],\n      \"format\": \"Stereo\",\n      \"height\": \"medium\",\n      \"hidden\": false,\n      \"id\": 27,\n      \"inactive\": false,\n      \"input\": {\n        \"Bus\": 1\n      },\n      \"inserts\": [\n        {\n          \"bypass\": false,\n          \"params\": null,\n          \"plugin\": \"plate_reverb\",\n          \"slot\": 0\n        }\n      ],\n      \"kind\": \"aux\",\n      \"mute\": false,\n      \"name\": \"Verb\",\n      \"output\": \"Main\",\n      \"pan\": [\n        -1.0,\n        1.0\n      ],\n      \"playlist\": \"Verb\",\n      \"playlists\": 1,\n      \"record_arm\": false,\n      \"sends\": [],\n      \"solo\": false,\n      \"surround\": null,\n      \"view\": \"volume\",\n      \"volume_db\": -4.0\n    },\n    {\n      \"automation\": [],\n      \"automation_mode\": \"read\",\n      \"clips\": [],\n      \"format\": \"Stereo\",\n      \"height\": \"medium\",\n      \"hidden\": false,\n      \"id\": 28,\n      \"inactive\": false,\n      \"input\": \"Main\",\n      \"inserts\": [\n        {\n          \"bypass\": false,\n          \"params\": null,\n          \"plugin\": \"maximizer\",\n          \"slot\": 0\n        }\n      ],\n      \"kind\": \"master\",\n      \"mute\": false,\n      \"name\": \"Master 1\",\n      \"output\": \"Main\",\n      \"pan\": [\n        -1.0,\n        1.0\n      ],\n      \"playlist\": \"Master 1\",\n      \"playlists\": 1,\n      \"record_arm\": false,\n      \"sends\": [],\n      \"solo\": false,\n      \"surround\": null,\n      \"view\": \"volume\",\n      \"volume_db\": 0.0\n    }\n  ],\n  \"transport\": {\n    \"playing\": false,\n    \"position\": 0,\n    \"recording\": false\n  },\n  \"undo\": null,\n  \"zoom\": {\n    \"samples_per_px\": 1967.4514285714286,\n    \"scroll\": 0\n  }\n}\n"
+    },
+    {
+      "check": "sample-1",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/soundcraft/target/debug/soundcraft-cli",
+        "info",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/soundcraft/sample.wav"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "{\n  \"bwf\": null,\n  \"channels\": 2,\n  \"format\": \"Wav\",\n  \"frames\": 96000,\n  \"sample_format\": \"Int24\",\n  \"sample_rate\": 48000,\n  \"seconds\": 2.0\n}\n"
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/soundcraft"
+  ],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "soundcraft",
+    "craft-fonts",
+    "craft-libs"
+  ],
+  "source_commit": "3a1167ffd51bb51078eda53ea49e73e1a3a503e5",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "font_source_commit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "configuration_redactions": [],
+  "javascript_checks": [],
+  "kind": "rust",
+  "archive_contains_cargo_lock": true,
+  "cargo_packages": [
+    {
+      "name": "soundcraft-au-host",
+      "targets": [
+        {
+          "name": "soundcraft_au_host",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "system_units",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-dsp",
+      "targets": [
+        {
+          "name": "soundcraft_dsp",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "plugin_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "fuzz",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "offline_meters",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plugins",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "transients",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-audio-io",
+      "targets": [
+        {
+          "name": "soundcraft_audio_io",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "encode_format",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "malformed",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stream",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-automation",
+      "targets": [
+        {
+          "name": "soundcraft_automation",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "agent_tasks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "automation_roots",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-engine",
+      "targets": [
+        {
+          "name": "soundcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bounce",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "clap_e2e",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "consolidate_selection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "current_feet_frames_position",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "edit_modes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hostile_params",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hostile_sessions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "long_renders",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "midi_offset",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "random_edits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recording",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "session_transport",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "trim_to_selection",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-clap-host",
+      "targets": [
+        {
+          "name": "soundcraft_clap_host",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "editor_main_thread",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fixture_e2e",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-midi",
+      "targets": [
+        {
+          "name": "soundcraft_midi",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "ops",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "smf",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-mix",
+      "targets": [
+        {
+          "name": "soundcraft_mix",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "render_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bus_aux_interval",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "master_insert_latency",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-model",
+      "targets": [
+        {
+          "name": "soundcraft_model",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-time",
+      "targets": [
+        {
+          "name": "soundcraft_time",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "meter_grid_contract",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-vst3-host",
+      "targets": [
+        {
+          "name": "soundcraft_vst3_host",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "editor_main_thread",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fixture_e2e",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "module_exit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "module_exit_live_instance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "module_exit_shutdown",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "module_exit_worker_thread",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-video",
+      "targets": [
+        {
+          "name": "soundcraft_video",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "test_movie",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-playback",
+      "targets": [
+        {
+          "name": "soundcraft_playback",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-ui-egui",
+      "targets": [
+        {
+          "name": "soundcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "parity_missing",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "ui_shot",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "appearance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "audio_device",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "bounce",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "bounce_dialog",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "clip_gain_fader",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "clip_menu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "command_reachability",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "commands_filter",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "docking_workflows",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "edit_io_readout",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "edit_menu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "edit_modes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "edit_window_headers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "grid_lines",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "group_dialog",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hide_floating",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "idle",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "key_families",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "marker_rename",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "menu_search",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "midi_double_click",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "midi_editor_keys",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "midi_front_visibility",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "midi_panel",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "midi_quantize",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mix_instrument_contrast",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mix_narrow_headers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mix_separate",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mix_strip_layout",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "new_midi_clip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "new_tracks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plugin_window",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pro_tools_keys",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "record_hint",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recovery",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rename_dialog",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sampler_window",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_as_replace",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_changes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "send_window",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shared_controls",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shortcuts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "theme_docking",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "toolbar_tempo",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "track_height",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "track_list",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "track_name_menu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "trackpad",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tracks_scroll_bar",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "waveform",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "window_shortcuts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "zoom_toggle",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft",
+      "targets": [
+        {
+          "name": "soundcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-cli",
+      "targets": [
+        {
+          "name": "soundcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "closed_stdout",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "soundcraft-web",
+      "targets": [
+        {
+          "name": "soundcraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "stayed_running_15_seconds",
+  "sample_workflow": "passed",
+  "sample_validation": {
+    "wav": {
+      "frames": 96000,
+      "rate": 48000,
+      "channels": 2,
+      "pcm_bytes": 576000
+    }
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:55:50Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+}

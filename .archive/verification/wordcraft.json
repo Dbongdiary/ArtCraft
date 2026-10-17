@@ -1,0 +1,720 @@
+{
+  "repository": "wordcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.5,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libxkbcommon-x11-0",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev",
+        "libwebkit2gtk-4.1-dev",
+        "libayatana-appindicator3-dev",
+        "librsvg2-dev",
+        "libxdo-dev",
+        "libzmq3-dev",
+        "libsodium-dev",
+        "poppler-utils",
+        "python3-pil"
+      ],
+      "exit_code": 0,
+      "seconds": 45.3,
+      "tail": " up libavc1394-0:amd64 (0.5.4-5build3) ...\nSetting up gsettings-desktop-schemas (46.1-0ubuntu1) ...\nSetting up glib-networking-services (2.80.0-1build1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libkdb5-10t64:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up libgstreamer-plugins-base1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up gir1.2-javascriptcoregtk-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up python3-pil:amd64 (10.2.0-1ubuntu1.3) ...\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\nSetting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libgstreamer-gl1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up gstreamer1.0-plugins-base:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libayatana-appindicator3-1 (0.5.93-1build3) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up libshout3:amd64 (2.4.6-1build2) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up libkadm5srv-mit12:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...\nSetting up gir1.2-ayatanaappindicator3-0.1 (0.5.93-1build3) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up krb5-multidev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libkrb5-dev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libzmq3-dev:amd64 (4.3.5-1build2) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up glib-networking:amd64 (2.80.0-1build1) ...\nProcessing triggers for install-info (7.1-3build2) ...\nSetting up libjavascriptcoregtk-4.1-dev:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libsoup-3.0-0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up gir1.2-soup-3.0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libsoup-3.0-dev:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libwebkit2gtk-4.1-0:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up gir1.2-webkit2-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxdo-dev (1:3.20160805.1-5build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up librsvg2-dev:amd64 (2.58.0+dfsg-1ubuntu0.1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libayatana-ido3-dev (0.10.1-1build2) ...\nSetting up libayatana-indicator3-dev (0.9.4-1build1) ...\nSetting up libwebkit2gtk-4.1-dev (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libayatana-appindicator3-dev (0.5.93-1build3) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1178]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.6,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "\":\"web-sys\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"Window\",\"Document\",\"Element\",\"HtmlElement\",\"HtmlCanvasElement\",\"HtmlAnchorElement\",\"HtmlIFrameElement\",\"Blob\",\"BlobPropertyBag\",\"Url\",\"Location\",\"CssStyleDeclaration\",\"Event\",\"EventTarget\",\"BeforeUnloadEvent\",\"ClipboardEvent\",\"DataTransfer\",\"FileList\",\"File\",\"DomStringList\",\"IdbFactory\",\"IdbOpenDbRequest\",\"IdbRequest\",\"IdbDatabase\",\"IdbObjectStore\",\"IdbTransaction\",\"IdbTransactionMode\",\"MediaQueryList\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"wordcraft-web\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft-web/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft-web/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null},{\"name\":\"xtask\",\"version\":\"0.7.0\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/xtask#0.7.0\",\"license\":\"MIT OR Apache-2.0\",\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[{\"name\":\"serde_json\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"float_roundtrip\"],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"xtask\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/xtask/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/xtask/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/control-key#wordcraft-control-key@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/doc#wordcraft-doc@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/geom#wordcraft-geom@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/docbin#wordcraft-docbin@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/docx#wordcraft-docx@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/engine#wordcraft-engine@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/fonts#wordcraft-fonts@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/formats#wordcraft-formats@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/layout#wordcraft-layout@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/proof#wordcraft-proof@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/pdf#wordcraft-pdf@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/metafile#wordcraft-metafile@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/render#wordcraft-render@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/mcp#wordcraft-mcp@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/ui-egui#wordcraft-ui-egui@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/zotero#wordcraft-zotero@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft-cli#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft-web#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/xtask#0.7.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/control-key#wordcraft-control-key@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/doc#wordcraft-doc@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/docbin#wordcraft-docbin@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/docx#wordcraft-docx@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/engine#wordcraft-engine@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/fonts#wordcraft-fonts@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/formats#wordcraft-formats@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/geom#wordcraft-geom@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/layout#wordcraft-layout@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/mcp#wordcraft-mcp@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/metafile#wordcraft-metafile@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/pdf#wordcraft-pdf@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/proof#wordcraft-proof@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/render#wordcraft-render@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/ui-egui#wordcraft-ui-egui@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/zotero#wordcraft-zotero@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft-cli#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/xtask#0.7.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 101,
+      "seconds": 896.2,
+      "tail": "ocument ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/rtf_sections.rs (target/debug/deps/rtf_sections-2331dd7b0404bf80)\n\nrunning 1 test\ntest rtf_sections_convert_to_one_docx_section_each ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/safe_save.rs (target/debug/deps/safe_save-62c4d069723e2a30)\n\nrunning 8 tests\ntest failed_save_as_keeps_original_dirty_session_and_destination ... ok\ntest an_existing_temporary_directory_does_not_block_a_save ... ok\ntest an_existing_temporary_file_is_not_overwritten_or_removed ... ok\ntest missing_parent_keeps_original_and_session_unchanged ... ok\ntest replacement_keeps_existing_unix_permissions ... ok\ntest successful_save_as_keeps_original_and_updates_session_only_after_saving ... ok\ntest temporary_links_cannot_redirect_a_save_into_the_original_or_a_neighbour ... ok\ntest encrypted_save_reopens_only_with_password_and_leaves_neighbours_alone ... ok\n\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s\n\n     Running unittests src/lib.rs (target/debug/deps/wordcraft_fonts-97fb2f7399044488)\n\nrunning 57 tests\ntest color::tests::bitmap_glyphs_are_placed_in_font_units ... ok\ntest color::tests::hostile_palette_indices_and_stops_never_panic ... ok\ntest color::tests::records_a_clipped_solid_fill_with_palette_colours ... ok\ntest color::tests::faces_without_colour_tables_have_no_colour_glyphs ... ok\ntest fontdb::tests::a_legacy_named_instance_with_axis_settings_is_made_once ... ok\ntest fontdb::tests::legacy_family_keeps_the_style_words_that_are_not_regular_bold_or_italic ... ok\ntest fontdb::tests::faces_are_found_by_their_legacy_family_name ... ok\ntest color::tests::unbalanced_or_oversized_paint_is_rejected ... ok\ntest fontdb::tests_sysfonts::a_link_back_to_a_parent_folder_ends_the_scan ... ok\ntest fontdb::tests_sysfonts::a_background_scan_serves_the_first_lookup ... ok\ntest fontdb::tests_sysfonts::coverage_ranges_hold_exactly_the_mapped_characters ... ok\ntest fontdb::tests_sysfonts::chinese_fonts_are_listed_by_their_chinese_names_in_a_chinese_interface ... ok\ntest fontdb::tests_sysfonts::every_lookup_by_name_finds_installed_fonts_in_a_fresh_database ... ok\ntest fontdb::tests_sysfonts::east_asian_fonts_are_listed_for_the_asian_text_font_box ... ok\ntest fontdb::tests_sysfonts::fallback_lookups_are_remembered_until_fonts_load ... FAILED\ntest fontdb::tests_sysfonts::fallback_cache_is_dropped_when_a_face_loads_by_its_legacy_family_name ... FAILED\ntest fontdb::tests_sysfonts::concurrent_first_lookups_all_find_the_installed_font ... ok\ntest fontdb::tests_sysfonts::installed_weights_are_found_by_their_legacy_family_name ... ok\ntest fontdb::tests_sysfonts::rescanning_finds_fonts_installed_since ... ok\ntest fontdb::tests_sysfonts::the_scan_lists_a_variable_fonts_named_instances_as_loading_it_does ... ok\ntest fontdb::tests_sysfonts::the_scan_reads_collections_and_loads_fonts_only_when_used ... ok\ntest fontdb::tests_sysfonts::the_scan_reads_names_without_loading_the_font ... ok\ntest fontdb::user::tests::an_added_font_is_listed_resolved_and_measured ... ok\ntest fontdb::tests_sysfonts::fallback_reads_each_installed_font_file_once_however_many_characters_miss ... ok\ntest fontdb::user::tests::stored_names_are_safe_and_unique ... ok\ntest fontdb::user::tests::the_bundled_baseline_is_never_replaced ... ok\ntest fontdb::user::tests::user_fonts_are_stored_loaded_and_removed ... ok\ntest fontdb::user::tests::woff_and_woff2_are_unwrapped ... ok\ntest math::tests::garbage_tables_never_panic ... ok\ntest math::tests::system_math_font_has_a_table ... ok\ntest script::tests::complex_scripts_prefer_their_own_fonts ... ok\ntest script::tests::runs_split_by_script_and_neutrals_join_their_neighbours ... ok\ntest tests::arabic_and_persian_fall_back_to_the_craft_fonts_arabic_face ... ok\ntest tests::bundled_families_load ... ok\ntest tests::craft_fonts_japanese_faces_cover_japanese_and_have_vertical_forms ... ok\ntest tests::east_asian_run_uses_one_face_covering_the_whole_run ... ok\ntest tests::last_resort_face_parses ... ok\ntest tests::ligatures_can_be_disabled ... ok\ntest tests::mapping_keeps_clusters ... ok\ntest tests::outlines_and_metrics ... ok\ntest tests::shaping_produces_clusters_and_advances ... ok\ntest tests::variable_font_named_instances_are_styles ... ok\ntest tests::works_without_craft_fonts ... ok\ntest ui_fallback::tests::finds_the_best_covering_font_also_in_macos_asset_folders ... ok\ntest ui_fallback::tests::korean_interface_uses_korean_first_system_font_candidates ... ok\ntest ui_fallback::tests::needs_system_cjk_when_an_embedded_face_lacks_an_interface_character ... ok\ntest ui_fallback::tests::skips_faces_without_outlines ... ok\ntest word::tests::hebrew_fonts_substitute_hebrew_faces ... ok\ntest word::tests::palatino_family_prefers_palatino_look_alikes_over_generic_serif ... ok\ntest word::tests::resolves_weights_named_as_their_own_family ... ok\ntest word::tests::symbol_fonts_substitute_symbol_faces ... ok\ntest word::tests::synthesizes_missing_styles ... ok\ntest word::tests::the_line_gap_goes_above_the_ascent ... ok\ntest word::tests::unknown_family_substitutes ... ok\ntest fontdb::tests_sysfonts::font_list_previews_load_nothing_for_good ... ok\ntest fontdb::tests::east_asian_run_fallback_is_cached_per_char_set ... ok\ntest fontdb::user::tests::junk_is_rejected_without_adding_anything ... ok\n\nfailures:\n\n---- fontdb::tests_sysfonts::fallback_lookups_are_remembered_until_fonts_load stdout ----\n\nthread 'fontdb::tests_sysfonts::fallback_lookups_are_remembered_until_fonts_load' (21596) panicked at crates/fonts/src/tests_sysfonts.rs:166:5:\nno bundled Thai font\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- fontdb::tests_sysfonts::fallback_cache_is_dropped_when_a_face_loads_by_its_legacy_family_name stdout ----\n\nthread 'fontdb::tests_sysfonts::fallback_cache_is_dropped_when_a_face_loads_by_its_legacy_family_name' (21595) panicked at crates/fonts/src/tests_sysfonts.rs:247:5:\nassertion failed: db.fallback_for(thai, latin.id()).is_none()\n\n\nfailures:\n    fontdb::tests_sysfonts::fallback_cache_is_dropped_when_a_face_loads_by_its_legacy_family_name\n    fontdb::tests_sysfonts::fallback_lookups_are_remembered_until_fonts_load\n\ntest result: FAILED. 55 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.29s\n\nerror: test failed, to rerun pass `-p wordcraft-fonts --lib`\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 172.5,
+      "tail": "   Compiling getrandom v0.3.4\n   Compiling fearless_simd v0.4.1\n   Compiling brotli-decompressor v5.0.3\n   Compiling wuff v0.2.9\n   Compiling ahash v0.8.12\n   Compiling wordcraft-fonts v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/fonts)\n   Compiling vello_common v0.2.0\n   Compiling vello_common v0.1.0\n   Compiling wordcraft-layout v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/layout)\n   Compiling vello_cpu v0.1.0\n   Compiling glifo v0.3.0\n   Compiling regex-syntax v0.8.11\n   Compiling epaint v0.36.2\n   Compiling regex-automata v0.4.18\n   Compiling vello_cpu v0.2.0\n   Compiling wordcraft-docx v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/docx)\n   Compiling egui v0.36.2\n   Compiling wordcraft-pdf v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/pdf)\n   Compiling regex v1.13.1\n   Compiling wordcraft-render v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/render)\n   Compiling wordcraft-engine v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/engine)\n   Compiling winit v0.30.13\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=d27646a5f7c8b4fc85d9dd3213b8c88b58e0088d#d27646a5)\n   Compiling accesskit_winit v0.32.2\n   Compiling egui-wgpu v0.36.2\n   Compiling wordcraft-zotero v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/zotero)\n   Compiling wordcraft-ui-egui v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/ui-egui)\n   Compiling egui-winit v0.36.2\n   Compiling eframe v0.36.2\n   Compiling wordcraft-mcp v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/crates/mcp)\n   Compiling xtask v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/xtask)\n   Compiling wordcraft-cli v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft-cli)\n   Compiling wordcraft-web v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft-web)\n   Compiling wordcraft v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/apps/wordcraft)\n    Finished `dev` profile [optimized] target(s) in 2m 52s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/target/debug/wordcraft"
+      ],
+      "exit_code": 124,
+      "seconds": 15.0,
+      "tail": "2026-10-17T22:08:34.272Z INFO  [main] wordcraft: WordCraft 0.7.0 (dev), log file /home/runner/.config/wordcraft/logs/wordcraft.log\n2026-10-17T22:08:34.282Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n2026-10-17T22:08:34.399Z WARN  [main] winit::platform_impl::linux::x11::util::randr: XRandR reported that the display's 0mm in size, which is certifiably insane\nlibEGL warning: DRI3 error: Could not get DRI3 device\nlibEGL warning: Ensure your X server supports DRI3 to get accelerated rendering\n2026-10-17T22:08:35.621Z WARN  [main] egui_wgpu: Software rasterizer detected - loss of performance expected. backend: Vulkan, device_type: Cpu, name: \"llvmpipe (LLVM 20.1.2, 256 bits)\", driver: \"llvmpipe\", driver_info: \"Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)\", vendor: Mesa (0x10005), subgroup_size: 8..=8, transient_saves_memory: Some(false), limit_bucket: None\n"
+    },
+    {
+      "check": "sample-0",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/target/debug/wordcraft-cli",
+        "run",
+        "--template",
+        "sample",
+        "--cmd",
+        "file.exportPdf={\"path\": \"/home/runner/work/ArtCraft/ArtCraft/audit-results/wordcraft/sample.pdf\"}",
+        "--save",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/wordcraft/sample.docx"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "wrote /home/runner/work/ArtCraft/ArtCraft/audit-results/wordcraft/sample.docx\n"
+    },
+    {
+      "check": "sample-1",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/wordcraft/target/debug/wordcraft-cli",
+        "inspect",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/wordcraft/sample.docx"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "  \"style\": \"ListParagraph\",\n      \"text\": \"Ask before you borrow. Even from the shelf, a quick note helps everyone keep track.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 10,\n      \"len\": 49,\n      \"list\": {\n        \"level\": 0,\n        \"num\": 1\n      },\n      \"props\": {\n        \"numbering\": {\n          \"level\": 0,\n          \"num\": 1\n        },\n        \"style\": \"ListParagraph\"\n      },\n      \"runs\": [\n        {\n          \"end\": 12,\n          \"props\": {\n            \"bold\": true\n          },\n          \"start\": 0\n        }\n      ],\n      \"style\": \"ListParagraph\",\n      \"text\": \"Quiet hours run from 9 to 11 on weekday mornings.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 11,\n      \"len\": 16,\n      \"props\": {\n        \"style\": \"Heading2\"\n      },\n      \"style\": \"Heading2\",\n      \"text\": \"Shared equipment\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 12,\n      \"len\": 97,\n      \"style\": \"Normal\",\n      \"text\": \"The table below lists what the membership owns together and who keeps each item in working order.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"cells\": [\n        [\n          \"Equipment\",\n          \"Location\",\n          \"Steward\",\n          \"Booking\"\n        ],\n        [\n          \"Etching press\",\n          \"Back room\",\n          \"Mara O.\",\n          \"Sign-up sheet\"\n        ],\n        [\n          \"Kiln (cone 10)\",\n          \"Yard shed\",\n          \"Theo P.\",\n          \"48 h notice\"\n        ],\n        [\n          \"Large-format printer\",\n          \"Office\",\n          \"Ines R.\",\n          \"Calendar\"\n        ],\n        [\n          \"Light table\",\n          \"North windows\",\n          \"Anyone\",\n          \"First come\"\n        ]\n      ],\n      \"cols\": 4,\n      \"index\": 13,\n      \"rows\": 5,\n      \"style\": \"GridTable4AccentBlue\",\n      \"type\": \"table\"\n    },\n    {\n      \"index\": 14,\n      \"len\": 18,\n      \"props\": {\n        \"style\": \"Heading2\"\n      },\n      \"style\": \"Heading2\",\n      \"text\": \"Opening the studio\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 15,\n      \"len\": 39,\n      \"list\": {\n        \"level\": 0,\n        \"num\": 2\n      },\n      \"props\": {\n        \"numbering\": {\n          \"level\": 0,\n          \"num\": 2\n        },\n        \"style\": \"ListParagraph\"\n      },\n      \"style\": \"ListParagraph\",\n      \"text\": \"Switch on the main breaker by the door.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 16,\n      \"len\": 41,\n      \"list\": {\n        \"level\": 0,\n        \"num\": 2\n      },\n      \"props\": {\n        \"numbering\": {\n          \"level\": 0,\n          \"num\": 2\n        },\n        \"style\": \"ListParagraph\"\n      },\n      \"style\": \"ListParagraph\",\n      \"text\": \"Open both skylights unless it is raining.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 17,\n      \"len\": 44,\n      \"list\": {\n        \"level\": 0,\n        \"num\": 2\n      },\n      \"props\": {\n        \"numbering\": {\n          \"level\": 0,\n          \"num\": 2\n        },\n        \"style\": \"ListParagraph\"\n      },\n      \"style\": \"ListParagraph\",\n      \"text\": \"Start the kettle. This step is not optional.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 18,\n      \"len\": 47,\n      \"list\": {\n        \"level\": 0,\n        \"num\": 2\n      },\n      \"props\": {\n        \"numbering\": {\n          \"level\": 0,\n          \"num\": 2\n        },\n        \"style\": \"ListParagraph\"\n      },\n      \"style\": \"ListParagraph\",\n      \"text\": \"Check the booking sheet for the kiln and press.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 19,\n      \"len\": 10,\n      \"props\": {\n        \"style\": \"Heading1\"\n      },\n      \"style\": \"Heading1\",\n      \"text\": \"Membership\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 20,\n      \"len\": 242,\n      \"runs\": [\n        {\n          \"end\": 30,\n          \"props\": {\n            \"bold\": true,\n            \"color\": {\n              \"Rgb\": [\n                21,\n                96,\n                130\n              ]\n            }\n          },\n          \"start\": 14\n        }\n      ],\n      \"style\": \"Normal\",\n      \"text\": \"Membership is pay what you can, reviewed every season. New members shadow a regular for their first two visits, and everyone takes one cleaning shift a month. If you have never made anything before, you are exactly who we hoped would show up.\",\n      \"type\": \"paragraph\"\n    },\n    {\n      \"index\": 21,\n      \"len\": 105,\n      \"runs\": [\n        {\n          \"end\": 93,\n          \"props\": {\n            \"link\": \"https://getartcraft.com/\",\n            \"style\": \"Hyperlink\"\n          },\n          \"start\": 68\n        }\n      ],\n      \"style\": \"Normal\",\n      \"text\": \"Questions go to the front desk, or to the notice board by the sink. Visit the community board for events.\",\n      \"type\": \"paragraph\"\n    }\n  ],\n  \"canRedo\": false,\n  \"canUndo\": false,\n  \"comments\": 0,\n  \"pages\": 2,\n  \"parts\": [\n    {\n      \"id\": 1,\n      \"kind\": \"header\",\n      \"text\": \"The Open Studio Handbook\\t\\tSpring edition\"\n    },\n    {\n      \"id\": 2,\n      \"kind\": \"footer\",\n      \"text\": \"1\"\n    }\n  ],\n  \"properties\": {\n    \"category\": \"\",\n    \"created\": \"2026-10-17T22:08:46Z\",\n    \"creator\": \"WordCraft\",\n    \"description\": \"\",\n    \"keywords\": \"\",\n    \"lastModifiedBy\": \"WordCraft User\",\n    \"modified\": \"2026-10-17T22:08:46Z\",\n    \"revision\": 1,\n    \"subject\": \"\",\n    \"title\": \"The Open Studio Handbook\"\n  },\n  \"sections\": [\n    {\n      \"endBlock\": 21,\n      \"props\": {\n        \"columns\": {\n          \"count\": 1,\n          \"separator\": false,\n          \"space\": 36.0,\n          \"widths\": []\n        },\n        \"docGrid\": null,\n        \"footer\": 36.0,\n        \"footers\": {\n          \"default\": 2,\n          \"even\": null,\n          \"first\": null\n        },\n        \"gutter\": 0.0,\n        \"header\": 36.0,\n        \"headers\": {\n          \"default\": 1,\n          \"even\": null,\n          \"first\": null\n        },\n        \"landscape\": false,\n        \"lineNumbers\": null,\n        \"marginBottom\": 72.0,\n        \"marginLeft\": 72.0,\n        \"marginRight\": 72.0,\n        \"marginTop\": 72.0,\n        \"pageBorders\": null,\n        \"pageH\": 792.0,\n        \"pageNumFormat\": \"decimal\",\n        \"pageNumStart\": null,\n        \"pageW\": 612.0,\n        \"rtl\": false,\n        \"start\": \"nextPage\",\n        \"titlePage\": false,\n        \"valign\": \"top\"\n      }\n    }\n  ],\n  \"selection\": {\n    \"anchor\": {\n      \"off\": 0,\n      \"path\": [\n        0\n      ],\n      \"story\": \"body\"\n    },\n    \"focus\": {\n      \"off\": 0,\n      \"path\": [\n        0\n      ],\n      \"story\": \"body\"\n    },\n    \"text\": \"\"\n  },\n  \"trackChanges\": false,\n  \"words\": 361\n}\n"
+    },
+    {
+      "check": "sample-pdf-validation",
+      "command": [
+        "pdfinfo",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/wordcraft/sample.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "Syntax Error: Suspects object is wrong type (boolean)\nTitle:           The Open Studio Handbook\nAuthor:          WordCraft\nCreator:         WordCraft\nProducer:        WordCraft\nCreationDate:    Sat Oct 17 22:08:46 2026 UTC\nModDate:         Sat Oct 17 22:08:46 2026 UTC\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          yes\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           2\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       45752 bytes\nOptimized:       no\nPDF version:     1.7\n"
+    },
+    {
+      "check": "sample-pdf-preview",
+      "command": [
+        "pdftoppm",
+        "-f",
+        "1",
+        "-singlefile",
+        "-scale-to",
+        "1024",
+        "-png",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/wordcraft/sample.pdf",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/wordcraft/export-preview"
+      ],
+      "exit_code": 0,
+      "seconds": 0.2,
+      "tail": ""
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=c3487320b2d1de657b860b3c8abb44e1f2b32bd8#c3487320b2d1de657b860b3c8abb44e1f2b32bd8",
+    "git+https://github.com/storytold/craft-libs?rev=d27646a5f7c8b4fc85d9dd3213b8c88b58e0088d#d27646a5f7c8b4fc85d9dd3213b8c88b58e0088d",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#c3487320b2d1de657b860b3c8abb44e1f2b32bd8",
+    "https://github.com/storytold/craft-libs#d27646a5f7c8b4fc85d9dd3213b8c88b58e0088d",
+    "https://github.com/storytold/wordcraft"
+  ],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "wordcraft",
+    "craft-fonts",
+    "craft-libs"
+  ],
+  "source_commit": "eae242176108d328c5dd81fbc10370c51ab90706",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "font_source_commit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "configuration_redactions": [],
+  "javascript_checks": [],
+  "kind": "rust",
+  "archive_contains_cargo_lock": true,
+  "cargo_packages": [
+    {
+      "name": "wordcraft-control-key",
+      "targets": [
+        {
+          "name": "wordcraft_control_key",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-doc",
+      "targets": [
+        {
+          "name": "wordcraft_doc",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-geom",
+      "targets": [
+        {
+          "name": "wordcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-docbin",
+      "targets": [
+        {
+          "name": "wordcraft_docbin",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-docx",
+      "targets": [
+        {
+          "name": "wordcraft_docx",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bidi",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "char_units",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "citations",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "complex_script_inheritance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "content_controls",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "custom_xml",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fixtures",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "legacy_forms",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "malformed",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "passthrough",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "privacy",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "row_property_exceptions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "section_form_protection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "section_page_number_type",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "section_text_direction",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "section_valign",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "settings_merge",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_boxes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "toc_ranges",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "word_xml",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "wordml2003_write",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-engine",
+      "targets": [
+        {
+          "name": "wordcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "date_fields",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "macro_packages",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "odt_sections",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recovery_format",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rtf_sections",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "safe_save",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-fonts",
+      "targets": [
+        {
+          "name": "wordcraft_fonts",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "system_fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-formats",
+      "targets": [
+        {
+          "name": "wordcraft_formats",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-layout",
+      "targets": [
+        {
+          "name": "wordcraft_layout",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-proof",
+      "targets": [
+        {
+          "name": "wordcraft_proof",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-pdf",
+      "targets": [
+        {
+          "name": "wordcraft_pdf",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-metafile",
+      "targets": [
+        {
+          "name": "wordcraft_metafile",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-render",
+      "targets": [
+        {
+          "name": "wordcraft_render",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-mcp",
+      "targets": [
+        {
+          "name": "wordcraft_mcp",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "automation_roots",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-ui-egui",
+      "targets": [
+        {
+          "name": "wordcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "perf_probe",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "ui_shot",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "breaks_menu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "native_print",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-zotero",
+      "targets": [
+        {
+          "name": "wordcraft_zotero",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft",
+      "targets": [
+        {
+          "name": "wordcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "control_arg",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "help",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "non_utf8_args",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-cli",
+      "targets": [
+        {
+          "name": "wordcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "closed_stdout",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "convert_region",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "help",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "non_utf8_args",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "picture_then_typing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_tracked",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wordcraft-web",
+      "targets": [
+        {
+          "name": "wordcraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "stayed_running_15_seconds",
+  "sample_workflow": "passed",
+  "sample_validation": {
+    "pdf_info": "Syntax Error: Suspects object is wrong type (boolean)\nTitle:           The Open Studio Handbook\nAuthor:          WordCraft\nCreator:         WordCraft\nProducer:        WordCraft\nCreationDate:    Sat Oct 17 22:08:46 2026 UTC\nModDate:         Sat Oct 17 22:08:46 2026 UTC\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          yes\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           2\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       45752 bytes\nOptimized:       no\nPDF version:     1.7\n",
+    "office_xml_verified": "word/document.xml"
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T22:08:47Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+}

@@ -1,0 +1,1418 @@
+{
+  "repository": "lightcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.2,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libxkbcommon-x11-0",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev",
+        "libwebkit2gtk-4.1-dev",
+        "libayatana-appindicator3-dev",
+        "librsvg2-dev",
+        "libxdo-dev",
+        "libzmq3-dev",
+        "libsodium-dev",
+        "poppler-utils",
+        "python3-pil"
+      ],
+      "exit_code": 0,
+      "seconds": 38.0,
+      "tail": " up libavc1394-0:amd64 (0.5.4-5build3) ...\nSetting up gsettings-desktop-schemas (46.1-0ubuntu1) ...\nSetting up glib-networking-services (2.80.0-1build1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libkdb5-10t64:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up libgstreamer-plugins-base1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up gir1.2-javascriptcoregtk-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up python3-pil:amd64 (10.2.0-1ubuntu1.3) ...\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\nSetting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libgstreamer-gl1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up gstreamer1.0-plugins-base:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libayatana-appindicator3-1 (0.5.93-1build3) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up libshout3:amd64 (2.4.6-1build2) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up libkadm5srv-mit12:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...\nSetting up gir1.2-ayatanaappindicator3-0.1 (0.5.93-1build3) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up krb5-multidev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libkrb5-dev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libzmq3-dev:amd64 (4.3.5-1build2) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up glib-networking:amd64 (2.80.0-1build1) ...\nProcessing triggers for install-info (7.1-3build2) ...\nSetting up libjavascriptcoregtk-4.1-dev:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libsoup-3.0-0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up gir1.2-soup-3.0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libsoup-3.0-dev:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libwebkit2gtk-4.1-0:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up gir1.2-webkit2-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxdo-dev (1:3.20160805.1-5build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up librsvg2-dev:amd64 (2.58.0+dfsg-1ubuntu0.1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libayatana-ido3-dev (0.10.1-1build2) ...\nSetting up libayatana-indicator3-dev (0.9.4-1build1) ...\nSetting up libwebkit2gtk-4.1-dev (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libayatana-appindicator3-dev (0.5.93-1build3) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1229]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.5,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "crates/raster#lightcraft-raster@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/testkit#lightcraft-testkit@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/codecs#lightcraft-codecs@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/heif#lightcraft-heif@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/denoise#lightcraft-denoise@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/denoise-core#lightcraft-denoise-core@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/engine#lightcraft-engine@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/faces#lightcraft-faces@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/geocode#lightcraft-geocode@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/gpu#lightcraft-gpu@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/pipeline#lightcraft-pipeline@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/inpaint#lightcraft-inpaint@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/scenes#lightcraft-scenes@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/lensdb#lightcraft-lensdb@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/merge#lightcraft-merge@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/preview#lightcraft-preview@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/segment#lightcraft-segment@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/fetch#lightcraft-fetch@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/slideshow#lightcraft-slideshow@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/mcp#lightcraft-mcp@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/sysmem#lightcraft-sysmem@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/ui-egui#lightcraft-ui-egui@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft-cli#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft-web#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/xtask#0.8.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/catalog#lightcraft-catalog@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/develop#lightcraft-develop@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/color#lightcraft-color@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/geom#lightcraft-geom@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/meta#lightcraft-meta@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/tiff#lightcraft-tiff@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/raw#lightcraft-raw@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/raster#lightcraft-raster@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/testkit#lightcraft-testkit@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/codecs#lightcraft-codecs@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/heif#lightcraft-heif@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/denoise#lightcraft-denoise@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/denoise-core#lightcraft-denoise-core@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/engine#lightcraft-engine@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/faces#lightcraft-faces@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/geocode#lightcraft-geocode@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/gpu#lightcraft-gpu@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/pipeline#lightcraft-pipeline@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/inpaint#lightcraft-inpaint@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/scenes#lightcraft-scenes@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/lensdb#lightcraft-lensdb@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/merge#lightcraft-merge@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/preview#lightcraft-preview@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/segment#lightcraft-segment@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/fetch#lightcraft-fetch@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/slideshow#lightcraft-slideshow@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/mcp#lightcraft-mcp@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/sysmem#lightcraft-sysmem@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/ui-egui#lightcraft-ui-egui@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft-cli#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft-web#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/xtask#0.8.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 124,
+      "seconds": 900.1,
+      "tail": "ed/lightcraft/crates/slideshow)\n   Compiling lightcraft-geocode v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/geocode)\n   Compiling lightcraft-engine v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/engine)\n   Compiling ab_glyph_rasterizer v0.1.10\n   Compiling ab_glyph v0.2.32\n   Compiling wayland-backend v0.3.17\n   Compiling polling v3.11.0\n   Compiling craft-docpath v0.1.0 (https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b00)\n   Compiling downcast-rs v1.2.1\n   Compiling scoped-tls v1.0.1\n   Compiling accesskit v0.24.1\n   Compiling ahash v0.8.12\n   Compiling quick-xml v0.41.0\n   Compiling wayland-client v0.31.15\n   Compiling wayland-scanner v0.31.11\n   Compiling polycool v0.4.0\n   Compiling kurbo v0.13.1\n   Compiling color v0.3.3\n   Compiling euclid v0.22.14\n   Compiling linebender_resource_handle v0.1.1\n   Compiling peniko v0.6.1\n   Compiling guillotiere v0.7.0\n   Compiling fearless_simd v0.4.1\n   Compiling unicode-general-category v1.1.0\n   Compiling emath v0.36.2\n   Compiling ecolor v0.36.2\n   Compiling skrifa v0.44.0\n   Compiling vello_common v0.1.0\n   Compiling vello_cpu v0.1.0\n   Compiling object v0.37.3\n   Compiling epaint_default_fonts v0.36.2\n   Compiling nohash-hasher v0.2.0\n   Compiling self_cell v1.3.0\n   Compiling epaint v0.36.2\n   Compiling wayland-protocols v0.32.13\n   Compiling itertools v0.15.0\n   Compiling gimli v0.32.3\n   Compiling addr2line v0.25.1\n   Compiling egui v0.36.2\n   Compiling serde_spanned v1.1.1\n   Compiling toml_writer v1.1.2+spec-1.1.0\n   Compiling rustc-demangle v0.1.28\n   Compiling backtrace v0.3.76\n   Compiling toml v1.1.6+spec-1.1.0\n   Compiling mintex v0.1.4\n   Compiling thousands v0.2.0\n   Compiling dhat v0.3.3\n   Compiling toml_edit v0.25.15+spec-1.1.0\n   Compiling zune-jpegxl v0.5.2\n   Compiling enumflags2_derive v0.7.12\n   Compiling rustix v0.38.44\n   Compiling thiserror v1.0.69\n   Compiling proc-macro-crate v3.5.0\n   Compiling zvariant_utils v4.2.0\n   Compiling x11-dl v2.21.0\n   Compiling thiserror-impl v1.0.69\n   Compiling heic-rs v0.1.4\n   Compiling xkeysym v0.2.1\n   Compiling xcursor v0.3.11\n   Compiling parking v2.2.1\n   Compiling cursor-icon v1.2.0\n   Compiling linux-raw-sys v0.4.15\n   Compiling wayland-csd-frame v0.3.0\n   Compiling wayland-cursor v0.31.14\n   Compiling zvariant_derive v5.15.0\n   Compiling wayland-protocols-wlr v0.3.12\n   Compiling endi v1.1.1\n   Compiling futures-core v0.3.34\n   Compiling calloop v0.13.0\n   Compiling lightcraft-ui-egui v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/ui-egui)\n   Compiling lightcraft-heif v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/heif)\n   Compiling gethostname v1.1.0\n   Compiling x11rb-protocol v0.13.2\n   Compiling as-raw-xcb-connection v1.0.1\n   Compiling percent-encoding v2.3.2\n   Compiling smithay-client-toolkit v0.19.2\n   Compiling calloop-wayland-source v0.3.0\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling winit v0.30.13\n   Compiling xkbcommon-dl v0.4.2\n   Compiling wayland-protocols-plasma v0.3.12\n   Compiling futures-io v0.3.34\n   Compiling dpi v0.1.2\n   Compiling smol_str v0.2.2\n   Compiling x11rb v0.13.2\n   Compiling event-listener v5.4.2\n   Compiling enumflags2 v0.7.12\n   Compiling zcheapstr v1.1.0\n   Compiling concurrent-queue v2.5.0\n   Compiling zvariant v5.15.0\n   Compiling event-listener-strategy v0.5.4\n   Compiling futures-lite v2.6.1\n   Compiling zbus_names v4.3.4\n   Compiling async-io v2.6.0\n   Compiling rustc-hash v2.1.3\n   Compiling type-map v0.5.1\n   Compiling errno v0.3.14\n   Compiling async-task v4.7.1\n   Compiling khronos_api v3.1.0\n   Compiling signal-hook-registry v1.4.8\n   Compiling egui-wgpu v0.36.2\n   Compiling async-channel v2.5.0\n   Compiling atomic-waker v1.1.2\n   Compiling piper v0.2.5\n   Compiling async-signal v0.2.14\n   Compiling zbus_xml v5.2.1\n   Compiling async-lock v3.4.2\n   Compiling is-docker v0.2.0\n   Compiling xml-rs v0.8.29\n   Compiling gl_generator v0.14.0\n   Compiling is-wsl v0.4.0\n   Compiling async-process v2.5.0\n   Compiling zbus-lockstep v0.5.2\n   Compiling blocking v1.7.0\n   Compiling async-executor v1.14.0\n   Compiling zbus_macros v5.19.0\n   Compiling async-broadcast v0.7.2\n   Compiling ordered-stream v0.2.0\n   Compiling accesskit_consumer v0.35.0\n   Compiling getopts v0.2.24\n   Compiling colored v2.2.0\n   Compiling async-trait v0.1.92\n   Compiling serde_repr v0.1.21\n   Compiling async-recursion v1.1.1\n   Compiling hex v0.4.3\n   Compiling dify v0.8.0\n   Compiling zbus v5.19.0\n   Compiling kittest v0.4.0\n   Compiling zbus-lockstep-macros v0.5.2\n   Compiling open v5.4.4\n   Compiling phf_shared v0.13.1\n   Compiling phf_generator v0.13.1\n   Compiling egui_kittest v0.36.2\n   Compiling atspi-common v0.13.0\n   Compiling phf_macros v0.13.1\n   Compiling atspi-proxies v0.13.0\n   Compiling phf v0.13.1\n   Compiling glutin_glx_sys v0.6.1\n   Compiling glutin_egl_sys v0.7.1\n   Compiling accesskit_consumer v0.36.0\n   Compiling calloop v0.14.4\n   Compiling futures-macro v0.3.34\n   Compiling futures-task v0.3.34\n   Compiling lightcraft-sysmem v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/sysmem)\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling calloop-wayland-source v0.4.1\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling atspi v0.29.0\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling lightcraft-mcp v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/mcp)\n   Compiling futures-util v0.3.34\n   Compiling glutin v0.32.3\n   Compiling accesskit_unix v0.21.1\n   Compiling glutin-winit v0.5.0\n   Compiling accesskit_winit v0.32.2\n   Compiling smithay-clipboard v0.7.3\n   Compiling arboard v3.6.1\n   Compiling winresource v0.1.31\n   Compiling rfd v0.17.2\n   Compiling lightcraft v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft)\n   Compiling egui-winit v0.36.2\n   Compiling egui_glow v0.36.2\n   Compiling pollster v0.4.0\n   Compiling eframe v0.36.2\n   Compiling lightcraft-web v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft-web)\n   Compiling brotli v8.0.4\n   Compiling lightcraft-cli v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft-cli)\n   Compiling xtask v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/xtask)\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 131.9,
+      "tail": "   Compiling rustc-hash v1.1.0\n   Compiling xtask v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/xtask)\n   Compiling naga-types v30.0.1\n   Compiling naga v30.0.1\n   Compiling wgpu-types v30.0.1\n   Compiling wgpu-naga-bridge v30.0.1\n   Compiling wgpu-hal v30.0.1\n   Compiling wgpu-core-deps-windows-linux-android v30.0.1\n   Compiling wgpu-core v30.0.1\n   Compiling wgpu v30.0.1\n   Compiling lightcraft-gpu v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/gpu)\n   Compiling egui-wgpu v0.36.2\n   Compiling lightcraft-engine v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/engine)\n   Compiling eframe v0.36.2\n   Compiling lightcraft-ui-egui v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/ui-egui)\n   Compiling lightcraft-mcp v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/crates/mcp)\n   Compiling lightcraft v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft)\n   Compiling lightcraft-cli v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/apps/lightcraft-cli)\n    Finished `dev` profile [optimized] target(s) in 2m 11s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/target/debug/lightcraft"
+      ],
+      "exit_code": 124,
+      "seconds": 15.0,
+      "tail": "2026-10-17T22:00:24.215Z INFO  [main] lightcraft: LightCraft 0.8.0, log file /home/runner/.config/lightcraft/logs/lightcraft.log\n2026-10-17T22:00:24.215Z INFO  [main] lightcraft::window_gpu: window: renderer wgpu (order [\"vulkan\", \"gl\", \"glow\"])\n2026-10-17T22:00:24.221Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n2026-10-17T22:00:24.240Z WARN  [main] winit::platform_impl::linux::x11::util::randr: XRandR reported that the display's 0mm in size, which is certifiably insane\nlibEGL warning: DRI3 error: Could not get DRI3 device\nlibEGL warning: Ensure your X server supports DRI3 to get accelerated rendering\n2026-10-17T22:00:24.448Z WARN  [main] egui_wgpu: Software rasterizer detected - loss of performance expected. backend: Vulkan, device_type: Cpu, name: \"llvmpipe (LLVM 20.1.2, 256 bits)\", driver: \"llvmpipe\", driver_info: \"Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)\", vendor: Mesa (0x10005), subgroup_size: 8..=8, transient_saves_memory: Some(false), limit_bucket: None\n2026-10-17T22:00:24.458Z INFO  [main] lightcraft: library /home/runner/Pictures/LightCraft Library: 24 photos, 0 log records replayed (3.3 ms)\n2026-10-17T22:00:24.458Z INFO  [main] lightcraft::hdr_display: display: SDR (this windowing system has no HDR output)\n2026-10-17T22:00:24.611Z INFO  [main] lightcraft_gpu::ctx: gpu: only a software adapter (llvmpipe (LLVM 20.1.2, 256 bits)), using the CPU pipeline\n2026-10-17T22:00:24.611Z WARN  [main] lightcraft_gpu: gpu: rendering on the CPU: software adapter (llvmpipe (LLVM 20.1.2, 256 bits)) skipped: the CPU pipeline is faster\n"
+    },
+    {
+      "check": "sample-0",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/target/debug/lightcraft-cli",
+        "render",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/lightcraft/tiny.png",
+        "-o",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/lightcraft/sample.png",
+        "--set",
+        "light.exposure=0.5",
+        "--size",
+        "32"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "lightcraft-cli: wrote /home/runner/work/ArtCraft/ArtCraft/audit-results/lightcraft/sample.png (32\u00d732)\n"
+    },
+    {
+      "check": "sample-light-baseline",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/lightcraft/target/debug/lightcraft-cli",
+        "render",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/lightcraft/tiny.png",
+        "-o",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/lightcraft/exposure-zero.png",
+        "--set",
+        "light.exposure=0",
+        "--size",
+        "32"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "lightcraft-cli: wrote /home/runner/work/ArtCraft/ArtCraft/audit-results/lightcraft/exposure-zero.png (32\u00d732)\n"
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/lightcraft"
+  ],
+  "missing_paths": [],
+  "model_references": [
+    {
+      "file": "apps/lightcraft-cli/tests/cli.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/archive.rs",
+      "reference": "a.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/archive.rs",
+      "reference": "b.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/archive.rs",
+      "reference": "del.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/archive.rs",
+      "reference": "m/model.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/archive.rs",
+      "reference": "m/other.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/archive.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/archive.rs",
+      "reference": "real.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/known.rs",
+      "reference": "model_bayer.onnx"
+    },
+    {
+      "file": "crates/denoise-core/src/manifest.rs",
+      "reference": "https://example.org/model.onnx"
+    },
+    {
+      "file": "crates/denoise/src/cpu/tests.rs",
+      "reference": "lc-purecpu-{}-{tile}-{ch}-{depth}-{seed}.onnx"
+    },
+    {
+      "file": "crates/denoise/src/onnx.rs",
+      "reference": "/does/not/exist.onnx"
+    },
+    {
+      "file": "crates/denoise/src/onnx.rs",
+      "reference": "lc-denoise-onnx-{name}-{}.onnx"
+    },
+    {
+      "file": "crates/denoise/src/runtime.rs",
+      "reference": "does-not-exist.onnx"
+    },
+    {
+      "file": "crates/denoise/src/runtime.rs",
+      "reference": "lc-cpu-load-{}.onnx"
+    },
+    {
+      "file": "crates/denoise/src/runtime.rs",
+      "reference": "lc-denoise-runtime-{name}-{}.onnx"
+    },
+    {
+      "file": "crates/engine/src/cmd/denoise.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/engine/src/cmd/face_detect.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/engine/src/cmd/face_models.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/engine/src/cmd/face_recognize.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/engine/src/denoise.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/engine/src/face_download.rs",
+      "reference": "https://example.invalid/m/test-model.onnx"
+    },
+    {
+      "file": "crates/engine/src/face_download.rs",
+      "reference": "staged.onnx"
+    },
+    {
+      "file": "crates/engine/src/face_download.rs",
+      "reference": "test-model.onnx"
+    },
+    {
+      "file": "crates/engine/src/model_download.rs",
+      "reference": "https://example.invalid/m/test-model.onnx"
+    },
+    {
+      "file": "crates/engine/src/model_download.rs",
+      "reference": "staged.onnx"
+    },
+    {
+      "file": "crates/engine/src/model_download.rs",
+      "reference": "test-model.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_denoise.rs",
+      "reference": "denoise-models/stand-in/model.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_denoise.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_denoise.rs",
+      "reference": "rawdenoise.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_denoise.rs",
+      "reference": "stray.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Bad.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Broken.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "First.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Fourth.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Good.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Mine.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "My Model.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Nope.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Second.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Third.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "Works.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "arrived.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "empty.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "https://models.example.org/w/weights.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "https://models.example.org/weights.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "https://models.example.org/x.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "junk.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "m.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "nope.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "tokens.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_models.rs",
+      "reference": "weights.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_recognize.rs",
+      "reference": "tiny64.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_face_recognize.rs",
+      "reference": "tiny{dim}.onnx"
+    },
+    {
+      "file": "crates/engine/src/tests_segment.rs",
+      "reference": "model.safetensors"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "http://example.org/m.onnx"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "https://example.org/a b.onnx"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "https://example.org/weights/recogniser.onnx"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "https://x.org/..%2f..%2fevil.onnx"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "https://x.org/.onnx"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "https://x.org/a/b/c.onnx"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/faces/src/catalog.rs",
+      "reference": "recogniser-r50.onnx"
+    },
+    {
+      "file": "crates/faces/src/graph.rs",
+      "reference": "ai.onnx"
+    },
+    {
+      "file": "crates/faces/src/known.rs",
+      "reference": "face_detection_yunet_2023mar.onnx"
+    },
+    {
+      "file": "crates/faces/src/known.rs",
+      "reference": "face_recognition_sface_2021dec.onnx"
+    },
+    {
+      "file": "crates/faces/src/known.rs",
+      "reference": "glintr100.onnx"
+    },
+    {
+      "file": "crates/faces/src/known.rs",
+      "reference": "https://github.com/opencv/opencv_zoo/raw/25f423d0e04c31a17254620e58febd7386da523b/models/face_detection_yunet/face_detection_yunet_2023mar.onnx"
+    },
+    {
+      "file": "crates/faces/src/known.rs",
+      "reference": "https://github.com/opencv/opencv_zoo/raw/25f423d0e04c31a17254620e58febd7386da523b/models/face_recognition_sface/face_recognition_sface_2021dec.onnx"
+    },
+    {
+      "file": "crates/faces/src/known.rs",
+      "reference": "https://huggingface.co/fal/AuraFace-v1/resolve/af6d057c9b0ec4071d4c49c80e3539258798b609/glintr100.onnx"
+    },
+    {
+      "file": "crates/faces/src/manifest.rs",
+      "reference": "http://example.org/m.onnx"
+    },
+    {
+      "file": "crates/faces/src/manifest.rs",
+      "reference": "https://example.org/model.onnx"
+    },
+    {
+      "file": "crates/faces/src/onnx.rs",
+      "reference": "ai.onnx"
+    },
+    {
+      "file": "crates/faces/src/runtime.rs",
+      "reference": "does-not-exist.onnx"
+    },
+    {
+      "file": "crates/faces/src/runtime.rs",
+      "reference": "lc-faces-runtime-{name}-{}.onnx"
+    },
+    {
+      "file": "crates/faces/src/suggest.rs",
+      "reference": "My Model (r50).onnx"
+    },
+    {
+      "file": "crates/faces/src/suggest.rs",
+      "reference": "\\u{7}\\u{0}x.onnx"
+    },
+    {
+      "file": "crates/faces/src/suggest.rs",
+      "reference": "a.onnx"
+    },
+    {
+      "file": "crates/faces/src/suggest.rs",
+      "reference": "m.onnx"
+    },
+    {
+      "file": "crates/faces/src/suggest.rs",
+      "reference": "whatever.onnx"
+    },
+    {
+      "file": "crates/faces/src/suggest.rs",
+      "reference": "x.onnx"
+    },
+    {
+      "file": "crates/faces/src/suggest.rs",
+      "reference": "\u00c5\u00c4\u00d6 \ud83d\ude42.onnx"
+    },
+    {
+      "file": "crates/fetch/src/http.rs",
+      "reference": "https://cdn.example.com/models/sam3/model.safetensors"
+    },
+    {
+      "file": "crates/fetch/src/tests.rs",
+      "reference": "CON.onnx"
+    },
+    {
+      "file": "crates/fetch/src/tests.rs",
+      "reference": "catalog.onnx"
+    },
+    {
+      "file": "crates/fetch/src/tests.rs",
+      "reference": "other.onnx"
+    },
+    {
+      "file": "crates/fetch/src/tests.rs",
+      "reference": "valid.onnx"
+    },
+    {
+      "file": "crates/gpu/src/faces.rs",
+      "reference": "face_detection_yunet_2023mar.onnx"
+    },
+    {
+      "file": "crates/gpu/src/faces.rs",
+      "reference": "face_recognition_sface_2021dec.onnx"
+    },
+    {
+      "file": "crates/gpu/src/faces.rs",
+      "reference": "glintr100.onnx"
+    },
+    {
+      "file": "crates/gpu/src/nn.rs",
+      "reference": "lc-nn-{}-{tile}-{ch}-{depth}-{seed}.onnx"
+    },
+    {
+      "file": "crates/segment/src/lib.rs",
+      "reference": "model.safetensors"
+    },
+    {
+      "file": "crates/segment/src/weights.rs",
+      "reference": "lc-weights-hdr-{}.safetensors"
+    },
+    {
+      "file": "crates/segment/src/weights.rs",
+      "reference": "lc-weights-{name}-{}.safetensors"
+    },
+    {
+      "file": "crates/ui-egui/src/headless.rs",
+      "reference": "Mine.onnx"
+    },
+    {
+      "file": "crates/ui-egui/src/headless.rs",
+      "reference": "junk.onnx"
+    },
+    {
+      "file": "crates/ui-egui/src/headless.rs",
+      "reference": "nope.onnx"
+    },
+    {
+      "file": "crates/ui-egui/src/headless.rs",
+      "reference": "rawdenoise.onnx"
+    },
+    {
+      "file": "crates/ui-egui/src/lib.rs",
+      "reference": "/a/model.onnx"
+    },
+    {
+      "file": "crates/ui-egui/src/tests_model_setup.rs",
+      "reference": "denoise/test-smoothing/model.onnx"
+    },
+    {
+      "file": "crates/ui-egui/src/tests_model_setup.rs",
+      "reference": "model.onnx"
+    },
+    {
+      "file": "crates/ui-egui/src/tests_panels.rs",
+      "reference": "m.onnx"
+    },
+    {
+      "file": "docs/faces.md",
+      "reference": "https://example.org/weights/recogniser.onnx"
+    },
+    {
+      "file": "tools/install-sam3.sh",
+      "reference": "$DIR/model.safetensors"
+    }
+  ],
+  "service_domains": [
+    "developers.openai.com",
+    "getartcraft.com",
+    "huggingface.co"
+  ],
+  "limitations": [
+    "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "lightcraft",
+    "craft-fonts",
+    "craft-libs"
+  ],
+  "source_commit": "f9b0c8c8a12c8fa17b7afb5baa00f9ee1bbd7b15",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "font_source_commit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+  "python_syntax": {
+    "files_checked": 5,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "configuration_redactions": [],
+  "javascript_checks": [],
+  "kind": "rust",
+  "archive_contains_cargo_lock": true,
+  "cargo_packages": [
+    {
+      "name": "lightcraft-catalog",
+      "targets": [
+        {
+          "name": "lightcraft_catalog",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "persist_bench",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-develop",
+      "targets": [
+        {
+          "name": "lightcraft_develop",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-color",
+      "targets": [
+        {
+          "name": "lightcraft_color",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-geom",
+      "targets": [
+        {
+          "name": "lightcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-meta",
+      "targets": [
+        {
+          "name": "lightcraft_meta",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "robust",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-tiff",
+      "targets": [
+        {
+          "name": "lightcraft_tiff",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-raw",
+      "targets": [
+        {
+          "name": "lightcraft_raw",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "colstats",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "rawdump",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "rawinfo",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "rawrender",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "body_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "canon_pentax_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "coverage_sweep_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "cr3_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "cr3_variants",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "crx_properties",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dng",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "lossy_dng",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "olympus_samsung_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rendered_dng",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "robust",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sony_leica_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sony_lens_inventory",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sparse_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sr2_heap",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vendor_robust",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-raster",
+      "targets": [
+        {
+          "name": "lightcraft_raster",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "blur_bench",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-testkit",
+      "targets": [
+        {
+          "name": "lightcraft_testkit",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-codecs",
+      "targets": [
+        {
+          "name": "lightcraft_codecs",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "jpeg_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "bench",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fuzz",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "header",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "heif",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-heif",
+      "targets": [
+        {
+          "name": "lightcraft_heif",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-denoise",
+      "targets": [
+        {
+          "name": "lightcraft_denoise",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "real_model",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-denoise-core",
+      "targets": [
+        {
+          "name": "lightcraft_denoise_core",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-engine",
+      "targets": [
+        {
+          "name": "lightcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "drag_tick_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "raw_frame",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "render_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "scan_setup_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "sync_scan_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "denoise_cpu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "denoise_real",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "preview_read",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-faces",
+      "targets": [
+        {
+          "name": "lightcraft_faces",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-geocode",
+      "targets": [
+        {
+          "name": "lightcraft_geocode",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-gpu",
+      "targets": [
+        {
+          "name": "lightcraft_gpu",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "equivalence",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fallback",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gpu_probe",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "memory",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shutdown",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shutdown_first",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-pipeline",
+      "targets": [
+        {
+          "name": "lightcraft_pipeline",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "develop_sheet",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-inpaint",
+      "targets": [
+        {
+          "name": "lightcraft_inpaint",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-scenes",
+      "targets": [
+        {
+          "name": "lightcraft_scenes",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "contact_sheet",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-lensdb",
+      "targets": [
+        {
+          "name": "lightcraft_lensdb",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-merge",
+      "targets": [
+        {
+          "name": "lightcraft_merge",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "hdr",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pano",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "white_balance",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-preview",
+      "targets": [
+        {
+          "name": "lightcraft_preview",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-segment",
+      "targets": [
+        {
+          "name": "lightcraft_segment",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "lightcraft-sam3-worker",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "sam3_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "reference",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "remote",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-fetch",
+      "targets": [
+        {
+          "name": "lightcraft_fetch",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-slideshow",
+      "targets": [
+        {
+          "name": "lightcraft_slideshow",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-mcp",
+      "targets": [
+        {
+          "name": "lightcraft_mcp",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "e2e",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-sysmem",
+      "targets": [
+        {
+          "name": "lightcraft_sysmem",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-ui-egui",
+      "targets": [
+        {
+          "name": "lightcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "drag_latency",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "grid_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "open_timeline",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "thumb_request_bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "accessibility",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "docking_workflows",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shutdown",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft",
+      "targets": [
+        {
+          "name": "lightcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "gen_photos",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-cli",
+      "targets": [
+        {
+          "name": "lightcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mcp_shutdown",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lightcraft-web",
+      "targets": [
+        {
+          "name": "lightcraft_web",
+          "kind": [
+            "cdylib",
+            "rlib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "stayed_running_15_seconds",
+  "sample_workflow": "passed",
+  "sample_validation": {
+    "png_dimensions": [
+      32,
+      32
+    ],
+    "exposure_brightness": {
+      "baseline": 310.0,
+      "plus_half_stop": 365.0
+    }
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T22:00:38Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+}

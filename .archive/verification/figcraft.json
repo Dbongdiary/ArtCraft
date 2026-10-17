@@ -1,0 +1,660 @@
+{
+  "repository": "figcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 5.7,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libxkbcommon-x11-0",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev",
+        "libwebkit2gtk-4.1-dev",
+        "libayatana-appindicator3-dev",
+        "librsvg2-dev",
+        "libxdo-dev",
+        "libzmq3-dev",
+        "libsodium-dev",
+        "poppler-utils",
+        "python3-pil"
+      ],
+      "exit_code": 0,
+      "seconds": 42.3,
+      "tail": " up libavc1394-0:amd64 (0.5.4-5build3) ...\nSetting up gsettings-desktop-schemas (46.1-0ubuntu1) ...\nSetting up glib-networking-services (2.80.0-1build1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libkdb5-10t64:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up libgstreamer-plugins-base1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up gir1.2-javascriptcoregtk-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up python3-pil:amd64 (10.2.0-1ubuntu1.3) ...\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\nSetting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libgstreamer-gl1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up gstreamer1.0-plugins-base:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libayatana-appindicator3-1 (0.5.93-1build3) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up libshout3:amd64 (2.4.6-1build2) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up libkadm5srv-mit12:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...\nSetting up gir1.2-ayatanaappindicator3-0.1 (0.5.93-1build3) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up krb5-multidev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libkrb5-dev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libzmq3-dev:amd64 (4.3.5-1build2) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up glib-networking:amd64 (2.80.0-1build1) ...\nProcessing triggers for install-info (7.1-3build2) ...\nSetting up libjavascriptcoregtk-4.1-dev:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libsoup-3.0-0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up gir1.2-soup-3.0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libsoup-3.0-dev:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libwebkit2gtk-4.1-0:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up gir1.2-webkit2-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxdo-dev (1:3.20160805.1-5build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up librsvg2-dev:amd64 (2.58.0+dfsg-1ubuntu0.1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libayatana-ido3-dev (0.10.1-1build2) ...\nSetting up libayatana-indicator3-dev (0.9.4-1build1) ...\nSetting up libwebkit2gtk-4.1-dev (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libayatana-appindicator3-dev (0.5.93-1build3) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1351]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 9.0,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "t\",\"HtmlElement\",\"HtmlAnchorElement\",\"Node\",\"Blob\",\"BlobPropertyBag\",\"Url\",\"Location\",\"MediaQueryList\",\"Navigator\",\"Gamepad\",\"GamepadButton\",\"GamepadMappingType\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"figcraft-web\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-web/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-web/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null},{\"name\":\"xtask\",\"version\":\"0.6.0\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/xtask#0.6.0\",\"license\":\"MIT OR Apache-2.0\",\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[{\"name\":\"figcraft-engine\",\"source\":null,\"req\":\"*\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null,\"path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/engine\"},{\"name\":\"serde_json\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"float_roundtrip\"],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"xtask\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/xtask/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/xtask/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/collab#figcraft-collab@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/doc#figcraft-doc@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/color#figcraft-color@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/geom#figcraft-geom@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/collab-net#figcraft-collab-net@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/engine#figcraft-engine@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/format#figcraft-format@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/pathops#figcraft-pathops@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/layout#figcraft-layout@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/pdf#figcraft-pdf@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/render#figcraft-render@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/text#figcraft-text@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/plugin#figcraft-plugin@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/svg#figcraft-svg@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/mcp#figcraft-mcp@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/ui-egui#figcraft-ui-egui@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-cli#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-server#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-web#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/xtask#0.6.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/collab#figcraft-collab@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/doc#figcraft-doc@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/color#figcraft-color@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/geom#figcraft-geom@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/collab-net#figcraft-collab-net@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/engine#figcraft-engine@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/format#figcraft-format@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/pathops#figcraft-pathops@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/layout#figcraft-layout@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/pdf#figcraft-pdf@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/render#figcraft-render@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/text#figcraft-text@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/plugin#figcraft-plugin@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/svg#figcraft-svg@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/mcp#figcraft-mcp@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/ui-egui#figcraft-ui-egui@0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-cli#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-server#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-web#0.6.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/figcraft/xtask#0.6.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/figcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 124,
+      "seconds": 900.0,
+      "tail": "sts::the_light_fades_out_where_it_stops ... ok\ntest effects_behaviour_tests::layer_blur_radii_up_to_the_documented_limit_all_draw ... ok\ntest grain_tests::noise_blend_mode_applies ... ok\ntest grain_tests::noise_colour_modes ... ok\ntest grain_tests::noise_density_sets_the_share_of_grains ... ok\ntest grain_tests::noise_grains_have_their_size_and_stay_put ... ok\ntest grain_tests::texture_roughens_edges ... ok\ntest group_effects_tests::a_background_blur_on_a_group_of_one_shape_matches_the_shape ... ok\ntest group_effects_tests::a_groups_inner_shadow_is_cast_by_its_layers_together ... ok\ntest group_effects_tests::an_inner_shadow_on_a_group_of_one_shape_matches_the_shape ... ok\ntest group_effects_tests::hidden_empty_and_junk_effects_on_groups_draw_nothing_odd ... ok\ntest image_budget_tests::a_full_image_cache_drops_the_least_recently_used_image_only ... ok\ntest image_budget_tests::a_huge_image_is_refused_from_its_header_alone ... ok\ntest image_budget_tests::an_image_larger_than_the_budget_is_held_alone ... ok\ntest image_budget_tests::an_image_whose_pixels_pass_the_byte_budget_is_refused ... ok\ntest image_budget_tests::an_image_wider_or_taller_than_the_limit_is_refused ... ok\ntest image_budget_tests::an_image_within_the_limits_decodes ... ok\ntest image_budget_tests::filter_and_profile_variants_count_against_one_budget ... ok\ntest image_budget_tests::the_image_cache_keeps_within_its_byte_budget ... ok\ntest image_profile_tests::adobe_rgb_png_converts_into_either_working_space ... ok\ntest image_profile_tests::curve_types_table_and_parametric ... ok\ntest image_profile_tests::display_p3_images_round_trip_and_convert ... ok\ntest image_profile_tests::every_container_carries_its_profile ... ok\ntest image_profile_tests::grey_profiles ... ok\ntest image_profile_tests::png_colour_chunks ... ok\ntest image_profile_tests::profile_names_are_cached_and_cleaned ... ok\ntest backdrop_tests::hostile_backdrop_values_do_not_crash ... ok\ntest image_profile_tests::unusable_profiles_fall_back_to_srgb ... ok\ntest grain_tests::hostile_grain_values_do_not_crash ... ok\ntest lod_tests::bands_match_one_piece_previews ... ok\ntest lod_tests::exports_never_use_lod ... ok\ntest lod_tests::greeked_text_stays_inside_its_bounds ... ok\ntest lod_tests::images_and_masks_take_the_exact_path ... ok\ntest lod_tests::lod_is_off_unless_asked_for ... ok\ntest lod_tests::close_up_previews_are_exact ... ok\ntest image_profile_tests::profile_parser_survives_junk ... ok\ntest lod_tests::splat_and_blit_survive_junk ... ok\ntest lod_tests::tiny_layers_keep_their_ink ... ok\ntest lod_tests::retained_previews_match_full_ones ... ok\ntest paint_behaviour_tests::adding_a_stop_takes_the_colour_there_so_the_gradient_looks_the_same ... ok\ntest paint_behaviour_tests::changing_the_colour_profile_converts_or_keeps_values ... ok\ntest paint_behaviour_tests::clipping_still_clips_blending_children ... ok\ntest paint_behaviour_tests::colour_models_agree ... ok\ntest paint_behaviour_tests::every_blend_mode_blends_a_paint_and_a_layer_by_its_formula ... ok\ntest paint_behaviour_tests::fills_stack_bottom_to_top_with_their_own_opacity ... ok\ntest paint_behaviour_tests::gradient_handles_place_the_stops ... ok\ntest paint_behaviour_tests::gradient_stops_rules ... ok\ntest paint_behaviour_tests::gradients_stretch_with_the_layer ... ok\ntest paint_behaviour_tests::hex_entry_and_alpha_rounding ... ok\ntest paint_behaviour_tests::image_opacity_and_adjustments ... ok\ntest paint_behaviour_tests::image_scale_modes_place_the_image ... ok\ntest paint_behaviour_tests::paint_opacity_and_layer_opacity_differ ... ok\ntest paint_behaviour_tests::pass_through_containers_let_children_blend_with_what_is_behind_and_normal_ones_isolate ... ok\ntest paint_behaviour_tests::text_strokes_follow_their_alignment ... ok\ntest progressive_tests::a_degenerate_line_blurs_with_the_end_radius ... ok\ntest progressive_tests::background_blur_ramps_across_the_backdrop ... ok\ntest lod_tests::zoomed_out_previews_are_close_to_exact ... ok\ntest lod_tests::outline_mode_ignores_lod ... ok\ntest progressive_tests::layer_blur_ramps_from_sharp_to_the_end_radius ... ok\ntest progressive_tests::levels_span_the_ramp_and_stay_few ... ok\ntest progressive_tests::the_ramp_follows_the_line_and_runs_either_way ... ok\ntest retained_edit_tests::a_clip_edge_on_a_pixel_boundary_clips_the_same_in_every_render ... ok\ntest retained_edit_tests::moving_a_child_of_a_rotated_frame ... ok\ntest retained_tests::edits_render_only_what_changed ... ok\ntest progressive_tests::bands_match_one_piece ... ok\ntest retained_tests::junk_views_never_panic ... ok\ntest retained_tests::overflowing_text_is_drawn_while_its_box_is_out_of_view ... ok\ntest retained_tests::pans_render_only_the_uncovered_strips ... ok\ntest retained_tests::edits_under_and_beside_effects_match ... ok\ntest retained_tests::unchanged_view_is_reused ... ok\ntest retained_tests::zoom_page_and_options_render_full ... ok\ntest rtl_list_tests::the_bullet_of_a_right_to_left_paragraph_draws_on_the_right ... ok\ntest retained_tests::text_and_mask_edits_match ... ok\ntest solo_tests::solo_draws_one_layer_in_place ... ok\ntest spread_tests::drop_shadow_spread_grows_an_ellipse_as_an_ellipse ... ok\ntest spread_tests::inner_shadow_spread_shrinks_the_outline ... ok\ntest spread_tests::negative_spread_shrinks_an_ellipse_as_an_ellipse ... ok\ntest spread_tests::rectangle_spread_grows_the_corner_radius ... ok\ntest spread_tests::spread_keeps_star_points_sharp ... ok\ntest spread_tests::spread_of_layers_without_one_outline_grows_their_pixels ... ok\ntest tests::boolean_subtract_renders_hole ... ok\ntest tests::colour_emoji_draw_their_pixels ... ok\ntest tests::drop_shadow_paints_outside ... ok\ntest tests::export_png_roundtrip ... ok\ntest tests::exports_carry_the_colour_profile ... ok\ntest tests::frame_clips_children ... ok\ntest tests::gradients_render ... ok\ntest tests::hostile_sizes ... ok\ntest tests::images_are_managed_into_the_file_profile ... ok\ntest tests::inner_shadow_and_blur_dont_crash ... ok\ntest tests::inner_shadow_reaches_every_edge ... ok\ntest tests::luminance_and_vector_masks ... ok\ntest tests::mask_clips_siblings ... ok\ntest tests::opacity_and_layer ... ok\ntest tests::rect_clip_frame_matches_same_rect_fill_on_fractional_edges ... ok\ntest tests::solid_rect_and_page_background ... ok\ntest tests::strokes_align ... ok\ntest tests::text_renders_something ... ok\ntest tests::zoom_scales ... ok\ntest width_tests::wedge_profile_tapers_the_stroke ... ok\ntest width_tests::widened_profile_paints_past_the_weight ... ok\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 157.9,
+      "tail": "   Compiling rand_core v0.9.5\nwarning: figcraft-text@0.6.0: craft-fonts fonts/latin-manifest.txt skipped: CRAFT_FONTS_DIR=/home/runner/work/ArtCraft/ArtCraft/restored/craft-fonts: /home/runner/work/ArtCraft/ArtCraft/restored/craft-fonts/fonts/latin-manifest.txt: No such file or directory (os error 2)\n   Compiling getrandom v0.3.4\n   Compiling rand_xoshiro v0.7.0\n   Compiling imbl v7.0.2\n   Compiling ahash v0.8.12\n   Compiling epaint v0.36.2\n   Compiling winit v0.30.13\n   Compiling figcraft-doc v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/doc)\n   Compiling figcraft-pathops v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/pathops)\n   Compiling figcraft-text v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/text)\n   Compiling figcraft-render v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/render)\n   Compiling figcraft-pdf v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/pdf)\n   Compiling figcraft-svg v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/svg)\n   Compiling figcraft-format v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/format)\n   Compiling figcraft-layout v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/layout)\n   Compiling figcraft-collab v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/collab)\n   Compiling egui v0.36.2\n   Compiling figcraft-engine v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/engine)\n   Compiling egui_extras v0.36.2\n   Compiling accesskit_winit v0.32.2\n   Compiling egui-winit v0.36.2\n   Compiling figcraft-collab-net v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/collab-net)\n   Compiling figcraft-ui-egui v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/ui-egui)\n   Compiling egui-wgpu v0.36.2\n   Compiling eframe v0.36.2\n   Compiling figcraft-server v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-server)\n   Compiling figcraft-mcp v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/crates/mcp)\n   Compiling xtask v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/xtask)\n   Compiling figcraft-cli v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-cli)\n   Compiling figcraft v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft)\n   Compiling figcraft-web v0.6.0 (/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/apps/figcraft-web)\n    Finished `dev` profile [optimized] target(s) in 2m 37s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/target/debug/figcraft"
+      ],
+      "exit_code": 124,
+      "seconds": 15.1,
+      "tail": "[2026-10-17T21:53:17Z WARN  winit::platform_impl::linux::x11::xdisplay] error setting XSETTINGS; Xft options won't reload automatically\n[2026-10-17T21:53:17Z WARN  winit::platform_impl::linux::x11::util::randr] XRandR reported that the display's 0mm in size, which is certifiably insane\nlibEGL warning: DRI3 error: Could not get DRI3 device\nlibEGL warning: Ensure your X server supports DRI3 to get accelerated rendering\n[2026-10-17T21:53:19Z WARN  egui_wgpu] Software rasterizer detected - loss of performance expected. backend: Vulkan, device_type: Cpu, name: \"llvmpipe (LLVM 20.1.2, 256 bits)\", driver: \"llvmpipe\", driver_info: \"Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)\", vendor: Mesa (0x10005), subgroup_size: 8..=8, transient_saves_memory: Some(false), limit_bucket: None\n"
+    },
+    {
+      "check": "sample-0",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/target/debug/figcraft-cli",
+        "run",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/start.json",
+        "--out",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/dashboard.figcraft"
+      ],
+      "exit_code": 0,
+      "seconds": 0.2,
+      "tail": "{\"command\":\"file.newFromTemplate\",\"ok\":true,\"result\":{\"index\":1,\"template\":\"dashboard\"},\"step\":0}\nwrote /home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/dashboard.figcraft\n"
+    },
+    {
+      "check": "sample-1",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/figcraft/target/debug/figcraft-cli",
+        "export",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/dashboard.figcraft",
+        "-o",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/sample.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/sample.pdf\n"
+    },
+    {
+      "check": "sample-pdf-validation",
+      "command": [
+        "pdfinfo",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/sample.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "Title:           Dashboard\nCreator:         FigCraft\nProducer:        FigCraft\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       1442 x 962 pts\nPage rot:        0\nFile size:       34565 bytes\nOptimized:       no\nPDF version:     1.7\n"
+    },
+    {
+      "check": "sample-pdf-preview",
+      "command": [
+        "pdftoppm",
+        "-f",
+        "1",
+        "-singlefile",
+        "-scale-to",
+        "1024",
+        "-png",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/sample.pdf",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/figcraft/export-preview"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1,
+      "tail": ""
+    }
+  ],
+  "git_dependencies": [],
+  "missing_paths": [
+    {
+      "manifest": "Cargo.toml",
+      "path": "crates/tools"
+    }
+  ],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "figcraft",
+    "craft-fonts"
+  ],
+  "source_commit": "d574eaac1dfe6605f05e47e2a3f8505e0cf512fe",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "font_source_commit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+  "python_syntax": {
+    "files_checked": 0,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "configuration_redactions": [],
+  "javascript_checks": [],
+  "kind": "rust",
+  "archive_contains_cargo_lock": true,
+  "cargo_packages": [
+    {
+      "name": "figcraft-collab",
+      "targets": [
+        {
+          "name": "figcraft_collab",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-doc",
+      "targets": [
+        {
+          "name": "figcraft_doc",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-color",
+      "targets": [
+        {
+          "name": "figcraft_color",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-geom",
+      "targets": [
+        {
+          "name": "figcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-collab-net",
+      "targets": [
+        {
+          "name": "figcraft_collab_net",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-engine",
+      "targets": [
+        {
+          "name": "figcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "empty_text_box_undo",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "library_style_acceptance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "list_indent_response",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "scope_reset",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "selection_colors",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shape_builder_response",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-format",
+      "targets": [
+        {
+          "name": "figcraft_format",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "distributed_alignment",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "import_link_contract",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "range_hyperlink_round_trip",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-pathops",
+      "targets": [
+        {
+          "name": "figcraft_pathops",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-layout",
+      "targets": [
+        {
+          "name": "figcraft_layout",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-pdf",
+      "targets": [
+        {
+          "name": "figcraft_pdf",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "pattern_cmyk",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-render",
+      "targets": [
+        {
+          "name": "figcraft_render",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-text",
+      "targets": [
+        {
+          "name": "figcraft_text",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-plugin",
+      "targets": [
+        {
+          "name": "figcraft_plugin",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-svg",
+      "targets": [
+        {
+          "name": "figcraft_svg",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "corpus",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-mcp",
+      "targets": [
+        {
+          "name": "figcraft_mcp",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "agent_tasks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attached",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "automation_roots",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "export_hidden_roots",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "garbage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "protocol",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "screenshot_pixel_limit",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-ui-egui",
+      "targets": [
+        {
+          "name": "figcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "canvas_pan_release",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "comment_open_other_page",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "file_menu_pdf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "guide_label_narrow",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recent_file_names",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft",
+      "targets": [
+        {
+          "name": "figcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-cli",
+      "targets": [
+        {
+          "name": "figcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "export_depth",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdf_print",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-server",
+      "targets": [
+        {
+          "name": "figcraft_server",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "figcraft-server",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "header_recovery",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "problem_retention",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "figcraft-web",
+      "targets": [
+        {
+          "name": "figcraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "stayed_running_15_seconds",
+  "sample_workflow": "passed",
+  "sample_validation": {
+    "pdf_info": "Title:           Dashboard\nCreator:         FigCraft\nProducer:        FigCraft\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       1442 x 962 pts\nPage rot:        0\nFile size:       34565 bytes\nOptimized:       no\nPDF version:     1.7\n"
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:53:29Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+}

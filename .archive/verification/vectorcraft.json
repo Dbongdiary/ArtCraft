@@ -1,0 +1,1090 @@
+{
+  "repository": "vectorcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.3,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libxkbcommon-x11-0",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev",
+        "libwebkit2gtk-4.1-dev",
+        "libayatana-appindicator3-dev",
+        "librsvg2-dev",
+        "libxdo-dev",
+        "libzmq3-dev",
+        "libsodium-dev",
+        "poppler-utils",
+        "python3-pil"
+      ],
+      "exit_code": 0,
+      "seconds": 30.2,
+      "tail": " up libavc1394-0:amd64 (0.5.4-5build3) ...\nSetting up gsettings-desktop-schemas (46.1-0ubuntu1) ...\nSetting up glib-networking-services (2.80.0-1build1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libkdb5-10t64:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up libgstreamer-plugins-base1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up gir1.2-javascriptcoregtk-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up python3-pil:amd64 (10.2.0-1ubuntu1.3) ...\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\nSetting up libgstreamer-plugins-good1.0-0:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libgstreamer-gl1.0-0:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up gstreamer1.0-plugins-base:amd64 (1.24.2-1ubuntu0.5) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libayatana-appindicator3-1 (0.5.93-1build3) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up libshout3:amd64 (2.4.6-1build2) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up libkadm5srv-mit12:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libsndfile1:amd64 (1.2.2-1ubuntu5.24.04.1) ...\nSetting up gir1.2-ayatanaappindicator3-0.1 (0.5.93-1build3) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up krb5-multidev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libpulse0:amd64 (1:16.1+dfsg1-2ubuntu10.1) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libkrb5-dev:amd64 (1.20.1-6ubuntu2.10) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libzmq3-dev:amd64 (4.3.5-1build2) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up glib-networking:amd64 (2.80.0-1build1) ...\nProcessing triggers for install-info (7.1-3build2) ...\nSetting up libjavascriptcoregtk-4.1-dev:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libsoup-3.0-0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up gir1.2-soup-3.0:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up gstreamer1.0-plugins-good:amd64 (1.24.2-1ubuntu1.8) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libsoup-3.0-dev:amd64 (3.4.4-5ubuntu0.9) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libwebkit2gtk-4.1-0:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up gir1.2-webkit2-4.1:amd64 (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxdo-dev (1:3.20160805.1-5build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up librsvg2-dev:amd64 (2.58.0+dfsg-1ubuntu0.1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libayatana-ido3-dev (0.10.1-1build2) ...\nSetting up libayatana-indicator3-dev (0.9.4-1build1) ...\nSetting up libwebkit2gtk-4.1-dev (2.52.6-0ubuntu0.24.04.1) ...\nSetting up libayatana-appindicator3-dev (0.5.93-1build3) ...\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1162]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.9,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "o.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/affinity#vectorcraft-affinity@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/brush#vectorcraft-brush@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/color#vectorcraft-color@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/doc#vectorcraft-doc@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/geom#vectorcraft-geom@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/testkit#vectorcraft-testkit@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/engine#vectorcraft-engine@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/cad#vectorcraft-cad@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/effects#vectorcraft-effects@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/pathops#vectorcraft-pathops@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/plugins#vectorcraft-plugins@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/text#vectorcraft-text@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/three-d#vectorcraft-three-d@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/eps#vectorcraft-eps@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/metafile#vectorcraft-metafile@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/pdf#vectorcraft-pdf@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/render#vectorcraft-render@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/format#vectorcraft-format@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/scriptcheck#vectorcraft-scriptcheck@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/svg#vectorcraft-svg@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/tools#vectorcraft-tools@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/trace#vectorcraft-trace@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/mcp#vectorcraft-mcp@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/ui-egui#vectorcraft-ui-egui@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft#0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft-cli#0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft-web#0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/xtask#0.12.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/affinity#vectorcraft-affinity@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/brush#vectorcraft-brush@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/cad#vectorcraft-cad@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/color#vectorcraft-color@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/doc#vectorcraft-doc@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/effects#vectorcraft-effects@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/engine#vectorcraft-engine@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/eps#vectorcraft-eps@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/format#vectorcraft-format@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/geom#vectorcraft-geom@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/mcp#vectorcraft-mcp@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/metafile#vectorcraft-metafile@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/pathops#vectorcraft-pathops@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/pdf#vectorcraft-pdf@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/plugins#vectorcraft-plugins@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/render#vectorcraft-render@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/scriptcheck#vectorcraft-scriptcheck@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/svg#vectorcraft-svg@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/testkit#vectorcraft-testkit@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/text#vectorcraft-text@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/three-d#vectorcraft-three-d@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/tools#vectorcraft-tools@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/trace#vectorcraft-trace@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/ui-egui#vectorcraft-ui-egui@0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft#0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft-cli#0.12.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/xtask#0.12.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--locked"
+      ],
+      "exit_code": 124,
+      "seconds": 900.1,
+      "tail": "piling toml_edit v0.25.15+spec-1.1.0\n   Compiling enumflags2_derive v0.7.12\n   Compiling proc-macro-crate v3.5.0\n   Compiling zvariant_utils v4.2.0\n   Compiling parking v2.2.1\n   Compiling parking_lot_core v0.9.12\n   Compiling tracing-attributes v0.1.31\n   Compiling tracing-core v0.1.36\n   Compiling zvariant_derive v5.15.0\n   Compiling endi v1.1.1\n   Compiling scopeguard v1.2.0\n   Compiling futures-core v0.3.34\n   Compiling lock_api v0.4.14\n   Compiling tracing v0.1.44\n   Compiling wayland-protocols v0.32.13\n   Compiling allocator-api2 v0.2.21\n   Compiling static_assertions v1.1.0\n   Compiling hashbrown v0.16.1\n   Compiling parking_lot v0.12.5\n   Compiling accesskit v0.24.1\n   Compiling ahash v0.8.12\n   Compiling futures-io v0.3.34\n   Compiling profiling v1.0.18\n   Compiling event-listener v5.4.2\n   Compiling enumflags2 v0.7.12\n   Compiling zcheapstr v1.1.0\n   Compiling concurrent-queue v2.5.0\n   Compiling raw-window-handle v0.6.2\n   Compiling zvariant v5.15.0\n   Compiling event-listener-strategy v0.5.4\n   Compiling futures-lite v2.6.1\n   Compiling wayland-protocols-wlr v0.3.12\n   Compiling zbus_names v4.3.4\n   Compiling vello_common v0.1.0\n   Compiling emath v0.36.2\n   Compiling async-io v2.6.0\n   Compiling percent-encoding v2.3.2\n   Compiling rustc-hash v1.1.0\n   Compiling rustix v0.38.44\n   Compiling naga-types v30.0.1\n   Compiling ecolor v0.36.2\n   Compiling vello_cpu v0.1.0\n   Compiling naga v30.0.1\n   Compiling errno v0.3.14\n   Compiling self_cell v1.3.0\n   Compiling nohash-hasher v0.2.0\n   Compiling bit-vec v0.9.1\n   Compiling ash v0.38.0+1.3.281\n   Compiling cursor-icon v1.2.0\n   Compiling xkeysym v0.2.1\n   Compiling epaint_default_fonts v0.36.2\n   Compiling linux-raw-sys v0.4.15\n   Compiling xcursor v0.3.11\n   Compiling async-task v4.7.1\n   Compiling wayland-cursor v0.31.14\n   Compiling epaint v0.36.2\n   Compiling wayland-csd-frame v0.3.0\n   Compiling bit-set v0.10.0\n   Compiling signal-hook-registry v1.4.8\n   Compiling async-channel v2.5.0\n   Compiling codespan-reporting v0.13.1\n   Compiling itertools v0.15.0\n   Compiling memmap2 v0.9.11\n   Compiling spirv v0.4.0+sdk-1.4.341.0\n   Compiling atomic-waker v1.1.2\n   Compiling khronos-egl v6.0.0\n   Compiling piper v0.2.5\n   Compiling egui v0.36.2\n   Compiling async-signal v0.2.14\n   Compiling calloop v0.13.0\n   Compiling wgpu-types v30.0.1\n   Compiling zbus_xml v5.2.1\n   Compiling async-lock v3.4.2\n   Compiling wgpu-hal v30.0.1\n   Compiling x11-dl v2.21.0\n   Compiling serde_spanned v1.1.1\n   Compiling gethostname v1.1.0\n   Compiling x11rb-protocol v0.13.2\n   Compiling toml_writer v1.1.2+spec-1.1.0\n   Compiling smithay-client-toolkit v0.19.2\n   Compiling presser v0.3.1\n   Compiling as-raw-xcb-connection v1.0.1\n   Compiling gpu-allocator v0.28.0\n   Compiling toml v1.1.6+spec-1.1.0\n   Compiling async-process v2.5.0\n   Compiling x11rb v0.13.2\n   Compiling zbus-lockstep v0.5.2\n   Compiling wgpu-naga-bridge v30.0.1\n   Compiling calloop-wayland-source v0.3.0\n   Compiling blocking v1.7.0\n   Compiling async-executor v1.14.0\n   Compiling zbus_macros v5.19.0\n   Compiling async-broadcast v0.7.2\n   Compiling ordered-stream v0.2.0\n   Compiling winit v0.30.13\n   Compiling async-recursion v1.1.1\n   Compiling async-trait v0.1.92\n   Compiling serde_repr v0.1.21\n   Compiling ordered-float v5.5.0\n   Compiling renderdoc-sys v1.1.0\n   Compiling glow v0.17.0\n   Compiling hex v0.4.3\n   Compiling zbus v5.19.0\n   Compiling zbus-lockstep-macros v0.5.2\n   Compiling xkbcommon-dl v0.4.2\n   Compiling wayland-protocols-plasma v0.3.12\n   Compiling wgpu-core v30.0.1\n   Compiling smol_str v0.2.2\n   Compiling dpi v0.1.2\n   Compiling litrs v1.0.0\n   Compiling document-features v0.2.12\n   Compiling atspi-common v0.13.0\n   Compiling wgpu-core-deps-windows-linux-android v30.0.1\n   Compiling wgpu v30.0.1\n   Compiling icu_properties_data v2.3.0\n   Compiling icu_normalizer_data v2.3.0\n   Compiling foldhash v0.1.5\n   Compiling hashbrown v0.15.5\n   Compiling enum-map-derive v0.17.0\n   Compiling web-time v1.1.0\n   Compiling fixedbitset v0.5.7\n   Compiling petgraph v0.8.3\n   Compiling enum-map v2.7.3\n   Compiling vectorcraft-ui-egui v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/ui-egui)\n   Compiling atspi-proxies v0.13.0\n   Compiling accesskit_consumer v0.36.0\n   Compiling calloop v0.14.4\n   Compiling psd v0.3.5\n   Compiling type-map v0.5.1\n   Compiling futures-macro v0.3.34\n   Compiling nom v8.0.0\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling futures-task v0.3.34\n   Compiling tree_magic_mini v3.2.2\n   Compiling egui-wgpu v0.36.2\n   Compiling futures-util v0.3.34\n   Compiling calloop-wayland-source v0.4.1\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling atspi v0.29.0\n   Compiling icu_normalizer v2.3.0\n   Compiling icu_properties v2.3.0\n   Compiling egui_extras v0.36.2\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling vectorcraft-mcp v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/mcp)\n   Compiling os_pipe v1.2.3\n   Compiling pollster v1.0.1\n   Compiling wl-clipboard-rs v0.9.4\n   Compiling idna_adapter v1.2.2\n   Compiling accesskit_unix v0.21.1\n   Compiling socket2 v0.6.5\n   Compiling smithay-clipboard v0.7.3\n   Compiling idna v1.1.0\n   Compiling accesskit_winit v0.32.2\n   Compiling arboard v3.6.1\n   Compiling winresource v0.1.31\n   Compiling form_urlencoded v1.2.2\n   Compiling anyhow v1.0.104\n   Compiling rfd v0.17.2\n   Compiling url v2.5.8\n   Compiling vectorcraft v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft)\n   Compiling egui-winit v0.36.2\n   Compiling is-docker v0.2.0\n   Compiling lazy_static v1.5.1\n   Compiling pollster v0.4.0\n   Compiling eframe v0.36.2\n   Compiling colored v2.2.0\n   Compiling is-wsl v0.4.0\n   Compiling webbrowser v1.2.4\n   Compiling accesskit_consumer v0.35.0\n   Compiling getopts v0.2.24\n   Compiling craft-print v0.1.0 (https://github.com/storytold/craft-libs?rev=d991bf6792f8ade99c51358bf3c1d902c8cd96b5#d991bf67)\n   Compiling dify v0.8.0\n   Compiling kittest v0.4.0\n   Compiling open v5.4.4\n   Compiling egui_kittest v0.36.2\n   Compiling vectorcraft-cli v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft-cli)\n   Compiling vectorcraft-web v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft-web)\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 250.5,
+      "tail": "   Compiling image v0.25.10\n   Compiling vectorcraft-text v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/text)\n   Compiling krilla v0.8.2 (https://github.com/storytold/craft-libs?rev=ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d#ca50d63b)\nwarning: vectorcraft-text@0.12.0: web build won't fetch: Cairo Regular, Tajawal ExtraLight, Tajawal Light, Tajawal Regular, Tajawal Medium, Tajawal Bold, Tajawal ExtraBold, Tajawal Black, Almarai Light, Almarai Regular, Almarai Bold, Almarai ExtraBold, IBM Plex Sans Arabic Thin, IBM Plex Sans Arabic ExtraLight, IBM Plex Sans Arabic Light, IBM Plex Sans Arabic Regular, IBM Plex Sans Arabic Medium, IBM Plex Sans Arabic SemiBold, IBM Plex Sans Arabic Bold, Noto Kufi Arabic Regular, Amiri Regular, Amiri Italic, Amiri Bold, Amiri Bold Italic, Alexandria Regular, Fustat Regular, Reem Kufi Regular, Aref Ruqaa Regular, Aref Ruqaa Bold, Gulzar Regular not in CRAFT_FONTS_DIR=/home/runner/work/ArtCraft/ArtCraft/restored/craft-fonts (an older craft-fonts?)\n   Compiling usvg v0.48.1\n   Compiling vectorcraft-doc v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/doc)\n   Compiling vectorcraft-plugins v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/plugins)\n   Compiling vectorcraft-effects v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/effects)\n   Compiling vectorcraft-brush v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/brush)\n   Compiling craft-pdf v0.1.0 (https://github.com/storytold/craft-libs?rev=ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d#ca50d63b)\n   Compiling vectorcraft-pdf v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/pdf)\n   Compiling vectorcraft-metafile v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/metafile)\n   Compiling vectorcraft-render v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/render)\n   Compiling vectorcraft-eps v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/eps)\n   Compiling vectorcraft-svg v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/svg)\n   Compiling vectorcraft-cad v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/cad)\n   Compiling vectorcraft-tools v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/tools)\n   Compiling vectorcraft-format v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/format)\n   Compiling vectorcraft-trace v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/trace)\n   Compiling vectorcraft-affinity v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/affinity)\n   Compiling vectorcraft-engine v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/engine)\n   Compiling arboard v3.6.1\n   Compiling egui-winit v0.36.2\n   Compiling eframe v0.36.2\n   Compiling xtask v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/xtask)\n   Compiling vectorcraft-ui-egui v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/ui-egui)\n   Compiling vectorcraft-mcp v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/crates/mcp)\n   Compiling vectorcraft v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft)\n   Compiling vectorcraft-cli v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft-cli)\n   Compiling vectorcraft-web v0.12.0 (/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/apps/vectorcraft-web)\n    Finished `dev` profile [optimized] target(s) in 4m 10s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/target/debug/vectorcraft"
+      ],
+      "exit_code": 124,
+      "seconds": 15.0,
+      "tail": "2026-10-17T22:10:36.668Z INFO  [main] vectorcraft: VectorCraft 0.12.0, log file /home/runner/.config/vectorcraft/logs/vectorcraft.log\n2026-10-17T22:10:36.669Z INFO  [main] vectorcraft: display GPUs (PCI vendor:device): 1414:0006\n2026-10-17T22:10:36.694Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n2026-10-17T22:10:36.778Z WARN  [main] winit::platform_impl::linux::x11::util::randr: XRandR reported that the display's 0mm in size, which is certifiably insane\nlibEGL warning: DRI3 error: Could not get DRI3 device\nlibEGL warning: Ensure your X server supports DRI3 to get accelerated rendering\n2026-10-17T22:10:38.293Z INFO  [main] vectorcraft::gpu: graphics adapters: llvmpipe (LLVM 20.1.2, 256 bits) (Vulkan, Cpu, Vulkan:10005:0000); llvmpipe (LLVM 20.1.2, 256 bits) (Gl, Cpu, Gl:10005:0000)\n2026-10-17T22:10:38.293Z INFO  [main] vectorcraft::gpu: drawing on llvmpipe (LLVM 20.1.2, 256 bits) (Vulkan, Cpu): no adapter matches a display GPU, so power preference None\n2026-10-17T22:10:38.317Z WARN  [main] egui_wgpu: Software rasterizer detected - loss of performance expected. backend: Vulkan, device_type: Cpu, name: \"llvmpipe (LLVM 20.1.2, 256 bits)\", driver: \"llvmpipe\", driver_info: \"Mesa 25.2.8-0ubuntu0.24.04.4 (LLVM 20.1.2)\", vendor: Mesa (0x10005), subgroup_size: 8..=8, transient_saves_memory: Some(false), limit_bucket: None\n2026-10-17T22:10:38.326Z INFO  [main] vectorcraft: rendering with llvmpipe (LLVM 20.1.2, 256 bits) (Vulkan, Cpu) (power preference None)\n"
+    },
+    {
+      "check": "sample-0",
+      "command": [
+        "/home/runner/work/ArtCraft/ArtCraft/restored/vectorcraft/target/debug/vectorcraft-cli",
+        "run",
+        "--in",
+        "examples/ribbons.vectorcraft",
+        "--export",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/vectorcraft/sample.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "{\"path\":\"examples/ribbons.vectorcraft\",\"result\":{\"format\":\"vectorcraft\",\"index\":0,\"missingLinks\":[],\"modifiedLinks\":[],\"restored\":false,\"title\":\"ribbons.vectorcraft\",\"updatedLinks\":[],\"warnings\":[]},\"step\":\"open\"}\n{\"result\":{\"bytes\":29606,\"format\":\"pdf\",\"path\":\"/home/runner/work/ArtCraft/ArtCraft/audit-results/vectorcraft/sample.pdf\",\"warnings\":[]},\"step\":\"export\"}\n"
+    },
+    {
+      "check": "sample-pdf-validation",
+      "command": [
+        "pdfinfo",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/vectorcraft/sample.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "Title:           Ribbons\nCreator:         VectorCraft\nProducer:        VectorCraft\nCreationDate:    Sat Oct 17 22:10:48 2026 UTC\nModDate:         Sat Oct 17 22:10:48 2026 UTC\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       1600 x 1000 pts\nPage rot:        0\nFile size:       29606 bytes\nOptimized:       no\nPDF version:     1.7\n"
+    },
+    {
+      "check": "sample-pdf-preview",
+      "command": [
+        "pdftoppm",
+        "-f",
+        "1",
+        "-singlefile",
+        "-scale-to",
+        "1024",
+        "-png",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/vectorcraft/sample.pdf",
+        "/home/runner/work/ArtCraft/ArtCraft/audit-results/vectorcraft/export-preview"
+      ],
+      "exit_code": 0,
+      "seconds": 0.6,
+      "tail": ""
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d#ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d",
+    "git+https://github.com/storytold/craft-libs?rev=d991bf6792f8ade99c51358bf3c1d902c8cd96b5#d991bf6792f8ade99c51358bf3c1d902c8cd96b5",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d",
+    "https://github.com/storytold/craft-libs#d991bf6792f8ade99c51358bf3c1d902c8cd96b5",
+    "https://github.com/storytold/vectorcraft"
+  ],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "vectorcraft",
+    "craft-fonts",
+    "craft-libs"
+  ],
+  "source_commit": "e6aec0664cf8ebc86677cb17f46be42b511208a7",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "font_source_commit": "3d9ab3a132ed0eff457e424226a435a901da30d3",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "configuration_redactions": [],
+  "javascript_checks": [],
+  "kind": "rust",
+  "archive_contains_cargo_lock": true,
+  "cargo_packages": [
+    {
+      "name": "vectorcraft-affinity",
+      "targets": [
+        {
+          "name": "vectorcraft_affinity",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "outline_limits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "raster",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "real_files",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-brush",
+      "targets": [
+        {
+          "name": "vectorcraft_brush",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-color",
+      "targets": [
+        {
+          "name": "vectorcraft_color",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-doc",
+      "targets": [
+        {
+          "name": "vectorcraft_doc",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-geom",
+      "targets": [
+        {
+          "name": "vectorcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "prop_geom",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-testkit",
+      "targets": [
+        {
+          "name": "vectorcraft_testkit",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-engine",
+      "targets": [
+        {
+          "name": "vectorcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "affinity_artboards",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "affinity_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "affinity_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "artboard_click",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "clear_commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "color_settings",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "command_sweep",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "compound_attributes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dimensions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "eyedropper_sources",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "find_replace_paras",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "font_folder",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "import_fuzz",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "inline_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "known_bugs",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "lossy_overwrite",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "model_based",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "open_relative_path",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "param_keys",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pen_click_after_smooth",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pen_endpoint_picking",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plugin_fuzz",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "removed_font",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ruler_origin",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "selection_commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stroke_visibility",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_import_fuzz",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "three_d_light_color",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-cad",
+      "targets": [
+        {
+          "name": "vectorcraft_cad",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-effects",
+      "targets": [
+        {
+          "name": "vectorcraft_effects",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-pathops",
+      "targets": [
+        {
+          "name": "vectorcraft_pathops",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "ops",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pathfinder_pinned",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "prop_pathops",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "props",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "regressions",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-plugins",
+      "targets": [
+        {
+          "name": "vectorcraft_plugins",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "abi",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-text",
+      "targets": [
+        {
+          "name": "vectorcraft_text",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "system_fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "without_bundled_fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-three-d",
+      "targets": [
+        {
+          "name": "vectorcraft_three_d",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-eps",
+      "targets": [
+        {
+          "name": "vectorcraft_eps",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-metafile",
+      "targets": [
+        {
+          "name": "vectorcraft_metafile",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-pdf",
+      "targets": [
+        {
+          "name": "vectorcraft_pdf",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "embedded_system_fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "system_fonts",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-render",
+      "targets": [
+        {
+          "name": "vectorcraft_render",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "dash_align",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "golden",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gradient_alpha",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gradient_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "radial_focal",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stroke_geometry",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-format",
+      "targets": [
+        {
+          "name": "vectorcraft_format",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "links",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "native_v3",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "native_v4",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "prop_format",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "streaming",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-scriptcheck",
+      "targets": [
+        {
+          "name": "vectorcraft_scriptcheck",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-svg",
+      "targets": [
+        {
+          "name": "vectorcraft_svg",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "blend_export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "container_export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "css_rules",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dash_align",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "data_attributes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "effects_export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "encoding_profile_fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "focal",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "font_weights",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gradients",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ids",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "import_details",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "import_live",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "import_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "import_units",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "interactivity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mask_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "non_scaling_stroke",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "prop_svg",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "raster_paints",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stroke_export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "symbols_layers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_layout",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_paint_order",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_stroke",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-tools",
+      "targets": [
+        {
+          "name": "vectorcraft_tools",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-trace",
+      "targets": [
+        {
+          "name": "vectorcraft_trace",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "quality",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shared_boundaries",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-mcp",
+      "targets": [
+        {
+          "name": "vectorcraft_mcp",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "automation_roots",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "protocol_props",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-ui-egui",
+      "targets": [
+        {
+          "name": "vectorcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft",
+      "targets": [
+        {
+          "name": "vectorcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "automation_args",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "help",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-cli",
+      "targets": [
+        {
+          "name": "vectorcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fileio",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mcp_e2e",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vectorcraft-web",
+      "targets": [
+        {
+          "name": "vectorcraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "stayed_running_15_seconds",
+  "sample_workflow": "passed",
+  "sample_validation": {
+    "pdf_info": "Title:           Ribbons\nCreator:         VectorCraft\nProducer:        VectorCraft\nCreationDate:    Sat Oct 17 22:10:48 2026 UTC\nModDate:         Sat Oct 17 22:10:48 2026 UTC\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       1600 x 1000 pts\nPage rot:        0\nFile size:       29606 bytes\nOptimized:       no\nPDF version:     1.7\n"
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T22:10:48Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+}
