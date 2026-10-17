@@ -25,5 +25,6 @@
   "kind": "unity",
   "runner": "ubuntu-24.04 GitHub-hosted",
   "finished_at": "2026-10-17T21:07:43Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709",
+  "report_interpretation_version": 1
 }

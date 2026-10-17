@@ -20,13 +20,13 @@ For LFS, concatenate numbered tar parts if present, verify the checksum, and ext
 
 This is a source and Git-history snapshot. Original submodule references remain in the source Git bundles. Available exact pinned dependency trees are now materialized in the browsable parent folders; unresolved dependencies remain recorded in the separate dependency report. Original issue discussions, pull-request conversations, release assets, deployments and private/deleted repositories unavailable at capture time are outside this backup. The upstream listing currently exposes 66 public repositories; this archive makes no claim about any additional inaccessible repositories.
 
-No source repository is cloned onto the user's Mac. Cloning, inspection and transfer happen only on an ephemeral GitHub Actions runner. Source code, hooks, workflows and build scripts are never executed.
+No source repository is cloned onto the user's Mac. Cloning, inspection and transfer happen only on an ephemeral GitHub Actions runner. The archival workflows do not execute source code, hooks or build scripts; the separate verification workflow executes builds and tests only on GitHub runners.
 
 
 <!-- dependency-backup:start -->
 ## External dependency archive
 
-**7/9 original pinned dependency references complete.** Available dependencies are stored under `dependencies/OWNER/REPO/COMMIT` and copied into the original parent submodule paths. Nested dependencies are recursively archived at their exact pinned commits; unresolved sources remain explicitly incomplete. Source code and hooks are never executed.
+**7/9 original pinned dependency references complete.** Available dependencies are stored under `dependencies/OWNER/REPO/COMMIT` and copied into the original parent submodule paths. Nested dependencies are recursively archived at their exact pinned commits; unresolved sources remain explicitly incomplete. The dependency archival workflow does not execute source code or hooks.
 
 [Dependency history and LFS release assets](https://github.com/Dbongdiary/ArtCraft/releases/tag/storytold-dependency-backup) are independent of the original authors. [.archive/dependencies/status.json](.archive/dependencies/status.json) records every root reference and remaining error; individual manifests include checksums, exact commits, tree verification and large-file exclusions. Files over100MiB remain in full Git bundles where GitHub cannot store them as ordinary browsable files. Original source backup status and original release assets are preserved.
 
@@ -44,4 +44,4 @@ To restore an exact dependency: concatenate any bundle parts in manifest order, 
 
 ## Backup usability verification
 
-See [.archive/verification/README.md](.archive/verification/README.md) for GitHub-hosted restore/build checks and unresolved runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.
+See [.archive/verification/FINDINGS.md](.archive/verification/FINDINGS.md) for the conclusions, [.archive/verification/README.md](.archive/verification/README.md) for all 66 result records, and [.archive/verification/REQUIREMENTS.md](.archive/verification/REQUIREMENTS.md) for missing runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.

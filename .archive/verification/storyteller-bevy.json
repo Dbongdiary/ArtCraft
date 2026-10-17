@@ -161,7 +161,7 @@
   },
   "submodule_references": [],
   "lfs_status": "not_present",
-  "status": "build_and_tests_passed",
+  "status": "rust_checks_passed_javascript_blocked_or_incomplete",
   "configuration_redactions": [
     ".npmrc"
   ],
@@ -213,5 +213,8 @@
   ],
   "runner": "ubuntu-24.04 GitHub-hosted",
   "finished_at": "2026-10-17T21:49:22Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854",
+  "rust_status": "build_and_tests_passed",
+  "status_before_aggregation": "build_and_tests_passed",
+  "report_interpretation_version": 1
 }

@@ -2235,5 +2235,6 @@
   },
   "runner": "ubuntu-24.04 GitHub-hosted",
   "finished_at": "2026-10-17T21:56:36Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854",
+  "report_interpretation_version": 1
 }

@@ -1,6 +1,6 @@
 # Backup usability verification
 
-GitHub-hosted audit run: https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854
+GitHub-hosted audit run: https://github.com/Dbongdiary/ArtCraft/actions/runs/39074477664
 
 Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner's Mac.
 
@@ -10,7 +10,7 @@ A verified restore proves the saved Git bundle can be checked out independently 
 
 Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.
 
-See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, service, SDK and release-asset gaps.
+See [FINDINGS.md](FINDINGS.md) for the human-readable conclusions and [REQUIREMENTS.md](REQUIREMENTS.md) for confirmed source, model, service, SDK and release-asset gaps.
 
 ## Repository results
 
@@ -19,22 +19,22 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, ser
 | ActorSpawningPlugin | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [unreal](ActorSpawningPlugin.json) |
 | AniCraft | not verified / empty | empty_repository | not tested | not tested | not tested | [details](AniCraft.json) |
 | AnimationTest | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [unreal](AnimationTest.json) |
-| artcraft | verified | build_or_tests_blocked | frontend: checks_passed | not tested | not tested | [rust](artcraft.json) |
+| artcraft | verified | package_builds_passed_tests_not_run | frontend: checks_passed | not tested | stayed_running_15_seconds | [rust](artcraft.json) |
 | artcraft-services | verified | build_or_tests_blocked | frontend: install_only | not tested | not tested | [rust](artcraft-services.json) |
 | artcraftx | verified | build_or_tests_blocked | frontend: checks_passed | not tested | not tested | [rust](artcraftx.json) |
 | Azure-Kinect-Sample-for-Unity | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [unity](Azure-Kinect-Sample-for-Unity.json) |
-| bevy-mocap | verified | build_and_tests_passed | not tested | not tested | not tested | [rust](bevy-mocap.json) |
+| bevy-mocap | verified | tests_passed_no_binary_build | not tested | not tested | not tested | [rust](bevy-mocap.json) |
 | cadcraft | verified | build_and_tests_passed | not tested | passed | stayed_running_15_seconds | [rust](cadcraft.json) |
 | cloud-worker | verified | syntax_checked_runtime_unverified | not tested | not tested | not tested | [python](cloud-worker.json) |
 | cloudcam | verified | build_or_tests_blocked | not tested | not tested | not tested | [rust](cloudcam.json) |
 | CloudCamPlugin | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [unreal](CloudCamPlugin.json) |
-| craft-ai-integrations | verified | build_and_tests_passed | not tested | not tested | not tested | [rust](craft-ai-integrations.json) |
+| craft-ai-integrations | verified | tests_passed_no_binary_build | not tested | not tested | not tested | [rust](craft-ai-integrations.json) |
 | craft-common-actions | verified | syntax_checked_runtime_unverified | not tested | not tested | not tested | [python](craft-common-actions.json) |
 | craft-contrib | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [other_or_assets](craft-contrib.json) |
-| craft-fonts | verified | build_and_tests_passed | not tested | not tested | not tested | [rust](craft-fonts.json) |
+| craft-fonts | verified | tests_passed_no_binary_build | not tested | not tested | not tested | [rust](craft-fonts.json) |
 | craft-launcher | verified | build_and_tests_passed | not tested | not tested | not tested | [rust](craft-launcher.json) |
 | craft-launcher-assets | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [other_or_assets](craft-launcher-assets.json) |
-| craft-libs | verified | build_and_tests_passed | not tested | not tested | not tested | [rust](craft-libs.json) |
+| craft-libs | verified | tests_passed_no_binary_build | not tested | not tested | not tested | [rust](craft-libs.json) |
 | craft-repo-status-app | verified | build_and_tests_passed | .: checks_passed | not tested | not tested | [rust](craft-repo-status-app.json) |
 | crafthub | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [other_or_assets](crafthub.json) |
 | deckcraft | verified | build_or_tests_blocked | not tested | passed | stayed_running_15_seconds | [rust](deckcraft.json) |
@@ -68,7 +68,7 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, ser
 | RuntimeFilesDownloader | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [unreal](RuntimeFilesDownloader.json) |
 | soundcraft | verified | build_or_tests_blocked | not tested | passed | stayed_running_15_seconds | [rust](soundcraft.json) |
 | spark | verified | package_checks_passed | .: checks_passed | not tested | not tested | [javascript](spark.json) |
-| storyteller-bevy | verified | build_and_tests_passed | .: blocked | not tested | not tested | [rust](storyteller-bevy.json) |
+| storyteller-bevy | verified | rust_checks_passed_javascript_blocked_or_incomplete | .: blocked | not tested | not tested | [rust](storyteller-bevy.json) |
 | storyteller-ml | verified | syntax_checked_runtime_unverified | not tested | not tested | not tested | [python](storyteller-ml.json) |
 | StreamTwo | verified | source_restored_runtime_unverified | not tested | not tested | not tested | [unreal](StreamTwo.json) |
 | terraform-aws-observability-accelerator | verified | syntax_checked_runtime_unverified | not tested | not tested | not tested | [python](terraform-aws-observability-accelerator.json) |
@@ -85,7 +85,7 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, ser
 
 ## Coverage
 
-{"build_and_tests_passed": 11, "build_or_tests_blocked": 23, "empty_repository": 1, "manifest_or_source_dependency_blocked": 1, "package_checks_passed": 1, "source_restored_runtime_unverified": 21, "syntax_checked_runtime_unverified": 7, "tests_passed": 1}
+{"build_and_tests_passed": 6, "build_or_tests_blocked": 22, "empty_repository": 1, "manifest_or_source_dependency_blocked": 1, "package_builds_passed_tests_not_run": 1, "package_checks_passed": 1, "rust_checks_passed_javascript_blocked_or_incomplete": 1, "source_restored_runtime_unverified": 21, "syntax_checked_runtime_unverified": 7, "tests_passed": 1, "tests_passed_no_binary_build": 4}
 
 66 repository result files received. Any omitted repository is unverified.
 

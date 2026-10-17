@@ -1722,37 +1722,44 @@
     {
       "commit": "33006d32ed28447f67f48a0b229b27fb2f313e65",
       "path": "3d_generation/moonTripoSR",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "known_unavailable",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     },
     {
       "commit": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
       "path": "animation/Rerender_A_Video/deps/ControlNet",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "verified_and_materialized",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     },
     {
       "commit": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
       "path": "animation/Rerender_A_Video/deps/ebsynth",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "verified_and_materialized",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     },
     {
       "commit": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
       "path": "animation/Rerender_A_Video/deps/gmflow",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "verified_and_materialized",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     },
     {
       "commit": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
       "path": "animation/rerender-lora/deps/ControlNet",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "verified_and_materialized",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     },
     {
       "commit": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
       "path": "animation/rerender-lora/deps/ebsynth",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "verified_and_materialized",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     },
     {
       "commit": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
       "path": "animation/rerender-lora/deps/gmflow",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "verified_and_materialized",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     }
   ],
   "lfs_status": "complete",
@@ -1762,5 +1769,6 @@
   "kind": "python",
   "runner": "ubuntu-24.04 GitHub-hosted",
   "finished_at": "2026-10-17T21:52:38Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854",
+  "report_interpretation_version": 1
 }

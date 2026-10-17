@@ -287,12 +287,14 @@
     {
       "commit": "23177d29a09015a4f40fce0b81b315392064f9d7",
       "path": "glow-tts-jaywalnut-multispeaker/glow-tts-multispeaker",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "known_unavailable",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     },
     {
       "commit": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
       "path": "glow-tts-jaywalnut/apex",
-      "status": "Reference preserved; submodule repository not fetched"
+      "status": "verified_and_materialized",
+      "source_capture_status": "Reference preserved; submodule repository not fetched"
     }
   ],
   "lfs_status": "not_present",
@@ -302,5 +304,6 @@
   "kind": "python",
   "runner": "ubuntu-24.04 GitHub-hosted",
   "finished_at": "2026-10-17T21:50:10Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854",
+  "report_interpretation_version": 1
 }

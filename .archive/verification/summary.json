@@ -1,15 +1,18 @@
 {
-  "run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854",
+  "run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39074477664",
   "result_count": 66,
   "counts": {
     "source_restored_runtime_unverified": 21,
     "empty_repository": 1,
-    "build_or_tests_blocked": 23,
-    "build_and_tests_passed": 11,
+    "package_builds_passed_tests_not_run": 1,
+    "build_or_tests_blocked": 22,
+    "tests_passed_no_binary_build": 4,
+    "build_and_tests_passed": 6,
     "syntax_checked_runtime_unverified": 7,
     "tests_passed": 1,
     "manifest_or_source_dependency_blocked": 1,
-    "package_checks_passed": 1
+    "package_checks_passed": 1,
+    "rust_checks_passed_javascript_blocked_or_incomplete": 1
   },
   "repositories": [
     {
@@ -41,10 +44,10 @@
     },
     {
       "name": "artcraft",
-      "status": "build_or_tests_blocked",
+      "status": "package_builds_passed_tests_not_run",
       "restored": true,
       "sample_workflow": null,
-      "headless_launch": null,
+      "headless_launch": "stayed_running_15_seconds",
       "javascript_checks": [
         {
           "directory": "frontend",
@@ -52,7 +55,7 @@
           "status": "checks_passed"
         }
       ],
-      "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+      "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39074477664"
     },
     {
       "name": "artcraft-services",
@@ -95,7 +98,7 @@
     },
     {
       "name": "bevy-mocap",
-      "status": "build_and_tests_passed",
+      "status": "tests_passed_no_binary_build",
       "restored": true,
       "sample_workflow": null,
       "headless_launch": null,
@@ -140,7 +143,7 @@
     },
     {
       "name": "craft-ai-integrations",
-      "status": "build_and_tests_passed",
+      "status": "tests_passed_no_binary_build",
       "restored": true,
       "sample_workflow": null,
       "headless_launch": null,
@@ -167,7 +170,7 @@
     },
     {
       "name": "craft-fonts",
-      "status": "build_and_tests_passed",
+      "status": "tests_passed_no_binary_build",
       "restored": true,
       "sample_workflow": null,
       "headless_launch": null,
@@ -194,7 +197,7 @@
     },
     {
       "name": "craft-libs",
-      "status": "build_and_tests_passed",
+      "status": "tests_passed_no_binary_build",
       "restored": true,
       "sample_workflow": null,
       "headless_launch": null,
@@ -512,7 +515,7 @@
     },
     {
       "name": "storyteller-bevy",
-      "status": "build_and_tests_passed",
+      "status": "rust_checks_passed_javascript_blocked_or_incomplete",
       "restored": true,
       "sample_workflow": null,
       "headless_launch": null,

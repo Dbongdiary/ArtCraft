@@ -629,7 +629,7 @@
   },
   "submodule_references": [],
   "lfs_status": "not_present",
-  "status": "build_and_tests_passed",
+  "status": "tests_passed_no_binary_build",
   "configuration_redactions": [],
   "javascript_checks": [],
   "kind": "rust",
@@ -1383,5 +1383,9 @@
   ],
   "runner": "ubuntu-24.04 GitHub-hosted",
   "finished_at": "2026-10-17T21:40:39Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854",
+  "cargo_binary_build_status": "no_op_no_binary_targets",
+  "rust_status": "build_and_tests_passed",
+  "status_before_aggregation": "build_and_tests_passed",
+  "report_interpretation_version": 1
 }

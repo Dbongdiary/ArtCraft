@@ -177,5 +177,7 @@
   ],
   "runner": "ubuntu-24.04 GitHub-hosted",
   "finished_at": "2026-10-17T21:49:59Z",
-  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854"
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39071510854",
+  "cargo_binary_build_status": "no_op_no_binary_targets",
+  "report_interpretation_version": 1
 }
