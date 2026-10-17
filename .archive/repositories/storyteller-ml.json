@@ -1,0 +1,202 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:16:59Z",
+  "default_branch": "master",
+  "default_commit": "a7179c873d25ccdcb54d82e01aeeed492aff73cf",
+  "dependencies_complete": false,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 1929151156,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 1073741824,
+        "name": "storyteller-ml.bundle.part-001.sha256-3253dedd704819baf6d8266b63923ac98282dae17f6e1f9b064fdf9231c7bfd2",
+        "sha256": "3253dedd704819baf6d8266b63923ac98282dae17f6e1f9b064fdf9231c7bfd2",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/storyteller-ml.bundle.part-001.sha256-3253dedd704819baf6d8266b63923ac98282dae17f6e1f9b064fdf9231c7bfd2"
+      },
+      {
+        "bytes": 855409332,
+        "name": "storyteller-ml.bundle.part-002.sha256-e16c97ae3b7e5c5e693467b52c898ef287ddf10411bbad22646c7017954623ea",
+        "sha256": "e16c97ae3b7e5c5e693467b52c898ef287ddf10411bbad22646c7017954623ea",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/storyteller-ml.bundle.part-002.sha256-e16c97ae3b7e5c5e693467b52c898ef287ddf10411bbad22646c7017954623ea"
+      }
+    ],
+    "whole_sha256": "3d539a33b6c8727bbc2b655ac37ecfa8bd02bf75a3d1fbac84dcbc6fb2923264"
+  },
+  "lfs": {
+    "archive": {
+      "bytes": 1146439680,
+      "format": "tar",
+      "parts": [
+        {
+          "bytes": 1073741824,
+          "name": "storyteller-ml.lfs.tar.part-001.sha256-75a4bfc58962a697475379a3db2ea87e5b5a09e12644bd68d5ba4fbe5b4e7eb5",
+          "sha256": "75a4bfc58962a697475379a3db2ea87e5b5a09e12644bd68d5ba4fbe5b4e7eb5",
+          "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/storyteller-ml.lfs.tar.part-001.sha256-75a4bfc58962a697475379a3db2ea87e5b5a09e12644bd68d5ba4fbe5b4e7eb5"
+        },
+        {
+          "bytes": 72697856,
+          "name": "storyteller-ml.lfs.tar.part-002.sha256-0cf01e7ce1fa8c15e0dc8eba25a59d1cebf91b4dda159adbcb26953b27f7f5d9",
+          "sha256": "0cf01e7ce1fa8c15e0dc8eba25a59d1cebf91b4dda159adbcb26953b27f7f5d9",
+          "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/storyteller-ml.lfs.tar.part-002.sha256-0cf01e7ce1fa8c15e0dc8eba25a59d1cebf91b4dda159adbcb26953b27f7f5d9"
+        }
+      ],
+      "whole_sha256": "5b755cb63b7ca1d0f63eb982b9cb055f84601a6b27e293c789785d472b1b181e"
+    },
+    "bytes": 1146432909,
+    "invalid": [],
+    "missing": [],
+    "object_count": 2,
+    "referenced_object_count": 2,
+    "status": "complete"
+  },
+  "original_license": null,
+  "refs": [
+    "a9ca66d9fb68f254b8d31cecac4151a5ffd1cf75 refs/heads/22-april-kasisnu",
+    "288ffd3ebe3dfd4e85637be337b72eb720c33772 refs/heads/brandon-comfy",
+    "64014151decd131109e02746eb87b1c387ef4d8f refs/heads/brandon-comfy-preview-cors",
+    "edf8110202f21aa5918ed7dec7d21dc3525a4ae8 refs/heads/brandon-restore-cuda-base-image",
+    "b41538fa6175f47f6d6b975daafb6d4ab979174b refs/heads/brandon-rmvpe-support",
+    "80a3d86205d79b7c4244ad65d81fc389b50f477b refs/heads/bt-fix-svc-docker",
+    "9daa00a1424dab3c527443b3185a15c42a15f254 refs/heads/cache-routing",
+    "19cf2bb28508d39f24776f346f29aa47715d8a4f refs/heads/echelon-enable-spanish-espeak",
+    "54052530434ae3fabf8aef8fe7736569da93cbcc refs/heads/echelon-fix-nvidia-revoked-key",
+    "90b2594f37b8144319e87643d678b906d28708af refs/heads/echelon-phonemes",
+    "ea6dce774b4cd777cd3c16fc930a3356e5b45908 refs/heads/echelon-run-tests",
+    "b4a24ff5612c152765d978b1c3f87cd872a0966d refs/heads/echelon-text-pipeline-http-arg",
+    "76c6dbf12bb3effc96587ffa2e034029e9c41ed3 refs/heads/echelon-text-pipeline-system",
+    "840a97e70ee8a8af44ab3459b5ecbd047087b8a8 refs/heads/espeak_phonemizer",
+    "034c30d47c91f7a7bd61b66967ccba316c63fb7c refs/heads/feature/NSFWFilterAndStyleTTS2Train",
+    "45a50d2dbaa35ed79f53afa10b0023ea3cd89a09 refs/heads/feature/VALL-E-X-container",
+    "386613acda599dfc8ab2afe29047c6155c10337d refs/heads/feature/better-comfyui-docker",
+    "2a7c508d78a1629c29ddd82154f7a616271cbad0 refs/heads/feature/comfyui",
+    "ff52e2659709fb545989d65ad4a113e22a03a921 refs/heads/feature/comfyui-sidecar",
+    "c071ac0b4a4f60f1d65c27936567e52d3a362767 refs/heads/feature/enhanced_preview_key",
+    "a83d67cbe6e0bacbfe8ff05acd444bd32238e365 refs/heads/feature/image_generation",
+    "a81c6f083c732ff28e594704b9034333158cdb1a refs/heads/feature/loRA-support-rerender",
+    "af65e49da64b8d32c32570e8407952c5bb52cf94 refs/heads/feature/proper-audio-chunking",
+    "335d9065479c1bfeed2efd549f1e1b9d4d8f9419 refs/heads/feature/sd_workflow",
+    "590d904bc49cbbbb938272d02a5b201a3d9402c8 refs/heads/feature/updateTestHarness",
+    "7125894c1af9875ef515d7dafdef916eaccdeace refs/heads/hallo",
+    "66e567c8d7b36634d65b1315906562d2b54ccf2b refs/heads/jan-11-mithoo",
+    "707b1df2c27fd5d023098dcbf35c9c670ff3b3b0 refs/heads/jan-18-mithoo",
+    "a7179c873d25ccdcb54d82e01aeeed492aff73cf refs/heads/master",
+    "65dd822805378fad7a9463897cc6655bf32c9f8f refs/heads/rerender",
+    "0db3bc3be5953470863a73815f5fb61bbec0b401 refs/heads/rerender-a-video-lora",
+    "c926010fdaf35c710babd617741c886f6079b034 refs/heads/rerender-lora",
+    "98674a6a0df3d52fa3d9ab2241fa9cd9032b4dba refs/heads/rerender-v2",
+    "6e4094c6155108f41c63afe8cc673764c40ad9f8 refs/heads/rvc",
+    "7dd7069e7970dcde1628b41a060b10daf5e5c214 refs/heads/tts-rvc-rvmpe",
+    "b02390b3ab6938a208af7d80bbddfe8ad7cb5f2d refs/heads/zdisket-neotts",
+    "b3aaee954949d455c16970eb320737784558e1bd refs/heads/zdisket-neotts-rebase",
+    "76c6dbf12bb3effc96587ffa2e034029e9c41ed3 refs/pull/1/head",
+    "3e7affb2a8b3db6d93ca0b9abf595ecd54bd5f99 refs/pull/10/head",
+    "80a3d86205d79b7c4244ad65d81fc389b50f477b refs/pull/11/head",
+    "a468975c29d83562ae1eb0922ffa031ef2d0e0fd refs/pull/12/head",
+    "6e4094c6155108f41c63afe8cc673764c40ad9f8 refs/pull/13/head",
+    "da48f55c9697750b0cfcfd3dbaff11e4aa0722a9 refs/pull/14/head",
+    "3b640103bcc91946719f17716754130542fa34d0 refs/pull/15/head",
+    "8e2953b7b8ef7bee847982ad70cb9c1fa74fb5bc refs/pull/16/head",
+    "23771725b0610d3b748cd624c31b536439a11281 refs/pull/17/head",
+    "7dd7069e7970dcde1628b41a060b10daf5e5c214 refs/pull/18/head",
+    "7de861c93ef6446ffa3c2a99fadb759a29d5ad8a refs/pull/19/head",
+    "b4a24ff5612c152765d978b1c3f87cd872a0966d refs/pull/2/head",
+    "b41538fa6175f47f6d6b975daafb6d4ab979174b refs/pull/20/head",
+    "e685ace23aca4c9e6054bd8e8e9a2de77ed6fba2 refs/pull/21/head",
+    "a81c6f083c732ff28e594704b9034333158cdb1a refs/pull/22/head",
+    "45a50d2dbaa35ed79f53afa10b0023ea3cd89a09 refs/pull/23/head",
+    "edf8110202f21aa5918ed7dec7d21dc3525a4ae8 refs/pull/24/head",
+    "0ce2e8ae01fa7f8b335b904aa10a5b4154611c36 refs/pull/25/head",
+    "c926010fdaf35c710babd617741c886f6079b034 refs/pull/26/head",
+    "65dd822805378fad7a9463897cc6655bf32c9f8f refs/pull/27/head",
+    "2bc24a438404aceadd719b6a0985562cd80d5bdc refs/pull/28/head",
+    "fe8822cb656fc236c114fdfa794b0861df92e145 refs/pull/29/head",
+    "ea6dce774b4cd777cd3c16fc930a3356e5b45908 refs/pull/3/head",
+    "66e567c8d7b36634d65b1315906562d2b54ccf2b refs/pull/30/head",
+    "881c2fc840c4529809fa238e762c856f66d22829 refs/pull/31/head",
+    "0d662c5b9db6794253c97d939dc23c787ace951a refs/pull/32/head",
+    "707b1df2c27fd5d023098dcbf35c9c670ff3b3b0 refs/pull/33/head",
+    "c0befe3e45110eb44fe958060ea8907e85ee5cff refs/pull/34/head",
+    "3b2c9eb29eeb31a7230d8934d8b7a2009842df33 refs/pull/35/head",
+    "f36070f2c1ff075bde872253622e5ddb9a03a145 refs/pull/36/head",
+    "a83d67cbe6e0bacbfe8ff05acd444bd32238e365 refs/pull/37/head",
+    "335d9065479c1bfeed2efd549f1e1b9d4d8f9419 refs/pull/38/head",
+    "2a7c508d78a1629c29ddd82154f7a616271cbad0 refs/pull/39/head",
+    "5b215270ac34be8089765e16fd280ff4074b10f0 refs/pull/4/head",
+    "397fec6081a4c64f9c2734f20797c16299d7d371 refs/pull/40/head",
+    "cdd6bfe4ddad481a6b7f66e8b4042279e98ce86f refs/pull/41/head",
+    "288ffd3ebe3dfd4e85637be337b72eb720c33772 refs/pull/42/head",
+    "386613acda599dfc8ab2afe29047c6155c10337d refs/pull/43/head",
+    "034c30d47c91f7a7bd61b66967ccba316c63fb7c refs/pull/44/head",
+    "ac20181fee79c1424a2c3e604301037e50a3f534 refs/pull/45/head",
+    "2b0f4cda149541d44d4acc08054ddf8c4e604cd7 refs/pull/46/head",
+    "4394d5bf12283cc09d4847014f939d9bc16e9493 refs/pull/47/head",
+    "590d904bc49cbbbb938272d02a5b201a3d9402c8 refs/pull/48/head",
+    "fe1444cc1d6f73f6fa06f8bf5c15aaf895f6a05e refs/pull/49/head",
+    "840a97e70ee8a8af44ab3459b5ecbd047087b8a8 refs/pull/5/head",
+    "6c83155afc84a1f2a255d65ed7a82f13c69a99d9 refs/pull/50/head",
+    "ff52e2659709fb545989d65ad4a113e22a03a921 refs/pull/51/head",
+    "7ce45ad67e0592bfde8d038f6b5114a0c9897497 refs/pull/52/head",
+    "9031a6be25d9b6112ea560e6a15fb51e8143b959 refs/pull/53/head",
+    "e95df934af8e86524e940a2978b70a4c159e0890 refs/pull/54/head",
+    "49e6910b4163be2c7dd77021dc4728e6cc9c91b8 refs/pull/55/head",
+    "a9ca66d9fb68f254b8d31cecac4151a5ffd1cf75 refs/pull/56/head",
+    "ac47fb0a3e9c269663ad0ca7eaebc68b3cb13935 refs/pull/57/head",
+    "40c4fba8ecb3bf1bcdbc1e26f5243beefdb023f2 refs/pull/58/head",
+    "7b56612104ee953cf7c419d72afa7adf6a24ebc6 refs/pull/59/head",
+    "19cf2bb28508d39f24776f346f29aa47715d8a4f refs/pull/6/head",
+    "b513cc1de570d512ffc0ab991d99fe216be39340 refs/pull/60/head",
+    "c8a66e14411b4268243b0a698a38ff0dc2ab4757 refs/pull/61/head",
+    "d35d55ba57920033f62d9638709bede9feeac9f0 refs/pull/62/head",
+    "70f0bb95a2eaf4af42b17a14f95f142fdfb2a5ec refs/pull/62/merge",
+    "20d84cdb9a34d34fe10464ae8144ee869cbc2345 refs/pull/63/head",
+    "af65e49da64b8d32c32570e8407952c5bb52cf94 refs/pull/7/head",
+    "a9d643488b77df6a0dc433a070998d3f7759cdeb refs/pull/8/head",
+    "b3aaee954949d455c16970eb320737784558e1bd refs/pull/9/head"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/storyteller-ml",
+  "source_created_at": "2022-02-28T09:32:47Z",
+  "source_name": "storytold/storyteller-ml",
+  "source_pushed_at": "2025-02-06T05:39:30Z",
+  "submodules": [
+    {
+      "commit": "33006d32ed28447f67f48a0b229b27fb2f313e65",
+      "path": "3d_generation/moonTripoSR",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+      "path": "animation/Rerender_A_Video/deps/ControlNet",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
+      "path": "animation/Rerender_A_Video/deps/ebsynth",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
+      "path": "animation/Rerender_A_Video/deps/gmflow",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
+      "path": "animation/rerender-lora/deps/ControlNet",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
+      "path": "animation/rerender-lora/deps/ebsynth",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
+      "path": "animation/rerender-lora/deps/gmflow",
+      "status": "Reference preserved; submodule repository not fetched"
+    }
+  ],
+  "symbolic_head": "refs/heads/master"
+}
