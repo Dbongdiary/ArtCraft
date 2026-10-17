@@ -1,0 +1,264 @@
+{
+  "repository": "craft-launcher",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.5,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 24.3,
+      "tail": "der3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1315]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.4,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "rtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true},{\"kind\":[\"custom-build\"],\"crate_types\":[\"bin\"],\"name\":\"build-script-build\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher/build.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":false}],\"features\":{\"local-mirror\":[\"artcraft-launcher-native/local-mirror\"]},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":\"artcraft-launcher\",\"rust_version\":\"1.90\"},{\"name\":\"artcraft-launcher-web\",\"version\":\"0.4.1\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher-web#0.4.1\",\"license\":\"MIT OR Apache-2.0\",\"license_file\":null,\"description\":\"ArtCraft Launcher in the browser: the Craft App Suite's latest releases, with downloads for the visitor's system\",\"source\":null,\"dependencies\":[{\"name\":\"artcraft-launcher-core\",\"source\":null,\"req\":\"*\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null,\"path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/core\"},{\"name\":\"artcraft-launcher-ui-egui\",\"source\":null,\"req\":\"*\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null,\"path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/ui-egui\"},{\"name\":\"egui\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.36\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"log\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.4\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"eframe\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.36\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":false,\"features\":[\"default_fonts\",\"wgpu\",\"accesskit\",\"persistence\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"js-sys\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"wasm-bindgen\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"wasm-bindgen-futures\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.4\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"web-sys\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"Window\",\"Document\",\"Element\",\"HtmlCanvasElement\",\"MediaQueryList\",\"Navigator\",\"Request\",\"RequestInit\",\"RequestMode\",\"Response\",\"Headers\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"artcraft-launcher-web\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher-web/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher-web/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":\"1.90\"},{\"name\":\"xtask\",\"version\":\"0.4.1\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/xtask#0.4.1\",\"license\":\"MIT OR Apache-2.0\",\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"xtask\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/xtask/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/xtask/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/core#artcraft-launcher-core@0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/native#artcraft-launcher-native@0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/ui-egui#artcraft-launcher-ui-egui@0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher#0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher-web#0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/xtask#0.4.1\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/core#artcraft-launcher-core@0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/native#artcraft-launcher-native@0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/ui-egui#artcraft-launcher-ui-egui@0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher#0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher-web#0.4.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/xtask#0.4.1\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 286.4,
+      "tail": "_debs_reach_root_as_one_apt_call ... ok\ntest install::tests::updates_keep_the_installed_format ... ok\ntest install::tests::updates_stay_beside_the_launchers_copy_and_new_installs_use_the_chosen_folder ... ok\ntest manifest::tests::round_trips_and_survives_garbage ... ok\ntest packages::tests::candidate_names_cover_bundle_ids_for_deb_rpm_and_pacman ... ok\ntest packages::tests::finds_aur_packages_in_every_flavour ... ok\ntest packages::tests::prefers_managers_in_order_and_reads_revisions ... ok\ntest packages::tests::reads_each_package_managers_listing ... ok\ntest process::explorer_tests::explorer_select_quotes_only_the_path ... ok\ntest process::explorer_tests::explorer_select_uses_backslashes ... ok\ntest process::explorer_tests::explorer_select_without_spaces ... ok\ntest process::run_tests::a_failing_helper_reports_its_own_error ... ok\ntest process::run_tests::a_silent_failure_and_a_success ... ok\ntest process::tests::running_paths_are_matched_literally ... ok\ntest proxy::tests::scutil_falls_back_to_http_proxy ... ok\ntest proxy::tests::scutil_https_proxy_with_exceptions ... ok\ntest proxy::tests::scutil_without_a_proxy ... ok\ntest proxy::tests::system_proxy_becomes_a_ureq_proxy_that_skips_loopback ... ok\ntest proxy::tests::windows_bypass_list ... ok\ntest proxy::tests::windows_per_protocol_list_prefers_https ... ok\ntest proxy::tests::windows_settings_that_cannot_be_used ... ok\ntest proxy::tests::windows_single_proxy_for_everything ... ok\ntest queue::tests::a_dismissed_prompt_cancels_every_job_of_the_call ... ok\ntest queue::tests::a_job_arriving_mid_install_waits_then_runs ... ok\ntest queue::tests::a_job_taken_into_another_jobs_call_hears_it_started ... ok\ntest queue::tests::a_job_whose_call_has_started_sees_it_through ... ok\ntest queue::tests::a_waiting_job_can_be_cancelled_and_is_left_out_of_the_call ... ok\ntest queue::tests::an_installer_that_dies_frees_the_queue_and_fails_its_jobs ... ok\ntest queue::tests::installers_never_run_at_the_same_time ... ok\ntest queue::tests::jobs_that_wait_together_share_one_call_per_command ... ok\ntest queue::tests::waiting_alone_for_the_installer_can_be_cancelled ... ok\ntest screenshots::tests::a_damaged_saved_copy_is_ignored ... ok\ntest screenshots::tests::a_downloaded_picture_is_saved_where_it_will_be_read_from ... ok\ntest screenshots::tests::saved_pictures_need_no_network_and_a_failure_ends_the_run ... ok\ntest screenshots::tests::what_is_not_a_picture_is_not_kept ... ok\ntest self_update::tests::a_development_build_does_not_update_itself ... ok\ntest self_update::tests::a_version_just_installed_is_not_offered_again ... ok\ntest self_update::tests::powershell_quoting_survives_apostrophes ... ok\ntest self_update::tests::the_launcher_picks_its_own_release_files ... ok\ntest http::tests::a_dropped_connection_resumes_where_it_stopped ... ok\ntest self_update::tests::the_restarted_launcher_does_not_inherit_a_pretend_version ... ok\ntest single_instance::tests::a_newer_start_replaces_an_older_running_launcher ... ok\ntest single_instance::tests::a_running_launcher_from_before_the_handshake_is_recognised ... ok\ntest single_instance::tests::a_start_from_before_the_handshake_still_shows_the_window ... ok\ntest single_instance::tests::answers_are_read_defensively ... ok\ntest single_instance::tests::the_same_or_an_older_start_shows_the_running_launcher ... ok\ntest http::tests::a_server_that_ignores_ranges_starts_over ... ok\ntest self_update::tests::the_restart_waits_for_the_old_process_to_exit ... ok\ntest backend::tests::a_failing_api_is_retried_quickly_only_during_the_first_load ... ok\n\ntest result: ok. 129 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 6.00s\n\n     Running unittests src/lib.rs (target/debug/deps/artcraft_launcher_ui_egui-0d6def3dfcac2c92)\n\nrunning 44 tests\ntest cjk_font::tests::face_index_rejects_what_isnt_a_font ... ok\ntest cjk_font::tests::face_index_finds_families_in_real_fonts ... ok\ntest cjk_font::tests::face_metrics_reads_font_metrics ... ok\ntest i18n::tests::chinese_counts_and_english_fallback_work ... ok\ntest i18n::tests::catalogs_have_rows_and_no_empty_translations ... ok\ntest cjk_font::tests::system_font_loads_when_present ... ok\ntest cjk_font::tests::cjk_sits_on_the_latin_baseline ... ok\ntest i18n::tests::czech_plural_rule_works ... ok\ntest i18n::tests::ellipsis_preserved ... ok\ntest i18n::tests::complete_catalogs_translate_every_tagline ... ok\ntest i18n::tests::complete_catalogs_translate_package_formats ... ok\ntest i18n::tests::complete_catalogs_cover_every_ui_literal ... ok\ntest i18n::tests::french_locales_and_plurals_work ... ok\ntest i18n::tests::german_counts_dates_and_messages_work ... ok\ntest i18n::tests::german_locales_resolve ... ok\ntest i18n::tests::hungarian_locales_and_plurals_work ... ok\ntest i18n::tests::language_labels_come_from_the_registry ... ok\ntest i18n::tests::japanese_locales_and_counts_work ... ok\ntest i18n::tests::locale_tags_resolve ... ok\ntest i18n::tests::message_templates_match_real_messages ... ok\ntest i18n::tests::parse_rows_of_every_kind ... ok\ntest i18n::tests::placeholders_match_in_translation ... ok\ntest i18n::tests::no_duplicate_keys ... ok\ntest i18n::tests::polish_locales_resolve ... ok\ntest i18n::tests::polish_plural_rule_works ... ok\ntest i18n::tests::product_names_stay_in_english ... ok\ntest i18n::tests::russian_plural_rule_works ... ok\ntest i18n::tests::simplified_chinese_locales_respect_the_script ... ok\ntest i18n::tests::system_font_covers_chinese_in_every_ui_family ... ok\ntest i18n::tests::spanish_locales_and_plurals_work ... ok\ntest i18n::tests::system_font_covers_japanese_in_every_ui_family ... ok\ntest i18n::tests::untranslated_plurals_fall_back_to_english_by_count ... ok\ntest i18n::tests::unescape_works ... ok\ntest i18n::tests::every_msg_row_translates_its_own_text ... ok\ntest i18n::tests::plural_forms_count_matches_language ... ok\ntest motion::tests::other_input_is_left_alone ... ok\ntest motion::tests::egui_spreads_a_wheel_notch_over_frames ... ok\ntest motion::tests::a_wheel_notch_scrolls_at_once ... ok\ntest notes::tests::reads_githubs_generated_notes ... ok\ntest motion::tests::the_styles_follow_the_setting ... ok\ntest motion::tests::a_big_step_in_points_scrolls_at_once_too ... ok\ntest views::tests::a_flatpak_copy_of_the_launcher_gets_the_bundle ... ok\ntest motion::tests::shift_scrolls_sideways_at_once ... ok\ntest views::tests::a_plain_linux_copy_still_gets_the_appimage ... ok\n\ntest result: ok. 44 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 161.0,
+      "tail": "   Compiling serde_core v1.0.229\n   Compiling toml_parser v1.1.5+spec-1.1.0\n   Compiling serde v1.0.229\n   Compiling hashbrown v0.17.1\n   Compiling indexmap v2.14.2\n   Compiling enumflags2_derive v0.7.12\n   Compiling parking v2.2.1\n   Compiling futures-core v0.3.34\n   Compiling crossbeam-utils v0.8.23\n   Compiling endi v1.1.1\n   Compiling toml_datetime v1.1.2+spec-1.1.0\n   Compiling toml_edit v0.25.17+spec-1.1.0\n   Compiling zvariant_utils v4.2.0\n   Compiling proc-macro-crate v3.5.0\n   Compiling synstructure v0.14.0\n   Compiling futures-io v0.3.34\n   Compiling concurrent-queue v2.5.0\n   Compiling enumflags2 v0.7.12\n   Compiling zcheapstr v1.1.0\n   Compiling event-listener v5.4.2\n   Compiling event-listener-strategy v0.5.4\n   Compiling futures-lite v2.6.1\n   Compiling syn v3.0.6\n   Compiling zerofrom-derive v0.1.8\n   Compiling zvariant_derive v5.15.0\n   Compiling zvariant v5.15.0\n   Compiling zbus_names v4.3.4\n   Compiling yoke-derive v0.8.4\n   Compiling zerofrom v0.1.8\n   Compiling async-io v2.6.0\n   Compiling stable_deref_trait v1.2.1\n   Compiling yoke v0.8.3\n   Compiling errno v0.3.14\n   Compiling async-task v4.7.1\n   Compiling signal-hook-registry v1.4.8\n   Compiling async-channel v2.5.0\n   Compiling zerovec-derive v0.11.6\n   Compiling atomic-waker v1.1.2\n   Compiling piper v0.2.5\n   Compiling async-signal v0.2.14\n   Compiling async-lock v3.4.2\n   Compiling displaydoc v0.2.7\n   Compiling async-process v2.5.0\n   Compiling blocking v1.7.0\n   Compiling async-executor v1.14.0\n   Compiling zbus_macros v5.19.0\n   Compiling async-broadcast v0.7.2\n   Compiling ordered-stream v0.2.0\n   Compiling async-trait v0.1.92\n   Compiling zerovec v0.11.8\n   Compiling serde_repr v0.1.21\n   Compiling async-recursion v1.2.0\n   Compiling hex v0.4.3\n   Compiling tinystr v0.8.4\n   Compiling zbus_xml v5.2.1\n   Compiling litemap v0.8.3\n   Compiling writeable v0.6.4\n   Compiling icu_locale_core v2.3.0\n   Compiling zbus-lockstep v0.5.2\n   Compiling potential_utf v0.1.6\n   Compiling zerotrie v0.2.5\n   Compiling icu_properties_data v2.3.0\n   Compiling icu_normalizer_data v2.3.0\n   Compiling utf8_iter v1.0.4\n   Compiling icu_collections v2.3.0\n   Compiling icu_provider v2.3.1\n   Compiling zbus-lockstep-macros v0.5.2\n   Compiling zbus v5.19.0\n   Compiling phf_shared v0.13.1\n   Compiling fastrand v2.5.0\n   Compiling phf_generator v0.13.1\n   Compiling futures-macro v0.3.34\n   Compiling futures-task v0.3.34\n   Compiling icu_normalizer v2.3.0\n   Compiling icu_properties v2.3.0\n   Compiling phf_macros v0.13.1\n   Compiling atspi-common v0.13.0\n   Compiling futures-util v0.3.34\n   Compiling phf v0.13.1\n   Compiling atspi-proxies v0.13.0\n   Compiling idna_adapter v1.2.2\n   Compiling accesskit_consumer v0.36.0\n   Compiling calloop v0.14.5\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling calloop-wayland-source v0.4.1\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling idna v1.1.0\n   Compiling atspi v0.29.0\n   Compiling form_urlencoded v1.2.2\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling serde_spanned v1.1.2\n   Compiling toml v1.1.8+spec-1.1.0\n   Compiling url v2.5.8\n   Compiling accesskit_unix v0.21.1\n   Compiling muda v0.20.0\n   Compiling utf8parse v0.2.2\n   Compiling anstyle-parse v1.0.0\n   Compiling webbrowser v1.2.4\n   Compiling smithay-clipboard v0.7.3\n   Compiling accesskit_winit v0.32.2\n   Compiling winresource v0.1.31\n   Compiling arboard v3.6.1\n   Compiling crossbeam-channel v0.5.17\n   Compiling futures-channel v0.3.34\n   Compiling task-local v0.1.1\n   Compiling keyboard-types v0.8.3\n   Compiling is_terminal_polyfill v1.70.2\n   Compiling tray-icon v0.25.1\n   Compiling anstyle v1.0.14\n   Compiling pastey v0.2.3\n   Compiling jiff-core v0.1.1\n   Compiling colorchoice v1.0.5\n   Compiling rfd v0.17.2\n   Compiling anstyle-query v1.1.5\n   Compiling anstream v1.0.0\n   Compiling artcraft-launcher-ui-egui v0.4.1 (/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/ui-egui)\n   Compiling jiff v0.2.38\n   Compiling ksni v0.3.6\n   Compiling egui-winit v0.36.2\n   Compiling artcraft-launcher v0.4.1 (/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher)\n   Compiling env_filter v2.0.0\n   Compiling pollster v0.4.0\n   Compiling eframe v0.36.2\n   Compiling env_logger v0.11.11\n   Compiling artcraft-launcher-native v0.4.1 (/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/crates/native)\n   Compiling notify-rust v4.18.2\n   Compiling artcraft-launcher-web v0.4.1 (/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/apps/artcraft-launcher-web)\n   Compiling xtask v0.4.1 (/home/runner/work/ArtCraft/ArtCraft/restored/craft-launcher/xtask)\n    Finished `dev` profile [optimized] target(s) in 2m 41s\n"
+    }
+  ],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "api.storyteller.ai",
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "craft-launcher"
+  ],
+  "source_commit": "721e960bda07717c25a507953c82a228837c497c",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_and_tests_passed",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "artcraft-launcher-core",
+      "targets": [
+        {
+          "name": "artcraft_launcher_core",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "artcraft-launcher-native",
+      "targets": [
+        {
+          "name": "artcraft_launcher_native",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "artcraft-launcher-ui-egui",
+      "targets": [
+        {
+          "name": "artcraft_launcher_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "chinese",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "french",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "german",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hungarian",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "japanese",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "polish",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "portuguese",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "russian",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "spanish",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "artcraft-launcher",
+      "targets": [
+        {
+          "name": "artcraft-launcher",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "artcraft-launcher-web",
+      "targets": [
+        {
+          "name": "artcraft-launcher-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:14:40Z"
+}

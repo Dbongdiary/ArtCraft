@@ -1,0 +1,28 @@
+{
+  "repository": "crafthub",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "No supported root build entry point; may be assets, scripts, native project, infrastructure or nested application. See repository documentation."
+  ],
+  "remapped_repositories": [
+    "crafthub"
+  ],
+  "source_commit": "ca18a5727075044599a13421b73bb63476440b84",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 0,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "source_restored_runtime_unverified",
+  "kind": "other_or_assets",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:08:03Z"
+}

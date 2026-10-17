@@ -1,0 +1,28 @@
+{
+  "repository": "craft-launcher-assets",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "No supported root build entry point; may be assets, scripts, native project, infrastructure or nested application. See repository documentation."
+  ],
+  "remapped_repositories": [
+    "craft-launcher-assets"
+  ],
+  "source_commit": "550fe6ba32501302156965242bd09798b8400120",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 0,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "source_restored_runtime_unverified",
+  "kind": "other_or_assets",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:06:26Z"
+}

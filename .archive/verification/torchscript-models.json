@@ -1,0 +1,242 @@
+{
+  "repository": "torchscript-models",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-8speaker-256gin/glow_tts_multispeaker_8-speaker_256-gin_ljs_txlearn_2020.06.19_experiment-5_chkpt-7466.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1027.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1048.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1063.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1086.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1112.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1153.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1204.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1227.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1319.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_135.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_142.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_1802.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_2458.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_264.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_2898.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_309.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_3208.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_325.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_336.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_337.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_4244.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_44.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_4815.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_4817.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_5092.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_541.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_5634.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_596.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_604.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_6045.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_607.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_619.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_640.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_6590.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_6805.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_7351.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_757.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_845.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_854.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_929.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut-multispeaker/G_998.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut-multispeaker/wrap_glow_model.py",
+      "reference": "/home/bt/models/glow-tts-jaywalnut/pretrained.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/glow-tts/init.py",
+      "reference": "ddi_G.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/glow-tts/train.py",
+      "reference": "G_*.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/glow-tts/train.py",
+      "reference": "G_{}.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/glow-tts/train.py",
+      "reference": "ddi_G.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/glow-tts/utils.py",
+      "reference": "G_*.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/inference.py",
+      "reference": "./logs/base/G_1007.pth"
+    },
+    {
+      "file": "glow-tts-jaywalnut/inference.py",
+      "reference": "/home/bt/models/waveglow-nvidia/waveglow_256channels_universal_v5.pt"
+    }
+  ],
+  "service_domains": [],
+  "limitations": [
+    "Submodules require separately archived dependency restoration; original bundle preserves gitlinks. Full ML execution not attempted.",
+    "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
+    "Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified."
+  ],
+  "remapped_repositories": [
+    "torchscript-models"
+  ],
+  "source_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 26,
+    "errors": []
+  },
+  "submodule_references": [
+    {
+      "commit": "23177d29a09015a4f40fce0b81b315392064f9d7",
+      "path": "glow-tts-jaywalnut-multispeaker/glow-tts-multispeaker",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+      "path": "glow-tts-jaywalnut/apex",
+      "status": "Reference preserved; submodule repository not fetched"
+    }
+  ],
+  "lfs_status": "not_present",
+  "status": "syntax_checked_runtime_unverified",
+  "kind": "python",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:21:28Z"
+}

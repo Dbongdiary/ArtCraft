@@ -1,0 +1,170 @@
+{
+  "repository": "winprint.rs",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.7,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 21.9,
+      "tail": "der3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1315]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.6,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "null,\"registry\":null},{\"name\":\"windows-core\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.62\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"windows-implement\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.60.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"xml\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"anyhow\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"ctor\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.10\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"env_logger\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.11\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"futures\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"image\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.25\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":false,\"features\":[\"png\"],\"target\":null,\"registry\":null},{\"name\":\"image-compare\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.5\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"print_raster\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.1\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"tiff\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.11\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"winprint\",\"source\":null,\"req\":\"*\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":false,\"features\":[\"test-utils\"],\"target\":null,\"registry\":null,\"path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs\"},{\"name\":\"flate2\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1.1\",\"kind\":\"build\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"reqwest\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.13\",\"kind\":\"build\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"blocking\"],\"target\":null,\"registry\":null},{\"name\":\"sigstore-trust-root\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.6.5\",\"kind\":\"build\",\"rename\":null,\"optional\":false,\"uses_default_features\":false,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"sigstore-types\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.6.5\",\"kind\":\"build\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"sigstore-verify\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.6.5\",\"kind\":\"build\",\"rename\":null,\"optional\":false,\"uses_default_features\":false,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"tar\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.4\",\"kind\":\"build\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"winprint\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/src/lib.rs\",\"edition\":\"2021\",\"doc\":true,\"doctest\":true,\"test\":true},{\"kind\":[\"example\"],\"crate_types\":[\"bin\"],\"name\":\"extract_print_capabilities\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/examples/extract_print_capabilities.rs\",\"edition\":\"2021\",\"doc\":false,\"doctest\":false,\"test\":false},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"visual_regression_image\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/tests/visual_regression_image.rs\",\"edition\":\"2021\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"visual_regression_pdfium\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/tests/visual_regression_pdfium.rs\",\"edition\":\"2021\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"visual_regression_xps\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/tests/visual_regression_xps.rs\",\"edition\":\"2021\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"custom-build\"],\"crate_types\":[\"bin\"],\"name\":\"build-script-build\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/build.rs\",\"edition\":\"2021\",\"doc\":false,\"doctest\":false,\"test\":false}],\"features\":{\"default\":[\"pdfium\"],\"pdfium\":[],\"test-utils\":[\"dep:sha2\",\"dep:bs58\",\"dep:uuid\"]},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/Cargo.toml\",\"metadata\":{\"docs\":{\"rs\":{\"all-features\":true,\"targets\":[\"x86_64-pc-windows-msvc\"]}}},\"publish\":null,\"authors\":[\"ArcticLampyrid <ArcticLampyrid@outlook.com>\"],\"categories\":[\"api-bindings\",\"os::windows-apis\"],\"keywords\":[\"printer\",\"printing\",\"xps\",\"pdf\"],\"readme\":\"README.md\",\"repository\":\"https://github.com/ArcticLampyrid/winprint.rs/\",\"homepage\":null,\"documentation\":\"https://docs.rs/winprint\",\"edition\":\"2021\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs#winprint@0.2.1\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs#winprint@0.2.1\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 101,
+      "seconds": 1.0,
+      "tail": "    Updating crates.io index\nerror: cannot create the lock file /home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/Cargo.lock because --locked was passed to prevent this\nhelp: to generate the lock file without accessing the network, remove the --locked flag and use --offline instead.\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 101,
+      "seconds": 1.3,
+      "tail": "    Updating crates.io index\nerror: cannot create the lock file /home/runner/work/ArtCraft/ArtCraft/restored/winprint.rs/Cargo.lock because --locked was passed to prevent this\nhelp: to generate the lock file without accessing the network, remove the --locked flag and use --offline instead.\n"
+    }
+  ],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "winprint.rs"
+  ],
+  "source_commit": "d1dc3c2089e93aad91e56c178e4b8a5e0868969c",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "winprint",
+      "targets": [
+        {
+          "name": "winprint",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "extract_print_capabilities",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "visual_regression_image",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "visual_regression_pdfium",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "visual_regression_xps",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:25:09Z"
+}

@@ -1,0 +1,149 @@
+{
+  "repository": "cloud-worker",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [
+    {
+      "file": "bench/minimax_bench.py",
+      "reference": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    {
+      "file": "bench/minimax_bench.py",
+      "reference": "minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "bench/minimax_bench.py",
+      "reference": "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "bench/minimax_bench.py",
+      "reference": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    {
+      "file": "bench/minimax_bench.py",
+      "reference": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_i2v.json",
+      "reference": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_r2v.json",
+      "reference": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    {
+      "file": "comfyui/workflows/video_minimax_h3_t2v.json",
+      "reference": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    }
+  ],
+  "service_domains": [
+    "fal.ai",
+    "huggingface.co"
+  ],
+  "limitations": [
+    "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
+    "Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified."
+  ],
+  "remapped_repositories": [
+    "cloud-worker"
+  ],
+  "source_commit": "e375345bf6109a23425f8a8c2d35fee79eb062c7",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 7,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "syntax_checked_runtime_unverified",
+  "kind": "python",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:07:51Z"
+}

@@ -1,0 +1,28 @@
+{
+  "repository": "craft-common-actions",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified."
+  ],
+  "remapped_repositories": [
+    "craft-common-actions"
+  ],
+  "source_commit": "43f4e83c68764f9d880f8a6c10328bc550465f2b",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "syntax_checked_runtime_unverified",
+  "kind": "python",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:07:49Z"
+}

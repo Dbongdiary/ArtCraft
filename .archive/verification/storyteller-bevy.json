@@ -1,0 +1,173 @@
+{
+  "repository": "storyteller-bevy",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 4.4,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 24.2,
+      "tail": "der3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1269]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 9.2,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": ",\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"reqwest\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.12.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"default\",\"json\",\"stream\"],\"target\":null,\"registry\":null},{\"name\":\"serde\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1.0.192\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"serde-wasm-bindgen\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.6.1\",\"kind\":null,\"rename\":null,\"optional\":true,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"serde_json\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1.0.108\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"serde_repr\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.1.18\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"space_editor\",\"source\":\"git+https://github.com/rewin123/space_editor?rev=daeaef70e4eb3ce1f945e296383a9eb2f31900b3\",\"req\":\"*\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"studio-bvh\",\"source\":null,\"req\":\"*\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null,\"path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio-bvh\"},{\"name\":\"uuid\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"v4\",\"serde\"],\"target\":null,\"registry\":null},{\"name\":\"wasm-bindgen\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"wasm-bindgen-futures\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.4\",\"kind\":null,\"rename\":null,\"optional\":true,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"web-sys\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":null,\"rename\":null,\"optional\":true,\"uses_default_features\":true,\"features\":[\"CustomEvent\",\"CustomEventInit\",\"Document\",\"HtmlElement\",\"Window\",\"Location\",\"WorkerGlobalScope\"],\"target\":null,\"registry\":null},{\"name\":\"wgpu\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.19.3\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"cdylib\",\"rlib\"],\"crate_types\":[\"cdylib\",\"rlib\"],\"name\":\"studio\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio/src/lib.rs\",\"edition\":\"2021\",\"doc\":true,\"doctest\":true,\"test\":true},{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"studio-headless\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio/src/main-headless.rs\",\"edition\":\"2021\",\"required-features\":[\"headless\"],\"doc\":true,\"doctest\":false,\"test\":true},{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"studio-standalone\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio/src/main.rs\",\"edition\":\"2021\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{\"desktop\":[],\"headless\":[],\"wasm\":[\"dep:console_error_panic_hook\",\"dep:js-sys\",\"dep:serde-wasm-bindgen\",\"dep:web-sys\",\"dep:indexed_db_futures\",\"dep:wasm-bindgen-futures\",\"bevy_rapier3d/wasm-bindgen\"]},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio/Cargo.toml\",\"metadata\":null,\"publish\":null,\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2021\",\"links\":null,\"default_run\":null,\"rust_version\":null},{\"name\":\"studio-bvh\",\"version\":\"0.1.0\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio-bvh#0.1.0\",\"license\":null,\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[{\"name\":\"bstr\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"lexical\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^5.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"nom\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^6\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"smallvec\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1.5\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"studio_bvh\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio-bvh/src/lib.rs\",\"edition\":\"2021\",\"doc\":true,\"doctest\":true,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio-bvh/Cargo.toml\",\"metadata\":null,\"publish\":null,\"authors\":[\"George Burton <burtonageo@gmail.com>\",\"Storyteller.ai\"],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2021\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio#0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio-bvh#0.1.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio#0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio-bvh#0.1.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 173.5,
+      "tail": "specify the type as `f32`: `0.0_f32`\n    |\n    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!\n    = note: for more information, see issue #154024 <https://github.com/rust-lang/rust/issues/154024>\n\nwarning: falling back to `f32` as the trait bound `f32: From<f64>` is not satisfied\n   --> studio-bvh/src/macros.rs:526:45\n    |\n526 |             0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0\n    |                                             ^^^ help: explicitly specify the type as `f32`: `0.0_f32`\n    |\n    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!\n    = note: for more information, see issue #154024 <https://github.com/rust-lang/rust/issues/154024>\n\nwarning: `studio-bvh` (lib test) generated 21 warnings (1 duplicate) (run `cargo fix --lib -p studio-bvh --tests` to apply 18 suggestions)\n   Compiling studio v0.1.0 (/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio)\nwarning: method `spawn_bvh` is never used\n   --> studio/src/bvh/mod.rs:259:8\n    |\n258 | pub trait CommandsSpawnBvhExt {\n    |           ------------------- method in this trait\n259 |     fn spawn_bvh(&mut self, asset: &Handle<Bvh>) -> Entity;\n    |        ^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: field `success` is never read\n --> studio/src/remote/response.rs:7:9\n  |\n6 | pub struct GetMediaFileSuccessResponse {\n  |            --------------------------- field in this struct\n7 |     pub success: bool,\n  |         ^^^^^^^\n  |\n  = note: `GetMediaFileSuccessResponse` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: multiple fields are never read\n  --> studio/src/remote/response.rs:13:9\n   |\n12 | pub struct MediaFileInfo {\n   |            ------------- fields in this struct\n13 |     pub token: String,\n   |         ^^^^^\n...\n17 |     pub media_type: String,\n   |         ^^^^^^^^^^\n...\n20 |     pub maybe_batch_token: Option<String>,\n   |         ^^^^^^^^^^^^^^^^^\n...\n32 |     pub maybe_model_weight_info: Option<GetMediaFileModelInfo>,\n   |         ^^^^^^^^^^^^^^^^^^^^^^^\n...\n35 |     pub maybe_creator_user: Option<UserDetailsLight>,\n   |         ^^^^^^^^^^^^^^^^^^\n36 |\n37 |     pub creator_set_visibility: String,\n   |         ^^^^^^^^^^^^^^^^^^^^^^\n...\n40 |     pub maybe_text_transcript: Option<String>,\n   |         ^^^^^^^^^^^^^^^^^^^^^\n...\n46 |     pub is_emulated_media_file: bool,\n   |         ^^^^^^^^^^^^^^^^^^^^^^\n...\n49 |     pub stats: SimpleEntityStats,\n   |         ^^^^^\n50 |\n51 |     pub created_at: String,\n   |         ^^^^^^^^^^\n52 |     pub updated_at: String,\n   |         ^^^^^^^^^^\n   |\n   = note: `MediaFileInfo` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `weight_token`, `weight_type`, `weight_category`, `title`, `maybe_cover_image_public_bucket_path`, and `maybe_weight_creator` are never read\n  --> studio/src/remote/response.rs:58:9\n   |\n57 | pub struct GetMediaFileModelInfo {\n   |            --------------------- fields in this struct\n58 |     pub weight_token: String,\n   |         ^^^^^^^^^^^^\n59 |     pub weight_type: String,\n   |         ^^^^^^^^^^^\n60 |     pub weight_category: String,\n   |         ^^^^^^^^^^^^^^^\n61 |     pub title: String,\n   |         ^^^^^\n...\n65 |     pub maybe_cover_image_public_bucket_path: Option<String>,\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n...\n69 |     pub maybe_weight_creator: Option<UserDetailsLight>,\n   |         ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `GetMediaFileModelInfo` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `user_token`, `username`, `display_name`, `gravatar_hash`, and `default_avatar` are never read\n  --> studio/src/remote/response.rs:75:9\n   |\n73 | pub struct UserDetailsLight {\n   |            ---------------- fields in this struct\n74 |     /// The token for the user\n75 |     pub user_token: String,\n   |         ^^^^^^^^^^\n...\n79 |     pub username: String,\n   |         ^^^^^^^^\n...\n83 |     pub display_name: String,\n   |         ^^^^^^^^^^^^\n...\n88 |     pub gravatar_hash: String,\n   |         ^^^^^^^^^^^^^\n...\n91 |     pub default_avatar: DefaultAvatarInfo,\n   |         ^^^^^^^^^^^^^^\n   |\n   = note: `UserDetailsLight` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `image_index` and `color_index` are never read\n  --> studio/src/remote/response.rs:97:9\n   |\n96 | pub struct DefaultAvatarInfo {\n   |            ----------------- fields in this struct\n97 |     pub image_index: u8,\n   |         ^^^^^^^^^^^\n98 |     pub color_index: u8,\n   |         ^^^^^^^^^^^\n   |\n   = note: `DefaultAvatarInfo` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `positive_rating_count` and `bookmark_count` are never read\n   --> studio/src/remote/response.rs:104:9\n    |\n102 | pub struct SimpleEntityStats {\n    |            ----------------- fields in this struct\n103 |     /// Number of positive ratings (or \"likes\") for this item\n104 |     pub positive_rating_count: u32,\n    |         ^^^^^^^^^^^^^^^^^^^^^\n105 |     /// Number of bookmarks for this item\n106 |     pub bookmark_count: u32,\n    |         ^^^^^^^^^^^^^^\n    |\n    = note: `SimpleEntityStats` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: `studio` (lib test) generated 7 warnings\n    Finished `test` profile [unoptimized] target(s) in 2m 53s\nwarning: the following packages contain code that will be rejected by a future version of Rust: document-features v0.2.8, nom v6.1.2\nnote: to see what the problems were, use the option `--future-incompat-report`, or run `cargo report future-incompatibilities --id 1`\n     Running unittests src/lib.rs (target/debug/deps/studio-910ad2d3287f576a)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/lib.rs (target/debug/deps/studio_bvh-f6833d85ee7a542c)\n\nrunning 2 tests\ntest frame_cursor::test_vec_insert_slice ... ok\ntest macros::tests::test_empty_create ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 12.3,
+      "tail": "warning: eliding a lifetime that's named elsewhere is confusing\n   --> studio-bvh/src/frame_iter.rs:200:69\n    |\n200 |     pub fn get_mut<I: FrameIndex>(&'a mut self, index: I) -> Option<&mut Output<I>> {\n    |                                    -- the lifetime is named here    ^^^^^^^^^^^^^^ the same lifetime is elided here\n    |\n    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing\n    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default\nhelp: consistently use `'a`\n    |\n200 |     pub fn get_mut<I: FrameIndex>(&'a mut self, index: I) -> Option<&'a mut Output<I>> {\n    |                                                                      ++\n\nwarning: `studio-bvh` (lib) generated 1 warning (run `cargo fix --lib -p studio-bvh` to apply 1 suggestion)\n   Compiling studio v0.1.0 (/home/runner/work/ArtCraft/ArtCraft/restored/storyteller-bevy/studio)\nwarning: method `spawn_bvh` is never used\n   --> studio/src/bvh/mod.rs:259:8\n    |\n258 | pub trait CommandsSpawnBvhExt {\n    |           ------------------- method in this trait\n259 |     fn spawn_bvh(&mut self, asset: &Handle<Bvh>) -> Entity;\n    |        ^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: field `success` is never read\n --> studio/src/remote/response.rs:7:9\n  |\n6 | pub struct GetMediaFileSuccessResponse {\n  |            --------------------------- field in this struct\n7 |     pub success: bool,\n  |         ^^^^^^^\n  |\n  = note: `GetMediaFileSuccessResponse` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: multiple fields are never read\n  --> studio/src/remote/response.rs:13:9\n   |\n12 | pub struct MediaFileInfo {\n   |            ------------- fields in this struct\n13 |     pub token: String,\n   |         ^^^^^\n...\n17 |     pub media_type: String,\n   |         ^^^^^^^^^^\n...\n20 |     pub maybe_batch_token: Option<String>,\n   |         ^^^^^^^^^^^^^^^^^\n...\n32 |     pub maybe_model_weight_info: Option<GetMediaFileModelInfo>,\n   |         ^^^^^^^^^^^^^^^^^^^^^^^\n...\n35 |     pub maybe_creator_user: Option<UserDetailsLight>,\n   |         ^^^^^^^^^^^^^^^^^^\n36 |\n37 |     pub creator_set_visibility: String,\n   |         ^^^^^^^^^^^^^^^^^^^^^^\n...\n40 |     pub maybe_text_transcript: Option<String>,\n   |         ^^^^^^^^^^^^^^^^^^^^^\n...\n46 |     pub is_emulated_media_file: bool,\n   |         ^^^^^^^^^^^^^^^^^^^^^^\n...\n49 |     pub stats: SimpleEntityStats,\n   |         ^^^^^\n50 |\n51 |     pub created_at: String,\n   |         ^^^^^^^^^^\n52 |     pub updated_at: String,\n   |         ^^^^^^^^^^\n   |\n   = note: `MediaFileInfo` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `weight_token`, `weight_type`, `weight_category`, `title`, `maybe_cover_image_public_bucket_path`, and `maybe_weight_creator` are never read\n  --> studio/src/remote/response.rs:58:9\n   |\n57 | pub struct GetMediaFileModelInfo {\n   |            --------------------- fields in this struct\n58 |     pub weight_token: String,\n   |         ^^^^^^^^^^^^\n59 |     pub weight_type: String,\n   |         ^^^^^^^^^^^\n60 |     pub weight_category: String,\n   |         ^^^^^^^^^^^^^^^\n61 |     pub title: String,\n   |         ^^^^^\n...\n65 |     pub maybe_cover_image_public_bucket_path: Option<String>,\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n...\n69 |     pub maybe_weight_creator: Option<UserDetailsLight>,\n   |         ^^^^^^^^^^^^^^^^^^^^\n   |\n   = note: `GetMediaFileModelInfo` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `user_token`, `username`, `display_name`, `gravatar_hash`, and `default_avatar` are never read\n  --> studio/src/remote/response.rs:75:9\n   |\n73 | pub struct UserDetailsLight {\n   |            ---------------- fields in this struct\n74 |     /// The token for the user\n75 |     pub user_token: String,\n   |         ^^^^^^^^^^\n...\n79 |     pub username: String,\n   |         ^^^^^^^^\n...\n83 |     pub display_name: String,\n   |         ^^^^^^^^^^^^\n...\n88 |     pub gravatar_hash: String,\n   |         ^^^^^^^^^^^^^\n...\n91 |     pub default_avatar: DefaultAvatarInfo,\n   |         ^^^^^^^^^^^^^^\n   |\n   = note: `UserDetailsLight` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `image_index` and `color_index` are never read\n  --> studio/src/remote/response.rs:97:9\n   |\n96 | pub struct DefaultAvatarInfo {\n   |            ----------------- fields in this struct\n97 |     pub image_index: u8,\n   |         ^^^^^^^^^^^\n98 |     pub color_index: u8,\n   |         ^^^^^^^^^^^\n   |\n   = note: `DefaultAvatarInfo` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: fields `positive_rating_count` and `bookmark_count` are never read\n   --> studio/src/remote/response.rs:104:9\n    |\n102 | pub struct SimpleEntityStats {\n    |            ----------------- fields in this struct\n103 |     /// Number of positive ratings (or \"likes\") for this item\n104 |     pub positive_rating_count: u32,\n    |         ^^^^^^^^^^^^^^^^^^^^^\n105 |     /// Number of bookmarks for this item\n106 |     pub bookmark_count: u32,\n    |         ^^^^^^^^^^^^^^\n    |\n    = note: `SimpleEntityStats` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n\nwarning: `studio` (lib) generated 7 warnings\n    Finished `dev` profile [unoptimized] target(s) in 12.22s\nwarning: the following packages contain code that will be rejected by a future version of Rust: document-features v0.2.8, nom v6.1.2\nnote: to see what the problems were, use the option `--future-incompat-report`, or run `cargo report future-incompatibilities --id 1`\n"
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/kulkalkul/bevy_mod_billboard?branch=main#1fabd2214731dedb4b17ce0a0894d22182707759",
+    "git+https://github.com/rewin123/space_editor?rev=daeaef70e4eb3ce1f945e296383a9eb2f31900b3#daeaef70e4eb3ce1f945e296383a9eb2f31900b3",
+    "https://github.com/rewin123/space_editor",
+    "https://github.com/rewin123/space_editor#daeaef70e4eb3ce1f945e296383a9eb2f31900b3"
+  ],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "api.fakeyou.com",
+    "fakeyou.com",
+    "storyteller.ai"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "storyteller-bevy"
+  ],
+  "source_commit": "4ce8b72c4cf3263ef9df99761f93832009026a89",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 0,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_and_tests_passed",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "studio",
+      "targets": [
+        {
+          "name": "studio",
+          "kind": [
+            "cdylib",
+            "rlib"
+          ]
+        },
+        {
+          "name": "studio-headless",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "studio-standalone",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "studio-bvh",
+      "targets": [
+        {
+          "name": "studio_bvh",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:24:24Z"
+}

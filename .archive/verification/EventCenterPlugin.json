@@ -1,0 +1,28 @@
+{
+  "repository": "EventCenterPlugin",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "Requires compatible Unreal Engine and an integration project; no licensed engine/runtime present on standard runner."
+  ],
+  "remapped_repositories": [
+    "EventCenterPlugin"
+  ],
+  "source_commit": "c69a1a3ef5b87f491c82fe0a067fa773c79966f4",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 2,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "source_restored_runtime_unverified",
+  "kind": "unreal",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:08:46Z"
+}

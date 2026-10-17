@@ -1,0 +1,28 @@
+{
+  "repository": "UE4-OSC",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "Requires compatible Unreal Engine and an integration project; no licensed engine/runtime present on standard runner."
+  ],
+  "remapped_repositories": [
+    "UE4-OSC"
+  ],
+  "source_commit": "a17317cd5b2066b5d66aa4dcbbd561916345d49a",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 0,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "source_restored_runtime_unverified",
+  "kind": "unreal",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:21:38Z"
+}

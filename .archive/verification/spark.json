@@ -1,0 +1,88 @@
+{
+  "repository": "spark",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "npm-install",
+      "command": [
+        "npm",
+        "ci",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit_code": 0,
+      "seconds": 4.8,
+      "tail": "\nadded 163 packages in 5s\nnpm warn install-scripts 3 packages have install scripts not yet covered by allowScripts:\nnpm warn install-scripts   @biomejs/biome@1.9.4 (postinstall: node scripts/postinstall.js)\nnpm warn install-scripts   esbuild@0.25.2 (postinstall: node install.js)\nnpm warn install-scripts   lefthook@1.11.12 (postinstall: node postinstall.js)\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n"
+    },
+    {
+      "check": "npm-test",
+      "command": [
+        "npm",
+        "run",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 1.0,
+      "tail": "\n> @sparkjsdev/spark@0.1.10 test\n> node --no-warnings --loader ts-node/esm --test test/**/*.test.ts\n\n\u2705 All test cases passed!\n\u2714 test/utils.test.ts (829.560187ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 1\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 838.777628\n"
+    },
+    {
+      "check": "npm-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 1,
+      "seconds": 6.6,
+      "tail": "\n> @sparkjsdev/spark@0.1.10 build\n> npm run build:production && npm run build:dev\n\n\n> @sparkjsdev/spark@0.1.10 build:production\n> vite build --mode production\n\n************************************************************************\n Examples assets will be fetched from an external server.\n To work offline you can download them: npm run assets:download\n************************************************************************\n\u001b[36mvite v6.3.2 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\ntransforming...\n\u001b[32m\u2713\u001b[39m 19 modules transformed.\n\u001b[31m\u2717\u001b[39m Build failed in 5.22s\n\u001b[31merror during build:\n\u001b[31m[vite]: Rollup failed to resolve import \"spark-internal-rs\" from \"/home/runner/work/ArtCraft/ArtCraft/restored/spark/src/SplatMesh.ts\".\nThis is most likely unintended because it can break your application at runtime.\nIf you do want to externalize this module explicitly add it to\n`build.rollupOptions.external`\u001b[31m\n    at viteLog (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/vite/dist/node/chunks/dep-DG3BLbPj.js:46278:15)\n    at onRollupLog (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/vite/dist/node/chunks/dep-DG3BLbPj.js:46328:5)\n    at onLog (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/vite/dist/node/chunks/dep-DG3BLbPj.js:45976:7)\n    at file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:20704:32\n    at Object.logger [as onLog] (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:22583:9)\n    at ModuleLoader.handleInvalidResolvedId (file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:21330:26)\n    at file:///home/runner/work/ArtCraft/ArtCraft/restored/spark/node_modules/rollup/dist/es/shared/node-entry.js:21288:26\u001b[39m\n"
+    }
+  ],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "No authenticated service or browser end-to-end workflow was exercised."
+  ],
+  "remapped_repositories": [
+    "spark"
+  ],
+  "source_commit": "b7b3d5c42790186c72fc2b0bcf9a0c04a46af65e",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 0,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "package_checks_blocked",
+  "kind": "javascript",
+  "npm_scripts": {
+    "assets:clean": "node scripts/clean-assets.js",
+    "assets:compress": "node scripts/compress-to-spz.js",
+    "assets:download": "node scripts/download-assets.js",
+    "build": "npm run build:production && npm run build:dev",
+    "build:dev": "vite build --mode dev",
+    "build:production": "vite build --mode production",
+    "build:wasm": "node rust/build_wasm.js",
+    "build:watch": "onchange 'src/**/*.{ts,glsl}' -- npm run build:dev",
+    "clean": "rm -rf dist/ && rm -rf node_modules/ && rm -rf rust/target/ && rm -rf rust/spark-internal-rs/pkg/ && npm run assets:clean",
+    "dev": "npm run build:dev && (vite --host & npm run build:watch)",
+    "docs": "node scripts/clean-site-files.js && node scripts/copy-site-files.js && mkdocs serve",
+    "format": "biome format .",
+    "format:fix": "biome format . --fix",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --fix",
+    "lint:summary": "biome check --reporter=summary",
+    "prepare": "",
+    "site:build": "npm run build && npm run site:clean && node scripts/copy-site-files.js && mkdocs build && node scripts/rename-assets-to-static.js",
+    "site:clean": "node scripts/clean-site-files.js && node scripts/clean-site.js",
+    "site:deploy": "npm run site:build && node scripts/deploy-site.js",
+    "site:serve": "node scripts/serve-site.js site",
+    "start": "npm run dev",
+    "test": "node --no-warnings --loader ts-node/esm --test test/**/*.test.ts"
+  },
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:20:36Z"
+}

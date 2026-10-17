@@ -1,0 +1,32 @@
+{
+  "repository": "terraform-aws-observability-accelerator",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "FINGERPRINT.gr7.us-east-1.eks.amazonaws.com",
+    "g-workspaceid.grafana-workspace.eu-central-1.amazonaws.com",
+    "g-xyz.grafana-workspace.eu-central-1.amazonaws.com"
+  ],
+  "limitations": [
+    "Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified."
+  ],
+  "remapped_repositories": [
+    "terraform-aws-observability-accelerator"
+  ],
+  "source_commit": "2ecdcd1f583d0ae16e15685573e908778bb546a2",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "syntax_checked_runtime_unverified",
+  "kind": "python",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:21:16Z"
+}

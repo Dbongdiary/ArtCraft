@@ -1,0 +1,1336 @@
+{
+  "repository": "effectcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 5.3,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 23.6,
+      "tail": "der3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1252]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 10.2,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "ft-path@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/text#effectcraft-text@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/render#effectcraft-render@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/model#effectcraft-model@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/pdf#effectcraft-pdf@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/svg#effectcraft-svg@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/psd#effectcraft-psd@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/host#effectcraft-host@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/export#effectcraft-export@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/av1enc#effectcraft-av1enc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/hevcenc#effectcraft-hevcenc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/opusenc#effectcraft-opusenc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/vp9enc#effectcraft-vp9enc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/media#effectcraft-media@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/expr#effectcraft-expr@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/plugin#effectcraft-plugin@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/script#effectcraft-script@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/gpu#effectcraft-gpu@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/ui-egui#effectcraft-ui-egui@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft#0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft-cli#0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft-web#0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/xtask#0.10.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/automation#effectcraft-automation@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/av1enc#effectcraft-av1enc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/color#effectcraft-color@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/effects#effectcraft-effects@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/engine#effectcraft-engine@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/export#effectcraft-export@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/expr#effectcraft-expr@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/geom#effectcraft-geom@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/gpu#effectcraft-gpu@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/hevcenc#effectcraft-hevcenc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/host#effectcraft-host@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/interchange#effectcraft-interchange@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/keyframe#effectcraft-keyframe@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/lottie#effectcraft-lottie@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/media#effectcraft-media@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/model#effectcraft-model@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/opusenc#effectcraft-opusenc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/path#effectcraft-path@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/pdf#effectcraft-pdf@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/plugin#effectcraft-plugin@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/project#effectcraft-project@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/psd#effectcraft-psd@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/raster#effectcraft-raster@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/render#effectcraft-render@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/script#effectcraft-script@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/segment#effectcraft-segment@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/svg#effectcraft-svg@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/text#effectcraft-text@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/time#effectcraft-time@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/track#effectcraft-track@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/ui-egui#effectcraft-ui-egui@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/vp9enc#effectcraft-vp9enc@0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft#0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft-cli#0.10.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft-web#0.10.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 124,
+      "seconds": 900.1,
+      "tail": "onia-codec-alac v0.5.5\n   Compiling symphonia-codec-aac v0.5.5\n   Compiling wgpu-core v30.0.1\n   Compiling x11-dl v2.21.0\n   Compiling small_btree v0.1.0\n   Compiling emath v0.36.2\n   Compiling gethostname v1.1.0\n   Compiling smithay-client-toolkit v0.19.2\n   Compiling filmcraft-opus v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling intrusive-collections v0.10.3\n   Compiling x11rb-protocol v0.13.2\n   Compiling oneshot v0.2.1\n   Compiling tap v1.0.1\n   Compiling bumpalo v3.20.3\n   Compiling as-raw-xcb-connection v1.0.1\n   Compiling wasmparser v0.228.0\n   Compiling tag_ptr v0.1.0\n   Compiling wasmi_ir v2.0.0\n   Compiling litrs v1.0.0\n   Compiling document-features v0.2.12\n   Compiling boa_engine v0.22.0\n   Compiling wast v261.0.0\n   Compiling x11rb v0.13.2\n   Compiling ecolor v0.36.2\n   Compiling symphonia v0.5.5\n   Compiling calloop-wayland-source v0.3.0\n   Compiling phf_macros v0.13.1\n   Compiling wgpu-core-deps-windows-linux-android v30.0.1\n   Compiling vello_cpu v0.1.0\n   Compiling filmcraft-h264 v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling filmcraft-dnx v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling filmcraft-vp9 v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling rand_core v0.9.5\n   Compiling wgpu v30.0.1\n   Compiling winit v0.30.13\n   Compiling filmcraft-mpegts v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling filmcraft-mpeg2v v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling filmcraft-ac3 v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling wasmi_core v2.0.0\n   Compiling self_cell v1.3.0\n   Compiling filmcraft-matroska v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling unicode-segmentation v1.13.3\n   Compiling filmcraft-ogg v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling nohash-hasher v0.2.0\n   Compiling wasmi v2.0.0\n   Compiling epaint_default_fonts v0.36.2\n   Compiling filmcraft-mxf v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling epaint v0.36.2\n   Compiling filmcraft-codecs v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling phf v0.13.1\n   Compiling wat v1.261.0\n   Compiling effectcraft-engine v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/engine)\n   Compiling atspi-proxies v0.13.0\n   Compiling xkbcommon-dl v0.4.2\n   Compiling accesskit_consumer v0.36.0\n   Compiling wayland-protocols-plasma v0.3.12\n   Compiling idna_adapter v1.2.2\n   Compiling calloop v0.14.4\n   Compiling futures-macro v0.3.34\n   Compiling futures-task v0.3.34\n   Compiling wasmi_collections v2.0.0\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling smol_str v0.2.2\n   Compiling dpi v0.1.2\n   Compiling spin v0.9.9\n   Compiling futures-util v0.3.34\n   Compiling calloop-wayland-source v0.4.1\n   Compiling idna v1.1.0\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling atspi v0.29.0\n   Compiling egui v0.36.2\n   Compiling form_urlencoded v1.2.2\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling tempfile v3.27.0\n   Compiling filmcraft-h264enc v0.1.1 (https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a7)\n   Compiling ppv-lite86 v0.2.21\n   Compiling wait-timeout v0.2.1\n   Compiling quick-error v1.2.3\n   Compiling effectcraft-vp9enc v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/vp9enc)\n   Compiling effectcraft-hevcenc v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/hevcenc)\n   Compiling fnv v1.0.7\n   Compiling effectcraft-av1enc v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/av1enc)\n   Compiling effectcraft-opusenc v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/opusenc)\n   Compiling bit-vec v0.8.0\n   Compiling bit-set v0.8.0\n   Compiling rusty-fork v0.3.1\n   Compiling rand_chacha v0.9.0\n   Compiling url v2.5.8\n   Compiling accesskit_unix v0.21.1\n   Compiling effectcraft-expr v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/expr)\n   Compiling effectcraft-media v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/media)\n   Compiling rand v0.9.5\n   Compiling rand_xorshift v0.4.0\n   Compiling regex-syntax v0.8.11\n   Compiling unarray v0.1.4\n   Compiling proptest v1.11.0\n   Compiling accesskit_winit v0.32.2\n   Compiling webbrowser v1.2.4\n   Compiling smithay-clipboard v0.7.3\n   Compiling effectcraft-export v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/export)\n   Compiling effectcraft-plugin v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/plugin)\n   Compiling effectcraft-script v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/script)\n   Compiling arboard v3.6.1\n   Compiling type-map v0.5.1\n   Compiling serde_spanned v1.1.1\n   Compiling toml_writer v1.1.2+spec-1.1.0\n   Compiling toml v1.1.6+spec-1.1.0\n   Compiling egui-wgpu v0.36.2\n   Compiling egui-winit v0.36.2\n   Compiling accesskit_consumer v0.35.0\n   Compiling pollster v1.0.1\n   Compiling pollster v0.4.0\n   Compiling eframe v0.36.2\n   Compiling effectcraft-ui-egui v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/ui-egui)\n   Compiling kittest v0.4.0\n   Compiling effectcraft-host v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/host)\n   Compiling egui_kittest v0.36.2\n   Compiling effectcraft-gpu v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/gpu)\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling sys-locale v0.3.2\n   Compiling effectcraft-automation v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/automation)\n   Compiling effectcraft-web v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft-web)\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 82.8,
+      "tail": "   Compiling getrandom v0.3.4\n   Compiling alsa-sys v0.3.1\n   Compiling winresource v0.1.31\n   Compiling cpal v0.16.0\n   Compiling rfd v0.17.2\n   Compiling ahash v0.8.12\n   Compiling alsa v0.9.1\n   Compiling epaint v0.36.2\n   Compiling winit v0.30.13\n   Compiling egui v0.36.2\n   Compiling accesskit_winit v0.32.2\n   Compiling egui-winit v0.36.2\n   Compiling egui-wgpu v0.36.2\n   Compiling eframe v0.36.2\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling effectcraft-ui-egui v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/ui-egui)\n   Compiling effectcraft v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft)\n   Compiling dasp_sample v0.11.0\n   Compiling effectcraft-automation v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/crates/automation)\n   Compiling cpu-time v1.0.0\n   Compiling xtask v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/xtask)\n   Compiling effectcraft-cli v0.10.0 (/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/apps/effectcraft-cli)\n    Finished `dev` profile [optimized] target(s) in 1m 22s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/effectcraft/target/debug/effectcraft"
+      ],
+      "exit_code": 101,
+      "seconds": 0.4,
+      "tail": "2026-10-17T21:26:00.206Z INFO  [main] effectcraft: effectcraft 0.10.0, log file /home/runner/.config/effectcraft/Logs/effectcraft.log\n2026-10-17T21:26:00.207Z INFO  [main] effectcraft: effectcraft 0.10.0: opening the window\n2026-10-17T21:26:00.211Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n2026-10-17T21:26:00.229Z ERROR [main] effectcraft_engine::logging: panic: panicked at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/xkbcommon-dl-0.4.2/src/x11.rs:59:28:\nLibrary libxkbcommon-x11.so could not be loaded.\n\nthread 'main' (20093) panicked at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/xkbcommon-dl-0.4.2/src/x11.rs:59:28:\nLibrary libxkbcommon-x11.so could not be loaded.\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "git+https://github.com/storytold/craft-libs?rev=ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d#ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d",
+    "git+https://github.com/storytold/filmcraft?rev=2c5ba7a72619935f0481f99d59409e0d1844b234#2c5ba7a72619935f0481f99d59409e0d1844b234",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/craft-libs#ca50d63b773c99f96e75c77ce5a1d21e7c9cda0d",
+    "https://github.com/storytold/effectcraft",
+    "https://github.com/storytold/filmcraft",
+    "https://github.com/storytold/filmcraft#2c5ba7a72619935f0481f99d59409e0d1844b234"
+  ],
+  "missing_paths": [],
+  "model_references": [
+    {
+      "file": "crates/segment/src/lib.rs",
+      "reference": "https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/weights/mobile_sam.pt"
+    },
+    {
+      "file": "crates/segment/src/lib.rs",
+      "reference": "mobile_sam.pt"
+    },
+    {
+      "file": "docs/agents.md",
+      "reference": "mobile_sam.pt"
+    }
+  ],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "effectcraft",
+    "craft-libs",
+    "filmcraft"
+  ],
+  "source_commit": "2d805d1b696eadd6d8d467ceb2f8ce66f847f3a4",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "effectcraft-automation",
+      "targets": [
+        {
+          "name": "effectcraft_automation",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "qa",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-engine",
+      "targets": [
+        {
+          "name": "effectcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "key_time_post_snap_bounds",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "key_time_reply_contract",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "parenting_3d_position",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-color",
+      "targets": [
+        {
+          "name": "effectcraft_color",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-effects",
+      "targets": [
+        {
+          "name": "effectcraft_effects",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "gen_golden",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "particle_golden",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sim_golden",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "timewarp_golden",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-geom",
+      "targets": [
+        {
+          "name": "effectcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-keyframe",
+      "targets": [
+        {
+          "name": "effectcraft_keyframe",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "ae_ease_samples",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-time",
+      "targets": [
+        {
+          "name": "effectcraft_time",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "relative_min_cancellation",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-project",
+      "targets": [
+        {
+          "name": "effectcraft_project",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-raster",
+      "targets": [
+        {
+          "name": "effectcraft_raster",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-segment",
+      "targets": [
+        {
+          "name": "effectcraft_segment",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-track",
+      "targets": [
+        {
+          "name": "effectcraft_track",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-interchange",
+      "targets": [
+        {
+          "name": "effectcraft_interchange",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-lottie",
+      "targets": [
+        {
+          "name": "effectcraft_lottie",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-path",
+      "targets": [
+        {
+          "name": "effectcraft_path",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-text",
+      "targets": [
+        {
+          "name": "effectcraft_text",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "script_fallback",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "system_font_menu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vertical_punctuation",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-render",
+      "targets": [
+        {
+          "name": "effectcraft_render",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "motion_blur_probe",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-model",
+      "targets": [
+        {
+          "name": "effectcraft_model",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-pdf",
+      "targets": [
+        {
+          "name": "effectcraft_pdf",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-svg",
+      "targets": [
+        {
+          "name": "effectcraft_svg",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-psd",
+      "targets": [
+        {
+          "name": "effectcraft_psd",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-host",
+      "targets": [
+        {
+          "name": "effectcraft_host",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "background_presets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "determinism",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "exr_layers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "footage_reload",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gif_animates",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plugins",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "relink",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "timeline_interop",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vector_import",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "webm_metadata",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-export",
+      "targets": [
+        {
+          "name": "effectcraft_export",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "audio_sample_positions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hevc_av1_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mov_audio_sample_positions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "native_audio_sample_positions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "opus_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "render_settings",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "uncompressed_mov",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vp9_roundtrip",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-av1enc",
+      "targets": [
+        {
+          "name": "effectcraft_av1enc",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "bench",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ffmpeg_oracle",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-hevcenc",
+      "targets": [
+        {
+          "name": "effectcraft_hevcenc",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "roundtrip",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-opusenc",
+      "targets": [
+        {
+          "name": "effectcraft_opusenc",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "ffmpeg",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "modes",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-vp9enc",
+      "targets": [
+        {
+          "name": "effectcraft_vp9enc",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-media",
+      "targets": [
+        {
+          "name": "effectcraft_media",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "downmix",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "exif_orientation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "footage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "open_in_place",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-expr",
+      "targets": [
+        {
+          "name": "effectcraft_expr",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-plugin",
+      "targets": [
+        {
+          "name": "effectcraft_plugin",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-script",
+      "targets": [
+        {
+          "name": "effectcraft_script",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-gpu",
+      "targets": [
+        {
+          "name": "effectcraft_gpu",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-ui-egui",
+      "targets": [
+        {
+          "name": "effectcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "snapshot",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "render_queue_snapshot",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shared_docking_ui",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_3d",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_agent_audit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_angles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_audio_scrub",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_azerty_shortcuts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_blank_context_menus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_camera_tracker",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_character_eyedropper",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_color_hex",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_comp_presets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_control_modifiers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_dock_resize",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_drag_drop",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_effect_controls",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_effect_drop_highlight",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_effect_names",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_font_search",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_form_fit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_frame_step",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_fx_editors",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_gpu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_gradient_editor",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_gradient_handles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_gradient_value",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_graph_fit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_group_rename",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_inline_edit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_keyframes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_large_project",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_layer_panel_zoom",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_live_preview",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_locked_color",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_media_browser_cache",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_media_browser_copy_path",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_menus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_object_matte",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_panel_focus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_panel_windows",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_panels",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_parameter_spacing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_presets_folder",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_preview_align",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_project_delete",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_project_keyboard",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_project_rows",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_quick_offset",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_ram_preview",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_render_queue",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_script_console",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_scriptui",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_scrolling",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_settings_info",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_tabs",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_tail",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_text_edit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_theme_favorites",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_time_zoom_controls",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_timeline_effect_label",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_timeline_shapes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_timeline_switches",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_timeline_trim",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_timeline_zoom",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_toolbar_gradient",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_tracker",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_unreadable_footage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_video_preview_off",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_viewer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_viewers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_visual_review",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_web_gpu_storage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_web_job_gpu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_web_offload",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_workflow_selection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "ui_workspace_focus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "viewer_geometry",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "viewer_passive_display",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft",
+      "targets": [
+        {
+          "name": "effectcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "args",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-cli",
+      "targets": [
+        {
+          "name": "effectcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "qa_template",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effectcraft-web",
+      "targets": [
+        {
+          "name": "effectcraft_web",
+          "kind": [
+            "cdylib",
+            "rlib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "bench",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "exited_101",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:26:00Z"
+}

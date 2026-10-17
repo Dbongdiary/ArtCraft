@@ -1,0 +1,92 @@
+{
+  "repository": "FineTrainers-Conditioning",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [
+    {
+      "file": "finetrainers/trainer.py",
+      "reference": "conditions-{accelerator.process_index}-{index}.pt"
+    },
+    {
+      "file": "finetrainers/trainer.py",
+      "reference": "latents-{accelerator.process_index}-{index}.pt"
+    },
+    {
+      "file": "finetrainers/utils/data_utils.py",
+      "reference": "*.pt"
+    },
+    {
+      "file": "tests/test_lora_inference.py",
+      "reference": "pytorch_lora_weights.safetensors"
+    },
+    {
+      "file": "training/cogvideox/cogvideox_image_to_video_lora.py",
+      "reference": "pytorch_lora_weights.safetensors"
+    },
+    {
+      "file": "training/cogvideox/cogvideox_text_to_video_lora.py",
+      "reference": "pytorch_lora_weights.safetensors"
+    },
+    {
+      "file": "training/cogvideox/dataset.py",
+      "reference": "{filename_without_ext}.pt"
+    },
+    {
+      "file": "training/cogvideox/prepare_dataset.py",
+      "reference": "image_latents/{stem}.pt"
+    },
+    {
+      "file": "training/cogvideox/prepare_dataset.py",
+      "reference": "prompt_embeds/{stem}.pt"
+    },
+    {
+      "file": "training/cogvideox/prepare_dataset.py",
+      "reference": "video_latents/{stem}.pt"
+    },
+    {
+      "file": "training/mochi-1/dataset_simple.py",
+      "reference": ".embed.pt"
+    },
+    {
+      "file": "training/mochi-1/dataset_simple.py",
+      "reference": ".latent.pt"
+    },
+    {
+      "file": "training/mochi-1/embed.py",
+      "reference": ".embed.pt"
+    },
+    {
+      "file": "training/mochi-1/embed.py",
+      "reference": ".latent.pt"
+    },
+    {
+      "file": "training/mochi-1/text_to_video_lora.py",
+      "reference": "checkpoint-{global_step}.pt"
+    }
+  ],
+  "service_domains": [
+    "huggingface.co"
+  ],
+  "limitations": [
+    "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
+    "Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified."
+  ],
+  "remapped_repositories": [
+    "FineTrainers-Conditioning"
+  ],
+  "source_commit": "9f0fdb5055b7c363e71e8a19c2805406fe79fb6a",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 46,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "syntax_checked_runtime_unverified",
+  "kind": "python",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:10:03Z"
+}

@@ -1,0 +1,312 @@
+{
+  "run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709",
+  "result_count": 59,
+  "counts": {
+    "source_restored_runtime_unverified": 21,
+    "empty_repository": 1,
+    "audit_blocked": 3,
+    "build_or_tests_blocked": 16,
+    "build_and_tests_passed": 9,
+    "syntax_checked_runtime_unverified": 6,
+    "tests_blocked": 1,
+    "manifest_or_source_dependency_blocked": 1,
+    "package_checks_blocked": 1
+  },
+  "repositories": [
+    {
+      "name": "ActorSpawningPlugin",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "AniCraft",
+      "status": "empty_repository",
+      "restored": false
+    },
+    {
+      "name": "AnimationTest",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "artcraft",
+      "status": "audit_blocked",
+      "restored": true
+    },
+    {
+      "name": "artcraft-services",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "artcraftx",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "Azure-Kinect-Sample-for-Unity",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "bevy-mocap",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "cadcraft",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "cloud-worker",
+      "status": "syntax_checked_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "cloudcam",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "CloudCamPlugin",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "craft-ai-integrations",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "craft-common-actions",
+      "status": "syntax_checked_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "craft-contrib",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "craft-fonts",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "craft-launcher",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "craft-launcher-assets",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "craft-libs",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "craft-repo-status-app",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "crafthub",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "deckcraft",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "designcraft",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "discord-vocodes",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "effectcraft",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "EventCenterPlugin",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "fakeyou-recast",
+      "status": "audit_blocked",
+      "restored": true
+    },
+    {
+      "name": "filmcraft",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "FineTrainers-Conditioning",
+      "status": "syntax_checked_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "github-media",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "gridcraft",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "hanashi-graphics-demo",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "html_test",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "HyperJail",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "indd-utils",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "irsa-manager",
+      "status": "tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "k4a-sys-temp",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "LiveScan3D",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "motion-capture-data",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "photocraft-corpus",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "placeholder-artcraft",
+      "status": "manifest_or_source_dependency_blocked",
+      "restored": true
+    },
+    {
+      "name": "point-generator",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "realtime-voice-conversion",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "redirect-vocodes",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "RuntimeAudioImporter",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "RuntimeFilesDownloader",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "spark",
+      "status": "package_checks_blocked",
+      "restored": true
+    },
+    {
+      "name": "storyteller-bevy",
+      "status": "build_and_tests_passed",
+      "restored": true
+    },
+    {
+      "name": "storyteller-ml",
+      "status": "audit_blocked",
+      "restored": true
+    },
+    {
+      "name": "StreamTwo",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "terraform-aws-observability-accelerator",
+      "status": "syntax_checked_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "torchscript-models",
+      "status": "syntax_checked_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "UE4-OSC",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "UnrealZeroMQ",
+      "status": "source_restored_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "vits-finetuning",
+      "status": "syntax_checked_runtime_unverified",
+      "restored": true
+    },
+    {
+      "name": "voder-proxy",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "winit",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "winprint.rs",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    },
+    {
+      "name": "xsens-packet-send",
+      "status": "build_or_tests_blocked",
+      "restored": true
+    }
+  ]
+}

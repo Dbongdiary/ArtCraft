@@ -1,0 +1,102 @@
+{
+  "repository": "vits-finetuning",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [
+    {
+      "file": "data_utils.py",
+      "reference": ".spec.pt"
+    },
+    {
+      "file": "preprocess.py",
+      "reference": "test{i}.pt"
+    },
+    {
+      "file": "train.py",
+      "reference": "D0_*.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "D0_latest.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "D0_{}.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "D1_*.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "D1_latest.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "D1_{}.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "G_*.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "G_latest.pth"
+    },
+    {
+      "file": "train.py",
+      "reference": "G_{}.pth"
+    },
+    {
+      "file": "train_ms.py",
+      "reference": "D0_*.pth"
+    },
+    {
+      "file": "train_ms.py",
+      "reference": "D0_{}.pth"
+    },
+    {
+      "file": "train_ms.py",
+      "reference": "D1_*.pth"
+    },
+    {
+      "file": "train_ms.py",
+      "reference": "D1_{}.pth"
+    },
+    {
+      "file": "train_ms.py",
+      "reference": "G_*.pth"
+    },
+    {
+      "file": "train_ms.py",
+      "reference": "G_{}.pth"
+    },
+    {
+      "file": "utils.py",
+      "reference": "G_*.pth"
+    }
+  ],
+  "service_domains": [],
+  "limitations": [
+    "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
+    "Syntax parsing only: packages, checkpoints, training data, CUDA/GPU and inference output not verified."
+  ],
+  "remapped_repositories": [
+    "vits-finetuning"
+  ],
+  "source_commit": "b1e03bee38e0d28c0cb420e5cb4e653e4643506c",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 37,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "syntax_checked_runtime_unverified",
+  "kind": "python",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:22:46Z"
+}

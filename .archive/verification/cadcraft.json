@@ -1,0 +1,1959 @@
+{
+  "repository": "cadcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 5.5,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 28.7,
+      "tail": "der3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1231]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.3,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "registry\":null},{\"name\":\"eframe\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.36\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":false,\"features\":[\"persistence\",\"default_fonts\",\"wgpu\",\"accesskit\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"wasm-bindgen\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.2\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"wasm-bindgen-futures\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.4\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"web-sys\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"Window\",\"Document\",\"Element\",\"HtmlElement\",\"HtmlCanvasElement\",\"HtmlAnchorElement\",\"Location\",\"Navigator\",\"Blob\",\"BlobPropertyBag\",\"Url\",\"MessageEvent\",\"UrlSearchParams\",\"MediaQueryList\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null},{\"name\":\"web-sys\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^0.3\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"HtmlInputElement\",\"FileList\",\"File\"],\"target\":\"wasm32-unknown-unknown\",\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"cadcraft-web\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-web/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-web/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null},{\"name\":\"xtask\",\"version\":\"0.7.0\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/xtask#0.7.0\",\"license\":\"MIT OR Apache-2.0\",\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[{\"name\":\"serde_json\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"float_roundtrip\"],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"xtask\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/xtask/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/xtask/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/color#cadcraft-color@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/constraints#cadcraft-constraints@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/doc#cadcraft-doc@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/geom#cadcraft-geom@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/dwg#cadcraft-dwg@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/dxf#cadcraft-dxf@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/engine#cadcraft-engine@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/fonts#cadcraft-fonts@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/render#cadcraft-render@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/io#cadcraft-io@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/mcp#cadcraft-mcp@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/ui-egui#cadcraft-ui-egui@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-cli#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-web#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/xtask#0.7.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/color#cadcraft-color@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/constraints#cadcraft-constraints@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/doc#cadcraft-doc@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/geom#cadcraft-geom@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/dwg#cadcraft-dwg@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/dxf#cadcraft-dxf@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/engine#cadcraft-engine@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/fonts#cadcraft-fonts@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/render#cadcraft-render@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/io#cadcraft-io@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/mcp#cadcraft-mcp@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/ui-egui#cadcraft-ui-egui@0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-cli#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-web#0.7.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/xtask#0.7.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 494.0,
+      "tail": "ency_where_asked_and_honours_override ... ok\ntest gpu::tests::transparent_objects_get_premultiplied_alpha ... ok\ntest gpu::tests::wipeout_masks_start_a_draw_order_group ... ok\ntest canvas::tests::dynamic_input_distance_follows_the_drawing_units ... ok\ntest grip_dyn::tests::length_fields_follow_the_drawing_units ... ok\ntest hatchdlg::tests::a_failed_ok_keeps_the_dialog_open_with_the_error ... ok\ntest hatchdlg::tests::a_gradient_hatch_offers_the_current_pattern_on_the_pattern_tab ... ok\ntest hatchdlg::tests::create_ok_hatches_points_and_objects_in_one_call ... ok\ntest hatchdlg::tests::create_ok_runs_and_makes_one_hatch ... ok\ntest hatchdlg::tests::create_state_reads_the_header_and_survives_bad_values ... ok\ntest cmdline::tests::history_expands_by_click_chevron_f2_and_resizes_by_drag_without_touching_the_drawing ... ok\ntest hatchdlg::tests::edit_ok_sends_only_what_changed ... ok\ntest hatchdlg::tests::escape_brings_the_dialog_back_unchanged ... ok\ntest dyninput::tests::down_arrow_lists_the_options_and_enter_or_a_click_picks_one ... ok\ntest hatchdlg::tests::hatch_pick_opens_edit_mode_or_nothing ... ok\ntest hatchdlg::tests::hatchedit_opens_edit_mode_on_the_selection_or_asks_for_a_hatch ... ok\ntest hatchdlg::tests::ok_makes_the_hatch_and_closes ... ok\ntest hatchdlg::tests::picks_merge_into_the_state ... ok\ntest hatchdlg::tests::pick_points_hides_the_dialog_and_brings_it_back_with_the_points ... ok\ntest hatchdlg::tests::switching_drawings_drops_the_dialog ... ok\ntest grip_dyn::tests::typed_length_tab_and_enter_place_the_grip_and_keywords_pass_through ... ok\ntest hatchdlg::tests::switching_to_a_layout_drops_the_picks ... ok\ntest hatchdlg::tests::typed_and_menu_hatch_open_the_dialog_but_dash_and_json_do_not ... ok\ntest i18n::tests::brazilian_portuguese_plurals_and_accents ... ok\ntest hatchdlg::tests::edit_mode_on_an_out_of_range_hatch_changes_nothing_by_itself ... ok\ntest i18n::tests::chinese_needs_an_installed_cjk_font ... ok\ntest i18n::tests::catalog_is_valid_and_preserves_placeholders_and_ellipses ... ok\ntest i18n::tests::czech_locales_preferences_and_plural_forms ... ok\ntest i18n::tests::czech_menu_headings_keep_object_labels_and_other_catalogs ... ok\ntest i18n::tests::default_fonts_cover_czech_letters_and_typographic_quotes ... ok\ntest i18n::tests::default_fonts_cover_every_brazilian_portuguese_letter_in_the_catalog ... ok\ntest i18n::tests::default_fonts_cover_every_german_special_letter_in_the_catalog ... ok\ntest i18n::tests::default_fonts_cover_every_ukrainian_letter_in_the_catalog ... ok\ntest i18n::tests::default_fonts_cover_swedish_letters_and_quotes ... ok\ntest hatchdlg::tests::the_dialog_fits_on_screen_with_its_buttons ... ok\ntest i18n::tests::every_marked_ui_literal_has_a_translation ... ok\ntest i18n::tests::hatch_dialog_extents_label_says_extents_in_ukrainian ... ok\ntest i18n::tests::italian_locales_plurals_and_accents ... ok\ntest i18n::tests::korean_dialogs_keep_source_ids ... ok\ntest i18n::tests::korean_live_switch_keeps_automation_and_drawing_and_falls_back_without_font ... ok\ntest i18n::tests::korean_locale_saved_preference_and_single_count_form ... ok\ntest i18n::tests::korean_representative_translations_remain_available ... ok\ntest i18n::tests::korean_ui_fonts_cover_catalog_and_language_picker_in_both_families ... ok\ntest hatchdlg::tests::the_dialog_draws_both_modes_and_tabs_and_stays_open ... ok\ntest i18n::tests::live_czech_switch_preserves_drawing_command_and_saved_choice ... ok\ntest i18n::tests::live_swedish_switch_preserves_drawing_command_and_saved_choice ... ok\ntest i18n::tests::live_switch_to_brazilian_portuguese_translates_the_shell ... ok\ntest i18n::tests::locale_and_saved_preference_resolution ... ok\ntest i18n::tests::plural_forms_and_templates_preserve_inserted_user_data ... ok\ntest i18n::tests::czech_dialogs_render_with_stable_ids ... ok\ntest i18n::tests::russian_and_french_plurals ... ok\ntest i18n::tests::swedish_locales_preferences_and_plural_forms ... ok\ntest i18n::tests::swedish_menu_headings_keep_object_labels ... ok\ntest i18n::tests::translations_cover_commands_menus_tools_and_snap_labels ... ok\ntest i18n::tests::live_switch_translates_the_shell_without_mutating_drawing_or_automation ... ok\ntest layers::tests::layer_search ... ok\ntest i18n::tests::dialogs_render_in_ukrainian_and_keep_their_source_ids ... ok\ntest managers::plot_dialog_tests::plot_center_and_offsets_are_model_only_and_omitted_for_svg ... ok\ntest managers::plot_dialog_tests::plot_transparency_checkbox_reaches_the_plot ... ok\ntest managers::plot_dialog_tests::window_pick_brings_the_dialog_back_with_the_picked_window ... ok\ntest menus::shortcut_label_tests::shortcut_label_per_platform ... ok\ntest menus::tests::cancelled_export_writes_nothing ... ok\ntest managers::plot_dialog_tests::a_device_brings_its_papers_and_the_plot_names_them ... ok\ntest menus::units_dialog_tests::units_typed_opens_dialog_json_runs_command ... ok\ntest menus::tests::plot_and_print_open_the_plot_dialog_and_exportpdf_asks_for_a_file ... ok\ntest opening::tests::card_text_names_the_file_and_counts_queued_ones ... ok\ntest mtext_editor::tests::editor_opens_only_for_mtext_text_entry_and_finishes_with_formatted_contents ... ok\ntest options::tests::dialog_labels_have_ukrainian_translations ... ok\ntest options::tests::hex_colours_round_trip_and_bad_ones_are_refused ... ok\ntest parametric::tests::line_intersection ... ok\ntest parametric::tests::number_trimming ... ok\ntest parametric::tests::pending_expression_survives_window_blur ... ok\ntest quick::tests::pretty_names ... ok\ntest tests::default_save_format_persists_and_names_new_drawings ... ok\ntest tests::system_theme_follows_the_os_live_and_stays_saved_as_system ... ok\ntest tests::system_theme_keeps_egui_on_the_system_preference ... ok\ntest tests::theme_choice_persists_and_drives_tokens ... ok\ntest theme::tests::korean_font_rejects_invalid_or_glyphless_files ... ok\ntest viewcube::tests::parts_are_found_where_they_are_drawn ... ok\ntest opening::tests::open_path_reads_in_the_background_and_reports_failure ... ok\ntest layers::tests::dialog_keeps_its_height ... ok\ntest vpscale::tests::engineering_scales_for_imperial_drawings ... ok\ntest vpscale::tests::labels ... ok\ntest viewcube::tests::ucs_icon_and_wcs_pill_open_the_coordinate_system_menu ... ok\ntest viewcube::tests::viewcube_clicks_reach_the_cube_not_the_drawing ... ok\ntest i18n::tests::swedish_dialogs_render_with_stable_ids ... ok\n\ntest result: ok. 157 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.36s\n\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 150.9,
+      "tail": "   Compiling serde v1.0.229\n   Compiling hashbrown v0.17.1\n   Compiling enumflags2_derive v0.7.12\n   Compiling indexmap v2.14.2\n   Compiling zvariant_utils v4.2.0\n   Compiling toml_edit v0.25.15+spec-1.1.0\n   Compiling proc-macro-crate v3.5.0\n   Compiling parking v2.2.1\n   Compiling synstructure v0.14.0\n   Compiling endi v1.1.1\n   Compiling futures-core v0.3.34\n   Compiling futures-io v0.3.34\n   Compiling event-listener v5.4.2\n   Compiling enumflags2 v0.7.12\n   Compiling zcheapstr v1.1.0\n   Compiling concurrent-queue v2.5.0\n   Compiling event-listener-strategy v0.5.4\n   Compiling futures-lite v2.6.1\n   Compiling zerovec-derive v0.11.6\n   Compiling zvariant_derive v5.15.0\n   Compiling zerofrom-derive v0.1.8\n   Compiling yoke-derive v0.8.4\n   Compiling zvariant v5.15.0\n   Compiling syn v3.0.6\n   Compiling zerofrom v0.1.8\n   Compiling yoke v0.8.3\n   Compiling zerovec v0.11.8\n   Compiling zbus_names v4.3.4\n   Compiling async-io v2.6.0\n   Compiling displaydoc v0.2.7\n   Compiling errno v0.3.14\n   Compiling async-task v4.7.1\n   Compiling signal-hook-registry v1.4.8\n   Compiling async-channel v2.5.0\n   Compiling atomic-waker v1.1.2\n   Compiling piper v0.2.5\n   Compiling async-signal v0.2.14\n   Compiling tinystr v0.8.4\n   Compiling zbus_xml v5.2.1\n   Compiling async-lock v3.4.2\n   Compiling writeable v0.6.4\n   Compiling litemap v0.8.3\n   Compiling icu_locale_core v2.3.0\n   Compiling async-process v2.5.0\n   Compiling zbus-lockstep v0.5.2\n   Compiling blocking v1.7.0\n   Compiling async-executor v1.14.0\n   Compiling zerotrie v0.2.5\n   Compiling zbus_macros v5.19.0\n   Compiling potential_utf v0.1.6\n   Compiling async-broadcast v0.7.2\n   Compiling ordered-stream v0.2.0\n   Compiling serde_repr v0.1.21\n   Compiling async-recursion v1.2.0\n   Compiling async-trait v0.1.92\n   Compiling icu_properties_data v2.3.0\n   Compiling icu_normalizer_data v2.3.0\n   Compiling hex v0.4.3\n   Compiling utf8_iter v1.0.4\n   Compiling icu_collections v2.3.0\n   Compiling icu_provider v2.3.1\n   Compiling zbus-lockstep-macros v0.5.2\n   Compiling phf_shared v0.13.1\n   Compiling fastrand v2.5.0\n   Compiling phf_generator v0.13.1\n   Compiling icu_normalizer v2.3.0\n   Compiling icu_properties v2.3.0\n   Compiling phf_macros v0.13.1\n   Compiling idna_adapter v1.2.2\n   Compiling accesskit_consumer v0.36.0\n   Compiling zbus v5.19.0\n   Compiling calloop v0.14.5\n   Compiling phf v0.13.1\n   Compiling futures-macro v0.3.34\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling futures-task v0.3.34\n   Compiling calloop-wayland-source v0.4.1\n   Compiling idna v1.1.0\n   Compiling form_urlencoded v1.2.2\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling atspi-common v0.13.0\n   Compiling futures-util v0.3.34\n   Compiling atspi-proxies v0.13.0\n   Compiling atspi v0.29.0\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling accesskit_unix v0.21.1\n   Compiling url v2.5.8\n   Compiling nix v0.30.1\n   Compiling hidapi v2.6.7\n   Compiling webbrowser v1.2.4\n   Compiling accesskit_winit v0.32.2\n   Compiling smithay-clipboard v0.7.3\n   Compiling arboard v3.6.1\n   Compiling winresource v0.1.31\n   Compiling rfd v0.17.2\n   Compiling cadcraft-ui-egui v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/ui-egui)\n   Compiling cadcraft v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft)\n   Compiling egui-winit v0.36.2\n   Compiling basic-udev v0.1.2\n   Compiling pollster v0.4.0\n   Compiling eframe v0.36.2\n   Compiling cadcraft-mcp v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/crates/mcp)\n   Compiling sys-locale v0.3.2\n   Compiling cadcraft-cli v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-cli)\n   Compiling xtask v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/xtask)\n   Compiling cadcraft-web v0.7.0 (/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/apps/cadcraft-web)\n    Finished `dev` profile [optimized] target(s) in 2m 30s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/cadcraft/target/debug/cadcraft"
+      ],
+      "exit_code": 101,
+      "seconds": 0.5,
+      "tail": "2026-10-17T21:18:00.616Z INFO  [main] cadcraft: cadcraft 0.7.0 (dev) (linux x86_64), log file /home/runner/.config/cadcraft/logs/cadcraft.log\n2026-10-17T21:18:00.623Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n\nthread 'main' (17306) panicked at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/xkbcommon-dl-0.4.2/src/x11.rs:59:28:\nLibrary libxkbcommon-x11.so could not be loaded.\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/cadcraft",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#82a24b006eefa036b43c09a67fb9a3fbd17ffe63"
+  ],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "cadcraft",
+    "craft-libs"
+  ],
+  "source_commit": "ff6cc8b3fc61046a74df5c9daeea542946e55be8",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_and_tests_passed",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "cadcraft-color",
+      "targets": [
+        {
+          "name": "cadcraft_color",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-constraints",
+      "targets": [
+        {
+          "name": "cadcraft_constraints",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "dof",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-doc",
+      "targets": [
+        {
+          "name": "cadcraft_doc",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "lin_pat_parse",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sub_segment_alias",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-geom",
+      "targets": [
+        {
+          "name": "cadcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-dwg",
+      "targets": [
+        {
+          "name": "cadcraft_dwg",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-dxf",
+      "targets": [
+        {
+          "name": "cadcraft_dxf",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "binary_write",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-engine",
+      "targets": [
+        {
+          "name": "cadcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "aliases",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "angle_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "angle_settings",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "annotate_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "annotative",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "array_commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "assoc_array",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attdisp_attsync",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attedit_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attrib_modes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attrib_props",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attribute_tools",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "audit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "autosave",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "block_editor",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "block_redefine",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "break_join_locked_layers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "clipboard",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "compare",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "constraint_geometry",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "constraint_infer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "count",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dash_block",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "data_extraction",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_baseline_spacing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_chain",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_explode_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_radial_inside",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_vars",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dimtedit_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "drafting_spacing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "draw_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "drawing_recovery_command",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "draworder",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dyn_input",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dynamic_block_data",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dynamic_grips",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "fillet_chamfer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "followups_626",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "grip_dim_input",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "grip_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "grip_selection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "group_selection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "groups",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hatch_assoc",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hatch_dialog_helpers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hatch_numeric_validation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hatch_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "helix",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "inquiry_keywords",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "insert_file",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "insert_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "isometric",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "json_param_validation",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_cmdline",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layer_merge_delete",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "layout_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "lin_pat_files",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "lisp_corpus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "malformed_handles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "matchprop",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "measure_distance_snapping",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "metric_linetypes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mleader_content",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mleader_remember",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mline",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "modify_curves",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mtext_columns",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mtext_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "multiline_attributes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "named_views",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "new_open_end_command",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "non_finite_edits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "offset_closed_spline",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "offset_ellipse_side",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "offset_move",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "open_svg",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "options_profile",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "overkill",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "parallel_display_list",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pedit_splinedit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pick_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pline_arc_xline_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_sheets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_styles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_transparency",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plotters",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "point_modifiers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "post_command_passes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "prompt_keywords",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "props_bad_lineweight",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "props_insert_scale_attribs",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "purge_mlinestyles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "purge_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "qdim",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "qdim_modes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "query_entities",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "quickcalc",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recent_commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rectang_ortho",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "refedit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "region",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rename_cmdline",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rotate_reference",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_as_export",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_reports_not_saved",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_version",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "select_keywords",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "select_similar",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "selection_modes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "setvar_coverage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snap_annotations",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snap_blocks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snap_curves",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snap_intersections_aperture",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snap_nearest",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snap_overrides",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snap_tracking",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "snaps_more",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "space_is_enter",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "spline_degree",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "spline_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stretch",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stretch_select",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "table_breaks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "table_formulas",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "table_styles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "temp_tracking",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "templates",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_commands",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_left_justify",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tolerance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "transparent",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "trim_closed_polyline",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "trim_extend_options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "undo_control",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "undo_count",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "undo_layout_tab",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "viewport_clip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vplayer_prompts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "vports",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "wblock_base",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "xdata_follows_entity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "xref",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "zoom_keywords",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "zoom_viewport",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "zoom_window_ortho",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-fonts",
+      "targets": [
+        {
+          "name": "cadcraft_fonts",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "mtext_paragraphs",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-render",
+      "targets": [
+        {
+          "name": "cadcraft_render",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "aci7_display",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "annotative_viewport",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_angular_centre",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_post_tolerance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_text_format",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hatch_fill",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "linetype_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "lwdefault",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_line_styles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_styles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "point_style",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "psltscale",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "raster_points",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "render_props",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "viewport_frozen_layer",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "wide_pline_linetype",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "wipeout_mask",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-io",
+      "targets": [
+        {
+          "name": "cadcraft_io",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "acis_data_store",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "angle_header",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "annotative_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "assoc_array_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attrib_modes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "attrib_props",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "block_expansion",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "closed_spline",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "codepages",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_block_resave_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_block_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dim_marks_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dimstyle_vars_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "drafting_spacing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dwg_header_vars",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dwg_roundtrip_losses",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dwt_template",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dxf_versions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dynblock_read",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "entity_props_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "followups_626",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "groups_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hatch_assoc_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hatch_pattern_def",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "helix_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "low_handseed",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mleader_content",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mleader_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mline_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "model_layout_plot_type",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mtext_columns_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mtext_embedded_object",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mtext_line_spacing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "multiline_attributes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "paperview_marker",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "passthrough_image_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdf_followups",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdf_layers",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "pdf_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_layout_scale",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_model_png_scale",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plot_styles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "region_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "roundtrip_audit",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "skipped_records",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sortents",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "spline_fit_data",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "split_entities_section",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "style_typeface",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "table_cellstyle_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tables_objects_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_left_justify",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tolerance_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "user_lin_pat_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "view_tables_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "viewport_clip_roundtrip",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "xref_roundtrip",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-mcp",
+      "targets": [
+        {
+          "name": "cadcraft_mcp",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "cmdline_key",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "cmdline_parity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "control_methods",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-ui-egui",
+      "targets": [
+        {
+          "name": "cadcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "animation_effects",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "bedit_dialog",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "chrome_geometry",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "context_menu",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "context_menus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "control_cmdline",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "control_cmdline_key",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "control_methods",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "dialog_dispatch",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "docking_workflows",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "drafting_spacing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "drawing_recovery",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "file_tab_titles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gpu_faults",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gpu_viewport_stencil",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "hidden_command_line",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "lisp_files",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "measure_distance_snapping",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mspace_viewport_view",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "open_bytes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "options_dialog",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "options_followups",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "properties_units",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "rapid_clicks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recent_files",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_version",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shared_controls",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shortcut_menus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "style_dialogs",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "system_cursor",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_double_click",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "toolsets_gear",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "viewport_double_click_selection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "workspace_focus",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "xref_palette",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft",
+      "targets": [
+        {
+          "name": "cadcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-cli",
+      "targets": [
+        {
+          "name": "cadcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "drafting_spacing",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mcp_connect",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "skipped_records",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cadcraft-web",
+      "targets": [
+        {
+          "name": "cadcraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "exited_101",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:18:00Z"
+}

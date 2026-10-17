@@ -1,0 +1,20 @@
+{
+  "repository": "storyteller-ml",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [],
+  "remapped_repositories": [
+    "storyteller-ml"
+  ],
+  "source_commit": "a7179c873d25ccdcb54d82e01aeeed492aff73cf",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "status": "audit_blocked",
+  "error": "[Errno 13] Permission denied: '/root/.cache/torch/hub/checkpoints/s3fd-619a316812.pth'",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:22:35Z"
+}

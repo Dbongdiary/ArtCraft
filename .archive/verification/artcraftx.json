@@ -1,0 +1,678 @@
+{
+  "repository": "artcraftx",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 7.0,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 21.9,
+      "tail": "oder3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[993]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 8.5,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "ath+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/jwt_light#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/midjourney_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/cookie_store_wrapper#0.0.2\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/router#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/file_hashing#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/seedance2pro_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/url_utils#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/artcraftx#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/build_metadata#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/images#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/schema/local_files_database#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/caching/memory_store#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/models#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/data/primitives#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/schema/sqlite_database#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/vendor/tauri-plugin-http#2.4.3\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/thumbnails#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/data/web_base64#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/http_headers#0.0.1\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/artcraft_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/cloudflare_errors#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/workspace-build-acceleration#0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/core_types#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/errors#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/mimetypes#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/testing/test_utils#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/schema/sqlite_identifiers#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/uuid_utils#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/fal_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/file_to_base64_url#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/testing/test_data#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/gmicloud_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/grok_api_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/grok_consumer_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/cloudflare_mitigation#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/browser_emulation#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/filesys#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/grok_consumer_statsig#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/higgsfield_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/datadome_errors#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/datadome_mitigation#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/jwt_light#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/midjourney_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/cookie_store_wrapper#0.0.2\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/router#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/file_hashing#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/api_clients/seedance2pro_client#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/url_utils#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/artcraftx#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/build_metadata#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/images#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/schema/local_files_database#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/caching/memory_store#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/models#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/data/primitives#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/schema/sqlite_database#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/vendor/tauri-plugin-http#2.4.3\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/files/thumbnails#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/data/web_base64#0.0.1\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/crates/lib/http_headers#0.0.1\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/artcraftx\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 101,
+      "seconds": 80.7,
+      "tail": "ange v0.9.0\n   Compiling unic-char-property v0.9.0\n   Compiling unic-ucd-version v0.9.0\n   Compiling want v0.3.1\n   Compiling bit-set v0.8.0\n   Compiling darling_macro v0.20.10\n   Compiling phf v0.13.1\n   Compiling string_cache_codegen v0.6.1\n   Compiling gio-sys v0.18.1\n   Compiling cargo-platform v0.1.9\n   Compiling ryu v1.0.18\n   Compiling unicase v2.8.1\n   Compiling mime_guess v2.0.4\n   Compiling cargo_metadata v0.19.1\n   Compiling web_atoms v0.2.4\n   Compiling zstd v0.13.3\n   Compiling darling v0.20.10\n   Compiling unic-ucd-ident v0.9.0\n   Compiling sync_wrapper v1.0.2\n   Compiling quick-xml v0.32.0\n   Compiling ipnet v2.11.0\n   Compiling tower-layer v0.3.3\n   Compiling tower v0.5.3\n   Compiling erased-serde v0.4.5\n   Compiling serde_with_macros v3.12.0\n   Compiling async-compression v0.4.27\n   Compiling http-body-util v0.1.3\n   Compiling string_cache v0.9.0\n   Compiling ctor-proc-macro v0.0.7\n   Compiling iri-string v0.7.8\n   Compiling ctor v0.8.0\n   Compiling serde_with v3.12.0\n   Compiling serde-untagged v0.1.6\n   Compiling crypto-common v0.1.6\n   Compiling block-buffer v0.10.4\n   Compiling serde_urlencoded v0.7.1\n   Compiling selectors v0.36.1\n   Compiling tower-http v0.6.8\n   Compiling rand_core v0.9.3\n   Compiling tendril v0.5.0\n   Compiling indexmap v1.9.3\n   Compiling dunce v1.0.5\n   Compiling rand_chacha v0.9.0\n   Compiling digest v0.10.7\n   Compiling markup5ever v0.38.0\n   Compiling cssparser v0.36.0\n   Compiling tracing v0.1.41\n   Compiling serde_derive_internals v0.29.1\n   Compiling memoffset v0.9.0\n   Compiling winnow v0.5.40\n   Compiling schemars v0.8.21\n   Compiling hashbrown v0.12.3\n   Compiling schemars_derive v0.8.21\n   Compiling html5ever v0.38.0\n   Compiling rand v0.9.2\n   Compiling chrono v0.4.44\n   Compiling jsonptr v0.6.3\n   Compiling gdk-sys v0.18.2\n   Compiling proc-macro-error-attr v1.0.4\n   Compiling foldhash v0.2.0\n   Compiling dyn-clone v1.0.16\n   Compiling plist v1.7.0\n   Compiling dom_query v0.27.0\n   Compiling json-patch v3.0.1\n   Compiling urlpattern v0.3.0\n   Compiling toml v1.0.7+spec-1.1.0\n   Compiling clang-sys v1.8.1\n   Compiling proc-macro-error v1.0.4\n   Compiling toml_edit v0.20.7\n   Compiling libloading v0.8.6\n   Compiling bindgen v0.72.1\n   Compiling tauri-utils v2.9.2\n   Compiling proc-macro-crate v2.0.0\n   Compiling cexpr v0.6.0\n   Compiling itertools v0.13.0\n   Compiling gdk-pixbuf-sys v0.18.0\n   Compiling cairo-sys-rs v0.18.2\n   Compiling atk-sys v0.18.2\n   Compiling pango-sys v0.18.0\n   Compiling phf_shared v0.11.3\n   Compiling vcpkg v0.2.15\n   Compiling rand_core v0.6.4\n   Compiling rand v0.8.5\n   Compiling glib-macros v0.18.5\n   Compiling cmake v0.1.57\n   Compiling fslock v0.2.1\n   Compiling fs_extra v1.3.0\n   Compiling glib v0.18.5\n   Compiling boring-sys2 v5.0.0-alpha.13\n   Compiling phf_generator v0.11.2\n   Compiling option-ext v0.2.0\n   Compiling dirs-sys v0.5.0\n   Compiling gtk-sys v0.18.2\n   Compiling foreign-types-macros v0.2.3\n   Compiling foreign-types-shared v0.3.1\n   Compiling bitflags v1.3.2\n   Compiling paste v1.0.14\n   Compiling foreign-types v0.5.0\n   Compiling sha2 v0.10.8\n   Compiling sha1 v0.10.6\n   Compiling openssl-macros v0.1.1\n   Compiling data-encoding v2.5.0\n   Compiling gio v0.18.4\n   Compiling tungstenite v0.28.0\n   Compiling dirs v6.0.0\n   Compiling hashbrown v0.13.2\n   Compiling tokio-tungstenite v0.28.0\n   Compiling schnellru v0.2.4\n   Compiling tauri-plugin v2.6.2\n   Compiling embed-resource v3.0.2\n   Compiling http2 v0.5.12\n   Compiling webpki-root-certs v1.0.2\n   Compiling litrs v0.4.1\n   Compiling psl-types v2.0.11\n   Compiling publicsuffix v2.3.0\n   Compiling document-features v0.2.11\n   Compiling tauri-winres v0.3.0\n   Compiling phf_codegen v0.11.3\n   Compiling cargo_toml v0.22.1\n   Compiling tauri-build v2.6.2\n   Compiling cookie_store v0.21.1\n   Compiling typed-builder-macro v0.23.2\n   Compiling rustls v0.23.36\n   Compiling allocator-api2 v0.2.18\n   Compiling typed-builder v0.23.2\n   Compiling gdk-pixbuf v0.18.5\n   Compiling pango v0.18.3\n   Compiling cairo-rs v0.18.5\n   Compiling rustls-webpki v0.103.9\n   Compiling toml_edit v0.19.15\n   Compiling h2 v0.4.5\n   Compiling field-offset v0.3.6\n   Compiling fdeflate v0.3.7\n   Compiling subtle v2.5.0\n   Compiling arrayvec v0.7.6\n   Compiling rustls v0.21.12\n   Compiling crossbeam-queue v0.3.8\n   Compiling hyper v1.6.0\n   Compiling png v0.17.16\n   Compiling proc-macro-crate v1.3.1\n   Compiling gdk v0.18.2\n   Compiling tauri v2.11.2\n   Compiling num-integer v0.1.46\n   Compiling javascriptcore-rs-sys v1.1.1\n   Compiling soup3-sys v0.5.0\n   Compiling gtk v0.18.2\n   Compiling hex v0.4.3\nwarning: soup3-sys@0.5.0: \nerror: failed to run custom build command for `soup3-sys v0.5.0`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/target/debug/build/soup3-sys-63c095052eba0086/build-script-build` (exit status: 1)\n  --- stdout\n  cargo:rerun-if-env-changed=LIBSOUP_3.0_NO_PKG_CONFIG\n  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG\n  cargo:rerun-if-env-changed=PKG_CONFIG\n  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_PATH\n  cargo:rerun-if-env-changed=PKG_CONFIG_PATH\n  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_LIBDIR\n  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR\n  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_SYSROOT_DIR\n  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR\n  cargo:warning=\n  pkg-config exited with status code 1\n  > PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1 pkg-config --libs --cflags libsoup-3.0 libsoup-3.0 >= 3.0\n\n  The system library `libsoup-3.0` required by crate `soup3-sys` was not found.\n  The file `libsoup-3.0.pc` needs to be installed and the PKG_CONFIG_PATH environment variable must contain its parent directory.\n  The PKG_CONFIG_PATH environment variable is not set.\n\n  HINT: if you have installed the library, try setting PKG_CONFIG_PATH to the directory containing `libsoup-3.0.pc`.\n\nwarning: build failed, waiting for other jobs to finish...\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 101,
+      "seconds": 1.0,
+      "tail": "warning: crates/api_clients/grok_consumer_statsig/Cargo.toml: version requirement `1.0.7+spec-1.1.0` for dependency `toml` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion\nwarning: `grok_consumer_statsig` (manifest) generated 1 warning\nwarning: crates/api_clients/artcraft_client/Cargo.toml: version requirement `1.0.7+spec-1.1.0` for dependency `toml` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion\nwarning: `artcraft_client` (manifest) generated 1 warning\nwarning: crates/api_clients/higgsfield_client/Cargo.toml: version requirement `1.0.7+spec-1.1.0` for dependency `toml` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion\nwarning: `higgsfield_client` (manifest) generated 1 warning\nwarning: crates/lib/cookie_store_wrapper/Cargo.toml: version requirement `1.0.7+spec-1.1.0` for dependency `toml` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion\nwarning: `cookie_store_wrapper` (manifest) generated 1 warning\nwarning: crates/artcraftx/Cargo.toml: version requirement `1.0.7+spec-1.1.0` for dependency `toml` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion\nwarning: `artcraftx` (manifest) generated 1 warning\nwarning: crates/api_clients/grok_consumer_client/Cargo.toml: version requirement `1.0.7+spec-1.1.0` for dependency `toml` includes semver metadata which will be ignored, removing the metadata is recommended to avoid confusion\nwarning: `grok_consumer_client` (manifest) generated 1 warning\n   Compiling log v0.4.29\n   Compiling derive_more-impl v2.0.1\n   Compiling soup3-sys v0.5.0\nwarning: soup3-sys@0.5.0: \nerror: failed to run custom build command for `soup3-sys v0.5.0`\n\nCaused by:\n  process didn't exit successfully: `/home/runner/work/ArtCraft/ArtCraft/restored/artcraftx/target/debug/build/soup3-sys-63c095052eba0086/build-script-build` (exit status: 1)\n  --- stdout\n  cargo:rerun-if-env-changed=LIBSOUP_3.0_NO_PKG_CONFIG\n  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG\n  cargo:rerun-if-env-changed=PKG_CONFIG\n  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_PATH\n  cargo:rerun-if-env-changed=PKG_CONFIG_PATH\n  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_LIBDIR\n  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR\n  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64-unknown-linux-gnu\n  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64_unknown_linux_gnu\n  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_SYSROOT_DIR\n  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR\n  cargo:warning=\n  pkg-config exited with status code 1\n  > PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1 pkg-config --libs --cflags libsoup-3.0 libsoup-3.0 >= 3.0\n\n  The system library `libsoup-3.0` required by crate `soup3-sys` was not found.\n  The file `libsoup-3.0.pc` needs to be installed and the PKG_CONFIG_PATH environment variable must contain its parent directory.\n  The PKG_CONFIG_PATH environment variable is not set.\n\n  HINT: if you have installed the library, try setting PKG_CONFIG_PATH to the directory containing `libsoup-3.0.pc`.\n\nwarning: build failed, waiting for other jobs to finish...\n"
+    }
+  ],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [
+    "api.fakeyou.com",
+    "api.openai.com",
+    "api.storyteller.ai",
+    "artcraft.ai",
+    "assets.grok.com",
+    "bucket.s3.amazonaws.com",
+    "cdn-2.fakeyou.com",
+    "cdn.artcraft.ai",
+    "cdn.midjourney.com",
+    "cdn.storyteller.ai",
+    "docs.fal.ai",
+    "fakeyou.com",
+    "fakeyou.com.evil.example",
+    "fal.ai",
+    "getartcraft.com",
+    "grok.com",
+    "input-bucket.s3.amazonaws.com",
+    "midjourney.com",
+    "notfakeyou.com",
+    "storage.getartcraft.com",
+    "storyteller-docs.netlify.app",
+    "storyteller.ai",
+    "studio-staging.studio.storyteller.ai",
+    "studio-testing.studio.storyteller.ai",
+    "studio.storyteller.ai",
+    "style.storyteller.ai",
+    "worldlabs.ai",
+    "www.grok.com",
+    "www.midjourney.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "artcraftx"
+  ],
+  "source_commit": "98c2a48940aa0a54604637f665ee539c122fa707",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_or_tests_blocked",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "artcraft_client",
+      "targets": [
+        {
+          "name": "artcraft_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cloudflare_errors",
+      "targets": [
+        {
+          "name": "cloudflare_errors",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "workspace-build-acceleration",
+      "targets": [
+        {
+          "name": "workspace_build_acceleration",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "core_types",
+      "targets": [
+        {
+          "name": "core_types",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "errors",
+      "targets": [
+        {
+          "name": "errors",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mimetypes",
+      "targets": [
+        {
+          "name": "mimetypes",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "test_utils",
+      "targets": [
+        {
+          "name": "test_utils",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sqlite_identifiers",
+      "targets": [
+        {
+          "name": "sqlite_identifiers",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "media_file_token_tests",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "uuid_utils",
+      "targets": [
+        {
+          "name": "uuid_utils",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fal_client",
+      "targets": [
+        {
+          "name": "fal_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "file_to_base64_url",
+      "targets": [
+        {
+          "name": "fal_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "test_data",
+      "targets": [
+        {
+          "name": "test_data",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gmicloud_client",
+      "targets": [
+        {
+          "name": "gmicloud_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "grok_api_client",
+      "targets": [
+        {
+          "name": "grok_api_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "grok_consumer_client",
+      "targets": [
+        {
+          "name": "grok_consumer_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cloudflare_mitigation",
+      "targets": [
+        {
+          "name": "cloudflare_mitigation",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "browser_emulation",
+      "targets": [
+        {
+          "name": "browser_emulation",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filesys",
+      "targets": [
+        {
+          "name": "filesys",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "grok_consumer_statsig",
+      "targets": [
+        {
+          "name": "grok_consumer_statsig",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "harvest_statsig",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "higgsfield_client",
+      "targets": [
+        {
+          "name": "higgsfield_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "datadome_errors",
+      "targets": [
+        {
+          "name": "datadome_errors",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "datadome_mitigation",
+      "targets": [
+        {
+          "name": "datadome_mitigation",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "jwt_light",
+      "targets": [
+        {
+          "name": "jwt_light",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "midjourney_client",
+      "targets": [
+        {
+          "name": "midjourney_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cookie_store_wrapper",
+      "targets": [
+        {
+          "name": "cookie_store_wrapper",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "router",
+      "targets": [
+        {
+          "name": "router",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "file_hashing",
+      "targets": [
+        {
+          "name": "file_hashing",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "seedance2pro_client",
+      "targets": [
+        {
+          "name": "seedance2pro_client",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "url_utils",
+      "targets": [
+        {
+          "name": "url_utils",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "artcraftx",
+      "targets": [
+        {
+          "name": "artcraftx_app_lib",
+          "kind": [
+            "staticlib",
+            "cdylib",
+            "rlib"
+          ]
+        },
+        {
+          "name": "artcraftx",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "build_metadata",
+      "targets": [
+        {
+          "name": "build_metadata",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "images",
+      "targets": [
+        {
+          "name": "images",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "local_files_database",
+      "targets": [
+        {
+          "name": "local_files_database",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "asset_upload_queries",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "local_file_queries",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memory_store",
+      "targets": [
+        {
+          "name": "memory_store",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "models",
+      "targets": [
+        {
+          "name": "models",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "primitives",
+      "targets": [
+        {
+          "name": "primitives",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sqlite_database",
+      "targets": [
+        {
+          "name": "sqlite_database",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "task_queries",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tauri-plugin-http",
+      "targets": [
+        {
+          "name": "tauri_plugin_http",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thumbnails",
+      "targets": [
+        {
+          "name": "thumbnails",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "web_base64",
+      "targets": [
+        {
+          "name": "web_base64",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "http_headers",
+      "targets": [
+        {
+          "name": "http_headers",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:09:39Z"
+}

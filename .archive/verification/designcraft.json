@@ -1,0 +1,661 @@
+{
+  "repository": "designcraft",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 5.2,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 20.4,
+      "tail": "der3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[1037]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 7.1,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "false,\"uses_default_features\":true,\"features\":[\"Event\",\"EventTarget\",\"Window\",\"Document\",\"Element\",\"HtmlElement\",\"HtmlCanvasElement\",\"HtmlAnchorElement\",\"Blob\",\"BlobPropertyBag\",\"Url\",\"Location\",\"CssStyleDeclaration\"],\"target\":\"cfg(target_arch = \\\"wasm32\\\")\",\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"designcraft-web\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft-web/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft-web/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":\"1.95\"},{\"name\":\"xtask\",\"version\":\"0.8.0\",\"id\":\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/xtask#0.8.0\",\"license\":\"MIT OR Apache-2.0\",\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[{\"name\":\"serde_json\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"^1\",\"kind\":null,\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"float_roundtrip\"],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"xtask\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/xtask/src/main.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/xtask/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/color#designcraft-color@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/compose#designcraft-compose@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/doc#designcraft-doc@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/geom#designcraft-geom@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/fonts#designcraft-fonts@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/engine#designcraft-engine@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/epub#designcraft-epub@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/format#designcraft-format@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/images#designcraft-images@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/idml#designcraft-idml@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/pdf#designcraft-pdf@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/pptx#designcraft-pptx@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/render#designcraft-render@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/textimport#designcraft-textimport@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/tools#designcraft-tools@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/mcp#designcraft-mcp@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/ui-egui#designcraft-ui-egui@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft-cli#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft-web#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/xtask#0.8.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/color#designcraft-color@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/compose#designcraft-compose@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/doc#designcraft-doc@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/engine#designcraft-engine@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/epub#designcraft-epub@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/fonts#designcraft-fonts@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/format#designcraft-format@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/geom#designcraft-geom@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/idml#designcraft-idml@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/images#designcraft-images@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/mcp#designcraft-mcp@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/pdf#designcraft-pdf@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/pptx#designcraft-pptx@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/render#designcraft-render@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/textimport#designcraft-textimport@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/tools#designcraft-tools@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/ui-egui#designcraft-ui-egui@0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft-cli#0.8.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/designcraft/xtask#0.8.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/designcraft\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 477.6,
+      "tail": "_spaces ... ok\ntest rtl::tests::mixed_arabic_latin_digits_and_brackets_preserve_logical_source ... ok\ntest rtl::tests::ordinary_multilingual_labels_skip_bidi_analysis ... ok\ntest rtl::tests::non_rtl_widgets_keep_native_text_and_formatting ... ok\ntest rtl::tests::truncates_long_words_and_handles_empty_lines ... ok\ntest rtl::tests::wraps_first_logical_word_first_and_right_aligns_lines ... ok\ntest section_options::tests::refused_values_keep_the_dialog_open_and_change_nothing ... ok\ntest section_options::tests::the_menu_opens_the_page_section_and_ok_applies_both_parts ... ok\ntest taskbar::tests::pinning_is_a_command ... ok\ntest panels::tabs::tests::shortcut_opens_the_panel_and_a_click_on_the_ruler_adds_a_stop ... ok\ntest story_editor::tests::editor_stays_with_its_document ... ok\ntest taskbar::tests::popup_pin_uses_the_invoking_hud_position_after_focus_moves_to_sibling ... ok\ntest tests::a_cancelled_save_keeps_the_document_open ... ok\ntest tests::a_dropped_indd_file_the_converter_rejects_alerts ... ok\ntest tests::a_file_dropped_while_a_parent_is_open_lands_on_the_parent ... ok\ntest tests::black_shows_as_rich_black_by_default ... ok\ntest tests::closing_a_saved_document_does_not_ask ... ok\ntest tests::closing_an_unsaved_document_asks_first ... ok\ntest tests::closing_with_save_writes_the_file_then_closes ... ok\ntest tests::closing_without_saving_discards_the_document ... ok\ntest taskbar::tests::split_pane_grips_handle_only_their_own_drag ... ok\ntest tests::control_channel_quit_does_not_ask ... ok\ntest tests::dropped_documents_open_and_the_rest_is_placed ... ok\ntest tests::dropping_an_ase_file_loads_its_swatches ... ok\ntest tests::dropping_an_unreadable_file_alerts ... ok\ntest tests::extensionless_documents_open_by_content ... ok\ntest tests::file_open_failures_show_an_alert ... ok\ntest tests::key_names_sent_as_text_are_dropped ... ok\ntest tests::native_quit_prompts_restore_window_visibility_without_focusing_completed_quits ... ok\ntest tests::opening_missing_fonts_offers_repeated_replacement_and_keeps_errors_visible ... ok\ntest tests::other_command_errors_stay_in_the_status_line ... ok\ntest tests::paste_lands_on_the_spread_in_view ... ok\ntest tests::pdf_export_settings_defaults ... ok\ntest tests::pdf_export_settings_round_trip ... ok\ntest tests::pdf_export_settings_survive_missing_key ... ok\ntest tests::quitting_asks_about_each_unsaved_document_then_closes ... ok\ntest tests::quitting_discard_preserves_recovery_until_final_commit ... ok\ntest tests::quitting_final_close_rechecks_new_unsaved_document ... ok\ntest tests::quitting_first_cancel_restores_original_clean_active_document ... ok\ntest tests::quitting_later_cancel_retains_every_document_and_active_tab ... ok\ntest tests::quitting_native_exit_commits_completed_approvals_before_close_event ... ok\ntest tests::quitting_native_exit_retains_incomplete_stale_and_new_document_plans ... ok\ntest tests::quitting_pending_save_uses_dialog_uid_after_tab_switch ... ok\ntest tests::quitting_rechecks_discard_approval_after_a_later_edit ... ok\ntest tests::quitting_save_as_cancel_after_discard_keeps_all_documents ... ok\ntest tests::quitting_save_failure_after_discard_keeps_documents_and_can_retry ... ok\ntest tests::quitting_save_then_later_cancel_keeps_saved_document_open ... ok\ntest tests::quitting_with_unsaved_changes_asks_and_cancel_keeps_everything ... ok\ntest tests::quitting_without_unsaved_changes_closes_at_once ... ok\ntest tests::repeated_native_quit_requests_preserve_partial_approvals_and_cancel ... ok\ntest tests::repeated_native_quit_requests_save_and_discard_only_after_all_answers ... ok\ntest tests::snap_view_uses_the_saved_switches ... ok\ntest tests::status_messages_follow_the_interface_language_but_engine_errors_stay_english ... ok\ntest theme::japanese_font_tests::fallback_faces_share_the_ui_baseline ... ok\ntest theme::japanese_font_tests::installed_faces_give_other_scripts_glyphs_after_the_cjk_faces ... ok\ntest theme::japanese_font_tests::installed_fonts_give_japanese_glyphs_without_craft_fonts ... ok\ntest theme::japanese_font_tests::installed_korean_faces_give_hangul_glyphs ... ok\ntest theme::japanese_font_tests::interface_language_orders_the_cjk_faces ... ok\ntest theme::japanese_font_tests::japanese_ui_glyphs_are_available_in_every_family ... ok\ntest theme::japanese_font_tests::ui_works_without_craft_fonts ... ok\ntest theme::russian_font_tests::every_catalog_cyrillic_glyph_exists_in_the_bundled_ui_fonts ... ok\ntest theme::ukrainian_font_tests::every_catalog_cyrillic_glyph_exists_in_the_bundled_ui_fonts ... ok\ntest title_bar::tests::parses_the_defaults_output ... ok\ntest title_bar::tests::zoom_toggles_and_minimize_minimizes ... ok\ntest toolbar::tests::a_short_window_reaches_every_tool ... ok\ntest taskbar::tests::the_grip_moves_the_bar_and_it_stays_there ... ok\ntest toolbar::tests::a_tall_window_keeps_one_column_and_does_not_scroll ... ok\ntest toolbar::tests::a_tool_flyout_closes_on_escape_and_on_a_click_elsewhere ... ok\ntest toolbar::tests::apply_color_and_gradient_reuse_the_last_ones ... ok\ntest toolbar::tests::apply_gradient_to_the_stroke_is_one_undo_step ... ok\ntest tests::control_bar_shows_its_second_row ... ok\ntest toolbar::tests::fill_stroke_proxy_keys ... ok\ntest toolbar::tests::a_tool_flyout_opened_by_holding_stays_open_and_esc_keeps_the_tool ... ok\ntest toolbar::tests::double_clicking_the_fill_box_opens_the_color_picker_with_the_selections_colour ... ok\ntest toolbar::tests::tools_take_two_columns_while_one_does_not_fit ... ok\ntest toolbar::tests::the_tools_panel_lays_out_like_indesigns ... ok\ntest toolbar::text_color_tests::integration_color_swap_preserves_each_run_and_frame ... ok\ntest toolbar::tests::the_color_picker_from_the_fill_box_follows_formatting_affects_text ... ok\ntest widgets::tests::arrow_keys_step_and_typing_parses_arithmetic ... ok\ntest widgets::tests::emptying_a_clearable_field_clears_it ... ok\ntest widgets::tests::number_kind_formats_and_parses ... ok\ntest widgets::tests::numeric_fields_use_one_cell_in_a_two_row_grid ... ok\ntest widgets::tests::spinner_up_down_and_shift ... ok\ntest toolbar::tests::with_nothing_selected_the_proxy_sets_the_next_shapes_colours ... ok\ntest widgets::texture_tests::oversized_images_fit_the_texture_limit ... ok\ntest toolbar::text_color_tests::integration_color_toolbar_picker_targets_selected_frame_text ... ok\ntest panels::font_menu_ui_tests::every_font_field_searches_in_every_workspace ... ok\n\ntest result: ok. 544 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 5.40s\n\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 149.7,
+      "tail": "   Compiling serde v1.0.229\n   Compiling hashbrown v0.17.1\n   Compiling enumflags2_derive v0.7.12\n   Compiling indexmap v2.14.2\n   Compiling zvariant_utils v4.2.0\n   Compiling toml_edit v0.25.15+spec-1.1.0\n   Compiling proc-macro-crate v3.5.0\n   Compiling parking v2.2.1\n   Compiling endi v1.1.1\n   Compiling futures-core v0.3.34\n   Compiling futures-io v0.3.34\n   Compiling event-listener v5.4.2\n   Compiling enumflags2 v0.7.12\n   Compiling zcheapstr v1.1.0\n   Compiling concurrent-queue v2.5.0\n   Compiling designcraft-fonts v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/fonts)\n   Compiling event-listener-strategy v0.5.4\n   Compiling futures-lite v2.6.1\n   Compiling zerovec-derive v0.11.6\n   Compiling syn v3.0.6\n   Compiling zvariant_derive v5.15.0\n   Compiling zerovec v0.11.8\n   Compiling zvariant v5.15.0\n   Compiling zbus_names v4.3.4\n   Compiling async-io v2.6.0\n   Compiling displaydoc v0.2.7\n   Compiling getrandom v0.3.4\n   Compiling regex-syntax v0.8.11\n   Compiling regex-automata v0.4.18\n   Compiling errno v0.3.14\n   Compiling bit-vec v0.8.0\n   Compiling async-task v4.7.1\n   Compiling bit-set v0.8.0\n   Compiling signal-hook-registry v1.4.8\n   Compiling async-channel v2.5.0\n   Compiling atomic-waker v1.1.2\n   Compiling piper v0.2.5\n   Compiling ahash v0.8.12\n   Compiling async-signal v0.2.14\n   Compiling fancy-regex v0.19.2\n   Compiling designcraft-images v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/images)\n   Compiling regex v1.13.1\n   Compiling tinystr v0.8.4\n   Compiling zbus_xml v5.2.1\n   Compiling async-lock v3.4.2\n   Compiling writeable v0.6.4\n   Compiling litemap v0.8.3\n   Compiling icu_locale_core v2.3.0\n   Compiling designcraft-compose v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/compose)\n   Compiling async-process v2.5.0\n   Compiling zbus-lockstep v0.5.2\n   Compiling blocking v1.7.0\n   Compiling async-executor v1.14.0\n   Compiling zerotrie v0.2.5\n   Compiling zbus_macros v5.19.0\n   Compiling potential_utf v0.1.6\n   Compiling async-broadcast v0.7.2\n   Compiling ordered-stream v0.2.0\n   Compiling async-recursion v1.1.1\n   Compiling async-trait v0.1.92\n   Compiling serde_repr v0.1.21\n   Compiling icu_properties_data v2.3.0\n   Compiling hex v0.4.3\n   Compiling icu_normalizer_data v2.3.0\n   Compiling utf8_iter v1.0.4\n   Compiling hayro-cmap v0.1.0\n   Compiling icu_collections v2.3.0\n   Compiling icu_provider v2.3.1\n   Compiling zbus-lockstep-macros v0.5.2\n   Compiling epaint v0.36.2\n   Compiling zbus v5.19.0\n   Compiling hayro-interpret v0.7.0 (https://github.com/storytold/pdfcraft?rev=b5467d93a0ffaa5e5e6658bccdf8655a3ba689c9#b5467d93)\n   Compiling atspi-common v0.13.0\n   Compiling egui v0.36.2\n   Compiling hayro v0.7.1 (https://github.com/storytold/pdfcraft?rev=b5467d93a0ffaa5e5e6658bccdf8655a3ba689c9#b5467d93)\n   Compiling icu_normalizer v2.3.0\n   Compiling icu_properties v2.3.0\n   Compiling designcraft-pdf v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/pdf)\n   Compiling idna_adapter v1.2.2\n   Compiling designcraft-render v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/render)\n   Compiling atspi-proxies v0.13.0\n   Compiling designcraft-tools v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/tools)\n   Compiling designcraft-pptx v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/pptx)\n   Compiling designcraft-format v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/format)\n   Compiling designcraft-idml v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/idml)\n   Compiling form_urlencoded v1.2.2\n   Compiling accesskit_consumer v0.36.0\n   Compiling calloop v0.14.4\n   Compiling futures-macro v0.3.34\n   Compiling futures-task v0.3.34\n   Compiling smithay-client-toolkit v0.20.0\n   Compiling designcraft-engine v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/engine)\n   Compiling winit v0.30.13 (https://github.com/skylartaylor/winit.git?rev=3d51077fd1a966f84df9ef287839dc84fd5b4ca7#3d51077f)\n   Compiling futures-util v0.3.34\n   Compiling calloop-wayland-source v0.4.1\n   Compiling accesskit_atspi_common v0.18.1\n   Compiling atspi v0.29.0\n   Compiling idna v1.1.0\n   Compiling wayland-protocols-misc v0.3.12\n   Compiling wayland-protocols-experimental v20250721.0.1\n   Compiling url v2.5.8\n   Compiling accesskit_unix v0.21.1\n   Compiling smithay-clipboard v0.7.3\n   Compiling accesskit_winit v0.32.2\n   Compiling webbrowser v1.2.4\n   Compiling craft-ui v0.1.0 (https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51)\n   Compiling arboard v3.6.1\n   Compiling winresource v0.1.31\n   Compiling rfd v0.17.2\n   Compiling egui-wgpu v0.36.2\n   Compiling designcraft v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft)\n   Compiling egui-winit v0.36.2\n   Compiling designcraft-ui-egui v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/ui-egui)\n   Compiling pollster v0.4.0\n   Compiling eframe v0.36.2\n   Compiling designcraft-mcp v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/crates/mcp)\n   Compiling designcraft-cli v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft-cli)\n   Compiling xtask v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/xtask)\n   Compiling designcraft-web v0.8.0 (/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/apps/designcraft-web)\n    Finished `dev` profile [optimized] target(s) in 2m 29s\n"
+    },
+    {
+      "check": "headless-launch",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "/home/runner/work/ArtCraft/ArtCraft/restored/designcraft/target/debug/designcraft"
+      ],
+      "exit_code": 1,
+      "seconds": 0.4,
+      "tail": "2026-10-17T21:19:32.457Z INFO  [main] designcraft: DesignCraft 0.8.0, log file /home/runner/.config/designcraft/logs/designcraft.log\n2026-10-17T21:19:32.457Z INFO  [main] designcraft::gpu::backend: graphics: Vulkan (WGPU_BACKEND overrides)\n2026-10-17T21:19:32.457Z INFO  [main] designcraft: display GPUs (PCI vendor:device): 1414:0006\n2026-10-17T21:19:32.459Z WARN  [main] winit::platform_impl::linux::x11::xdisplay: error setting XSETTINGS; Xft options won't reload automatically\n\nthread 'main' (23753) panicked at /home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/xkbcommon-dl-0.4.2/src/x11.rs:59:28:\nLibrary libxkbcommon-x11.so could not be loaded.\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n2026-10-17T21:19:32.516Z ERROR [main] designcraft: DesignCraft stopped: Library libxkbcommon-x11.so could not be loaded.\n"
+    }
+  ],
+  "git_dependencies": [
+    "git+https://github.com/skylartaylor/winit.git?rev=3d51077fd1a966f84df9ef287839dc84fd5b4ca7#3d51077fd1a966f84df9ef287839dc84fd5b4ca7",
+    "git+https://github.com/storytold/craft-libs?rev=5c874d51eeb3de70e735c8ce87a59a7dedd47675#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "git+https://github.com/storytold/craft-libs?rev=82a24b006eefa036b43c09a67fb9a3fbd17ffe63#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "git+https://github.com/storytold/craft-libs?rev=c3487320b2d1de657b860b3c8abb44e1f2b32bd8#c3487320b2d1de657b860b3c8abb44e1f2b32bd8",
+    "git+https://github.com/storytold/craft-libs?rev=d991bf6792f8ade99c51358bf3c1d902c8cd96b5#d991bf6792f8ade99c51358bf3c1d902c8cd96b5",
+    "git+https://github.com/storytold/craft-libs?rev=e9546e191dd62f2bc1d61eca45dbdc2f1b3c1d8e#e9546e191dd62f2bc1d61eca45dbdc2f1b3c1d8e",
+    "git+https://github.com/storytold/indd-utils?branch=main#7f3060e5bce78d21ea70e0d5eacb96edce15dfbe",
+    "git+https://github.com/storytold/pdfcraft?rev=b5467d93a0ffaa5e5e6658bccdf8655a3ba689c9#b5467d93a0ffaa5e5e6658bccdf8655a3ba689c9",
+    "https://github.com/skylartaylor/winit.git",
+    "https://github.com/skylartaylor/winit.git#3d51077fd1a966f84df9ef287839dc84fd5b4ca7",
+    "https://github.com/storytold/craft-libs",
+    "https://github.com/storytold/craft-libs#5c874d51eeb3de70e735c8ce87a59a7dedd47675",
+    "https://github.com/storytold/craft-libs#82a24b006eefa036b43c09a67fb9a3fbd17ffe63",
+    "https://github.com/storytold/craft-libs#c3487320b2d1de657b860b3c8abb44e1f2b32bd8",
+    "https://github.com/storytold/craft-libs#d991bf6792f8ade99c51358bf3c1d902c8cd96b5",
+    "https://github.com/storytold/craft-libs#e9546e191dd62f2bc1d61eca45dbdc2f1b3c1d8e",
+    "https://github.com/storytold/designcraft",
+    "https://github.com/storytold/indd-utils",
+    "https://github.com/storytold/pdfcraft",
+    "https://github.com/storytold/pdfcraft#b5467d93a0ffaa5e5e6658bccdf8655a3ba689c9"
+  ],
+  "missing_paths": [
+    {
+      "manifest": "Cargo.toml",
+      "path": "crates/testkit"
+    }
+  ],
+  "model_references": [],
+  "service_domains": [
+    "getartcraft.com"
+  ],
+  "limitations": [
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "designcraft",
+    "craft-libs",
+    "indd-utils",
+    "pdfcraft"
+  ],
+  "source_commit": "5aeb4dd743067e5a6d797d0f613448a06d141a09",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 1,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_and_tests_passed",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "designcraft-color",
+      "targets": [
+        {
+          "name": "designcraft_color",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-compose",
+      "targets": [
+        {
+          "name": "designcraft_compose",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "hyphgen",
+          "kind": [
+            "example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-doc",
+      "targets": [
+        {
+          "name": "designcraft_doc",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-geom",
+      "targets": [
+        {
+          "name": "designcraft_geom",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-fonts",
+      "targets": [
+        {
+          "name": "designcraft_fonts",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "system_fonts",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-engine",
+      "targets": [
+        {
+          "name": "designcraft_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "book_safety",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "browser_print",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "character_style_from_selection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "close_retention",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "collection_state_atomicity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "combined_close_glyph",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "distribute_locks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "export_page_input",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "insert_pages_bounds",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "param_keys",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "preflight_resolution",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "primary_frame_columns",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "save_state_atomicity",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_decorations",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_insert_memory",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_thread_regressions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "thread_color_safety",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-epub",
+      "targets": [
+        {
+          "name": "designcraft_epub",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "export_tag_styles",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "grouped_reading_order",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-format",
+      "targets": [
+        {
+          "name": "designcraft_format",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-images",
+      "targets": [
+        {
+          "name": "designcraft_images",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "rgba_conversion_contract",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-idml",
+      "targets": [
+        {
+          "name": "designcraft_idml",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-pdf",
+      "targets": [
+        {
+          "name": "designcraft_pdf",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "gradient_color_spaces",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "image_content_cache",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "page_entry_search_contract",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-pptx",
+      "targets": [
+        {
+          "name": "designcraft_pptx",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-render",
+      "targets": [
+        {
+          "name": "designcraft_render",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "blend_over_paper",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "colorize",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "effects",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "glyph_retention",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gradient_inks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "gradients",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "perf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "placed_pdf",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "stroke_alignment",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_frame_bottom",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "text_stroke_behind",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-textimport",
+      "targets": [
+        {
+          "name": "designcraft_textimport",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-tools",
+      "targets": [
+        {
+          "name": "designcraft_tools",
+          "kind": [
+            "lib"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-mcp",
+      "targets": [
+        {
+          "name": "designcraft_mcp",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "automation_roots",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-ui-egui",
+      "targets": [
+        {
+          "name": "designcraft_ui_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "ui_shot",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "native_job_lifetime_control",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft",
+      "targets": [
+        {
+          "name": "designcraft",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "build-script-build",
+          "kind": [
+            "custom-build"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-cli",
+      "targets": [
+        {
+          "name": "designcraft-cli",
+          "kind": [
+            "bin"
+          ]
+        },
+        {
+          "name": "cli",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "designcraft-web",
+      "targets": [
+        {
+          "name": "designcraft-web",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "xtask",
+      "targets": [
+        {
+          "name": "xtask",
+          "kind": [
+            "bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "headless_launch": "exited_1",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:19:32Z"
+}

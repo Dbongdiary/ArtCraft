@@ -41,3 +41,7 @@ Unresolved references:
 
 To restore an exact dependency: concatenate any bundle parts in manifest order, verify SHA-256, then run `GIT_LFS_SKIP_SMUDGE=1 git clone NAME.bundle NAME`. In that clone run `GIT_LFS_SKIP_SMUDGE=1 git checkout --detach PINNED_COMMIT`. If LFS payloads exist, extract their verified tar into `.git` and run `git lfs checkout`. Original submodule configurations remain preserved for provenance; the browsable parent copies contain materialized source folders.
 <!-- dependency-backup:end -->
+
+## Backup usability verification
+
+See [.archive/verification/README.md](.archive/verification/README.md) for GitHub-hosted restore/build checks and unresolved runtime requirements. A source backup is not a guarantee that every app or hosted feature works. Backup workflows do not execute source; the separately requested verification workflow runs builds/tests on ephemeral GitHub runners.

@@ -1,0 +1,28 @@
+{
+  "repository": "AnimationTest",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [],
+  "service_domains": [],
+  "limitations": [
+    "Requires compatible Unreal Engine and an integration project; no licensed engine/runtime present on standard runner."
+  ],
+  "remapped_repositories": [
+    "AnimationTest"
+  ],
+  "source_commit": "71e1c2111866fd65b4b9b215794de14459a8eeda",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 0,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "source_restored_runtime_unverified",
+  "kind": "unreal",
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:07:22Z"
+}

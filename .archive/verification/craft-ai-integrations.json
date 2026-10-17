@@ -1,0 +1,1375 @@
+{
+  "repository": "craft-ai-integrations",
+  "backup_commit": "1a39bbe21255a55128c503906888e9fb437b2c29",
+  "restored": true,
+  "checks": [
+    {
+      "check": "system-index",
+      "command": [
+        "sudo",
+        "apt-get",
+        "update",
+        "-qq"
+      ],
+      "exit_code": 0,
+      "seconds": 6.1,
+      "tail": ""
+    },
+    {
+      "check": "system-dependencies",
+      "command": [
+        "sudo",
+        "apt-get",
+        "install",
+        "-y",
+        "--no-install-recommends",
+        "pkg-config",
+        "libssl-dev",
+        "libasound2-dev",
+        "libudev-dev",
+        "libxkbcommon-dev",
+        "libwayland-dev",
+        "libxcb-shape0-dev",
+        "libxcb-xfixes0-dev",
+        "libgtk-3-dev",
+        "libvulkan1",
+        "mesa-vulkan-drivers",
+        "xvfb",
+        "protobuf-compiler",
+        "clang",
+        "cmake",
+        "libfontconfig1-dev",
+        "libdbus-1-dev"
+      ],
+      "exit_code": 0,
+      "seconds": 23.0,
+      "tail": "oder3:amd64 (1.3.2-0.4build3) ...\nSetting up systemd-dev (255.4-1ubuntu8.18) ...\nSetting up libharfbuzz-gobject0:amd64 (8.3.0-2build2) ...\nSetting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...\nSetting up gir1.2-harfbuzz-0.0:amd64 (8.3.0-2build2) ...\nSetting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...\nSetting up libopengl0:amd64 (1.7.0-1build1) ...\nSetting up xtrans-dev (1.4.0-1) ...\nSetting up libwayland-bin (1.22.0-2.1build1) ...\nSetting up libgraphite2-dev:amd64 (1.3.14-2ubuntu0.24.04.1) ...\nSetting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgles2:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-cairo0:amd64 (8.3.0-2build2) ...\nSetting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...\nSetting up uuid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up clang (1:18.0-59~exp2) ...\nSetting up libgles1:amd64 (1.7.0-1build1) ...\nSetting up libsystemd-shared:amd64 (255.4-1ubuntu8.18) ...\nSetting up libjsoncpp25:amd64 (1.9.5-6build1) ...\nSetting up libudev-dev:amd64 (255.4-1ubuntu8.18) ...\nSetting up libsepol-dev:amd64 (3.5-2build1) ...\nSetting up liblerc-dev:amd64 (4.0.0+ds-4ubuntu2) ...\nSetting up liblzma-dev:amd64 (5.6.1+really5.4.5-1ubuntu0.3) ...\nSetting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...\nSetting up libdatrie-dev:amd64 (0.2.13-3build1) ...\nSetting up gir1.2-glib-2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up librhash0:amd64 (1.4.3-3build1) ...\nSetting up libegl1:amd64 (1.7.0-1build1) ...\nSetting up libharfbuzz-subset0:amd64 (8.3.0-2build2) ...\nSetting up xorg-sgml-doctools (1:1.11-1.1) ...\nSetting up cmake-data (3.28.3-1build7) ...\nSetting up libopengl-dev:amd64 (1.7.0-1build1) ...\nSetting up libprotoc32t64:amd64 (3.21.12-8.2ubuntu0.3) ...\nSetting up libjpeg8-dev:amd64 (8c-2ubuntu11) ...\nSetting up libasound2-dev:amd64 (1.2.11-1ubuntu0.3) ...\nSetting up libsharpyuv-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiffxx6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up libdeflate-dev:amd64 (1.19-1build1.1) ...\nSetting up libbrotli-dev:amd64 (1.1.0-2build2) ...\nSetting up libbz2-dev:amd64 (1.0.8-5.1ubuntu0.1) ...\nSetting up libblkid-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up protobuf-compiler (3.21.12-8.2ubuntu0.3) ...\nSetting up libselinux1-dev:amd64 (3.5-2ubuntu2.1) ...\nSetting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...\nSetting up libjpeg-dev:amd64 (8c-2ubuntu11) ...\nSetting up systemd (255.4-1ubuntu8.18) ...\nSetting up libwayland-dev:amd64 (1.22.0-2.1build1) ...\nSetting up libfreetype-dev:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\nSetting up libwebp-dev:amd64 (1.3.2-0.4build3) ...\nSetting up libtiff-dev:amd64 (4.5.1+git230720-4ubuntu2.5) ...\nSetting up gir1.2-freedesktop-dev:amd64 (1.80.1-1) ...\nSetting up udev (255.4-1ubuntu8.18) ...\nSetting up libthai-dev:amd64 (0.1.29-2build1) ...\nSetting up cmake (3.28.3-1build7) ...\nSetting up libmount-dev:amd64 (2.39.3-9ubuntu6.6) ...\nSetting up systemd-resolved (255.4-1ubuntu8.18) ...\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\nSetting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...\nSetting up systemd-coredump (255.4-1ubuntu8.18) ...\nSetting up libnss-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libglib2.0-dev:amd64 (2.80.0-6ubuntu3.9) ...\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\nSetting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...\nProcessing triggers for initramfs-tools (0.142ubuntu25.8) ...\nupdate-initramfs: Generating /boot/initrd.img-6.17.0-1022-azure\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\nProcessing triggers for man-db (2.12.0-4build2) ...\nNot building database; man-db/auto-update is not 'true'.\nProcessing triggers for libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...\nProcessing triggers for dbus (1.14.10-4ubuntu4.1) ...\nProcessing triggers for sgml-base (1.31) ...\nSetting up libatk1.0-dev:amd64 (2.52.0-1build1) ...\nSetting up x11proto-dev (2023.2-1) ...\nSetting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\nSetting up libharfbuzz-dev:amd64 (8.3.0-2build2) ...\nSetting up libxau-dev:amd64 (1:1.0.9-1build6) ...\nSetting up libice-dev:amd64 (2:1.0.10-1build3) ...\nSetting up libsm-dev:amd64 (2:1.2.3-1build3) ...\nSetting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...\nSetting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libx11-dev:amd64 (2:1.8.7-1ubuntu0.1) ...\nSetting up libxfixes-dev:amd64 (1:6.0.0-2build1) ...\nSetting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxcb-shape0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxext-dev:amd64 (2:1.3.4-1build2) ...\nSetting up libglx-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcb-xfixes0-dev:amd64 (1.15-1ubuntu2) ...\nSetting up libxi-dev:amd64 (2:1.8.1-1build1) ...\nSetting up libxrender-dev:amd64 (1:0.9.10-1.1build1) ...\nSetting up libgl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxft-dev:amd64 (2.3.6-1build1) ...\nSetting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...\nSetting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...\nSetting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libegl-dev:amd64 (1.7.0-1build1) ...\nSetting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...\nSetting up libxcursor-dev:amd64 (1:1.2.1-1build1) ...\nSetting up libepoxy-dev:amd64 (1.5.10-1build1) ...\nSetting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...\nSetting up libxrandr-dev:amd64 (2:1.5.2-2build1) ...\nSetting up libxinerama-dev:amd64 (2:1.1.4-3build1) ...\nSetting up libcairo2-dev:amd64 (1.18.0-3build1) ...\nSetting up libgles-dev:amd64 (1.7.0-1build1) ...\nSetting up libglvnd-dev:amd64 (1.7.0-1build1) ...\nSetting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...\nSetting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.4) ...\nSetting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...\n\nRunning kernel seems to be up-to-date.\n\nRestarting services...\n systemctl restart multipathd.service packagekit.service php8.3-fpm.service polkit.service rsyslog.service udisks2.service\n\nService restarts being deferred:\n systemctl restart ModemManager.service\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart networkd-dispatcher.service\n systemctl restart systemd-logind.service\n systemctl restart walinuxagent.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n runner @ user manager service: systemd[951]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n"
+    },
+    {
+      "check": "rust-toolchain",
+      "command": [
+        "rustup",
+        "toolchain",
+        "install",
+        "stable",
+        "--profile",
+        "minimal"
+      ],
+      "exit_code": 0,
+      "seconds": 7.4,
+      "tail": "info: syncing channel updates for stable-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-10-15 for version 1.99.1 (58cf8f9c3 2026-10-13)\ninfo: removing previous version of component rustfmt\ninfo: removing previous version of component clippy\ninfo: removing previous version of component cargo\ninfo: removing previous version of component rust-std\ninfo: removing previous version of component rustc\ninfo: downloading 5 components\n\n  stable-x86_64-unknown-linux-gnu updated - rustc 1.99.1 (58cf8f9c3 2026-10-13) (from rustc 1.99.0 (b940084d7 2026-09-28))\n\n"
+    },
+    {
+      "check": "cargo-metadata",
+      "command": [
+        "cargo",
+        "+stable",
+        "metadata",
+        "--format-version",
+        "1",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "e,\"test\":true},{\"kind\":[\"example\"],\"crate_types\":[\"bin\"],\"name\":\"history_demo\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/examples/history_demo.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":false},{\"kind\":[\"example\"],\"crate_types\":[\"bin\"],\"name\":\"picker_demo\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/examples/picker_demo.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":false},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"history_view\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/tests/history_view.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"panel\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/tests/panel.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"picker_view\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/tests/picker_view.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"popup_view\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/tests/popup_view.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"widgets\",\"src_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/tests/widgets.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui/Cargo.toml\",\"metadata\":null,\"publish\":[],\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":\"https://github.com/storytold/craft-ai-integrations\",\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":\"1.95\"}],\"workspace_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-artcraft#craft-ai-artcraft@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-core#craft-ai-core@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-http#craft-ai-http@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-bfl#craft-ai-bfl@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-client#craft-ai-client@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-comfy-env#craft-ai-comfy-env@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-features#craft-ai-features@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-media#craft-ai-media@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-comfyui#craft-ai-comfyui@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-native#craft-ai-native@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-declarative#craft-ai-declarative@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-engine#craft-ai-engine@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-openai#craft-ai-openai@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-sam3#craft-ai-sam3@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-seedance#craft-ai-seedance@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-vertex#craft-ai-vertex@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui#craft-ai-egui@0.1.0\"],\"workspace_default_members\":[\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-artcraft#craft-ai-artcraft@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-core#craft-ai-core@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-http#craft-ai-http@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-bfl#craft-ai-bfl@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-client#craft-ai-client@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-comfy-env#craft-ai-comfy-env@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-features#craft-ai-features@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-media#craft-ai-media@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-comfyui#craft-ai-comfyui@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-native#craft-ai-native@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-declarative#craft-ai-declarative@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-engine#craft-ai-engine@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-openai#craft-ai-openai@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-sam3#craft-ai-sam3@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-seedance#craft-ai-seedance@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-vertex#craft-ai-vertex@0.1.0\",\"path+file:///home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/crates/ai-egui#craft-ai-egui@0.1.0\"],\"resolve\":null,\"target_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/target\",\"build_directory\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations/target\",\"version\":1,\"workspace_root\":\"/home/runner/work/ArtCraft/ArtCraft/restored/craft-ai-integrations\",\"metadata\":null}\n"
+    },
+    {
+      "check": "cargo-tests",
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--workspace",
+        "--lib",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 60.1,
+      "tail": "\ntest history_file::tests::an_oversize_record_is_refused_and_nothing_is_written ... ok\ntest history_file::tests::a_torn_last_line_does_not_swallow_the_next_record ... ok\ntest history_file::tests::records_come_back_in_order_and_a_missing_file_is_empty ... ok\ntest fsutil::tests::atomic_write_replaces_and_leaves_no_temp ... ok\ntest history_file::tests::garbage_and_unknown_lines_are_skipped_without_losing_the_rest ... ok\ntest paths::tests::override_wins_and_empty_override_is_ignored ... ok\ntest paths::tests::the_suggested_models_folder_sits_beside_the_ai_folder ... ok\ntest secrets::crypto::tests::ciphertext_does_not_contain_plaintext ... ok\ntest secrets::crypto::tests::hostile_headers_are_refused_before_any_work ... ok\ntest secrets::crypto::tests::params_are_range_checked ... ok\ntest secrets::crypto::tests::round_trip ... ok\ntest secrets::crypto::tests::tampering_with_any_field_is_detected_not_trusted ... ok\ntest history_file::tests::several_writers_at_once_never_interleave_a_line ... ok\ntest secrets::crypto::tests::two_seals_of_the_same_input_differ ... ok\ntest secrets::env::tests::is_read_only ... ok\ntest secrets::env::tests::reads_through_the_lookup_and_ignores_empty ... ok\ntest secrets::env::tests::variable_name_is_upper_case_with_punctuation_flattened ... ok\ntest secrets::file::tests::delete_on_missing_file_creates_nothing ... ok\ntest secrets::file::tests::empty_passphrase_is_refused ... ok\ntest secrets::crypto::tests::wrong_passphrase_fails_cleanly ... ok\ntest secrets::file::tests::errors_and_debug_never_contain_secret_or_passphrase ... ok\ntest secrets::file::tests::file_on_disk_has_no_plaintext ... ok\ntest history_file::tests::clear_removes_both_files_and_is_fine_when_empty ... ok\ntest history_file::tests::the_file_rotates_at_the_cap_and_the_newest_records_survive ... ok\ntest secrets::file::tests::garbage_truncated_and_oversize_files_are_errors_not_panics ... ok\ntest secrets::keychain::tests::errors_that_could_hold_secret_bytes_are_not_described ... ok\ntest secrets::keychain::tests::keychain_round_trip ... ignored, uses the real OS keychain\ntest secrets::keychain::tests::missing_store_is_unsupported_so_layers_move_on ... ok\ntest secrets::layered::tests::delete_clears_every_layer ... ok\ntest secrets::layered::tests::first_layer_with_the_key_wins ... ok\ntest secrets::layered::tests::set_goes_to_first_writable_layer ... ok\ntest secrets::layered::tests::set_with_no_writable_layer_says_so ... ok\ntest secrets::layered::tests::unavailable_layer_is_skipped_but_a_real_fault_does_not_hide_a_hit ... ok\ntest secrets::memory::tests::debug_shows_count_only ... ok\ntest secrets::memory::tests::set_get_replace_delete ... ok\ntest secrets::file::tests::wrong_passphrase_is_an_auth_error_and_never_overwrites ... ok\ntest secrets::file::tests::set_get_delete_and_persist_across_instances ... ok\ntest secrets::file::tests::two_threads_writing_do_not_lose_updates ... ok\n\ntest result: ok. 49 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 1.15s\n\n     Running unittests src/lib.rs (target/debug/deps/craft_ai_openai-cf862d9b85755240)\n\nrunning 41 tests\ntest catalog::tests::inpaint_requires_a_mask_and_edit_does_not ... ok\ntest catalog::tests::non_chat_models_are_dropped ... ok\ntest catalog::tests::chat_models_complete_text_with_features ... ok\ntest catalog::tests::image_models_get_image_capabilities_only ... ok\ntest catalog::tests::response_format_is_for_original_dall_e_only ... ok\ntest catalog::tests::unusable_ids_are_dropped_not_panicked_on ... ok\ntest chat::tests::inputs_become_messages_in_order ... ok\ntest chat::tests::non_text_and_odd_roles_are_refused_not_dropped ... ok\ntest chat::tests::only_listed_params_pass_through ... ok\ntest chat::tests::null_content_with_tool_call_is_fine_and_garbage_is_an_error ... ok\ntest chat::tests::openrouter_cost_is_read_as_exact_millionths_of_a_dollar ... ok\ntest chat::tests::streaming_asks_for_usage ... ok\ntest chat::tests::sse_accumulates_text_tools_and_usage ... ok\ntest chat::tests::parses_a_completion_with_tools_and_usage ... ok\ntest chat::tests::sse_errors_and_garbage_are_errors_not_panics ... ok\ntest chat::tests::structured_replies_become_a_json_output_and_bad_json_is_refused ... ok\ntest http::tests::non_json_error_bodies_do_not_leak_or_panic ... ok\ntest http::tests::echoed_keys_are_redacted_and_long_messages_capped ... ok\ntest http::tests::only_openrouters_own_https_address_is_trusted_for_cost ... ok\ntest http::tests::read_capped_refuses_more_than_the_cap ... ok\ntest http::tests::a_cost_survives_for_openrouter_and_is_dropped_elsewhere ... ok\ntest http::tests::retry_after_only_on_rate_limits ... ok\ntest images::tests::bad_inputs_are_refused_with_a_reason ... ok\ntest images::tests::boundary_never_appears_in_the_data ... ok\ntest images::tests::edit_sends_source_and_mask_as_named_parts ... ok\ntest http::tests::statuses_map_to_actionable_kinds ... ok\ntest images::tests::generate_body_has_prompt_params_and_response_format_only_for_dall_e ... ok\ntest images::tests::hostile_replies_are_errors ... ok\ntest images::tests::parses_base64_and_urls_and_labels_several ... ok\ntest images::tests::prompt_is_required_and_must_be_text ... ok\ntest images::tests::several_pictures_use_the_array_field ... ok\ntest images::tests::sniffing_recognises_formats_and_rejects_the_rest ... ok\ntest jobs::tests::events_are_delivered_once ... ok\ntest jobs::tests::start_moves_queued_to_running_once ... ok\ntest jobs::tests::terminal_states_are_final ... ok\ntest meta::tests::dollars_per_token_become_micros_per_million_tokens ... ok\ntest meta::tests::free_models_report_zero_not_nothing ... ok\ntest meta::tests::missing_odd_or_absurd_values_are_left_out ... ok\ntest meta::tests::one_good_price_is_kept_without_the_other ... ok\ntest tests::debug_never_shows_the_key ... ok\ntest tests::base_url_rules ... ok\n\ntest result: ok. 41 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/lib.rs (target/debug/deps/craft_ai_sam3-e430aed73fb3e342)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/lib.rs (target/debug/deps/craft_ai_seedance-8cee8231cd5f36c0)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/lib.rs (target/debug/deps/craft_ai_vertex-cc91d62dbfec52b8)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n"
+    },
+    {
+      "check": "cargo-build",
+      "command": [
+        "cargo",
+        "+stable",
+        "build",
+        "--workspace",
+        "--bins",
+        "--locked"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1,
+      "tail": "warning: target filter `bins` specified, but no targets matched; this is a no-op\n    Finished `dev` profile [unoptimized] target(s) in 0.08s\n"
+    }
+  ],
+  "git_dependencies": [],
+  "missing_paths": [],
+  "model_references": [
+    {
+      "file": "crates/ai-client/tests/engine_advice.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/engines.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/folders.rs",
+      "reference": "Lora/style.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/folders.rs",
+      "reference": "vae/a.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/folders.rs",
+      "reference": "vae/ae.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/local_burn.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/local_native.rs",
+      "reference": "folder.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/local_native.rs",
+      "reference": "lc-relative-{}.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/local_native.rs",
+      "reference": "new.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/local_native.rs",
+      "reference": "nope.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/local_native.rs",
+      "reference": "old.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/local_native.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-client/tests/plain_text.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "SAM3.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "Stable-Diffusion/sdxl/base.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "a/b/c/d/e/f/g/too_deep.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "a/b/c/d/e/f/ok.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "file.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "loras/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "loras/style/a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "ok.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "stuff/a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "stuff/b.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "stuff/c.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "stuff/d.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "stuff/e.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "stuff/f.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "too_deep.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "vae/a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "vae/ae.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "vae/sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "x/empty.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "x/huge.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "x/junk.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "x/short.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "x/zero.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/src/model_folder_scan_tests.rs",
+      "reference": "zz.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "FLUX/fill.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "a.ckpt"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "models/checkpoints/a.ckpt"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "models/diffusion_models/FLUX/fill.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "models/sam3/real.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "models/sam3/sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "models/vae/v.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "real.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "secret.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/detect.rs",
+      "reference": "v.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/download.rs",
+      "reference": "../evil.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/download.rs",
+      "reference": "a/b.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/download.rs",
+      "reference": "a\\\\b.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/download.rs",
+      "reference": "m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/download_sources.rs",
+      "reference": "m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "../m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "a b.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "dir/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "f.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "ftp://huggingface.co/org/name/blob/main/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "http://huggingface.co/org/name/blob/main/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://evilhuggingface.co/org/name/blob/main/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://example.com/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co.evil.com/org/name/blob/main/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/ma%20in/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/%2e%2e/x.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/../../x.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main//m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/a%2Fb.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/a%5Cb.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/c%3Aevil.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/dir/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/m%00.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/{}.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/blob/x%3By/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://huggingface.co/org/name/resolve/{sha}/a%20b.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "https://user@huggingface.co/org/name/blob/main/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "m.ckpt"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "m.onnx"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "m.pt"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "m.pth"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_basics.rs",
+      "reference": "m.safetensors.pt"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "b.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "c.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "d.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "e.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "fake.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "grown.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "m.ckpt"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "mine.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_install.rs",
+      "reference": "other.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_licences.rs",
+      "reference": "a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_licences.rs",
+      "reference": "earlier.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_licences.rs",
+      "reference": "https://huggingface.co/o/m/resolve/{pin}/a.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_licences.rs",
+      "reference": "mine.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_licences.rs",
+      "reference": "one.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_licences.rs",
+      "reference": "two.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "a/b.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "dir/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "https://huggingface.co/org/name/blob/main/dir/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "mine.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "missing.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "old.ckpt"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "other.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "style.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "weights.safetensors"
+    },
+    {
+      "file": "crates/ai-comfy-env/tests/source_resolve.rs",
+      "reference": "{}/org/name/resolve/{COMMIT}/dir/m.safetensors"
+    },
+    {
+      "file": "crates/ai-comfyui/tests/workflow.rs",
+      "reference": "installed.safetensors"
+    },
+    {
+      "file": "crates/ai-comfyui/tests/workflow.rs",
+      "reference": "missing.safetensors"
+    },
+    {
+      "file": "crates/ai-engine/src/testing.rs",
+      "reference": "not-there.safetensors"
+    },
+    {
+      "file": "crates/ai-engine/tests/provider.rs",
+      "reference": "m.safetensors"
+    },
+    {
+      "file": "crates/ai-features/src/catalogue.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-features/tests/features.rs",
+      "reference": "SAM3.safetensors"
+    },
+    {
+      "file": "crates/ai-features/tests/features.rs",
+      "reference": "https://huggingface.co/apozz/sam3-safetensors/resolve/e88da2ed02aded4006f4711ee6a9c75d5aa38d0c/sam3.safetensors"
+    },
+    {
+      "file": "crates/ai-features/tests/features.rs",
+      "reference": "other.safetensors"
+    },
+    {
+      "file": "crates/ai-features/tests/features.rs",
+      "reference": "sam3.safetensors"
+    },
+    {
+      "file": "docs/ADD-AN-ENGINE.md",
+      "reference": "shout.safetensors"
+    }
+  ],
+  "service_domains": [
+    "api.openai.com",
+    "api.storyteller.ai",
+    "evilhuggingface.co",
+    "huggingface.co",
+    "huggingface.co.evil.com",
+    "platform.openai.com"
+  ],
+  "limitations": [
+    "Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.",
+    "Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified."
+  ],
+  "remapped_repositories": [
+    "craft-ai-integrations"
+  ],
+  "source_commit": "71f40f6da13ff48de9b52a30fa2104f9088eb5c7",
+  "restore_proof": "Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.",
+  "python_syntax": {
+    "files_checked": 6,
+    "errors": []
+  },
+  "submodule_references": [],
+  "lfs_status": "not_present",
+  "status": "build_and_tests_passed",
+  "kind": "rust",
+  "cargo_packages": [
+    {
+      "name": "craft-ai-artcraft",
+      "targets": [
+        {
+          "name": "craft_ai_artcraft",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-core",
+      "targets": [
+        {
+          "name": "craft_ai_core",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "custom_connection",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "custom_tools",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "mock_conformance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "spec_calls",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "spec_rules",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "spec_template",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-http",
+      "targets": [
+        {
+          "name": "craft_ai_http",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "every_agent_uses_it",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-bfl",
+      "targets": [
+        {
+          "name": "craft_ai_bfl",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-client",
+      "targets": [
+        {
+          "name": "craft_ai_client",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "custom_tool",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "live_openai",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "comfyui",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "custom",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "custom_tool_conformance",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "custom_tools",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "declarative",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "engine_advice",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "engines",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "flow",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "folders",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "history",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "local",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "local_burn",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "local_native",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "local_routes",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "manage",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "manage_race",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "media",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "one_binding",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "picker",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "picker_presets",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "picks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "plain_text",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "popup",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "recommended",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "third_party_adoption",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "tools",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-comfy-env",
+      "targets": [
+        {
+          "name": "craft_ai_comfy_env",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "detect",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "detect",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "download",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "download_sources",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "nodepack",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "nodepack_archive",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "nodepack_status",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "portable",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "source_basics",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "source_install",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "source_licences",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "source_resolve",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "system",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-features",
+      "targets": [
+        {
+          "name": "craft_ai_features",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "engine",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "features",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "options",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "samples",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "setup",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-media",
+      "targets": [
+        {
+          "name": "craft_ai_media",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "persist",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "retry",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-comfyui",
+      "targets": [
+        {
+          "name": "craft_ai_comfyui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "durable",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "inpaint",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "library",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "media_checks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_cached",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_candidate_inputs",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_candidates",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_instances",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_leases",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_lifecycle",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_live_sessions",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_mask_failures",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_mask_limits",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_masks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_masks_live",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_point",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "sam3_session",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "workflow",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-native",
+      "targets": [
+        {
+          "name": "craft_ai_native",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "no_leaks",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "shared_store",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-declarative",
+      "targets": [
+        {
+          "name": "craft_ai_declarative",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "direct",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "queue",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-engine",
+      "targets": [
+        {
+          "name": "craft_ai_engine",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-openai",
+      "targets": [
+        {
+          "name": "craft_ai_openai",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "custom",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-sam3",
+      "targets": [
+        {
+          "name": "craft_ai_sam3",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-seedance",
+      "targets": [
+        {
+          "name": "craft_ai_seedance",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-vertex",
+      "targets": [
+        {
+          "name": "craft_ai_vertex",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "provider",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "craft-ai-egui",
+      "targets": [
+        {
+          "name": "craft_ai_egui",
+          "kind": [
+            "lib"
+          ]
+        },
+        {
+          "name": "history_demo",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "picker_demo",
+          "kind": [
+            "example"
+          ]
+        },
+        {
+          "name": "history_view",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "panel",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "picker_view",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "popup_view",
+          "kind": [
+            "test"
+          ]
+        },
+        {
+          "name": "widgets",
+          "kind": [
+            "test"
+          ]
+        }
+      ]
+    }
+  ],
+  "runner": "ubuntu-24.04 GitHub-hosted",
+  "finished_at": "2026-10-17T21:08:02Z"
+}
