@@ -1,0 +1,538 @@
+{
+  "complete": 66,
+  "external_dependencies_independently_archived": false,
+  "incomplete": 0,
+  "repositories": [
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/ActorSpawningPlugin",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/AniCraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/AnimationTest",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/artcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/artcraft-services",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/artcraftx",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/Azure-Kinect-Sample-for-Unity",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/bevy-mocap",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/cadcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/cloud-worker",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/cloudcam",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/CloudCamPlugin",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-ai-integrations",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-common-actions",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-contrib",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-fonts",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-launcher",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-launcher-assets",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-libs",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/craft-repo-status-app",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/crafthub",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/deckcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/designcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/discord-vocodes",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/effectcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/EventCenterPlugin",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/fakeyou-recast",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/figcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/filmcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/FineTrainers-Conditioning",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/github-media",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/gridcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/hanashi-graphics-demo",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/html_test",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/HyperJail",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/indd-utils",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/irsa-manager",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/k4a-sys-temp",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/lightcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/LiveScan3D",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/motion-capture-data",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/pdfcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/photocraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/photocraft-corpus",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/placeholder-artcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/point-generator",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/realtime-voice-conversion",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/redirect-vocodes",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/RuntimeAudioImporter",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/RuntimeFilesDownloader",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/soundcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/spark",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/storyteller-bevy",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "complete",
+      "source": "storytold/storyteller-ml",
+      "submodule_references": 7
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/StreamTwo",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/terraform-aws-observability-accelerator",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/torchscript-models",
+      "submodule_references": 2
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/UE4-OSC",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/UnrealZeroMQ",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/vectorcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/vits-finetuning",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/voder-proxy",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/winit",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/winprint.rs",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/wordcraft",
+      "submodule_references": 0
+    },
+    {
+      "backup_complete": true,
+      "error": null,
+      "large_file_exclusions": 0,
+      "lfs_status": "not_present",
+      "source": "storytold/xsens-packet-send",
+      "submodule_references": 0
+    }
+  ],
+  "repository_count": 66,
+  "source_backup_complete": true,
+  "submodule_references": 9
+}
