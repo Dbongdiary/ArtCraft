@@ -29,6 +29,7 @@
     "status": "not_present"
   },
   "metadata_path": ".archive/dependencies/nodes/lllyasviel/ControlNet/d3284fcd0972c510635a4f5abe2eeb71dc0de524.json",
+  "phase": "complete",
   "pin": "d3284fcd0972c510635a4f5abe2eeb71dc0de524",
   "refs": [
     "d3284fcd0972c510635a4f5abe2eeb71dc0de524 refs/archive/pins/d3284fcd0972c510635a4f5abe2eeb71dc0de524",
