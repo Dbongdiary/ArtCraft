@@ -1,0 +1,458 @@
+name: Archive Storytold repositories
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: artcraft-source-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Back up source, Git history and LFS objects
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PYTHON_ARCHIVE'
+          import base64
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import shutil
+          import subprocess
+          import tarfile
+          import tempfile
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          
+          ORG = 'storytold'
+          REPO = os.environ['GITHUB_REPOSITORY']
+          TOKEN = os.environ['GH_TOKEN']
+          TAG = 'storytold-source-backup'
+          LIMIT = 100 * 1024 * 1024
+          CHUNK = 1024 * 1024 * 1024
+          BASE = Path(tempfile.mkdtemp(prefix='artcraft-'))
+          TARGET = BASE / 'target'
+          API = 'https://api.github.com'
+          ENV = dict(os.environ)
+          for key in ('GH_TOKEN', 'GITHUB_TOKEN'):
+              ENV.pop(key, None)
+          ENV.update(GIT_TERMINAL_PROMPT='0', GIT_LFS_SKIP_SMUDGE='1', GIT_CONFIG_NOSYSTEM='1',
+                     GIT_CONFIG_GLOBAL='/dev/null', GIT_ALLOW_PROTOCOL='https:file',
+                     GIT_AUTHOR_NAME='ArtCraft Archive', GIT_AUTHOR_EMAIL='actions@users.noreply.github.com',
+                     GIT_COMMITTER_NAME='ArtCraft Archive', GIT_COMMITTER_EMAIL='actions@users.noreply.github.com')
+          AUTH = dict(ENV)
+          AUTH.update(GIT_CONFIG_COUNT='1',
+                      GIT_CONFIG_KEY_0=f'http.https://github.com/{REPO}.git.extraheader',
+                      GIT_CONFIG_VALUE_0='AUTHORIZATION: basic ' + base64.b64encode(('x-access-token:' + TOKEN).encode()).decode())
+          
+          
+          def command(args, cwd=None, data=None, auth=False, check=True):
+              result = subprocess.run(args, cwd=cwd, input=data, stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE, env=AUTH if auth else ENV)
+              if check and result.returncode:
+                  raise RuntimeError(f'{args[0]} failed: ' + result.stderr.decode(errors='replace')[-3000:])
+              return result
+          
+          
+          def git(*args, cwd=TARGET, data=None, auth=False, check=True):
+              return command(['git', *args], cwd=cwd, data=data, auth=auth, check=check)
+          
+          
+          def api(path, data=None, method=None, attempts=5):
+              url = path if path.startswith('https://') else API + path
+              if not url.startswith(('https://api.github.com/', 'https://uploads.github.com/')):
+                  raise ValueError('Unexpected GitHub API host')
+              payload = None if data is None else json.dumps(data).encode()
+              for attempt in range(attempts):
+                  req = urllib.request.Request(url, payload, method=method,
+                      headers={'Authorization': 'Bearer ' + TOKEN, 'Accept': 'application/vnd.github+json',
+                               'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json',
+                               'User-Agent': 'ArtCraft-Independent-Archive'})
+                  try:
+                      with urllib.request.urlopen(req, timeout=120) as response:
+                          body = response.read()
+                          return json.loads(body) if body else None
+                  except urllib.error.HTTPError as error:
+                      if error.code in (429, 500, 502, 503, 504) and attempt + 1 < attempts:
+                          time.sleep(min(10 * (attempt + 1), 50))
+                      else:
+                          raise
+          
+          
+          def json_bytes(value):
+              return (json.dumps(value, indent=2, sort_keys=True) + '\n').encode()
+          
+          
+          def stage(path, content):
+              sha = git('hash-object', '-w', '--stdin', data=content).stdout.strip()
+              git('update-index', '--add', '--cacheinfo', '100644', sha.decode(), path)
+          
+          
+          def existing(path):
+              result = git('show', 'HEAD:' + path, check=False)
+              return result.stdout if result.returncode == 0 else None
+          
+          
+          def save(message):
+              tree = git('write-tree').stdout.strip().decode()
+              head_tree = git('rev-parse', 'HEAD^{tree}').stdout.strip().decode()
+              if tree == head_tree:
+                  return
+              previous_head = git('rev-parse', 'HEAD').stdout.strip().decode()
+              commit = git('commit-tree', tree, '-p', 'HEAD', data=(message + '\n').encode()).stdout.strip().decode()
+              git('update-ref', 'refs/heads/main', commit)
+              try:
+                  git('push', 'origin', 'HEAD:refs/heads/main', auth=True)
+              except Exception:
+                  remote = git('ls-remote', 'origin', 'refs/heads/main', auth=True, check=False)
+                  if remote.returncode == 0 and remote.stdout.split()[:1] == [commit.encode()]:
+                      return
+                  git('update-ref', 'refs/heads/main', previous_head)
+                  git('read-tree', 'HEAD')
+                  raise
+          
+          
+          def sha256(path):
+              digest = hashlib.sha256()
+              with path.open('rb') as stream:
+                  for block in iter(lambda: stream.read(8 * 1024 * 1024), b''):
+                      digest.update(block)
+              return digest.hexdigest()
+          
+          
+          def release_assets(release):
+              result = {}
+              for page in range(1, 1000):
+                  rows = api(f'/repos/{REPO}/releases/{release["id"]}/assets?per_page=100&page={page}')
+                  result.update({row['name']: row for row in rows})
+                  if len(rows) < 100:
+                      return result
+              raise RuntimeError('Too many release assets')
+          
+          
+          def upload(path, release, assets):
+              digest = sha256(path)
+              size = path.stat().st_size
+              base_name = path.name + '.sha256-' + digest
+              name = base_name
+              # Successful assets are immutable, including backups from an incomplete earlier run.
+              prior = assets.get(name)
+              if prior and prior.get('size') == size and prior.get('digest') in (None, 'sha256:' + digest):
+                  return {'name': name, 'bytes': size, 'sha256': digest, 'url': prior['browser_download_url']}
+              if prior:
+                  name = base_name + '.retry-' + str(time.time_ns())
+              for attempt in range(4):
+                  try:
+                      url = release['upload_url'].split('{')[0] + '?name=' + urllib.parse.quote(name)
+                      with path.open('rb') as stream:
+                          req = urllib.request.Request(url, data=stream, method='POST', headers={
+                              'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/octet-stream',
+                              'Content-Length': str(size), 'User-Agent': 'ArtCraft-Independent-Archive'})
+                          with urllib.request.urlopen(req, timeout=1200) as response:
+                              uploaded = json.load(response)
+                      if uploaded['size'] != size:
+                          raise RuntimeError('Release upload size mismatch')
+                      server_digest = uploaded.get('digest')
+                      if server_digest and server_digest != 'sha256:' + digest:
+                          raise RuntimeError('Release upload checksum mismatch')
+                      assets[name] = uploaded
+                      return {'name': name, 'bytes': size, 'sha256': digest, 'url': uploaded['browser_download_url']}
+                  except Exception:
+                      if attempt == 3:
+                          raise
+                      # A disconnected upload may have succeeded. Resolve its state before retrying.
+                      fresh = release_assets(release)
+                      prior = fresh.get(name)
+                      if prior:
+                          if prior.get('size') == size and prior.get('digest') in (None, 'sha256:' + digest):
+                              assets[name] = prior
+                              return {'name': name, 'bytes': size, 'sha256': digest, 'url': prior['browser_download_url']}
+                          name = base_name + '.retry-' + str(time.time_ns())
+                      time.sleep(10 * (attempt + 1))
+          
+          
+          def archive_parts(path, release, assets):
+              if path.stat().st_size <= CHUNK:
+                  return {'format': path.suffix.lstrip('.'), 'whole_sha256': sha256(path),
+                          'bytes': path.stat().st_size, 'parts': [upload(path, release, assets)]}
+              output = {'format': path.suffix.lstrip('.'), 'whole_sha256': sha256(path),
+                        'bytes': path.stat().st_size, 'parts': []}
+              with path.open('rb') as source:
+                  number = 1
+                  while True:
+                      first = source.read(8 * 1024 * 1024)
+                      if not first:
+                          break
+                      part = path.with_name(path.name + f'.part-{number:03d}')
+                      remaining = CHUNK - len(first)
+                      with part.open('wb') as destination:
+                          destination.write(first)
+                          while remaining:
+                              block = source.read(min(8 * 1024 * 1024, remaining))
+                              if not block:
+                                  break
+                              destination.write(block)
+                              remaining -= len(block)
+                      output['parts'].append(upload(part, release, assets))
+                      part.unlink()
+                      number += 1
+              return output
+          
+          
+          def tree_entries(mirror, commit):
+              output = git('ls-tree', '-r', '-l', '-z', commit, cwd=mirror).stdout
+              for entry in output.split(b'\0'):
+                  if not entry:
+                      continue
+                  meta, name = entry.split(b'\t', 1)
+                  mode, kind, oid, size = meta.split()
+                  yield mode, kind, oid, None if size == b'-' else int(size), name
+          
+          
+          def import_tree(mirror, commit, name):
+              objects, index, excluded, submodules = set(), [], [], []
+              bytes_to_import = 0
+              for mode, kind, oid, size, path in tree_entries(mirror, commit):
+                  decoded = path.decode('utf-8', errors='surrogateescape')
+                  if kind == b'blob' and size > LIMIT:
+                      digest = hashlib.sha256()
+                      proc = subprocess.Popen(['git', 'cat-file', 'blob', oid.decode()], cwd=mirror,
+                                              env=ENV, stdout=subprocess.PIPE)
+                      for block in iter(lambda: proc.stdout.read(8 * 1024 * 1024), b''):
+                          digest.update(block)
+                      if proc.wait():
+                          raise RuntimeError('Could not hash large source blob')
+                      excluded.append({'path': decoded, 'bytes': size, 'git_blob': oid.decode(),
+                                       'sha256': digest.hexdigest(), 'preserved_in': 'Git bundle release asset'})
+                      continue
+                  if kind == b'blob':
+                      if oid not in objects:
+                          bytes_to_import += size
+                      objects.add(oid)
+                  elif kind == b'commit':
+                      submodules.append({'path': decoded, 'commit': oid.decode(),
+                                         'status': 'Reference preserved; submodule repository not fetched'})
+                  else:
+                      raise RuntimeError('Unexpected tree object')
+                  index.append(mode + b' ' + oid + b'\t' + name.encode() + b'/' + path + b'\0')
+              if bytes_to_import > 1800 * 1024 * 1024:
+                  raise RuntimeError('Current source tree exceeds conservative per-push limit; full Git bundle is preserved but folder import needs batching')
+              if objects:
+                  # Transfer only current-tree blobs. Full source history stays in release bundles.
+                  object_list = mirror.parent / 'objects.txt'
+                  object_list.write_bytes(b'\n'.join(sorted(objects)) + b'\n')
+                  with object_list.open('rb') as object_input, tempfile.TemporaryFile() as pack_error:
+                      pack = subprocess.Popen(['git', 'pack-objects', '--stdout'], cwd=mirror, env=ENV,
+                                              stdin=object_input, stdout=subprocess.PIPE, stderr=pack_error)
+                      receive = subprocess.run(['git', 'index-pack', '--stdin'], cwd=TARGET, env=ENV,
+                                               stdin=pack.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                      pack.stdout.close()
+                      packed = pack.wait()
+                      if packed or receive.returncode:
+                          raise RuntimeError('Could not import current source-tree objects')
+                  object_list.unlink()
+              if index:
+                  git('update-index', '-z', '--index-info', data=b''.join(index))
+              return excluded, submodules
+          
+          
+          def lfs_archive(mirror, name, release, assets):
+              result = {'status': 'not_present', 'object_count': 0, 'bytes': 0}
+              # Git LFS inspects all reachable revisions; source .lfsconfig is never checked out.
+              listed = git('lfs', 'ls-files', '--all', '--long', cwd=mirror, check=False)
+              if listed.returncode:
+                  result.update(status='unverified', error=listed.stderr.decode(errors='replace')[-2000:])
+                  return result
+              pointer_ids = sorted(set(re.findall(rb'(?m)^([0-9a-f]{64})\s', listed.stdout)))
+              if not pointer_ids:
+                  return result
+              result['referenced_object_count'] = len(pointer_ids)
+              # Explicit GitHub endpoint prevents custom source configuration choosing a different service.
+              fetched = git('-c', f'lfs.url=https://github.com/{ORG}/{name}.git/info/lfs',
+                            'lfs', 'fetch', '--all', 'origin', cwd=mirror, check=False)
+              missing, invalid, objects = [], [], []
+              for oid_bytes in pointer_ids:
+                  oid = oid_bytes.decode()
+                  path = mirror / 'lfs' / 'objects' / oid[:2] / oid[2:4] / oid
+                  if not path.is_file():
+                      missing.append(oid)
+                  elif sha256(path) != oid:
+                      invalid.append(oid)
+                  else:
+                      objects.append(path)
+              result.update(object_count=len(objects), missing=missing, invalid=invalid,
+                            bytes=sum(path.stat().st_size for path in objects))
+              if objects:
+                  archive = mirror.parent / (name + '.lfs.tar')
+                  with tarfile.open(archive, 'w') as tar:
+                      for path in objects:
+                          info = tar.gettarinfo(str(path), arcname=str(path.relative_to(mirror)))
+                          info.mtime = 0
+                          info.uid = info.gid = 0
+                          info.uname = info.gname = ''
+                          with path.open('rb') as stream:
+                              tar.addfile(info, stream)
+                  result['archive'] = archive_parts(archive, release, assets)
+                  archive.unlink()
+              result['status'] = 'complete' if not missing and not invalid and fetched.returncode == 0 else 'incomplete'
+              if fetched.returncode:
+                  result['error'] = fetched.stderr.decode(errors='replace')[-2000:]
+              return result
+          
+          
+          def backup(source, release, assets):
+              name = source['name']
+              metadata_path = f'.archive/repositories/{name}.json'
+              old_raw = existing(metadata_path)
+              old = json.loads(old_raw) if old_raw else None
+              if old and old.get('source') != source['html_url']:
+                  raise RuntimeError('Existing folder provenance does not match source')
+              folder = git('ls-tree', 'HEAD', '--', name).stdout
+              if folder and not old:
+                  raise RuntimeError('Existing folder has no archive provenance; refusing to replace it')
+              if old and old.get('backup_complete'):
+                  expected = [part for section in [old.get('git_bundle'), old.get('lfs', {}).get('archive')]
+                              if section for part in section['parts']]
+                  if all(part['name'] in assets and assets[part['name']]['size'] == part['bytes']
+                         and assets[part['name']].get('digest') in (None, 'sha256:' + part['sha256']) for part in expected):
+                      print(f'SKIP {name}: verified completed metadata and release asset sizes', flush=True)
+                      return old
+                  raise RuntimeError('Completed backup has missing release assets; investigate before replacing it')
+              print(f'BACKUP {source["full_name"]}; free disk {shutil.disk_usage(BASE).free // (1024**3)} GiB', flush=True)
+              if shutil.disk_usage(BASE).free < 2 * 1024**3:
+                  raise RuntimeError('Less than 2 GiB free runner disk before source clone')
+              folder_work = Path(tempfile.mkdtemp(prefix=name + '-', dir=BASE))
+              mirror = folder_work / 'mirror.git'
+              record = {'source': source['html_url'], 'source_name': source['full_name'],
+                        'default_branch': source['default_branch'], 'backup_complete': False,
+                        'source_created_at': source.get('created_at'), 'source_pushed_at': source.get('pushed_at'),
+                        'original_license': source.get('license'), 'captured_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                        'scope': 'All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.'}
+              try:
+                  if old and folder:
+                      tracked = git('ls-files', '-z', '--', name).stdout
+                      if tracked:
+                          git('update-index', '--force-remove', '-z', '--stdin', data=tracked)
+                  command(['git', 'clone', '--mirror', f'https://github.com/{ORG}/{name}.git', str(mirror)])
+                  refs = git('for-each-ref', '--format=%(objectname) %(refname)', cwd=mirror).stdout.decode().splitlines()
+                  record['refs'] = refs
+                  record['symbolic_head'] = git('symbolic-ref', 'HEAD', cwd=mirror, check=False).stdout.decode().strip()
+                  if not refs:
+                      record.update(empty_repository=True, lfs={'status': 'not_present'}, backup_complete=True)
+                      stage(f'{name}/EMPTY_REPOSITORY.md', b'This source repository was empty when archived. See .archive metadata.\n')
+                  else:
+                      git('fsck', '--full', '--no-reflogs', cwd=mirror)
+                      bundle = folder_work / (name + '.bundle')
+                      git('bundle', 'create', str(bundle), '--all', cwd=mirror)
+                      git('bundle', 'verify', str(bundle), cwd=mirror)
+                      record['git_bundle'] = archive_parts(bundle, release, assets)
+                      bundle.unlink()
+                      record['lfs'] = lfs_archive(mirror, name, release, assets)
+                      default_ref = 'refs/heads/' + source['default_branch']
+                      resolved = git('rev-parse', '--verify', default_ref + '^{commit}', cwd=mirror, check=False)
+                      if resolved.returncode:
+                          raise RuntimeError('Default branch has no resolvable commit; Git bundle saved')
+                      commit = resolved.stdout.strip().decode()
+                      record['default_commit'] = commit
+                      excluded, submodules = import_tree(mirror, commit, name)
+                      record['excluded_large_files'] = excluded
+                      record['submodules'] = submodules
+                      record['backup_complete'] = record['lfs']['status'] in ('not_present', 'complete')
+                      record['browsable_tree_complete'] = not excluded
+                      record['dependencies_complete'] = not submodules
+                      if not git('ls-files', '--', name).stdout:
+                          stage(f'{name}/EMPTY_TREE.md', b'The default branch tree is empty. Git history is in the release bundle.\n')
+                  stage(metadata_path, json_bytes(record))
+                  save(f'Archive {source["full_name"]}')
+                  print(f'DONE {name}: Git/source backup complete={record["backup_complete"]}', flush=True)
+                  return record
+              except Exception as error:
+                  # Avoid leaving a partly staged source tree for the following repository.
+                  git('read-tree', 'HEAD')
+                  record['backup_complete'] = False
+                  record['error'] = str(error)
+                  stage(metadata_path, json_bytes(record))
+                  save(f'Record incomplete archive for {source["full_name"]}')
+                  print(f'INCOMPLETE {name}: {error}', flush=True)
+                  return record
+              finally:
+                  shutil.rmtree(folder_work, ignore_errors=True)
+          
+          
+          def main():
+              print('Starting independent GitHub-only source backup; repository code is never executed.', flush=True)
+              command(['git', 'lfs', 'version'])
+              command(['git', 'clone', '--no-checkout', '--branch', 'main', f'https://github.com/{REPO}.git', str(TARGET)], auth=True)
+              git('read-tree', 'HEAD')
+              inventory_path = '.archive/source-inventory.json'
+              previous = existing(inventory_path)
+              if previous:
+                  inventory = json.loads(previous)
+                  if inventory['organization'] != ORG:
+                      raise RuntimeError('Existing inventory has different organization')
+              else:
+                  repos = []
+                  for page in range(1, 100):
+                      rows = api(f'/orgs/{ORG}/repos?type=public&per_page=100&page={page}')
+                      repos.extend(rows)
+                      if len(rows) < 100:
+                          break
+                  if not repos:
+                      raise RuntimeError('No public source repositories returned')
+                  repos.sort(key=lambda row: row['name'].lower())
+                  for repo in repos:
+                      if repo['owner']['login'].lower() != ORG or not re.fullmatch(r'[A-Za-z0-9_.-]+', repo['name']):
+                          raise RuntimeError('Unexpected source repository identity')
+                  inventory = {'organization': ORG, 'captured_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                               'repositories': [{key: repo.get(key) for key in ('name', 'full_name', 'html_url', 'default_branch', 'created_at', 'pushed_at', 'size', 'license')}
+                                                for repo in repos]}
+                  stage(inventory_path, json_bytes(inventory))
+                  save(f'Freeze inventory of {len(repos)} public {ORG} repositories')
+              try:
+                  release = api(f'/repos/{REPO}/releases/tags/{TAG}')
+              except urllib.error.HTTPError as error:
+                  if error.code != 404:
+                      raise
+                  release = api(f'/repos/{REPO}/releases', {'tag_name': TAG, 'target_commitish': 'main',
+                      'name': 'Independent Storytold source archive', 'draft': False, 'prerelease': False,
+                      'body': 'Full Git bundles and Git LFS payload archives. See .archive metadata in main for SHA-256 checksums, capture dates, exclusions and completion state. Submodules remain references; original issues and release assets are outside this source backup.'})
+              assets = release_assets(release)
+              records = []
+              for number, source in enumerate(inventory['repositories'], 1):
+                  print(f'[{number}/{len(inventory["repositories"])}] {source["name"]}', flush=True)
+                  try:
+                      records.append(backup(source, release, assets))
+                  except Exception as error:
+                      records.append({'source_name': source['full_name'], 'backup_complete': False, 'error': str(error)})
+                      print(f'FAILED {source["name"]}: {error}', flush=True)
+              complete = sum(bool(row.get('backup_complete')) for row in records)
+              report = {'repository_count': len(records), 'complete': complete, 'incomplete': len(records) - complete,
+                        'source_backup_complete': complete == len(records),
+                        'submodule_references': sum(len(row.get('submodules', [])) for row in records),
+                        'external_dependencies_independently_archived': False,
+                        'repositories': [{'source': row.get('source_name'), 'backup_complete': row.get('backup_complete'),
+                                          'error': row.get('error'), 'lfs_status': row.get('lfs', {}).get('status'),
+                                          'large_file_exclusions': len(row.get('excluded_large_files', [])),
+                                          'submodule_references': len(row.get('submodules', []))} for row in records]}
+              stage('.archive/status.json', json_bytes(report))
+              readme = f'''# ArtCraft\n\nIndependent source archive of **{len(records)} public repositories** from [storytold](https://github.com/storytold), stored in the Dbongdiary account.\n\n**Backup status: {complete}/{len(records)} source repositories complete.** See [.archive/status.json](.archive/status.json) and [repository manifests](.archive/repositories) for exact capture times, checksums, exclusions and remaining issues. The inventory is frozen at {inventory['captured_at']}; rerunning resumes incomplete entries.\n\n**Submodule dependencies are references only:** {report['submodule_references']} linked commit references have been preserved, but linked repositories are not independently archived by this workflow.\n\nEach named folder contains that repository's default-branch source tree. Files larger than 100 MiB are omitted from the browsable folder and listed with exact paths and SHA-256 hashes in its manifest; their contents remain in the full Git bundle. Git LFS pointer files remain unchanged, and available LFS payloads are saved separately. Original licenses and notices are preserved.\n\n[Download the independent Git history and LFS archives]({release['html_url']}). These release assets belong to this repository and do not require the source organization to remain available. Git bundles retain all advertised refs, branches, tags and reachable objects. An empty repository is represented by an explanatory file and manifest.\n\n## Restore one repository\n\nDownload its bundle assets from the release. For a split bundle, concatenate the exact asset names listed in its manifest, in part order: `cat PART1 PART2 > NAME.bundle`. For a single bundle, rename the downloaded content-addressed asset to `NAME.bundle`. Verify the whole-file SHA-256 against the manifest, then run `GIT_LFS_SKIP_SMUDGE=1 git clone --branch DEFAULT_BRANCH NAME.bundle NAME` using the manifest default branch.\n\nFor LFS, concatenate numbered tar parts if present, verify the checksum, and extract `NAME.lfs.tar` inside the cloned repository's `.git` directory. Then run `git lfs checkout` in that repository. The archive contains `lfs/objects/...` paths.\n\n## Scope and limitations\n\nThis is a source and Git-history snapshot. Submodule commit references and original `.gitmodules` files are preserved; linked submodule repositories are not recursively fetched, so external dependencies may disappear independently. Original issue discussions, pull-request conversations, release assets, deployments and private/deleted repositories unavailable at capture time are outside this backup. The upstream listing currently exposes {len(records)} public repositories; this archive makes no claim about any additional inaccessible repositories.\n\nNo source repository is cloned onto the user's Mac. Cloning, inspection and transfer happen only on an ephemeral GitHub Actions runner. Source code, hooks, workflows and build scripts are never executed.\n'''
+              stage('README.md', readme.encode())
+              save(f'Update archive status: {complete}/{len(records)} complete')
+              summary = f'## ArtCraft archive\n\n{complete}/{len(records)} source backups complete.\n\nRelease: {release["html_url"]}\n\nDetailed status: https://github.com/{REPO}/blob/main/.archive/status.json\n'
+              Path(os.environ['GITHUB_STEP_SUMMARY']).write_text(summary)
+              print(summary, flush=True)
+              if complete != len(records):
+                  raise SystemExit('Some source backups are incomplete; inspect manifests and rerun to resume.')
+          
+          
+          if __name__ == '__main__':
+              main()
+          PYTHON_ARCHIVE
