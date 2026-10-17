@@ -1,0 +1,48 @@
+{
+  "captured_at": "2026-10-17T20:33:32Z",
+  "children": [],
+  "dependency_graph_complete": false,
+  "excluded_large_files": [],
+  "expanded_tree": "96ac6081cf433aab3229bbb87a3a652a8b73cc9e",
+  "git_bundle": {
+    "bytes": 12631877,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 12631877,
+        "name": "dependency-66608a9b6919-02ec8c4e4d4a.bundle.sha256-fb2610b3af55a2bb65fcc0757dfadf3f3b1c01620fff74e1d44abc51e0549bcb",
+        "sha256": "fb2610b3af55a2bb65fcc0757dfadf3f3b1c01620fff74e1d44abc51e0549bcb",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-dependency-backup/dependency-66608a9b6919-02ec8c4e4d4a.bundle.sha256-fb2610b3af55a2bb65fcc0757dfadf3f3b1c01620fff74e1d44abc51e0549bcb"
+      }
+    ],
+    "whole_sha256": "fb2610b3af55a2bb65fcc0757dfadf3f3b1c01620fff74e1d44abc51e0549bcb"
+  },
+  "import_progress": {
+    "batch_count": 1,
+    "distinct_blob_bytes": 13281043,
+    "file_count": 56,
+    "maximum_batch_blob_bytes": 13281043
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "metadata_path": ".archive/dependencies/nodes/SingleZombie/ebsynth/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2.json",
+  "pin": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
+  "refs": [
+    "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2 refs/archive/pins/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
+    "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2 refs/heads/master"
+  ],
+  "snapshot_path": "dependencies/SingleZombie/ebsynth/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
+  "source": "SingleZombie/ebsynth",
+  "source_archive_complete": true,
+  "source_tree": "96ac6081cf433aab3229bbb87a3a652a8b73cc9e",
+  "symbolic_head": "refs/heads/master",
+  "tree_verification": {
+    "exact_match": true,
+    "imported_tree": "96ac6081cf433aab3229bbb87a3a652a8b73cc9e",
+    "source_tree": "96ac6081cf433aab3229bbb87a3a652a8b73cc9e",
+    "status": "verified"
+  }
+}
