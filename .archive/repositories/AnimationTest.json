@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:04:22Z",
+  "default_branch": "main",
+  "default_commit": "71e1c2111866fd65b4b9b215794de14459a8eeda",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 138400757,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 138400757,
+        "name": "AnimationTest.bundle.sha256-b787a0b81ca1185d87d87d2b3551622cce1b8667036919712399b407e2c8a28a",
+        "sha256": "b787a0b81ca1185d87d87d2b3551622cce1b8667036919712399b407e2c8a28a",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/AnimationTest.bundle.sha256-b787a0b81ca1185d87d87d2b3551622cce1b8667036919712399b407e2c8a28a"
+      }
+    ],
+    "whole_sha256": "b787a0b81ca1185d87d87d2b3551622cce1b8667036919712399b407e2c8a28a"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "71e1c2111866fd65b4b9b215794de14459a8eeda refs/heads/main"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/AnimationTest",
+  "source_created_at": "2022-07-09T18:24:08Z",
+  "source_name": "storytold/AnimationTest",
+  "source_pushed_at": "2022-07-09T18:24:19Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
