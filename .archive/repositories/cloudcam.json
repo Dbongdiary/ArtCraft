@@ -1,0 +1,43 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:09:05Z",
+  "default_branch": "master",
+  "default_commit": "497d941746fdd168a579623bbb7a29c8ecd2ef0f",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 6356703,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 6356703,
+        "name": "cloudcam.bundle.sha256-f8eb33098e326696d5d7bbfa3fbf2b650ed5e7f3c5bc80f8c95cd3e9187bf3f0",
+        "sha256": "f8eb33098e326696d5d7bbfa3fbf2b650ed5e7f3c5bc80f8c95cd3e9187bf3f0",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/cloudcam.bundle.sha256-f8eb33098e326696d5d7bbfa3fbf2b650ed5e7f3c5bc80f8c95cd3e9187bf3f0"
+      }
+    ],
+    "whole_sha256": "f8eb33098e326696d5d7bbfa3fbf2b650ed5e7f3c5bc80f8c95cd3e9187bf3f0"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "b12927391411586372cbbedcabcd508330d34055 refs/heads/cli-init",
+    "bd18ed9c0932aa06327ba88fb4d288291576a2aa refs/heads/experimental-color-camera-support",
+    "89a3825564a8c2f57de214c2ae73b0e23c8cb444 refs/heads/green-screen",
+    "497d941746fdd168a579623bbb7a29c8ecd2ef0f refs/heads/master",
+    "280204d48920d1bd7b363c6358ad48f571196aaf refs/heads/multicam",
+    "4868d206afa3253b5f8be81569b0cb8ea9cecc4a refs/heads/resurrecting-gui-fixes-wip"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/cloudcam",
+  "source_created_at": "2021-01-16T04:50:52Z",
+  "source_name": "storytold/cloudcam",
+  "source_pushed_at": "2022-03-31T23:14:19Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
