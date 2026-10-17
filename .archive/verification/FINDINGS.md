@@ -1,6 +1,6 @@
 # What will work if the original repositories disappear?
 
-Verified on 18 October 2026 using GitHub-hosted runners. No repositories, model files, build outputs or test files were cloned or saved on the owner's Mac.
+Verified on 18 October 2026. All archived repository restoration, application builds and application tests ran on GitHub-hosted runners. No original repositories were cloned or models/application build outputs saved on the owner's Mac. Local inventory/workflow helper files from the earlier archive setup were removed after their GitHub counterparts were saved.
 
 **The backup restores independently, and 13 desktop editors passed concrete sample workflows from that restored source. This does not establish that every feature of every repository works.** The captured public inventory contains 66 repositories: 65 with source and one empty repository, AniCraft. All 65 nonempty Git bundles passed checksum verification, Git integrity checks and checkout of their recorded commits. The two archived LFS objects and seven available external submodule references were also restored and verified.
 
@@ -8,23 +8,23 @@ Source snapshot: `1a39bbe21255a55128c503906888e9fb437b2c29`. Main sample/build e
 
 ## Editors with a working sample from the backup
 
-All 13 compiled their binaries and remained running for 15 seconds under a Linux virtual display. Each also passed the operation below; generated files were decoded, inspected or rendered to check meaningful output. These are targeted checks, not an interactive GUI or complete feature certification.
+All 13 compiled their binaries and remained running for 15 seconds under a Linux virtual display. Each also passed the operation below; generated files were decoded, inspected or rendered to check meaningful output. For multi-page PDFs, page counts were inspected and only the first page was rendered for the nonblank-preview check. These are targeted checks, not an interactive GUI or complete feature certification.
 
 | App | Verified operation | Broader-test limit |
 |---|---|---|
 | [CADCraft](cadcraft.json) | Created sample bracket DXF and converted it to a nonblank 2400 x 1600 PNG. | Workspace test command passed. |
-| [GridCraft](gridcraft.json) | XLOOKUP returned 2; budget XLSX passed ZIP/XML checks; a two-page PDF rendered nonblank. | Workspace test command passed. |
-| [FigCraft](figcraft.json) | Created a Dashboard document and exported a one-page PDF that rendered nonblank. | Workspace test command reached the 15-minute limit. Collaboration was not tested. |
-| [DeckCraft](deckcraft.json) | Exported an eight-page sample presentation PDF that rendered nonblank. | One font-replacement dialog UI test failed. |
-| [DesignCraft](designcraft.json) | Exported a four-page sample publication PDF that rendered nonblank. | Workspace test command reached the 15-minute limit. |
+| [GridCraft](gridcraft.json) | XLOOKUP returned 2; budget XLSX passed ZIP/XML checks; a two-page PDF had a nonblank first-page preview. | Workspace test command passed. |
+| [FigCraft](figcraft.json) | Created a Dashboard document and exported a one-page PDF with a nonblank first-page preview. | Workspace test command reached the 15-minute limit. Collaboration was not tested. |
+| [DeckCraft](deckcraft.json) | Exported an eight-page sample presentation PDF with a nonblank first-page preview. | One font-replacement dialog UI test failed. |
+| [DesignCraft](designcraft.json) | Exported a four-page sample publication PDF with a nonblank first-page preview. | Workspace test command reached the 15-minute limit. |
 | [EffectCraft](effectcraft.json) | Rendered a nonblank 320 x 180 demo frame. | Workspace test command reached the 15-minute limit. |
 | [FilmCraft](filmcraft.json) | Rendered a nonblank 480 x 270 demo frame. | Workspace test command reached the 15-minute limit; video encoding was not certified. |
 | [LightCraft](lightcraft.json) | Applied exposure to a 32 x 32 image; measured increased brightness against a baseline. | Workspace test command reached the 15-minute limit; sample used CPU mode. |
 | [PDFCraft](pdfcraft.json) | Extracted text, rotated a page, changed its title, preserved text and rendered the edited PDF. | Workspace test command reached the 15-minute limit; OCR was not tested. |
 | [PhotoCraft](photocraft.json) | Created a 40 x 30 image and verified a green painted stroke in its exported PNG. | Workspace test command reached the 15-minute limit. |
 | [SoundCraft](soundcraft.json) | Bounced two seconds of non-silent stereo, 48 kHz, 24-bit audio to WAV. | Two unsaved-work recovery tests failed. |
-| [VectorCraft](vectorcraft.json) | Exported the saved ribbons document to a one-page PDF that rendered nonblank. | Workspace test command reached the 15-minute limit. |
-| [WordCraft](wordcraft.json) | Saved and inspected DOCX, checked ZIP/XML, and exported a two-page PDF that rendered nonblank. | Two font tests failed with the newer font set supplied by the verifier; PDF inspection also emitted a metadata warning. |
+| [VectorCraft](vectorcraft.json) | Exported the saved ribbons document to a one-page PDF with a nonblank first-page preview. | Workspace test command reached the 15-minute limit. |
+| [WordCraft](wordcraft.json) | Saved and inspected DOCX, checked ZIP/XML, and exported a two-page PDF with a nonblank first-page preview. | Two font tests failed with the newer font set supplied by the verifier; PDF inspection also emitted a metadata warning. |
 
 Eight test commands timed out; this is an inconclusive full-suite result, not proof of a broken app. Compilation is included in those time limits. A process remaining alive for 15 seconds does not prove every window or control is usable. Mac/Windows packaging, audio devices, GPU behavior and exhaustive format compatibility were not tested.
 
@@ -36,10 +36,10 @@ Eight test commands timed out; this is an inconclusive full-suite result, not pr
 
 | Repository | What passed | What remains unresolved |
 |---|---|---|
-| [ArtCraft](artcraft.json) | Frontend production build. | Focused package builds are running; the earlier workspace-wide command combined incompatible dialog backends from two separate applications. This section will be updated when that follow-up completes. |
+| [ArtCraft](artcraft.json) | Frontend production build; separate Rust builds of artcraft and artcraft_native; primary process remained alive for 15 seconds under a virtual display. | The earlier workspace-wide failure came from combining incompatible dialog backends. The separate builds passed. Tests were not rerun in the follow-up; packaged GUI behavior and authenticated AI operations remain unverified. |
 | [ArtCraftX](artcraftx.json) | Frontend production build and Rust binary build. | A test needs absent `test_data/image/juno.jpg`; it was also absent from the pinned original source. Hosted AI operations were not tested. |
 | [artcraft-services](artcraft-services.json) | Rust binary build and frontend package installation. | Database tests need MySQL; the runner had no server at `/tmp/mysql.sock`. The frontend had installation only, not a tested build. Production services/data are not backed up by Git. |
-| [storyteller-bevy](storyteller-bevy.json) | Rust tests and binary build. | Frontend package installation failed authentication (E401) for private FontAwesome Pro dependencies. The combined app is not verified. |
+| [storyteller-bevy](storyteller-bevy.json) | Rust tests and binary build. | Frontend npm authentication failed (E401); the source also requires private FontAwesome Pro access. The combined app is not verified. |
 | [Spark](spark.json) | WASM generation, npm installation, tests and production build. | Browser rendering and interaction were not tested. |
 | [craft-repo-status-app](craft-repo-status-app.json) | npm typecheck/tests/build and Rust tests/binary build. | Authenticated GitHub/dashboard operation was not tested. |
 | [craft-launcher](craft-launcher.json) | Rust tests and binary build. | Installer/update feeds still reference original release hosting; saved source does not preserve those installers. |
