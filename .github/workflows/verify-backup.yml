@@ -409,7 +409,7 @@ jobs:
              result['kind']='javascript';result['status']='package_checks_passed' if all(x['status']=='checks_passed' for x in result['javascript_checks']) else 'package_checks_blocked_or_install_only'
              result['limitations'].append('No authenticated service or browser end-to-end workflow was exercised.')
             elif (repo/'go.mod').exists():
-             result['kind']='go';c,t=command(['go','test','./...'],repo,480,label='go-tests');result['status']='tests_passed' if c==0 else 'tests_blocked'
+             result['kind']='go';c,t=command(['make','test'] if name=='irsa-manager' else ['go','test','./...'],repo,600,label='go-tests');result['status']='tests_passed' if c==0 else 'tests_blocked'
             elif any(f.suffix in ['.uplugin','.uproject'] for f in allfiles):result['kind']='unreal';result['limitations'].append('Requires compatible Unreal Engine and an integration project; no licensed engine/runtime present on standard runner.')
             elif (repo/'ProjectSettings').exists() or any(f.name=='ProjectVersion.txt' for f in allfiles):result['kind']='unity';result['limitations'].append('Requires matching Unity editor, license and often Kinect/Xsens hardware; runtime not exercised.')
             elif pycount:
