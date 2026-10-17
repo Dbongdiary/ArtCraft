@@ -26,5 +26,12 @@
     "snapshot_path": "dependencies/lllyasviel/ControlNet/d3284fcd0972c510635a4f5abe2eeb71dc0de524",
     "source": "lllyasviel/ControlNet",
     "tree": "50db3555861b774622436be3568a8d5ce6a5728f"
+  },
+  "storyteller-ml/animation/rerender-lora/deps/ebsynth": {
+    "dependency_graph_complete": true,
+    "pin": "02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
+    "snapshot_path": "dependencies/SingleZombie/ebsynth/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
+    "source": "SingleZombie/ebsynth",
+    "tree": "96ac6081cf433aab3229bbb87a3a652a8b73cc9e"
   }
 }
