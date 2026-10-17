@@ -1,9 +1,16 @@
 {
   "captured_at": "2026-10-17T20:34:26Z",
   "dependency_graph_complete": false,
-  "error": "git failed: Cloning into bare repository '/tmp/artcraft-u22zdsh9/dependency-4gwanze3/mirror.git'...\nfatal: could not read Username for 'https://github.com': terminal prompts disabled\n",
+  "error": "Git clone failed (exit 128). Source repository is inaccessible with the available authentication.",
   "expanded_tree": null,
+  "failure_diagnostics": {
+    "category": "Source repository is inaccessible with the available authentication.",
+    "codes": [],
+    "exit_status": 128,
+    "operation": "clone"
+  },
   "metadata_path": ".archive/dependencies/nodes/ml-applications/glow-tts-multispeaker/23177d29a09015a4f40fce0b81b315392064f9d7.json",
+  "phase": "mirror_clone",
   "pin": "23177d29a09015a4f40fce0b81b315392064f9d7",
   "snapshot_path": "dependencies/ml-applications/glow-tts-multispeaker/23177d29a09015a4f40fce0b81b315392064f9d7",
   "source": "ml-applications/glow-tts-multispeaker",
