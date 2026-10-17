@@ -1,19 +1,10 @@
 {
   "captured_at": "2026-10-17T20:40:40Z",
   "children": [],
-  "dependency_graph_complete": false,
-  "error": "Git fsck failed (exit 1; diagnostic codes: gitmodulesUrl). Operation failed; raw command output is intentionally excluded from public archive metadata.",
+  "dependency_graph_complete": true,
   "excluded_history": "GitHub pull-request refs and other non-branch/tag refs excluded.",
   "excluded_large_files": [],
   "expanded_tree": "47efbe6fd1878c53a1bdfd93e5a813ccf5d00c13",
-  "failure_diagnostics": {
-    "category": "Operation failed; raw command output is intentionally excluded from public archive metadata.",
-    "codes": [
-      "gitmodulesUrl"
-    ],
-    "exit_status": 1,
-    "operation": "fsck"
-  },
   "git_bundle": {
     "bytes": 17349663,
     "format": "bundle",
@@ -58,7 +49,7 @@
     "status": "not_present"
   },
   "metadata_path": ".archive/dependencies/nodes/NVIDIA/apex/37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061.json",
-  "phase": "save_source_snapshot",
+  "phase": "complete",
   "pin": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
   "refs": [
     "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061 refs/archive/pins/37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
