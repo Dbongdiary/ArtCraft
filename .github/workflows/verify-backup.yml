@@ -115,11 +115,98 @@ jobs:
            elif isinstance(obj,list):
             for v in obj:yield from cargo_tables(v)
           
+          import tarfile
+          
+          def download_verified(meta,dest):
+           whole=hashlib.sha256();size=0
+           with dest.open('wb') as dst:
+            for part in meta['parts']:
+             if not part['url'].startswith('https://github.com/Dbongdiary/ArtCraft/releases/download/'):raise RuntimeError('Unexpected archive host')
+             h=hashlib.sha256();n=0
+             with urllib.request.urlopen(part['url'],timeout=180) as src:
+              for block in iter(lambda:src.read(1024*1024),b''):
+               dst.write(block);h.update(block);whole.update(block);n+=len(block);size+=len(block)
+             if n!=part['bytes'] or h.hexdigest()!=part['sha256']:raise RuntimeError('Archive part mismatch')
+           if size!=meta['bytes'] or whole.hexdigest()!=meta['whole_sha256']:raise RuntimeError('Whole archive mismatch')
+          
+          def gout(args,cwd):
+           p=subprocess.run(['git','-c','core.hooksPath=/dev/null',*args],cwd=cwd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env={**os.environ,'GIT_ALLOW_PROTOCOL':'file','GIT_LFS_SKIP_SMUDGE':'1'},timeout=600)
+           if p.returncode:raise RuntimeError('Git restore verification failed: '+args[0]+' exit '+str(p.returncode))
+           return p.stdout.decode()
+          
+          def hashfile(p):
+           h=hashlib.sha256()
+           with p.open('rb') as f:
+            for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
+           return h.hexdigest()
+          
+          def restore_lfs(repo,mdir,metadata):
+           lfs=metadata['lfs']
+           if lfs['status']=='not_present':return {'status':'not_present'}
+           if lfs['status']!='complete':raise RuntimeError('Saved LFS archive incomplete')
+           tarpath=root/'lfs.tar';download_verified(lfs['archive'],tarpath)
+           gitdir=pathlib.Path(gout(['rev-parse','--absolute-git-dir'],repo).strip());got={};total=0
+           with tarfile.open(tarpath,'r|') as tf:
+            for member in tf:
+             if member.isdir() and member.name.startswith('lfs/objects'):continue
+             match=re.fullmatch(r'lfs/objects/([0-9a-f]{2})/([0-9a-f]{2})/([0-9a-f]{64})',member.name)
+             if not member.isfile() or not match:raise RuntimeError('Unexpected LFS tar member')
+             aa,bb,oid=match.groups()
+             if (aa,bb)!=(oid[:2],oid[2:4]) or oid in got:raise RuntimeError('Invalid LFS member')
+             dest=gitdir/member.name;dest.parent.mkdir(parents=True,exist_ok=True);h=hashlib.sha256();size=0
+             if not dest.resolve().is_relative_to(gitdir.resolve()):raise RuntimeError('LFS path escape')
+             with tf.extractfile(member) as src,dest.open('wb') as dst:
+              for block in iter(lambda:src.read(1024*1024),b''):dst.write(block);h.update(block);size+=len(block)
+             if h.hexdigest()!=oid or size!=member.size:raise RuntimeError('LFS payload mismatch')
+             got[oid]=size;total+=size
+           if len(got)!=lfs['object_count'] or total!=lfs['bytes']:raise RuntimeError('LFS count mismatch')
+           historical=json.loads(gout(['lfs','ls-files','--all','--json'],mdir))['files']
+           if {x['oid'] for x in historical}!=set(got):raise RuntimeError('Historical LFS coverage mismatch')
+           current=json.loads(gout(['lfs','ls-files','--json'],repo))['files']
+           gout(['-c','lfs.url=file:///unavailable-original-lfs','-c','lfs.storage='+str(gitdir/'lfs'),'lfs','checkout'],repo)
+           for item in current:
+            p=repo/item['name']
+            if p.is_symlink() or not p.resolve().is_relative_to(repo.resolve()) or p.stat().st_size!=item['size'] or hashfile(p)!=item['oid']:raise RuntimeError('LFS checkout mismatch')
+           tarpath.unlink();return {'status':'verified_and_materialized','historical_objects':len(got),'bytes':total,'current_files':len(current)}
+          
+          def restore_dependencies(repo):
+           cache={};checked=[]
+           for link in getjson('.archive/dependencies/roots.json'):
+            if link['parent']!='storytold/'+name:continue
+            rec={'path':link['path'],'pin':link['pin']};checked.append(rec)
+            if not link.get('dependency_graph_complete'):
+             rec.update(status='known_unavailable',reason=link.get('error'));continue
+            try:
+             assert link['parent_commit']==manifests[name]['default_commit']
+             path=pathlib.PurePosixPath(link['path']);assert not path.is_absolute() and not any(x in ('..','.git') for x in path.parts)
+             assert all(not (repo.joinpath(*path.parts[:i])).is_symlink() for i in range(1,len(path.parts)+1))
+             entry=gout(['--literal-pathspecs','ls-tree','-z','HEAD','--',str(path)],repo);header,actual=entry.rstrip('\0').split('	',1)
+             assert actual==str(path) and header=='160000 commit '+link['pin']
+             source=link['source'];pin=link['pin'];key=(source,pin)
+             assert re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+',source) and re.fullmatch(r'[0-9a-f]{40}',pin)
+             node=getjson('.archive/dependencies/nodes/'+source+'/'+pin+'.json')
+             assert node['source']==source and node['pin']==pin and node['source_archive_complete']
+             assert node['children']==[] and node['lfs']['status']=='not_present'
+             if key not in cache:
+              basedir=root/'dependency-cache'/source/pin;basedir.mkdir(parents=True,exist_ok=True);bundle=basedir/'source.bundle';mdir=basedir/'mirror.git'
+              download_verified(node['git_bundle'],bundle);gout(['clone','--mirror',str(bundle),str(mdir)],root);gout(['--git-dir='+str(mdir),'fsck','--full','--no-reflogs'],root)
+              refs=gout(['--git-dir='+str(mdir),'for-each-ref','--format=%(objectname) %(refname)'],root).splitlines();assert sorted(refs)==sorted(node['refs'])
+              assert gout(['--git-dir='+str(mdir),'rev-parse',pin+'^{tree}'],root).strip()==node['source_tree'];bundle.unlink();cache[key]=mdir
+             dest=repo.joinpath(*path.parts);assert not dest.exists() or (dest.is_dir() and not any(dest.iterdir()));dest.parent.mkdir(parents=True,exist_ok=True)
+             gout(['clone','--no-checkout',str(cache[key]),str(dest)],root);gout(['checkout','--detach',pin],dest)
+             assert gout(['rev-parse','HEAD'],dest).strip()==pin and gout(['rev-parse','HEAD^{tree}'],dest).strip()==node['source_tree']
+             assert gout(['status','--porcelain','--untracked-files=all'],dest)==''
+             rec.update(status='verified_and_materialized',source=source,tree=node['source_tree'])
+            except Exception as e:rec.update(status='verification_failed',error=type(e).__name__+': '+clean(e))
+           return checked
+          
           try:
            if name=='AniCraft':
             result['status']='empty_repository';result['limitations'].append('No application source was present at capture time.')
            else:
             repo=restore(name); result['restored']=True;result['source_commit']=manifests[name]['default_commit'];result['restore_proof']='Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.'
+            if name in ['storyteller-ml','torchscript-models']:
+             result['lfs_restore']=restore_lfs(repo,mirrors[name],manifests[name]);result['dependency_restores']=restore_dependencies(repo)
             # Resolve source-hosted Git dependencies exclusively through our bundle mirrors.
             queue=[repo]; scanned=set(); gitrefs=set(); domains=set(); modelrefs=set(); allfiles=list(walkfiles(repo)); cargos=[]; pycount=0; pyerrors=[]
             for f in allfiles:
@@ -162,8 +249,8 @@ jobs:
             result['python_syntax']={'files_checked':pycount,'errors':pyerrors[:100]}
             result['submodule_references']=manifests[name].get('submodules',[])
             result['lfs_status']=manifests[name].get('lfs',{}).get('status')
-            if result['submodule_references']:result['limitations'].append('Submodules require separately archived dependency restoration; original bundle preserves gitlinks. Full ML execution not attempted.')
-            if result['lfs_status']=='complete':result['limitations'].append('LFS payloads exist in separate archive; this build check does not materialize them.')
+            if result['submodule_references'] and not result.get('dependency_restores'):result['limitations'].append('Submodules require separately archived dependency restoration; original bundle preserves gitlinks. Full ML execution not attempted.')
+            if result['lfs_status']=='complete' and not result.get('lfs_restore'):result['limitations'].append('LFS payloads exist in separate archive; this build check does not materialize them.')
             if modelrefs:result['limitations'].append('Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.')
             result['status']='source_restored_runtime_unverified'
             jsroots=[]
@@ -194,7 +281,7 @@ jobs:
                 c,t=command(['git','--git-dir='+str(mdir),'cat-file','-e',rev+'^{commit}'])
                 if c:result['limitations'].append('Pinned dependency commit unavailable: '+dep+'@'+rev)
              command(['sudo','apt-get','update','-qq'],timeout=180,label='system-index')
-             command(['sudo','apt-get','install','-y','--no-install-recommends','pkg-config','libssl-dev','libasound2-dev','libudev-dev','libxkbcommon-dev','libwayland-dev','libxcb-shape0-dev','libxcb-xfixes0-dev','libgtk-3-dev','libvulkan1','mesa-vulkan-drivers','xvfb','protobuf-compiler','clang','cmake','libfontconfig1-dev','libdbus-1-dev','libwebkit2gtk-4.1-dev','libayatana-appindicator3-dev','librsvg2-dev','libxdo-dev','libzmq3-dev','libsodium-dev','poppler-utils'],timeout=240,label='system-dependencies')
+             command(['sudo','apt-get','install','-y','--no-install-recommends','pkg-config','libssl-dev','libasound2-dev','libudev-dev','libxkbcommon-dev','libwayland-dev','libxcb-shape0-dev','libxcb-xfixes0-dev','libgtk-3-dev','libvulkan1','mesa-vulkan-drivers','xvfb','protobuf-compiler','clang','cmake','libfontconfig1-dev','libdbus-1-dev','libwebkit2gtk-4.1-dev','libayatana-appindicator3-dev','librsvg2-dev','libxdo-dev','libzmq3-dev','libsodium-dev','poppler-utils','python3-pil'],timeout=240,label='system-dependencies')
              tool='stable'
              tfile=repo/'rust-toolchain.toml'
              if tfile.exists():tool=tomllib.loads(tfile.read_text()).get('toolchain',{}).get('channel','stable')
@@ -213,23 +300,59 @@ jobs:
                if exe.exists() and name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','photocraft','pdfcraft','cadcraft','designcraft','effectcraft','filmcraft','soundcraft','lightcraft','artcraft','craft-launcher','crafthub']:
                 sm,st=command(['xvfb-run','-a',str(exe)],repo,15,label='headless-launch')
                 result['headless_launch']='stayed_running_15_seconds' if sm==124 else 'exited_'+str(sm)
-              if b==0 and name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft']:
-               cli=pathlib.Path(meta['target_directory'])/'debug'/(name+'-cli');pdf=out/'sample.pdf';steps=[]
+              smoke_apps=['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft','cadcraft','effectcraft','filmcraft','lightcraft','pdfcraft','photocraft','soundcraft']
+              if name in smoke_apps:
+               cli=pathlib.Path(meta['target_directory'])/'debug'/(name+'-cli');pdf=out/'sample.pdf';png=out/'sample.png';wav=out/'sample.wav';steps=[]
+               if not cli.exists():command(['cargo','+'+tool,'build','-p',name+'-cli','--locked'],repo,480,label='sample-cli-build')
+               # Generate self-contained input fixtures on this GitHub runner.
+               import struct,zlib,wave
+               tiny=out/'tiny.png'
+               def chunk(tag,data):return struct.pack('!I',len(data))+tag+data+struct.pack('!I',zlib.crc32(tag+data)&0xffffffff)
+               tiny.write_bytes(b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!IIBBBBB',32,32,8,2,0,0,0))+chunk(b'IDAT',zlib.compress((b'\0'+bytes([60,100,150])*32)*32))+chunk(b'IEND',b''))
+               tiny_pdf=out/'tiny.pdf';stream=b'BT /F1 12 Tf 12 30 Td (ARCHIVE SMOKE) Tj ET';objs=[b'<< /Type /Catalog /Pages 2 0 R >>',b'<< /Type /Pages /Count 1 /Kids [3 0 R] >>',b'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 144 72] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>',b'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',b'<< /Length '+str(len(stream)).encode()+b' >>\nstream\n'+stream+b'\nendstream'];data=b'%PDF-1.4\n';offsets=[0]
+               for i,obj in enumerate(objs,1):offsets.append(len(data));data+=str(i).encode()+b' 0 obj\n'+obj+b'\nendobj\n'
+               xref=len(data);data+=b'xref\n0 6\n0000000000 65535 f \n'+b''.join(('%010d 00000 n \n'%x).encode() for x in offsets[1:])+b'trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n'+str(xref).encode()+b'\n%%EOF\n';tiny_pdf.write_bytes(data)
                if name=='figcraft':
-                script=out/'start.json';script.write_text(json.dumps([{'command':'file.newFromTemplate','params':{'template':'dashboard'}}]));doc=out/'dashboard.figcraft'
-                steps=[[str(cli),'run',str(script),'--out',str(doc)],[str(cli),'export',str(doc),'-o',str(pdf)]]
+                script=out/'start.json';script.write_text(json.dumps([{'command':'file.newFromTemplate','params':{'template':'dashboard'}}]));doc=out/'dashboard.figcraft';steps=[[str(cli),'run',str(script),'--out',str(doc)],[str(cli),'export',str(doc),'-o',str(pdf)]]
                elif name=='gridcraft':steps=[[str(cli),'eval','=XLOOKUP("b",{"a","b"},{1,2})'],[str(cli),'run','--sample','budget','--out',str(out/'budget.xlsx')],[str(cli),'run','--sample','budget','--out',str(pdf)]]
                elif name=='wordcraft':steps=[[str(cli),'run','--template','sample','--cmd','file.exportPdf='+json.dumps({'path':str(pdf)}),'--save',str(out/'sample.docx')],[str(cli),'inspect',str(out/'sample.docx')]]
                elif name=='vectorcraft':steps=[[str(cli),'run','--in','examples/ribbons.vectorcraft','--export',str(pdf)]]
-               else:steps=[[str(cli),'run','--sample','--export',str(pdf)]]
-               good=True
-               for i,args in enumerate(steps):
-                cc,tt=command(args,repo,120,label='sample-'+str(i));good=good and cc==0
-                if name=='gridcraft' and i==0:good=good and '2' in tt
-               if pdf.exists():
-                cc,tt=command(['pdfinfo',str(pdf)],timeout=60,label='sample-pdf-validation');good=good and cc==0 and bool(re.search(r'Pages:\s+[1-9]',tt))
-               else:good=False
-               result['sample_workflow']='passed' if good else 'failed_or_blocked'
+               elif name in ['deckcraft','designcraft']:steps=[[str(cli),'run','--sample','--export',str(pdf)]]
+               elif name=='cadcraft':steps=[[str(cli),'sample','bracket',str(out/'sample.dxf')],[str(cli),'convert',str(out/'sample.dxf'),str(png)]]
+               elif name=='effectcraft':steps=[[str(cli),'render-frame','--demo','--time','1','--max-side','320','--out',str(png)]]
+               elif name=='filmcraft':steps=[[str(cli),'--demo','render','--seconds','1','--scale','0.25','--out',str(png)]]
+               elif name=='lightcraft':
+                os.environ['LIGHTCRAFT_GPU']='0';steps=[[str(cli),'render',str(tiny),'-o',str(png),'--set','light.exposure=0.5','--size','32']]
+               elif name=='pdfcraft':steps=[[str(cli),'text',str(tiny_pdf)],[str(cli),'edit',str(tiny_pdf),'--rotate','1:90','--title','Smoke','--out',str(pdf)],[str(cli),'render',str(pdf),'--page','1','--dpi','72','--out',str(png)]]
+               elif name=='photocraft':steps=[[str(cli),'run','--new','{"width":40,"height":30,"name":"Run"}','--cmd','layer.new.layer','--params','{"name":"Ink"}','--cmd','paint.stroke','--params','{"points":[[2,2,1],[30,20,1]],"size":5,"color":"#00ff00"}','--out',str(png)]]
+               elif name=='soundcraft':steps=[[str(cli),'run','--demo','--start','10','--end','12','--bounce',str(wav),'--inspect'],[str(cli),'info',str(wav)]]
+               good=cli.exists();validation={}
+               if good:
+                for i,args in enumerate(steps):
+                 cc,tt=command(args,repo,180,label='sample-'+str(i));good=good and cc==0
+                 if name=='gridcraft' and i==0:good=good and '2' in tt
+                 if name=='pdfcraft' and i==0:good=good and 'ARCHIVE SMOKE' in tt
+                if name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft','pdfcraft']:
+                 if pdf.exists():
+                  cc,tt=command(['pdfinfo',str(pdf)],timeout=60,label='sample-pdf-validation');good=good and cc==0 and bool(re.search(r'Pages:\s+[1-9]',tt));validation['pdf_info']=tt
+                 else:good=False
+                if name in ['cadcraft','effectcraft','filmcraft','lightcraft','pdfcraft','photocraft']:
+                 if png.exists() and png.read_bytes()[:8]==b'\x89PNG\r\n\x1a\n':
+                  from PIL import Image
+                  image=Image.open(png).convert('RGB');image.load();w,h=image.size;validation['png_dimensions']=[w,h];good=good and w>0 and h>0
+                  if name in ['cadcraft','effectcraft','filmcraft']:good=good and any(a!=b for a,b in image.getextrema())
+                  if name=='photocraft':good=good and any(g>r+20 and g>b+20 for r,g,b in image.getdata())
+                  if name=='lightcraft':good=good and image.tobytes()!=Image.open(tiny).convert('RGB').tobytes()
+                  if name=='pdfcraft':good=good and [w,h]==[72,144]
+                  if name=='photocraft':good=good and [w,h]==[40,30]
+                  if name=='lightcraft':good=good and [w,h]==[32,32]
+                  if name=='filmcraft':good=good and [w,h]==[480,270]
+                 else:good=False
+                if name=='soundcraft':
+                 if wav.exists():
+                  with wave.open(str(wav),'rb') as w:validation['wav']={'frames':w.getnframes(),'rate':w.getframerate(),'channels':w.getnchannels()};good=good and w.getnframes()==96000 and w.getframerate()==48000 and w.getsampwidth()==3 and any(w.readframes(w.getnframes()))
+                 else:good=False
+               result['sample_workflow']='passed' if good else 'failed_or_blocked';result['sample_validation']=validation
               result['limitations'].append('Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified.')
              else:result['status']='manifest_or_source_dependency_blocked'
             elif jsroots:
@@ -288,9 +411,9 @@ jobs:
           rows=list(existing.values())
           rows.sort(key=lambda x:x['repository'].lower())
           run='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']
-          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Check result | Details |','|---|---|---|---|']
+          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Check result | Sample workflow | Details |','|---|---|---|---|---|']
           for r in rows:
-           n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | ['+r.get('kind','details')+']('+n+'.json) |')
+           n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | '+r.get('sample_workflow','not tested')+' | ['+r.get('kind','details')+']('+n+'.json) |')
           counts=dict(collections.Counter(r.get('status','unknown') for r in rows))
           lines+=['','## Coverage','',json.dumps(counts,sort_keys=True),'',str(len(rows))+' repository result files received. Any omitted repository is unverified.','', '## Concrete missing source paths','']
           for r in rows:
