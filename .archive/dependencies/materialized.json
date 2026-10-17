@@ -33,5 +33,12 @@
     "snapshot_path": "dependencies/SingleZombie/ebsynth/02ec8c4e4d4a568057363ae8b8f8bb8f7e4898c2",
     "source": "SingleZombie/ebsynth",
     "tree": "96ac6081cf433aab3229bbb87a3a652a8b73cc9e"
+  },
+  "storyteller-ml/animation/rerender-lora/deps/gmflow": {
+    "dependency_graph_complete": true,
+    "pin": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
+    "snapshot_path": "dependencies/haofeixu/gmflow/af2d869a6fa38b0b076d6f28ab5af1f64beca335",
+    "source": "haofeixu/gmflow",
+    "tree": "3644b20b63de6e8df23e0b12e89fc8e6216e0bef"
   }
 }
