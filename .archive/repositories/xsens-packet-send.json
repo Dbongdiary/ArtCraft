@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:22:13Z",
+  "default_branch": "master",
+  "default_commit": "a1c4b9fa2791bc04ce06b3a47d2049fa077465cb",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 45155375,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 45155375,
+        "name": "xsens-packet-send.bundle.sha256-7176d034a4a1b92c33d328859a2f2450c07a48a95053203d35777916ffba32e3",
+        "sha256": "7176d034a4a1b92c33d328859a2f2450c07a48a95053203d35777916ffba32e3",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/xsens-packet-send.bundle.sha256-7176d034a4a1b92c33d328859a2f2450c07a48a95053203d35777916ffba32e3"
+      }
+    ],
+    "whole_sha256": "7176d034a4a1b92c33d328859a2f2450c07a48a95053203d35777916ffba32e3"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "a1c4b9fa2791bc04ce06b3a47d2049fa077465cb refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/xsens-packet-send",
+  "source_created_at": "2022-06-29T08:54:05Z",
+  "source_name": "storytold/xsens-packet-send",
+  "source_pushed_at": "2022-07-12T06:13:37Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
