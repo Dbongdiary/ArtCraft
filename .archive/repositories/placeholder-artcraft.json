@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:15:36Z",
+  "default_branch": "main",
+  "default_commit": "0daf83dba9b36e2d9a870114cb12ec873913bd58",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 38348106,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 38348106,
+        "name": "placeholder-artcraft.bundle.sha256-febb22fed1d08510aeee064ff43526fd23bb7dce9380b8ade8a457835db2ec2c",
+        "sha256": "febb22fed1d08510aeee064ff43526fd23bb7dce9380b8ade8a457835db2ec2c",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/placeholder-artcraft.bundle.sha256-febb22fed1d08510aeee064ff43526fd23bb7dce9380b8ade8a457835db2ec2c"
+      }
+    ],
+    "whole_sha256": "febb22fed1d08510aeee064ff43526fd23bb7dce9380b8ade8a457835db2ec2c"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "0daf83dba9b36e2d9a870114cb12ec873913bd58 refs/heads/main"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/placeholder-artcraft",
+  "source_created_at": "2025-09-30T02:48:23Z",
+  "source_name": "storytold/placeholder-artcraft",
+  "source_pushed_at": "2025-09-30T02:54:19Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
