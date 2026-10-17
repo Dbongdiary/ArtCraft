@@ -1,0 +1,49 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:20:56Z",
+  "default_branch": "master",
+  "default_commit": "d012036a05c8d31ba6e09d9b45f8185b279f28cc",
+  "dependencies_complete": false,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 1702334,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 1702334,
+        "name": "torchscript-models.bundle.sha256-1fa7e170edbb6310df73d4494eae13c60ee7a465bd622cbd9082eadc2ad73667",
+        "sha256": "1fa7e170edbb6310df73d4494eae13c60ee7a465bd622cbd9082eadc2ad73667",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/torchscript-models.bundle.sha256-1fa7e170edbb6310df73d4494eae13c60ee7a465bd622cbd9082eadc2ad73667"
+      }
+    ],
+    "whole_sha256": "1fa7e170edbb6310df73d4494eae13c60ee7a465bd622cbd9082eadc2ad73667"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "d012036a05c8d31ba6e09d9b45f8185b279f28cc refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/torchscript-models",
+  "source_created_at": "2020-06-02T06:18:52Z",
+  "source_name": "storytold/torchscript-models",
+  "source_pushed_at": "2020-11-03T04:58:43Z",
+  "submodules": [
+    {
+      "commit": "23177d29a09015a4f40fce0b81b315392064f9d7",
+      "path": "glow-tts-jaywalnut-multispeaker/glow-tts-multispeaker",
+      "status": "Reference preserved; submodule repository not fetched"
+    },
+    {
+      "commit": "37cdaf4ad57ab4e7dd9ef13dbed7b29aa939d061",
+      "path": "glow-tts-jaywalnut/apex",
+      "status": "Reference preserved; submodule repository not fetched"
+    }
+  ],
+  "symbolic_head": "refs/heads/master"
+}
