@@ -1,7 +1,7 @@
 {
   "captured_at": "2026-10-17T20:33:39Z",
   "children": [],
-  "dependency_graph_complete": false,
+  "dependency_graph_complete": true,
   "excluded_large_files": [],
   "expanded_tree": "3644b20b63de6e8df23e0b12e89fc8e6216e0bef",
   "git_bundle": {
