@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:04:19Z",
+  "default_branch": "master",
+  "default_commit": "b920a363b0ab473f5ced3d4e772dc401831a87c9",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 18785,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 18785,
+        "name": "ActorSpawningPlugin.bundle.sha256-31130cf60cbc7af7202138aca93c9d326719c4bbe12abc8f9e9048e7ad0464e2",
+        "sha256": "31130cf60cbc7af7202138aca93c9d326719c4bbe12abc8f9e9048e7ad0464e2",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/ActorSpawningPlugin.bundle.sha256-31130cf60cbc7af7202138aca93c9d326719c4bbe12abc8f9e9048e7ad0464e2"
+      }
+    ],
+    "whole_sha256": "31130cf60cbc7af7202138aca93c9d326719c4bbe12abc8f9e9048e7ad0464e2"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "b920a363b0ab473f5ced3d4e772dc401831a87c9 refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/ActorSpawningPlugin",
+  "source_created_at": "2021-03-07T06:29:50Z",
+  "source_name": "storytold/ActorSpawningPlugin",
+  "source_pushed_at": "2021-03-11T04:52:54Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
