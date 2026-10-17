@@ -55,11 +55,80 @@ jobs:
                       GIT_CONFIG_VALUE_0='AUTHORIZATION: basic ' + base64.b64encode(('x-access-token:' + TOKEN).encode()).decode())
           
           
+          def safe_error(error):
+              """Publish diagnostic categories, never raw stderr, URLs or credential-like values."""
+              value = str(error)
+              if hasattr(error, 'diagnostics'):
+                  detail = error.diagnostics
+                  return ('Git ' + detail['operation'] + ' failed (exit ' + str(detail['exit_status']) +
+                          ('; diagnostic codes: ' + ', '.join(detail['codes']) if detail['codes'] else '') + '). ' + detail['category'])
+              if value in ('Source repository is inaccessible with the available authentication.',
+                           'Runner disk space is insufficient; this source remains incomplete.',
+                           'Operation failed; raw command output is intentionally excluded from public archive metadata.'):
+                  return value
+              if re.fullmatch(r'GitHub request failed with HTTP status [0-9]{3}\.', value):
+                  return value
+              if value.startswith('Git ') and ' failed (exit ' in value and '; diagnostic codes: ' in value:
+                  return value
+              lowered = value.lower()
+              if any(marker in lowered for marker in ('gh013', 'push protection', 'secret scanning', 'secret-scanning', 'push declined due')):
+                  return 'GitHub push protection blocked this write. No bypass was requested; this source remains incomplete.'
+              if any(marker in lowered for marker in ('could not read username', 'repository not found', 'authentication failed')):
+                  return 'Source repository is inaccessible with the available authentication.'
+              if isinstance(error, urllib.error.HTTPError):
+                  return 'GitHub request failed with HTTP status ' + str(error.code) + '.'
+              if any(marker in lowered for marker in ('no space left', 'less than 2 gib free')):
+                  return 'Runner disk space is insufficient; this source remains incomplete.'
+              # Our explicit validation errors contain useful fixed descriptions. Never publish
+              # messages from external commands, even when they look harmless at first glance.
+              trusted = ('Unsafe submodule path', 'Invalid source URL', 'Relative submodule URL',
+                         'Only GitHub repository URLs', 'Unsupported SSH repository URL',
+                         'Unsupported HTTPS repository URL', 'Repository URL must identify',
+                         'No source URL is recorded', 'No URL for this pinned gitlink',
+                         'Dependency cycle detected', 'Existing dependency manifest has different provenance',
+                         'Dependency folder exists without archive provenance',
+                         'Existing dependency snapshot changed outside its recorded archive',
+                         'Existing dependency release asset is missing or changed',
+                         'Fetched dependency is not the exact pinned commit',
+                         'Materialized subtree differs from archived dependency tree',
+                         'Dependency has no independently saved source snapshot',
+                         'Pinned source snapshot unavailable')
+              if any(value.startswith(prefix) for prefix in trusted):
+                  return value.split('\n', 1)[0][:300]
+              return 'Operation failed; raw command output is intentionally excluded from public archive metadata.'
+          
+          
+          class GitOperationError(RuntimeError):
+              def __init__(self, args, result):
+                  output = result.stderr.decode(errors='replace')
+                  known_codes = ('gitmodulesUrl', 'gitmodulesPath', 'gitmodulesName', 'gitmodulesLarge',
+                                 'gitmodulesBlob', 'gitmodulesSymlink', 'badEmail', 'missingEmail',
+                                 'badTimezone', 'badDateOverflow', 'zeroPaddedDate', 'nulInCommit',
+                                 'missingSpaceBeforeDate', 'badTree', 'nullSha1', 'fullPathname',
+                                 'duplicateEntries', 'badFilemode', 'emptyName', 'zeroPaddedFilemode',
+                                 'badObjectSha1', 'badParentSha1', 'badTreeSha1', 'unterminatedHeader',
+                                 'missingAuthor', 'missingCommitter', 'badName', 'badTagName',
+                                 'badRefName', 'missingTaggerEntry', 'multipleAuthors', 'treeNotSorted')
+                  codes = [code for code in known_codes if re.search(r'\b' + code + r':', output)]
+                  for phrase, code in (('missing blob', 'missing_blob'), ('missing tree', 'missing_tree'),
+                                       ('missing commit', 'missing_commit'), ('hash mismatch', 'hash_mismatch'),
+                                       ('sha1 mismatch', 'sha1_mismatch'), ('unable to unpack', 'unpack_failure')):
+                      if phrase in output.lower():
+                          codes.append(code)
+                  operations = ('clone', 'fetch', 'fsck', 'bundle', 'push', 'lfs', 'index-pack', 'read-tree')
+                  operation = next((value for value in operations if value in args[1:]), 'command')
+                  self.diagnostics = {'operation': operation, 'exit_status': result.returncode,
+                                      'codes': codes, 'category': safe_error(RuntimeError(output))}
+                  super().__init__('Git command failed; safe structured diagnostics are attached.')
+          
+          
           def command(args, cwd=None, data=None, auth=False, check=True):
               result = subprocess.run(args, cwd=cwd, input=data, stdout=subprocess.PIPE,
                                       stderr=subprocess.PIPE, env=AUTH if auth else ENV)
               if check and result.returncode:
-                  raise RuntimeError(f'{args[0]} failed: ' + result.stderr.decode(errors='replace')[-3000:])
+                  error = GitOperationError(args, result)
+                  print('SAFE_COMMAND_FAILURE ' + json.dumps(error.diagnostics, sort_keys=True), flush=True)
+                  raise error
               return result
           
           
@@ -304,7 +373,7 @@ jobs:
               # Git LFS inspects all reachable revisions; source .lfsconfig is never checked out.
               listed = git('lfs', 'ls-files', '--all', '--long', cwd=mirror, check=False)
               if listed.returncode:
-                  result.update(status='unverified', error=listed.stderr.decode(errors='replace')[-2000:])
+                  result.update(status='unverified', error=safe_error(RuntimeError(listed.stderr.decode(errors='replace'))))
                   return result
               pointer_ids = sorted(set(re.findall(rb'(?m)^([0-9a-f]{64})\s', listed.stdout)))
               if not pointer_ids:
@@ -339,7 +408,7 @@ jobs:
                   archive.unlink()
               result['status'] = 'complete' if not missing and not invalid and fetched.returncode == 0 else 'incomplete'
               if fetched.returncode:
-                  result['error'] = fetched.stderr.decode(errors='replace')[-2000:]
+                  result['error'] = safe_error(RuntimeError(fetched.stderr.decode(errors='replace')))
               return result
           
           
@@ -490,7 +559,7 @@ jobs:
               try:
                   urls = module_urls(content.stdout if content.returncode == 0 else b'')
               except Exception as error:
-                  urls, mapping_error = {}, str(error)
+                  urls, mapping_error = {}, safe_error(error)
               links = []
               for mode, kind, oid, size, path in tree_entries(mirror, pin):
                   if kind != b'commit':
@@ -506,7 +575,7 @@ jobs:
                       item['original_url'] = value
                       item['source'] = github_source(value, source)
                   except Exception as error:
-                      item['error'] = str(error)
+                      item['error'] = safe_error(error)
                   links.append(item)
               return links
           
@@ -536,6 +605,7 @@ jobs:
               work = None
               source_snapshot_committed = bool(record.get('source_archive_complete'))
               try:
+                  record['phase'] = 'validate_existing_archive'
                   if record.get('source', '').lower() != source.lower() or record.get('pin') != pin:
                       raise RuntimeError('Existing dependency manifest has different provenance')
                   current_tree = snapshot_tree(prefix)
@@ -555,7 +625,9 @@ jobs:
                           raise RuntimeError('Less than 2 GiB free runner disk before dependency clone')
                       work = Path(tempfile.mkdtemp(prefix='dependency-', dir=BASE))
                       mirror = work / 'mirror.git'
+                      record['phase'] = 'mirror_clone'
                       command(['git', 'clone', '--mirror', 'https://github.com/' + source + '.git', str(mirror)])
+                      record['phase'] = 'ensure_exact_pinned_commit'
                       found = git('cat-file', '-e', pin + '^{commit}', cwd=mirror, check=False)
                       if found.returncode:
                           git('fetch', '--no-tags', 'origin', pin, cwd=mirror)
@@ -566,19 +638,24 @@ jobs:
                       record['source_tree'] = git('rev-parse', pin + '^{tree}', cwd=mirror).stdout.strip().decode()
                       record['refs'] = git('for-each-ref', '--format=%(objectname) %(refname)', cwd=mirror).stdout.decode().splitlines()
                       record['symbolic_head'] = git('symbolic-ref', 'HEAD', cwd=mirror, check=False).stdout.decode().strip()
+                      record['phase'] = 'git_integrity_check'
                       git('fsck', '--full', '--no-reflogs', cwd=mirror)
                       asset_name = 'dependency-' + hashlib.sha256(source.lower().encode()).hexdigest()[:12] + '-' + pin[:12]
                       bundle = work / (asset_name + '.bundle')
+                      record['phase'] = 'create_and_verify_git_bundle'
                       git('bundle', 'create', str(bundle), '--all', cwd=mirror)
                       git('bundle', 'verify', str(bundle), cwd=mirror)
+                      record['phase'] = 'upload_git_bundle'
                       record['git_bundle'] = archive_parts(bundle, RELEASE, ASSETS)
                       bundle.unlink()
                       previous_org = ORG
                       try:
                           ORG = owner
+                          record['phase'] = 'archive_lfs_payloads'
                           record['lfs'] = lfs_archive(mirror, name, RELEASE, ASSETS)
                       finally:
                           ORG = previous_org
+                      record['phase'] = 'discover_nested_submodules'
                       record['children'] = discover_links(mirror, pin, source)
                       clear_prefix(prefix)
           
@@ -587,6 +664,7 @@ jobs:
                           record['expanded_tree'] = snapshot_tree(prefix)
                           checkpoint(record, f'Archive dependency {source}@{pin[:12]} batch {number}/{total}')
           
+                      record['phase'] = 'import_source_tree'
                       excluded, submodules, info = import_tree(mirror, pin, prefix, progress)
                       record['tree_verification'] = verify_tree(mirror, pin, prefix, excluded)
                       record['excluded_large_files'] = excluded
@@ -596,10 +674,12 @@ jobs:
                       record['expanded_tree'] = snapshot_tree(prefix)
                       record['source_archive_complete'] = record['lfs']['status'] in ('not_present', 'complete')
                       record['dependency_graph_complete'] = False
+                      record['phase'] = 'save_source_snapshot'
                       checkpoint(record, f'Archive exact dependency {source}@{pin[:12]}')
                       source_snapshot_committed = True
                       shutil.rmtree(work)
                       work = None
+                  record['phase'] = 'archive_nested_dependencies'
                   child_complete = True
                   for link in record.get('children', []):
                       link.pop('materialization_error', None)
@@ -615,7 +695,7 @@ jobs:
                               checkpoint(record, f'Materialize nested dependency in {source}@{pin[:12]}')
                           except Exception as error:
                               git('read-tree', 'HEAD')
-                              link['materialization_error'] = str(error)
+                              link['materialization_error'] = safe_error(error)
                               child_complete = False
                       else:
                           link['materialization_error'] = child.get('error', 'Dependency source snapshot unavailable')
@@ -624,6 +704,8 @@ jobs:
                   record['dependency_graph_complete'] = bool(record.get('source_archive_complete') and child_complete)
                   record['expanded_tree'] = snapshot_tree(prefix)
                   record.pop('error', None)
+                  record.pop('failure_diagnostics', None)
+                  record['phase'] = 'complete' if record['dependency_graph_complete'] else 'incomplete_dependency_graph'
                   checkpoint(record, f'Update dependency archive status for {source}@{pin[:12]}')
               except Exception as error:
                   git('read-tree', 'HEAD')
@@ -632,10 +714,12 @@ jobs:
                   if not source_snapshot_committed:
                       record['source_archive_complete'] = False
                   record['dependency_graph_complete'] = False
-                  record['error'] = str(error)
+                  record['error'] = safe_error(error)
+                  if hasattr(error, 'diagnostics'):
+                      record['failure_diagnostics'] = error.diagnostics
                   record['expanded_tree'] = snapshot_tree(prefix)
                   checkpoint(record, f'Record unresolved dependency {source}@{pin[:12]}')
-                  print('INCOMPLETE ' + key + ': ' + str(error), flush=True)
+                  print('INCOMPLETE ' + key + ': ' + safe_error(error), flush=True)
               finally:
                   ACTIVE.discard(key)
                   if work:
@@ -675,7 +759,7 @@ jobs:
                   try:
                       urls = module_urls(existing(folder + '/.gitmodules'))
                   except Exception as error:
-                      urls, config_error = {}, str(error)
+                      urls, config_error = {}, safe_error(error)
                   for entry in parent['submodules']:
                       root = {'parent': source, 'parent_commit': parent['default_commit'], 'path': entry['path'],
                               'pin': entry['commit'], 'dependency_graph_complete': False}
@@ -703,8 +787,8 @@ jobs:
                           MATERIALIZED = json.loads(known) if known else {}
                           root['dependency_graph_complete'] = False
                           root.pop('materialization', None)
-                          root['error'] = str(error)
-                          print('UNRESOLVED ROOT ' + source + '/' + entry['path'] + ': ' + str(error), flush=True)
+                          root['error'] = safe_error(error)
+                          print('UNRESOLVED ROOT ' + source + '/' + entry['path'] + ': ' + safe_error(error), flush=True)
               completed = sum(bool(root['dependency_graph_complete']) for root in roots)
               report = {'root_references': len(roots), 'complete_root_references': completed,
                         'incomplete_root_references': len(roots) - completed,
