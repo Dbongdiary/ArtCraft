@@ -1,0 +1,17 @@
+{
+  "backup_complete": true,
+  "captured_at": "2026-10-17T20:04:20Z",
+  "default_branch": "main",
+  "empty_repository": true,
+  "lfs": {
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/AniCraft",
+  "source_created_at": "2026-10-14T17:14:25Z",
+  "source_name": "storytold/AniCraft",
+  "source_pushed_at": "2026-10-14T17:14:27Z",
+  "symbolic_head": "refs/heads/main"
+}
