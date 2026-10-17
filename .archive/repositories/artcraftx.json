@@ -1,0 +1,54 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:08:35Z",
+  "default_branch": "main",
+  "default_commit": "98c2a48940aa0a54604637f665ee539c122fa707",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 39534865,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 39534865,
+        "name": "artcraftx.bundle.sha256-b3de073b527baae6fe48eac06b076fbf2cc0007422e0c5d2a92934dc237678be",
+        "sha256": "b3de073b527baae6fe48eac06b076fbf2cc0007422e0c5d2a92934dc237678be",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/artcraftx.bundle.sha256-b3de073b527baae6fe48eac06b076fbf2cc0007422e0c5d2a92934dc237678be"
+      }
+    ],
+    "whole_sha256": "b3de073b527baae6fe48eac06b076fbf2cc0007422e0c5d2a92934dc237678be"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "a425110062e75d97af1791fe17cc47505b8821c8 refs/heads/bt-readme",
+    "0d6ffe16ad2d70fb782548bb5577ab22f2e06708 refs/heads/bt-readme2",
+    "0f8c9da758f5ce0a38f7c13b04841760d5e95228 refs/heads/faster-dev-script",
+    "b02d4b22b7a1100a958ea95963b571e9ac3dfc91 refs/heads/first-version",
+    "98c2a48940aa0a54604637f665ee539c122fa707 refs/heads/main",
+    "89924ee7fa87d2991e0431c89c2c6790d14067e8 refs/heads/refactor/remove-fontawesome",
+    "89924ee7fa87d2991e0431c89c2c6790d14067e8 refs/pull/1/head",
+    "b02d4b22b7a1100a958ea95963b571e9ac3dfc91 refs/pull/2/head",
+    "a425110062e75d97af1791fe17cc47505b8821c8 refs/pull/3/head",
+    "0d6ffe16ad2d70fb782548bb5577ab22f2e06708 refs/pull/4/head",
+    "0f8c9da758f5ce0a38f7c13b04841760d5e95228 refs/pull/5/head",
+    "945c74dc3d4563830c53088c6a6b25e6626f457f refs/pull/6/head",
+    "69500b7e701e3eb8b3735ce57adcbeef953b37aa refs/pull/6/merge",
+    "690b28eb673bed7020e6e79a67fd0d9edbac8514 refs/pull/7/head",
+    "7a1ab9a51478150dfe1e4b81fcc39470ad3155a5 refs/pull/7/merge",
+    "1e5e653bf6c16aaada48b795c242eec8e8adaf63 refs/pull/9/head",
+    "175c23425ea2bf37df0b1b39518d06cfae86b359 refs/pull/9/merge"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/artcraftx",
+  "source_created_at": "2026-07-30T19:38:39Z",
+  "source_name": "storytold/artcraftx",
+  "source_pushed_at": "2026-09-27T00:45:49Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
