@@ -214,7 +214,7 @@ jobs:
            else:
             repo=restore(name); result['restored']=True;result['source_commit']=manifests[name]['default_commit'];result['restore_proof']='Bundle SHA256 and git fsck passed; checked out recorded default commit, without contacting source repository.'
             if name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft','cadcraft','effectcraft','filmcraft','lightcraft','pdfcraft','photocraft','soundcraft']:
-             fonts=restore('craft-fonts');os.environ['CRAFT_FONTS_DIR']=str(fonts/'fonts');result['font_source_commit']=manifests['craft-fonts']['default_commit']
+             fonts=restore('craft-fonts');os.environ['CRAFT_FONTS_DIR']=str(fonts);result['font_source_commit']=manifests['craft-fonts']['default_commit']
             if name in ['storyteller-ml','torchscript-models']:
              result['lfs_restore']=restore_lfs(repo,mirrors[name],manifests[name]);result['dependency_restores']=restore_dependencies(repo)
             # Resolve source-hosted Git dependencies exclusively through our bundle mirrors.
