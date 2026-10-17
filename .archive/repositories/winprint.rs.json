@@ -1,0 +1,60 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:21:49Z",
+  "default_branch": "main",
+  "default_commit": "d1dc3c2089e93aad91e56c178e4b8a5e0868969c",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 1068047,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 1068047,
+        "name": "winprint.rs.bundle.sha256-3aa1d923296e23cce1f633f0b7c6690594edfb909803212c4b4d1b2ed84c922e",
+        "sha256": "3aa1d923296e23cce1f633f0b7c6690594edfb909803212c4b4d1b2ed84c922e",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/winprint.rs.bundle.sha256-3aa1d923296e23cce1f633f0b7c6690594edfb909803212c4b4d1b2ed84c922e"
+      }
+    ],
+    "whole_sha256": "3aa1d923296e23cce1f633f0b7c6690594edfb909803212c4b4d1b2ed84c922e"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "bsd-3-clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "node_id": "MDc6TGljZW5zZTU=",
+    "spdx_id": "BSD-3-Clause",
+    "url": "https://api.github.com/licenses/bsd-3-clause"
+  },
+  "refs": [
+    "5f80b9baf6b58937c401656634e42d33f00ddf49 refs/heads/craft-native-printing",
+    "d1dc3c2089e93aad91e56c178e4b8a5e0868969c refs/heads/main",
+    "0fc13c07085fbf7a941438bf57de66e7585fe47d refs/pull/1/head",
+    "f2bce5740a2692f89aac04402f8c009f88aebbba refs/pull/2/head",
+    "2390a37de4c1b6105321d1e0f613a96dddbe9ee8 refs/pull/3/head",
+    "ffa8229ecaeaeba75ebe0fc44b88fff5c027addf refs/pull/3/merge",
+    "d7e01c29f31464eadd0be81e128b9a688a4803bf refs/pull/4/head",
+    "b42c0d1e06c82332c32718d8e7948555857486d9 refs/pull/4/merge",
+    "948103ce7e7c3bf0e8c263e0e2970a8869014fc3 refs/pull/5/head",
+    "e22a3a4ecf60104d048708daaa3c2b681567d642 refs/pull/5/merge",
+    "0244f03628f5ae21a304e6a9f59ab137e501e059 refs/pull/6/head",
+    "a2b04c3824ba1a22deb79fdf6c7e32db9fc70a1b refs/pull/6/merge",
+    "f3a34c69b166eb293397d90eafb8dd61a570ccc1 refs/pull/7/head",
+    "a4096b2666807f43eb6e462ea2777e9ed1e6c1aa refs/pull/7/merge",
+    "c65922577fcaea4f9acc9269f035d947a195d9f7 refs/tags/v0.1.0",
+    "a80430d175924e317b47610dd961a837c5860588 refs/tags/v0.2.0",
+    "406ed733f15d60403d8d029035c807b5d8d33d31 refs/tags/v0.2.1"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/winprint.rs",
+  "source_created_at": "2026-10-12T21:10:27Z",
+  "source_name": "storytold/winprint.rs",
+  "source_pushed_at": "2026-10-15T02:48:35Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
