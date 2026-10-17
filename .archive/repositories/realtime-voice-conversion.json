@@ -1,0 +1,38 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:15:49Z",
+  "default_branch": "master",
+  "default_commit": "4a222ad81553153e4f5aceb97fb9d046c16ef87a",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 29268,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 29268,
+        "name": "realtime-voice-conversion.bundle.sha256-d81f91fc4923dc18ce362874e4750095de22e57abfb6b31bf23a726d2ab2ea29",
+        "sha256": "d81f91fc4923dc18ce362874e4750095de22e57abfb6b31bf23a726d2ab2ea29",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/realtime-voice-conversion.bundle.sha256-d81f91fc4923dc18ce362874e4750095de22e57abfb6b31bf23a726d2ab2ea29"
+      }
+    ],
+    "whole_sha256": "d81f91fc4923dc18ce362874e4750095de22e57abfb6b31bf23a726d2ab2ea29"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": null,
+  "refs": [
+    "4a222ad81553153e4f5aceb97fb9d046c16ef87a refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/realtime-voice-conversion",
+  "source_created_at": "2020-09-11T13:08:35Z",
+  "source_name": "storytold/realtime-voice-conversion",
+  "source_pushed_at": "2020-09-11T13:08:53Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
