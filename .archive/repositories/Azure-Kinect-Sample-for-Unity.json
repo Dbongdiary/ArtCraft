@@ -1,0 +1,44 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:08:42Z",
+  "default_branch": "master",
+  "default_commit": "bdc6061b425e62b7e661004345303199c9a5fe60",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 58691722,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 58691722,
+        "name": "Azure-Kinect-Sample-for-Unity.bundle.sha256-db9dcba01a3656329940e00b939c8a2a9c84433fa9e0f81ac352f3549f738487",
+        "sha256": "db9dcba01a3656329940e00b939c8a2a9c84433fa9e0f81ac352f3549f738487",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/Azure-Kinect-Sample-for-Unity.bundle.sha256-db9dcba01a3656329940e00b939c8a2a9c84433fa9e0f81ac352f3549f738487"
+      }
+    ],
+    "whole_sha256": "db9dcba01a3656329940e00b939c8a2a9c84433fa9e0f81ac352f3549f738487"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "bdc6061b425e62b7e661004345303199c9a5fe60 refs/heads/master"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/Azure-Kinect-Sample-for-Unity",
+  "source_created_at": "2021-01-23T08:36:33Z",
+  "source_name": "storytold/Azure-Kinect-Sample-for-Unity",
+  "source_pushed_at": "2020-11-18T22:26:01Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
