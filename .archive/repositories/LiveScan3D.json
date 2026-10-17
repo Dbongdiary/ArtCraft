@@ -1,0 +1,48 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:13:32Z",
+  "default_branch": "master",
+  "default_commit": "a65c5ab9b80efda7176e817930668086545c2072",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 42136879,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 42136879,
+        "name": "LiveScan3D.bundle.sha256-234d228c4e900d755d5e21b9190114efa83fe2a964379371b135cc0843c3cd7a",
+        "sha256": "234d228c4e900d755d5e21b9190114efa83fe2a964379371b135cc0843c3cd7a",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/LiveScan3D.bundle.sha256-234d228c4e900d755d5e21b9190114efa83fe2a964379371b135cc0843c3cd7a"
+      }
+    ],
+    "whole_sha256": "234d228c4e900d755d5e21b9190114efa83fe2a964379371b135cc0843c3cd7a"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "7d56c5239b3eb8ad82e6507b6ce28dd7323c0b3f refs/heads/AzureKinect",
+    "a65c5ab9b80efda7176e817930668086545c2072 refs/heads/master",
+    "9226b0b9f22ad709b2601d00e6619a739cbd0019 refs/heads/streaming",
+    "d60a13fa26f1542074f4402e36ba37e53ea83802 refs/tags/1.0.0",
+    "abe9cd63f025361529bd09a790671a7a23240547 refs/tags/v1.0.1"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/LiveScan3D",
+  "source_created_at": "2021-03-19T05:06:02Z",
+  "source_name": "storytold/LiveScan3D",
+  "source_pushed_at": "2021-03-06T11:46:31Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/master"
+}
