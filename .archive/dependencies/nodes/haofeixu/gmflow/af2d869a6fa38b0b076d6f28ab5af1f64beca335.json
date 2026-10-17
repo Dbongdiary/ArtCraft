@@ -1,0 +1,56 @@
+{
+  "captured_at": "2026-10-17T20:33:39Z",
+  "children": [],
+  "dependency_graph_complete": false,
+  "excluded_large_files": [],
+  "expanded_tree": "3644b20b63de6e8df23e0b12e89fc8e6216e0bef",
+  "git_bundle": {
+    "bytes": 147341689,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 147341689,
+        "name": "dependency-551cd1eea141-af2d869a6fa3.bundle.sha256-aada5d7264ca90e9c47063598a8e09795af692a1059b57b4cad94092bc31a5c8",
+        "sha256": "aada5d7264ca90e9c47063598a8e09795af692a1059b57b4cad94092bc31a5c8",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-dependency-backup/dependency-551cd1eea141-af2d869a6fa3.bundle.sha256-aada5d7264ca90e9c47063598a8e09795af692a1059b57b4cad94092bc31a5c8"
+      }
+    ],
+    "whole_sha256": "aada5d7264ca90e9c47063598a8e09795af692a1059b57b4cad94092bc31a5c8"
+  },
+  "import_progress": {
+    "batch_count": 1,
+    "distinct_blob_bytes": 4345559,
+    "file_count": 38,
+    "maximum_batch_blob_bytes": 4345559
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "metadata_path": ".archive/dependencies/nodes/haofeixu/gmflow/af2d869a6fa38b0b076d6f28ab5af1f64beca335.json",
+  "pin": "af2d869a6fa38b0b076d6f28ab5af1f64beca335",
+  "refs": [
+    "af2d869a6fa38b0b076d6f28ab5af1f64beca335 refs/archive/pins/af2d869a6fa38b0b076d6f28ab5af1f64beca335",
+    "b5123431164d01ec14526a1c3d22218aecb62024 refs/heads/main",
+    "9bfe5377a10490b75413960c265fe46a41e602a4 refs/pull/39/head",
+    "53cb51bd006a114b6bd1fd31defc8e895c58cc1b refs/pull/40/head",
+    "8732f303006573a1ef1021d4e90cc18bf7630002 refs/pull/41/head",
+    "836d3f495f64f2c1686e3ba86d44731db0f912f2 refs/pull/41/merge",
+    "5930217b0f74655f982db9fb6d8ac63499a45ef2 refs/pull/48/head",
+    "bf5918563f60105b9b0cfcf6f90e7ae0662f1ae6 refs/pull/48/merge",
+    "6248b79454b53b14ed47792aeef8ddb2efd40dd1 refs/pull/49/head",
+    "a6567cc5c9de9db5441c6ba2090c4cce87d03c7a refs/pull/49/merge"
+  ],
+  "snapshot_path": "dependencies/haofeixu/gmflow/af2d869a6fa38b0b076d6f28ab5af1f64beca335",
+  "source": "haofeixu/gmflow",
+  "source_archive_complete": true,
+  "source_tree": "3644b20b63de6e8df23e0b12e89fc8e6216e0bef",
+  "symbolic_head": "refs/heads/main",
+  "tree_verification": {
+    "exact_match": true,
+    "imported_tree": "3644b20b63de6e8df23e0b12e89fc8e6216e0bef",
+    "source_tree": "3644b20b63de6e8df23e0b12e89fc8e6216e0bef",
+    "status": "verified"
+  }
+}
