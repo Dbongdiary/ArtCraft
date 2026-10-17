@@ -166,6 +166,24 @@ jobs:
             if result['lfs_status']=='complete':result['limitations'].append('LFS payloads exist in separate archive; this build check does not materialize them.')
             if modelrefs:result['limitations'].append('Model filename references are candidates for missing runtime inputs, not proof that every reference is mandatory.')
             result['status']='source_restored_runtime_unverified'
+            jsroots=[]
+            if (repo/'package.json').exists():jsroots.append(repo)
+            if (repo/'frontend'/'package.json').exists():jsroots.append(repo/'frontend')
+            result['javascript_checks']=[]
+            for jsroot in jsroots:
+             pkg=json.loads((jsroot/'package.json').read_text());tag='npm-'+jsroot.name
+             if name=='spark':command(['node','rust/build_wasm.js'],repo,900,label='wasm-package')
+             c,t=command(['npm','ci','--ignore-scripts','--no-audit','--no-fund'] if (jsroot/'package-lock.json').exists() else ['npm','install','--ignore-scripts','--no-audit','--no-fund'],jsroot,480,label=tag+'-install')
+             passed=c==0;ran=0
+             if c==0:
+              for k in ['typecheck','test','build']:
+               if k in pkg.get('scripts',{}):
+                c,t=command(['npm','run',k],jsroot,480,label=tag+'-'+k);passed=passed and c==0;ran+=1
+              if name in ['artcraft','artcraftx'] and jsroot.name=='frontend':
+               os.environ['NX_DAEMON']='false';c,t=command(['npx','--no-install','nx','run','artcraft:build','--skipNxCache'],jsroot,600,label='frontend-build');passed=passed and c==0;ran+=1
+              if name=='storyteller-bevy':
+               c,t=command(['npx','--no-install','nx','run','studio-frontend:build:production'],jsroot,600,label='studio-frontend-build');passed=passed and c==0;ran+=1
+             result['javascript_checks'].append({'directory':str(jsroot.relative_to(repo)),'checks_run':ran,'status':('checks_passed' if ran else 'install_only') if passed else 'blocked'})
             if (repo/'Cargo.toml').exists():
              result['kind']='rust'
              # Read transitive manifest dependencies in the exact historical mirrors too.
@@ -176,7 +194,7 @@ jobs:
                 c,t=command(['git','--git-dir='+str(mdir),'cat-file','-e',rev+'^{commit}'])
                 if c:result['limitations'].append('Pinned dependency commit unavailable: '+dep+'@'+rev)
              command(['sudo','apt-get','update','-qq'],timeout=180,label='system-index')
-             command(['sudo','apt-get','install','-y','--no-install-recommends','pkg-config','libssl-dev','libasound2-dev','libudev-dev','libxkbcommon-dev','libwayland-dev','libxcb-shape0-dev','libxcb-xfixes0-dev','libgtk-3-dev','libvulkan1','mesa-vulkan-drivers','xvfb','protobuf-compiler','clang','cmake','libfontconfig1-dev','libdbus-1-dev'],timeout=240,label='system-dependencies')
+             command(['sudo','apt-get','install','-y','--no-install-recommends','pkg-config','libssl-dev','libasound2-dev','libudev-dev','libxkbcommon-dev','libwayland-dev','libxcb-shape0-dev','libxcb-xfixes0-dev','libgtk-3-dev','libvulkan1','mesa-vulkan-drivers','xvfb','protobuf-compiler','clang','cmake','libfontconfig1-dev','libdbus-1-dev','libwebkit2gtk-4.1-dev','libayatana-appindicator3-dev','librsvg2-dev','libxdo-dev','libzmq3-dev','libsodium-dev','poppler-utils'],timeout=240,label='system-dependencies')
              tool='stable'
              tfile=repo/'rust-toolchain.toml'
              if tfile.exists():tool=tomllib.loads(tfile.read_text()).get('toolchain',{}).get('channel','stable')
@@ -184,8 +202,8 @@ jobs:
              c,_=command(['rustup','toolchain','install',tool,'--profile','minimal'],timeout=300,label='rust-toolchain')
              c,t=command(['cargo','+'+tool,'metadata','--format-version','1','--no-deps'],repo,180,label='cargo-metadata')
              if c==0:
-              meta=json.loads(t);result['cargo_packages']=[{'name':p['name'],'targets':[{'name':x['name'],'kind':x['kind']} for x in p['targets']]} for p in meta['packages']]
-              c,t=command(['cargo','+'+tool,'test','--workspace','--lib','--locked'],repo,900,label='cargo-tests')
+              meta=json.loads(next(line for line in t.splitlines() if line.startswith('{')));result['cargo_packages']=[{'name':p['name'],'targets':[{'name':x['name'],'kind':x['kind']} for x in p['targets']]} for p in meta['packages']]
+              c,t=command(['cargo','+'+tool,'test','--workspace','--locked'],repo,900,label='cargo-tests')
               b,bt=command(['cargo','+'+tool,'build','--workspace','--bins','--locked'],repo,600,label='cargo-build')
               result['status']='build_and_tests_passed' if c==0 and b==0 else 'build_or_tests_blocked'
               bins=[x['name'] for p in meta['packages'] for x in p['targets'] if 'bin' in x['kind']]
@@ -195,17 +213,27 @@ jobs:
                if exe.exists() and name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','photocraft','pdfcraft','cadcraft','designcraft','effectcraft','filmcraft','soundcraft','lightcraft','artcraft','craft-launcher','crafthub']:
                 sm,st=command(['xvfb-run','-a',str(exe)],repo,15,label='headless-launch')
                 result['headless_launch']='stayed_running_15_seconds' if sm==124 else 'exited_'+str(sm)
+              if b==0 and name in ['figcraft','gridcraft','wordcraft','vectorcraft','deckcraft','designcraft']:
+               cli=pathlib.Path(meta['target_directory'])/'debug'/(name+'-cli');pdf=out/'sample.pdf';steps=[]
+               if name=='figcraft':
+                script=out/'start.json';script.write_text(json.dumps([{'command':'file.newFromTemplate','params':{'template':'dashboard'}}]));doc=out/'dashboard.figcraft'
+                steps=[[str(cli),'run',str(script),'--out',str(doc)],[str(cli),'export',str(doc),'-o',str(pdf)]]
+               elif name=='gridcraft':steps=[[str(cli),'eval','=XLOOKUP("b",{"a","b"},{1,2})'],[str(cli),'run','--sample','budget','--out',str(out/'budget.xlsx')],[str(cli),'run','--sample','budget','--out',str(pdf)]]
+               elif name=='wordcraft':steps=[[str(cli),'run','--template','sample','--cmd','file.exportPdf='+json.dumps({'path':str(pdf)}),'--save',str(out/'sample.docx')],[str(cli),'inspect',str(out/'sample.docx')]]
+               elif name=='vectorcraft':steps=[[str(cli),'run','--in','examples/ribbons.vectorcraft','--export',str(pdf)]]
+               else:steps=[[str(cli),'run','--sample','--export',str(pdf)]]
+               good=True
+               for i,args in enumerate(steps):
+                cc,tt=command(args,repo,120,label='sample-'+str(i));good=good and cc==0
+                if name=='gridcraft' and i==0:good=good and '2' in tt
+               if pdf.exists():
+                cc,tt=command(['pdfinfo',str(pdf)],timeout=60,label='sample-pdf-validation');good=good and cc==0 and bool(re.search(r'Pages:\s+[1-9]',tt))
+               else:good=False
+               result['sample_workflow']='passed' if good else 'failed_or_blocked'
               result['limitations'].append('Library tests and binary build do not verify every feature. A headless launch only checks startup; GPU, interactive editing, export, online integrations and ignored/skipped tests remain unqualified.')
              else:result['status']='manifest_or_source_dependency_blocked'
-            elif (repo/'package.json').exists():
-             result['kind']='javascript';pkg=json.loads((repo/'package.json').read_text());result['npm_scripts']=pkg.get('scripts',{})
-             c,t=command(['npm','ci','--no-audit','--no-fund'] if (repo/'package-lock.json').exists() else ['npm','install','--no-audit','--no-fund'],repo,480,label='npm-install')
-             passed=c==0
-             if c==0:
-              for k in ['typecheck','test','build']:
-               if k in pkg.get('scripts',{}):
-                c,t=command(['npm','run',k],repo,480,label='npm-'+k);passed=passed and c==0
-             result['status']='package_checks_passed' if passed else 'package_checks_blocked'
+            elif jsroots:
+             result['kind']='javascript';result['status']='package_checks_passed' if all(x['status']=='checks_passed' for x in result['javascript_checks']) else 'package_checks_blocked_or_install_only'
              result['limitations'].append('No authenticated service or browser end-to-end workflow was exercised.')
             elif (repo/'go.mod').exists():
              result['kind']='go';c,t=command(['go','test','./...'],repo,480,label='go-tests');result['status']='tests_passed' if c==0 else 'tests_blocked'
@@ -251,14 +279,16 @@ jobs:
           python3 - <<'PY'
           import pathlib,json,os,collections
           base=pathlib.Path('.archive/verification');base.mkdir(parents=True,exist_ok=True)
+          existing={f.stem:json.loads(f.read_text()) for f in base.glob('*.json') if f.name!='summary.json'}
           rows=[]
           for f in pathlib.Path('results').rglob('result.json'):
            r=json.loads(f.read_text());n=r.get('repository','')
            if not n or '/' in n or '..' in n:continue
-           rows.append(r);(base/(n+'.json')).write_text(json.dumps(r,indent=2))
+           r['verification_run']='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'];existing[n]=r;(base/(n+'.json')).write_text(json.dumps(r,indent=2))
+          rows=list(existing.values())
           rows.sort(key=lambda x:x['repository'].lower())
           run='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']
-          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', '## Repository results','', '| Repository | Restore | Check result | Details |','|---|---|---|---|']
+          lines=['# Backup usability verification','', 'GitHub-hosted audit run: '+run,'','Source snapshot: 1a39bbe21255a55128c503906888e9fb437b2c29. All restoration, downloads, builds and tests ran on ephemeral GitHub runners. No repository was cloned or built on the owner\'s Mac.','', '## Meaning of the results','', 'A verified restore proves the saved Git bundle can be checked out independently of the original repository. Git URLs for archived Storytold dependencies are redirected to checksum-verified local mirrors on the runner. Other package registries and third-party sources remain available; this is not a fully offline or feature-complete certification.','', 'Passing library tests/builds is narrower than working interactive editing, exports, AI inference, hardware capture or hosted integrations. Python syntax checks are not execution tests. Missing models and service domains are evidence to review, not a claim every occurrence is required.','', 'See [REQUIREMENTS.md](REQUIREMENTS.md) for manually confirmed source, model, service, SDK and release-asset gaps.','', '## Repository results','', '| Repository | Restore | Check result | Details |','|---|---|---|---|']
           for r in rows:
            n=r['repository'];lines.append('| '+n+' | '+('verified' if r.get('restored') else 'not verified / empty')+' | '+r.get('status','unknown')+' | ['+r.get('kind','details')+']('+n+'.json) |')
           counts=dict(collections.Counter(r.get('status','unknown') for r in rows))
