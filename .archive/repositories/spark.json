@@ -1,0 +1,45 @@
+{
+  "backup_complete": true,
+  "browsable_tree_complete": true,
+  "captured_at": "2026-10-17T20:16:06Z",
+  "default_branch": "main",
+  "default_commit": "b7b3d5c42790186c72fc2b0bcf9a0c04a46af65e",
+  "dependencies_complete": true,
+  "excluded_large_files": [],
+  "git_bundle": {
+    "bytes": 27341436,
+    "format": "bundle",
+    "parts": [
+      {
+        "bytes": 27341436,
+        "name": "spark.bundle.sha256-64be8e527cd471e113659728464078ccc334da3ab2e387e2e7be26521c1727a6",
+        "sha256": "64be8e527cd471e113659728464078ccc334da3ab2e387e2e7be26521c1727a6",
+        "url": "https://github.com/Dbongdiary/ArtCraft/releases/download/storytold-source-backup/spark.bundle.sha256-64be8e527cd471e113659728464078ccc334da3ab2e387e2e7be26521c1727a6"
+      }
+    ],
+    "whole_sha256": "64be8e527cd471e113659728464078ccc334da3ab2e387e2e7be26521c1727a6"
+  },
+  "lfs": {
+    "bytes": 0,
+    "object_count": 0,
+    "status": "not_present"
+  },
+  "original_license": {
+    "key": "mit",
+    "name": "MIT License",
+    "node_id": "MDc6TGljZW5zZTEz",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  },
+  "refs": [
+    "b7b3d5c42790186c72fc2b0bcf9a0c04a46af65e refs/heads/main",
+    "ac4532111a6f21e8ba389791fb8c615af57f06ea refs/pull/1/head"
+  ],
+  "scope": "All advertised Git refs and reachable Git objects; all detected LFS payloads; default source tree. Submodules remain references.",
+  "source": "https://github.com/storytold/spark",
+  "source_created_at": "2025-11-20T14:09:55Z",
+  "source_name": "storytold/spark",
+  "source_pushed_at": "2025-11-20T15:14:17Z",
+  "submodules": [],
+  "symbolic_head": "refs/heads/main"
+}
