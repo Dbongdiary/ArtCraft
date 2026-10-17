@@ -16,5 +16,6 @@
   "status": "audit_blocked",
   "error": "[Errno 13] Permission denied: '/root/.cache/torch/hub/checkpoints/s3fd-619a316812.pth'",
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:22:35Z"
+  "finished_at": "2026-10-17T21:22:35Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
 }

@@ -104,5 +104,6 @@
   "kind": "rust",
   "error": "Expecting value: line 1 column 1 (char 0)",
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:09:55Z"
+  "finished_at": "2026-10-17T21:09:55Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
 }

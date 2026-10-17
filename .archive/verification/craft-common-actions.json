@@ -24,5 +24,6 @@
   "status": "syntax_checked_runtime_unverified",
   "kind": "python",
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:07:49Z"
+  "finished_at": "2026-10-17T21:07:49Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
 }

@@ -669,5 +669,6 @@
   ],
   "headless_launch": "exited_101",
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:19:20Z"
+  "finished_at": "2026-10-17T21:19:20Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
 }

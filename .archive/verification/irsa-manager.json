@@ -34,5 +34,6 @@
   "status": "tests_blocked",
   "kind": "go",
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:16:58Z"
+  "finished_at": "2026-10-17T21:16:58Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
 }

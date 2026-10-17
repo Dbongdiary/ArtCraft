@@ -24,5 +24,6 @@
   "status": "source_restored_runtime_unverified",
   "kind": "other_or_assets",
   "runner": "ubuntu-24.04 GitHub-hosted",
-  "finished_at": "2026-10-17T21:14:15Z"
+  "finished_at": "2026-10-17T21:14:15Z",
+  "verification_run": "https://github.com/Dbongdiary/ArtCraft/actions/runs/39069519709"
 }
